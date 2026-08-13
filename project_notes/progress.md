@@ -93,3 +93,27 @@ FAIL at paired measurement qualification. This is not a phase-ordering search-he
 
 ### Git
 Experiment code commit `3882cb78ba3d17826ae077e9061daba4e9689462`.
+
+## 2026-08-13 — Gate 1 paired search headroom v3
+
+### Goal
+Determine whether fixed-budget Random or Greedy phase-ordering search can reproducibly outperform LLVM `-O3` on all nine frozen PolyBench kernels using independent paired confirmation.
+
+### Frozen protocol
+PolyBench/C 4.2.1-beta; nine MEDIUM workloads; LLVM 10; the fixed 24-pass action subset; sequence length at most 16; Random and Greedy budgets of 128 candidate evaluations per kernel; CPU 24. Candidate ranking used local `B1 -> C -> B2` ratios with two initial sandwiches and successive refinement. Every selected winner was rebuilt and measured with ten independent sandwiches. Noise CV/MAD checks were diagnostic only. A kernel counted as confirmed only when its independent paired speedup and bootstrap 95% CI lower bound were both strictly above 1; Gate PASS additionally required geometric-mean speedup and its CI lower bound above 1, at least 25% confirmed kernels, equal budgets, and no correctness failure.
+
+### Changes
+No code, measurement, search, dataset, or toolchain setting changed during the run. Executed the frozen experiment from commit `ad57835` in a new output directory.
+
+### Result
+All nine kernels completed 128 Random plus 128 Greedy evaluations, for 2304 total candidates. There were no compile or run failures, and all nine correctness hashes matched `-O3`. Independent paired speedups had geometric mean 1.00316, median 1.00594, and overall bootstrap 95% CI `[0.99781, 1.00802]`. Only `3mm` at 1.01156 with CI `[1.00005, 1.02365]` and `nussinov` at 1.01015 with CI `[1.00312, 1.01783]` were confirmed improvements. The maximum confirmed speedup was 1.01156. Greedy supplied six final winners and Random supplied three.
+
+### Decision
+FAIL. The geometric mean was above 1, but its CI lower bound was not above 1, and only 2/9 kernels (22.2%) were confirmed improvements, below the frozen 25% requirement. This is a completed search/performance result, not a measurement-qualification failure.
+
+### Artifacts
+- `outputs/gate1_search_headroom_v3/report.json` — SHA256 `f38ca6eed90469fac5341bebf7523571938a0129e968f076a7f9ef8f5b151de0`
+- `configs/gate1_search_headroom_v2.json` — SHA256 `a18cdd44883f7ffabffbeba7c4280d161d02be1b8e492fddd9981d0ce08ca34e`
+
+### Git
+Experiment code commit `ad578355b3c3b28adfb87ac5b7ec9a363b42eef0`.
