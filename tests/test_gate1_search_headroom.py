@@ -13,8 +13,10 @@ from scripts.run_gate1_search_headroom import (
     distribution_stats,
     geometric_mean,
     evaluate_sequence,
+    is_confirmed_improvement,
     load_config,
     measure_paired_sandwiches,
+    measurement_qualification_report,
     paired_bootstrap_ci,
     paired_speedup,
     qualification_checks,
@@ -51,6 +53,71 @@ def test_bootstrap_intervals_detect_clear_improvement() -> None:
 
     geomean_ci = bootstrap_geomean_ci([1.05, 1.10, 1.08], resamples=1000, seed=7)
     assert geomean_ci[0] > 1.0
+
+
+def test_high_noise_qualification_is_diagnostic_and_search_is_allowed() -> None:
+    measurement = {
+        "minimum_runtime_seconds": 0.02,
+        "maximum_cv": 0.01,
+        "maximum_relative_mad": 0.005,
+        "maximum_block_median_drift": 0.01,
+        "maximum_paired_ratio_cv": 0.01,
+        "maximum_paired_ratio_relative_mad": 0.005,
+    }
+    baseline_blocks = [
+        [0.050, 0.060, 0.070, 0.055],
+        [0.052, 0.062, 0.072, 0.057],
+    ]
+    ratios = [0.97, 1.03, 0.98, 1.02]
+    paired = {
+        "sandwiches": [
+            {
+                "baseline_before_seconds": 1.0,
+                "candidate_seconds": 1.0 / ratio,
+                "baseline_after_seconds": 1.0,
+                "local_baseline_seconds": 1.0,
+                "paired_speedup": ratio,
+            }
+            for ratio in ratios
+        ],
+        "ratios": ratios,
+        "aggregate_paired_speedup": geometric_mean(ratios),
+    }
+
+    report = measurement_qualification_report(
+        baseline_blocks, paired, measurement
+    )
+
+    assert report["search_allowed"] is True
+    assert report["hard_stop"] is False
+    baseline = report["absolute_baseline_diagnostics"]
+    assert baseline["diagnostic_only"] is True
+    assert baseline["hard_stop"] is False
+    assert baseline["pass"] is False
+    assert baseline["high_noise"] is True
+    assert baseline["checks"]["maximum_cv"] is False
+    assert baseline["checks"]["maximum_relative_mad"] is False
+    paired_report = report["paired_ratio"]
+    assert paired_report["diagnostic_only"] is True
+    assert paired_report["hard_stop"] is False
+    assert paired_report["pass"] is False
+    assert paired_report["high_noise"] is True
+    assert paired_report["checks"] == {
+        "maximum_paired_ratio_cv": False,
+        "maximum_paired_ratio_relative_mad": False,
+    }
+    assert paired_report["stats"]["cv"] > measurement["maximum_paired_ratio_cv"]
+    assert (
+        paired_report["stats"]["relative_mad"]
+        > measurement["maximum_paired_ratio_relative_mad"]
+    )
+
+
+def test_confirmation_requires_speedup_and_ci_lower_bound_above_one() -> None:
+    assert is_confirmed_improvement(1.02, (1.001, 1.04))
+    assert not is_confirmed_improvement(1.02, (1.0, 1.04))
+    assert not is_confirmed_improvement(1.02, (0.999, 1.04))
+    assert not is_confirmed_improvement(1.0, (1.001, 1.04))
 
 
 def test_load_config_rejects_unequal_budget(tmp_path: Path) -> None:

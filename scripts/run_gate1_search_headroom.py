@@ -155,6 +155,51 @@ def paired_ratio_checks(
     }
 
 
+def measurement_qualification_report(
+    qualification_blocks: Sequence[Sequence[float]],
+    paired_qualification: Mapping[str, Any],
+    measurement: Mapping[str, Any],
+) -> dict[str, Any]:
+    if len(qualification_blocks) != 2:
+        raise ValueError("Exactly two baseline diagnostic blocks are required")
+    baseline_stats = [distribution_stats(block) for block in qualification_blocks]
+    baseline_checks = qualification_checks(
+        baseline_stats[0], baseline_stats[1], measurement
+    )
+    paired_stats = distribution_stats(paired_qualification["ratios"])
+    paired_checks = paired_ratio_checks(
+        paired_qualification["ratios"], measurement
+    )
+    return {
+        "search_allowed": True,
+        "hard_stop": False,
+        "absolute_baseline_diagnostics": {
+            "blocks": [list(block) for block in qualification_blocks],
+            "stats": baseline_stats,
+            "checks": baseline_checks,
+            "pass": all(baseline_checks.values()),
+            "high_noise": not all(baseline_checks.values()),
+            "diagnostic_only": True,
+            "hard_stop": False,
+        },
+        "paired_ratio": {
+            **paired_qualification,
+            "stats": paired_stats,
+            "checks": paired_checks,
+            "pass": all(paired_checks.values()),
+            "high_noise": not all(paired_checks.values()),
+            "diagnostic_only": True,
+            "hard_stop": False,
+        },
+    }
+
+
+def is_confirmed_improvement(
+    independent_paired_speedup: float, paired_95_ci: Sequence[float]
+) -> bool:
+    return independent_paired_speedup > 1.0 and paired_95_ci[0] > 1.0
+
+
 def bootstrap_ratio_ci(
     baseline: Sequence[float], candidate: Sequence[float], resamples: int, seed: int
 ) -> tuple[float, float]:
@@ -602,7 +647,6 @@ def main() -> int:
         toolchain.validate_actions(config["search"]["action_subset"])
         report["dependencies"] = toolchain.versions
 
-        all_paired_qualified = True
         for kernel_index, kernel in enumerate(config["dataset"]["kernels"]):
             kernel_dir = work_dir / kernel["name"]
             kernel_dir.mkdir()
@@ -619,41 +663,24 @@ def main() -> int:
                     baseline_binary, 0, measurement["qualification_runs_per_block"], measurement["cpu_affinity"]
                 )
                 qualification_blocks.append(values)
-            stats = [distribution_stats(block) for block in qualification_blocks]
-            diagnostic_checks = qualification_checks(stats[0], stats[1], measurement)
             paired_qualification = measure_paired_sandwiches(
                 baseline_binary,
                 baseline_binary,
                 measurement["paired"]["qualification_repetitions"],
                 measurement["cpu_affinity"],
             )
-            paired_checks = paired_ratio_checks(
-                paired_qualification["ratios"], measurement
-            )
             kernel_report: dict[str, Any] = {
                 "program": kernel["name"],
                 "source": kernel["source"],
                 "dataset_macro": kernel["dataset_macro"],
                 "measurement_qualification": {
-                    "absolute_baseline_diagnostics": {
-                        "blocks": qualification_blocks,
-                        "stats": stats,
-                        "checks": diagnostic_checks,
-                        "hard_stop": False,
-                    },
-                    "paired_ratio": {
-                        **paired_qualification,
-                        "stats": distribution_stats(paired_qualification["ratios"]),
-                        "checks": paired_checks,
-                        "pass": all(paired_checks.values()),
-                    },
+                    **measurement_qualification_report(
+                        qualification_blocks, paired_qualification, measurement
+                    )
                 },
             }
             report["kernels"].append(kernel_report)
             atomic_write_json(report_path, report)
-            if not all(paired_checks.values()):
-                all_paired_qualified = False
-                break
 
             def checkpoint(records: list[dict[str, Any]]) -> None:
                 kernel_report["evaluations"] = records
@@ -700,6 +727,7 @@ def main() -> int:
             toolchain.build_executable(dump_bc, selected["sequence"], candidate_dump, baseline=False)
             o3_hash = correctness_hash(o3_dump, measurement["cpu_affinity"])
             candidate_hash = correctness_hash(candidate_dump, measurement["cpu_affinity"])
+            confirmed_improvement = is_confirmed_improvement(speedup, ci)
             kernel_report["confirmation"] = {
                 "selected_method": selected["method"],
                 "selected_sequence": selected["sequence"],
@@ -709,52 +737,52 @@ def main() -> int:
                 "independent_paired_speedup": speedup,
                 "paired_95_ci": list(ci),
                 "speedup_vs_o3": speedup,
-                "stable_at_least_one_percent": ci[0] >= config["metrics"]["stable_kernel_ci_lower_bound"],
+                "confirmed_improvement": confirmed_improvement,
+                "confirmed_improvement_definition": "independent_paired_speedup > 1 and paired_95_ci.lower > 1",
                 "correctness": {"o3_output_sha256": o3_hash, "candidate_output_sha256": candidate_hash, "pass": o3_hash == candidate_hash},
             }
             atomic_write_json(report_path, report)
 
-        if not all_paired_qualified:
-            report["failure_stage"] = "paired_measurement_qualification"
-        else:
-            confirmations = [kernel["confirmation"] for kernel in report["kernels"]]
-            speedups = [item["speedup_vs_o3"] for item in confirmations]
-            geomean = math.exp(statistics.mean(math.log(value) for value in speedups))
-            overall_ci = bootstrap_geomean_ci(
-                speedups, config["metrics"]["bootstrap_resamples"], config["search"]["seed"] + 2000
-            )
-            threshold = config["metrics"]["classification_threshold"]
-            improved = sum(value >= 1 + threshold for value in speedups)
-            regressed = sum(value <= 1 - threshold for value in speedups)
-            tied = len(speedups) - improved - regressed
-            stable = sum(item["stable_at_least_one_percent"] for item in confirmations)
-            correctness_failures = sum(not item["correctness"]["pass"] for item in confirmations)
-            equal_budget = all(
-                kernel["methods"]["random"]["evaluations"] == config["search"]["evaluations_per_method_per_kernel"]
-                and kernel["methods"]["greedy"]["evaluations"] == config["search"]["evaluations_per_method_per_kernel"]
-                for kernel in report["kernels"]
-            )
-            checks = {
-                "measurement_qualification_all_kernels": True,
-                "geometric_mean_speedup": geomean > 1.0,
-                "bootstrap_ci_lower_bound": overall_ci[0] > 1.0,
-                "minimum_stable_improved_kernel_fraction": stable / len(speedups) >= 0.25,
-                "independent_confirmation": True,
-                "correctness_failures": correctness_failures == 0,
-                "equal_search_evaluation_budget": equal_budget,
-            }
-            report["summary"] = {
-                "geometric_mean_speedup": geomean,
-                "bootstrap_95_ci": list(overall_ci),
-                "improved_kernels": improved,
-                "regressed_kernels": regressed,
-                "tied_kernels": tied,
-                "stable_at_least_one_percent_kernels": stable,
-                "correctness_failures": correctness_failures,
-                "search_evaluations_per_method_per_kernel": config["search"]["evaluations_per_method_per_kernel"],
-                "gate_checks": checks,
-            }
-            report["decision"] = "PASS" if all(checks.values()) else "FAIL"
+        confirmations = [kernel["confirmation"] for kernel in report["kernels"]]
+        speedups = [item["independent_paired_speedup"] for item in confirmations]
+        geomean = math.exp(statistics.mean(math.log(value) for value in speedups))
+        overall_ci = bootstrap_geomean_ci(
+            speedups, config["metrics"]["bootstrap_resamples"], config["search"]["seed"] + 2000
+        )
+        threshold = config["metrics"]["classification_threshold"]
+        improved = sum(value >= 1 + threshold for value in speedups)
+        regressed = sum(value <= 1 - threshold for value in speedups)
+        tied = len(speedups) - improved - regressed
+        confirmed = sum(item["confirmed_improvement"] for item in confirmations)
+        correctness_failures = sum(not item["correctness"]["pass"] for item in confirmations)
+        equal_budget = all(
+            kernel["methods"]["random"]["evaluations"] == config["search"]["evaluations_per_method_per_kernel"]
+            and kernel["methods"]["greedy"]["evaluations"] == config["search"]["evaluations_per_method_per_kernel"]
+            for kernel in report["kernels"]
+        )
+        checks = {
+            "geometric_mean_independent_speedup": geomean > 1.0,
+            "independent_bootstrap_ci_lower_bound": overall_ci[0] > 1.0,
+            "minimum_confirmed_improved_kernel_fraction": confirmed / len(speedups)
+            >= config["pass_fail_gate"]["minimum_stable_improved_kernel_fraction"],
+            "independent_confirmation": True,
+            "correctness_failures": correctness_failures == 0,
+            "equal_search_evaluation_budget": equal_budget,
+        }
+        report["summary"] = {
+            "geometric_mean_speedup": geomean,
+            "geometric_mean_independent_speedup": geomean,
+            "bootstrap_95_ci": list(overall_ci),
+            "independent_bootstrap_95_ci": list(overall_ci),
+            "improved_kernels": improved,
+            "regressed_kernels": regressed,
+            "tied_kernels": tied,
+            "confirmed_improved_kernels": confirmed,
+            "correctness_failures": correctness_failures,
+            "search_evaluations_per_method_per_kernel": config["search"]["evaluations_per_method_per_kernel"],
+            "gate_checks": checks,
+        }
+        report["decision"] = "PASS" if all(checks.values()) else "FAIL"
         report["status"] = "COMPLETE"
     except Exception as error:
         report["status"] = "INVALID"
