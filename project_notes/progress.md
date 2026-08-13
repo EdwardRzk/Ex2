@@ -45,3 +45,27 @@ FAIL at measurement qualification. This is not a search-headroom conclusion; Gat
 
 ### Git
 Experiment code commit `3039d2af3ec636989c85f1e462aa1b74f34019a5`.
+
+## 2026-08-13 — Gate 1 runtime measurement qualification
+
+### Goal
+Determine whether kernel-only timing, per-process CPU binding, and larger official PolyBench datasets make the existing Gate 1 runtime qualification stable for `2mm` and `3mm`.
+
+### Frozen protocol
+LLVM `-O3` baseline only; PolyBench `POLYBENCH_TIME` with cache flushing disabled; `taskset -c 24`; 20 warmups and two independent 10-run groups; MEDIUM, then LARGE, then EXTRALARGE. Existing thresholds were unchanged: runtime at least 20 ms, CV at most 1%, relative MAD at most 0.5%, and block-median drift at most 1%. Identical-baseline sanity required a ratio within 1% of 1 and a bootstrap 95% CI covering 1.
+
+### Changes
+Made CPU binding explicit through `taskset`, added standard deviation reporting and a baseline-only qualification runner, and tested a minimum five-second warmup after MEDIUM samples exposed a frequency-state transition. No pass search ran and no global CPU settings changed.
+
+### Result
+Neither kernel qualified at any official size. At EXTRALARGE, `2mm` median runtime was 73.6613 s, with block CV 1.361% / 1.156% and relative MAD 0.923% / 0.966%; identical-baseline ratio was 1.00160 with bootstrap 95% CI `[0.98543, 1.01761]`. `3mm` median runtime was 117.2311 s, with block CV 1.422% / 1.207% and relative MAD 0.321% / 0.622%; ratio was 1.00328 with CI `[0.97924, 1.01099]`. Both output-hash correctness checks passed. A follow-up MEDIUM run with at least five seconds of warmup still failed for `2mm` and was stopped before repeating already-disproven larger settings.
+
+### Decision
+FAIL. Identical-baseline comparisons no longer show a clear fake improvement at LARGE/EXTRALARGE, but the current host retains roughly 1–2% within-group runtime variation and does not meet the frozen Gate 1 qualification thresholds. Gate 1 search remains stopped.
+
+### Artifacts
+- `outputs/gate1_runtime_measurement_qualification_v1/report.json` — SHA256 `780e22d16e1dfb46128d6fe29a0a91e03b3e074fc010ea0f67f8c6994502a2e6`
+- `outputs/gate1_runtime_measurement_qualification_v2/report.json` — SHA256 `d0b85f48e60b80b60d2390a87336b8a1df3d17f0830914a89d55cf8d9eef65e9` (INVALID warmup follow-up)
+
+### Git
+Experiment code commit `c18ea905105136237f321a7c645ae3a0ba98037f`.
