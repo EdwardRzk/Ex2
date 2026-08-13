@@ -518,7 +518,7 @@ def main() -> int:
             raise RuntimeError("PolyBench archive SHA256 mismatch")
         toolchain = toolchain_metadata(
             args.clang.resolve(),
-            args.autotuner_python.resolve(),
+            args.autotuner_python.absolute(),
             args.autotuner_script.resolve(),
         )
         if config["toolchain"]["clang_version"] not in toolchain["clang_version"]:
@@ -547,7 +547,7 @@ def main() -> int:
                 program,
                 config=config,
                 clang=args.clang.resolve(),
-                autotuner_python=args.autotuner_python.resolve(),
+                autotuner_python=args.autotuner_python.absolute(),
                 autotuner_script=args.autotuner_script.resolve(),
                 polybench_root=args.polybench_root.resolve(),
                 program_dir=program_dir,

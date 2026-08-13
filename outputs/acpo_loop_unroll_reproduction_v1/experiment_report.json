@@ -1,0 +1,27 @@
+{
+  "claim_scope": "Reproduce the published fine-grained Loop-Unroll problem and test its headroom; this is not bit-for-bit reproduction of the unpublished ACPO-LU compiler/model integration.",
+  "config_sha256": "13ddb65de5582f4714758eb832ef9a77daa997289333e28050d43b2a24c67391",
+  "decision": "FAIL",
+  "error": {
+    "message": "Command '['/root/miniconda3/bin/python3.10', '/tmp/bisheng-autotuner-official/bin/llvm-autotune', '-h']' returned non-zero exit status 1.",
+    "traceback": "Traceback (most recent call last):\n  File \"/root/Ex2/scripts/run_acpo_loop_unroll_reproduction.py\", line 519, in main\n    toolchain = toolchain_metadata(\n  File \"/root/Ex2/scripts/run_acpo_loop_unroll_reproduction.py\", line 236, in toolchain_metadata\n    autotuner_help = run_process(\n  File \"/root/Ex2/scripts/run_acpo_loop_unroll_reproduction.py\", line 179, in run_process\n    return subprocess.run(\n  File \"/root/miniconda3/lib/python3.10/subprocess.py\", line 526, in run\n    raise CalledProcessError(retcode, process.args,\nsubprocess.CalledProcessError: Command '['/root/miniconda3/bin/python3.10', '/tmp/bisheng-autotuner-official/bin/llvm-autotune', '-h']' returned non-zero exit status 1.\n",
+    "type": "CalledProcessError"
+  },
+  "experiment_kind": "ACPO-style tuned Loop-Unroll oracle/headroom reproduction",
+  "experiment_name": "acpo_loop_unroll_reproduction_v1",
+  "finished_at_utc": "2026-08-13T15:20:07.265647+00:00",
+  "git": {
+    "branch": "main",
+    "commit": "c05084dfa7a7bbac3586fec44dbef05505693dd6",
+    "status_short": [
+      "M docs/routeGuide.md",
+      "?? AGENTS.md",
+      "?? outputs/acpo_loop_unroll_reproduction_v1/",
+      "?? scripts/__pycache__/"
+    ]
+  },
+  "polybench_archive_sha256": "426519ee8443a5f2175de6a3e9328cda8917a5e33053d0e8f59855ab56d689a4",
+  "programs": [],
+  "started_at_utc": "2026-08-13T15:20:07.212001+00:00",
+  "status": "INVALID"
+}

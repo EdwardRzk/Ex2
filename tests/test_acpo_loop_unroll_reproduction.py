@@ -108,3 +108,12 @@ def test_final_winner_observed_score_is_bound_by_config_hash() -> None:
     selected = find_winner_evaluation(evaluations, "winner")
     assert selected["evaluation_index"] == 1
     assert selected["paired_speedup"] == 1.02
+
+
+def test_absolute_preserves_virtualenv_python_symlink(tmp_path: Path) -> None:
+    target = tmp_path / "python3.10"
+    target.touch()
+    venv_python = tmp_path / "venv-python"
+    venv_python.symlink_to(target)
+    assert venv_python.absolute() == venv_python
+    assert venv_python.resolve() == target
