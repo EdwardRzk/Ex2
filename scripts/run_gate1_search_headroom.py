@@ -41,7 +41,31 @@ def load_config(path: Path) -> dict[str, Any]:
     return config
 
 
+def validate_paired_config(config: Mapping[str, Any]) -> None:
+    paired = config["measurement"].get("paired")
+    if paired is None:
+        raise ValueError("Gate 1 search requires paired B-C-B measurement")
+    required_paired = {
+        "search_initial_repetitions",
+        "search_top_k_per_method",
+        "search_additional_repetitions",
+        "greedy_top_k_per_step",
+        "qualification_repetitions",
+        "confirmation_repetitions",
+    }
+    if required_paired - paired.keys():
+        raise ValueError("Paired measurement config is incomplete")
+    if min(paired[key] for key in required_paired) < 1:
+        raise ValueError("Paired measurement counts must be positive")
+    budget = config["search"]["evaluations_per_method_per_kernel"]
+    if paired["search_top_k_per_method"] > budget:
+        raise ValueError("Paired top-k cannot exceed the search evaluation budget")
+    if paired["greedy_top_k_per_step"] > config["search"]["greedy_candidates_per_step"]:
+        raise ValueError("Greedy paired top-k cannot exceed candidates per step")
+
 def sha256_file(path: Path) -> str:
+
+
     digest = hashlib.sha256()
     with path.open("rb") as file:
         for chunk in iter(lambda: file.read(1024 * 1024), b""):
@@ -86,6 +110,48 @@ def qualification_checks(
         "maximum_relative_mad": max(block_a["relative_mad"], block_b["relative_mad"])
         <= measurement["maximum_relative_mad"],
         "maximum_block_median_drift": drift <= measurement["maximum_block_median_drift"],
+    }
+
+
+def geometric_mean(values: Sequence[float]) -> float:
+    if not values or any(value <= 0 or not math.isfinite(value) for value in values):
+        raise ValueError("Geometric mean requires positive finite values")
+    return math.exp(statistics.mean(math.log(value) for value in values))
+
+
+def paired_speedup(baseline_before: float, candidate: float, baseline_after: float) -> float:
+    values = (baseline_before, candidate, baseline_after)
+    if any(value <= 0 or not math.isfinite(value) for value in values):
+        raise ValueError("Paired runtimes must be positive and finite")
+    return math.sqrt(baseline_before * baseline_after) / candidate
+
+
+def paired_bootstrap_ci(
+    ratios: Sequence[float], resamples: int, seed: int
+) -> tuple[float, float]:
+    if len(ratios) < 2:
+        raise ValueError("At least two paired ratios are required")
+    rng = random.Random(seed)
+    values = []
+    for _ in range(resamples):
+        sample = [rng.choice(ratios) for _ in ratios]
+        values.append(geometric_mean(sample))
+    values.sort()
+    return (
+        values[int(0.025 * (resamples - 1))],
+        values[int(0.975 * (resamples - 1))],
+    )
+
+
+def paired_ratio_checks(
+    ratios: Sequence[float], measurement: Mapping[str, Any]
+) -> dict[str, bool]:
+    stats = distribution_stats(ratios)
+    return {
+        "maximum_paired_ratio_cv": stats["cv"]
+        <= measurement["maximum_paired_ratio_cv"],
+        "maximum_paired_ratio_relative_mad": stats["relative_mad"]
+        <= measurement["maximum_paired_ratio_relative_mad"],
     }
 
 
@@ -248,6 +314,50 @@ def correctness_hash(binary: Path, cpu: int) -> str:
     return hashlib.sha256(completed.stderr.encode("utf-8")).hexdigest()
 
 
+def read_polybench_runtime(binary: Path, cpu: int) -> float:
+    completed = run_command([str(binary)], timeout=600, cpu=cpu)
+    try:
+        value = float(completed.stdout.strip())
+    except ValueError as error:
+        raise RuntimeError(f"Invalid PolyBench timer output: {completed.stdout!r}") from error
+    if not math.isfinite(value) or value <= 0:
+        raise RuntimeError(f"Invalid runtime value: {value}")
+    return value
+
+
+def measure_paired_sandwiches(
+    baseline_binary: Path,
+    candidate_binary: Path,
+    repetitions: int,
+    cpu: int,
+) -> dict[str, Any]:
+    if repetitions < 1:
+        raise ValueError("At least one B-C-B repetition is required")
+    sandwiches = []
+    for _ in range(repetitions):
+        baseline_before = read_polybench_runtime(baseline_binary, cpu)
+        candidate = read_polybench_runtime(candidate_binary, cpu)
+        baseline_after = read_polybench_runtime(baseline_binary, cpu)
+        ratio = paired_speedup(baseline_before, candidate, baseline_after)
+        sandwiches.append(
+            {
+                "baseline_before_seconds": baseline_before,
+                "candidate_seconds": candidate,
+                "baseline_after_seconds": baseline_after,
+                "local_baseline_seconds": math.sqrt(
+                    baseline_before * baseline_after
+                ),
+                "paired_speedup": ratio,
+            }
+        )
+    ratios = [item["paired_speedup"] for item in sandwiches]
+    return {
+        "sandwiches": sandwiches,
+        "ratios": ratios,
+        "aggregate_paired_speedup": geometric_mean(ratios),
+    }
+
+
 def evaluate_sequence(
     toolchain: Toolchain,
     input_bc: Path,
@@ -257,7 +367,7 @@ def evaluate_sequence(
     kernel_dir: Path,
     measurement: Mapping[str, Any],
     program: str,
-    baseline_median_seconds: float,
+    baseline_binary: Path,
 ) -> dict[str, Any]:
     digest = sequence_hash(sequence)
     binary = kernel_dir / f"{method}_{evaluation_index:03d}_{digest[:12]}"
@@ -269,29 +379,62 @@ def evaluate_sequence(
         "sequence_hash": digest,
         "compile_ok": False,
         "run_ok": False,
-        "runtime_median_ms": None,
-        "speedup_vs_o3": None,
+        "paired_speedup": None,
     }
+    paired = measurement["paired"]
     try:
         record["compile_seconds"] = toolchain.build_executable(input_bc, sequence, binary, baseline=False)
         record["compile_ok"] = True
-        runtimes, run_ok = measure_binary(
+        for executable in (baseline_binary, binary):
+            measure_binary(
+                executable,
+                measurement["search_warmup_runs"],
+                1,
+                measurement["cpu_affinity"],
+            )
+        result = measure_paired_sandwiches(
+            baseline_binary,
             binary,
-            measurement["search_warmup_runs"],
-            measurement["search_formal_runs"],
+            paired["search_initial_repetitions"],
             measurement["cpu_affinity"],
         )
         record.update(
             {
-                "run_ok": run_ok,
-                "runtime_samples_seconds": runtimes,
-                "runtime_median_ms": statistics.median(runtimes) * 1000,
-                "speedup_vs_o3": baseline_median_seconds / statistics.median(runtimes),
+                "run_ok": True,
+                "measurement_stage": "initial",
+                "paired_measurement": result,
+                "paired_speedup": result["aggregate_paired_speedup"],
             }
         )
     except Exception as error:
         record["error"] = {"type": type(error).__name__, "message": str(error)}
     return record
+
+
+def refine_record(
+    record: dict[str, Any],
+    baseline_binary: Path,
+    kernel_dir: Path,
+    measurement: Mapping[str, Any],
+) -> None:
+    if not record["run_ok"]:
+        return
+    digest = record["sequence_hash"]
+    binary = kernel_dir / (
+        f"{record['method']}_{record['evaluation_index']:03d}_{digest[:12]}"
+    )
+    additional = measure_paired_sandwiches(
+        baseline_binary,
+        binary,
+        measurement["paired"]["search_additional_repetitions"],
+        measurement["cpu_affinity"],
+    )
+    paired = record["paired_measurement"]
+    paired["sandwiches"].extend(additional["sandwiches"])
+    paired["ratios"].extend(additional["ratios"])
+    paired["aggregate_paired_speedup"] = geometric_mean(paired["ratios"])
+    record["measurement_stage"] = "refined"
+    record["paired_speedup"] = paired["aggregate_paired_speedup"]
 
 
 def search_kernel(
@@ -302,7 +445,7 @@ def search_kernel(
     seed: int,
     checkpoint: callable,
     program: str,
-    baseline_median_seconds: float,
+    baseline_binary: Path,
 ) -> dict[str, Any]:
     search = config["search"]
     measurement = config["measurement"]
@@ -315,10 +458,18 @@ def search_kernel(
         sequence = [rng.choice(actions) for _ in range(length)]
         records.append(
             evaluate_sequence(toolchain, input_bc, sequence, "random", index, kernel_dir,
-                              measurement, program, baseline_median_seconds)
+                              measurement, program, baseline_binary)
         )
         checkpoint(records)
 
+    random_top = sorted(
+        (record for record in records if record["run_ok"]),
+        key=lambda record: record["paired_speedup"],
+        reverse=True,
+    )[:measurement["paired"]["search_top_k_per_method"]]
+    for record in random_top:
+        refine_record(record, baseline_binary, kernel_dir, measurement)
+        checkpoint(records)
     prefix: list[str] = []
     greedy_records: list[dict[str, Any]] = []
     evaluation_index = 0
@@ -329,7 +480,7 @@ def search_kernel(
             evaluation_index += 1
             record = evaluate_sequence(
                 toolchain, input_bc, [*prefix, action], "greedy", evaluation_index, kernel_dir,
-                measurement, program, baseline_median_seconds
+                measurement, program, baseline_binary
             )
             records.append(record)
             greedy_records.append(record)
@@ -338,17 +489,32 @@ def search_kernel(
         valid = [record for record in step_records if record["run_ok"]]
         if not valid:
             break
-        prefix = min(valid, key=lambda record: record["runtime_median_ms"])["sequence"]
+        step_top = sorted(
+            valid,
+            key=lambda record: record["paired_speedup"],
+            reverse=True,
+        )[:measurement["paired"]["greedy_top_k_per_step"]]
+        for record in step_top:
+            refine_record(record, baseline_binary, kernel_dir, measurement)
+            checkpoint(records)
+        prefix = max(
+            step_top, key=lambda record: record["paired_speedup"]
+        )["sequence"]
 
     method_results = {}
     for method in ("random", "greedy"):
         method_records = [record for record in records if record["method"] == method]
-        valid = [record for record in method_records if record["run_ok"]]
+        valid = [
+            record for record in method_records
+            if record["run_ok"] and record["measurement_stage"] == "refined"
+        ]
         method_results[method] = {
             "evaluations": len(method_records),
             "compile_failures": sum(not record["compile_ok"] for record in method_records),
             "run_failures": sum(record["compile_ok"] and not record["run_ok"] for record in method_records),
-            "best_search_record": min(valid, key=lambda record: record["runtime_median_ms"]) if valid else None,
+            "best_search_record": (
+                max(valid, key=lambda record: record["paired_speedup"]) if valid else None
+            ),
         }
     return {"evaluations": records, "methods": method_results}
 
@@ -360,19 +526,29 @@ def confirm_sequence(
     name: str,
     kernel_dir: Path,
     config: Mapping[str, Any],
+    baseline_binary: Path,
 ) -> dict[str, Any]:
     measurement = config["measurement"]
     binary = kernel_dir / f"confirm_{name}"
     toolchain.build_executable(input_bc, sequence, binary, baseline=False)
-    for _ in range(measurement["confirmation_warmup_runs"]):
-        run_command([str(binary)], cpu=measurement["cpu_affinity"])
-    blocks = []
-    for _ in range(measurement["confirmation_blocks"]):
-        values, _ = measure_binary(
-            binary, 0, measurement["confirmation_runs_per_block"], measurement["cpu_affinity"]
+    for executable in (baseline_binary, binary):
+        measure_binary(
+            executable,
+            measurement["confirmation_warmup_runs"],
+            1,
+            measurement["cpu_affinity"],
         )
-        blocks.append(values)
-    return {"sequence": list(sequence), "sequence_hash": sequence_hash(sequence), "blocks": blocks}
+    paired = measure_paired_sandwiches(
+        baseline_binary,
+        binary,
+        measurement["paired"]["confirmation_repetitions"],
+        measurement["cpu_affinity"],
+    )
+    return {
+        "sequence": list(sequence),
+        "sequence_hash": sequence_hash(sequence),
+        "paired_measurement": paired,
+    }
 
 
 def git_metadata(repo_root: Path) -> dict[str, Any]:
@@ -401,6 +577,7 @@ def main() -> int:
     repo_root = Path(__file__).resolve().parents[1]
     config = load_config(config_path)
 
+    validate_paired_config(config)
     output_dir.mkdir(parents=True, exist_ok=False)
     report_path = output_dir / "report.json"
     work_dir = output_dir / "work"
@@ -425,7 +602,7 @@ def main() -> int:
         toolchain.validate_actions(config["search"]["action_subset"])
         report["dependencies"] = toolchain.versions
 
-        all_qualified = True
+        all_paired_qualified = True
         for kernel_index, kernel in enumerate(config["dataset"]["kernels"]):
             kernel_dir = work_dir / kernel["name"]
             kernel_dir.mkdir()
@@ -443,17 +620,39 @@ def main() -> int:
                 )
                 qualification_blocks.append(values)
             stats = [distribution_stats(block) for block in qualification_blocks]
-            checks = qualification_checks(stats[0], stats[1], measurement)
+            diagnostic_checks = qualification_checks(stats[0], stats[1], measurement)
+            paired_qualification = measure_paired_sandwiches(
+                baseline_binary,
+                baseline_binary,
+                measurement["paired"]["qualification_repetitions"],
+                measurement["cpu_affinity"],
+            )
+            paired_checks = paired_ratio_checks(
+                paired_qualification["ratios"], measurement
+            )
             kernel_report: dict[str, Any] = {
                 "program": kernel["name"],
                 "source": kernel["source"],
                 "dataset_macro": kernel["dataset_macro"],
-                "measurement_qualification": {"blocks": qualification_blocks, "stats": stats, "checks": checks, "pass": all(checks.values())},
+                "measurement_qualification": {
+                    "absolute_baseline_diagnostics": {
+                        "blocks": qualification_blocks,
+                        "stats": stats,
+                        "checks": diagnostic_checks,
+                        "hard_stop": False,
+                    },
+                    "paired_ratio": {
+                        **paired_qualification,
+                        "stats": distribution_stats(paired_qualification["ratios"]),
+                        "checks": paired_checks,
+                        "pass": all(paired_checks.values()),
+                    },
+                },
             }
             report["kernels"].append(kernel_report)
             atomic_write_json(report_path, report)
-            if not all(checks.values()):
-                all_qualified = False
+            if not all(paired_checks.values()):
+                all_paired_qualified = False
                 break
 
             def checkpoint(records: list[dict[str, Any]]) -> None:
@@ -468,7 +667,7 @@ def main() -> int:
                 config["search"]["seed"] + kernel_index,
                 checkpoint,
                 kernel["name"],
-                statistics.median(value for block in qualification_blocks for value in block),
+                baseline_binary,
             )
             kernel_report.update(search_result)
 
@@ -479,25 +678,16 @@ def main() -> int:
             ]
             if not valid_best:
                 raise RuntimeError(f"No valid search result for {kernel['name']}")
-            selected = min(valid_best, key=lambda record: record["runtime_median_ms"])
+            selected = max(valid_best, key=lambda record: record["paired_speedup"])
             confirmation = confirm_sequence(
-                toolchain, input_bc, selected["sequence"], selected["method"], kernel_dir, config
+                toolchain, input_bc, selected["sequence"], selected["method"],
+                kernel_dir, config, baseline_binary
             )
 
-            for _ in range(measurement["confirmation_warmup_runs"]):
-                run_command([str(baseline_binary)], cpu=measurement["cpu_affinity"])
-            baseline_blocks = []
-            for _ in range(measurement["confirmation_blocks"]):
-                values, _ = measure_binary(
-                    baseline_binary, 0, measurement["confirmation_runs_per_block"], measurement["cpu_affinity"]
-                )
-                baseline_blocks.append(values)
-            baseline_values = [value for block in baseline_blocks for value in block]
-            candidate_values = [value for block in confirmation["blocks"] for value in block]
-            speedup = statistics.median(baseline_values) / statistics.median(candidate_values)
-            ci = bootstrap_ratio_ci(
-                baseline_values,
-                candidate_values,
+            confirmation_paired = confirmation["paired_measurement"]
+            speedup = confirmation_paired["aggregate_paired_speedup"]
+            ci = paired_bootstrap_ci(
+                confirmation_paired["ratios"],
                 config["metrics"]["bootstrap_resamples"],
                 config["search"]["seed"] + 1000 + kernel_index,
             )
@@ -514,19 +704,18 @@ def main() -> int:
                 "selected_method": selected["method"],
                 "selected_sequence": selected["sequence"],
                 "selected_sequence_hash": selected["sequence_hash"],
-                "o3_blocks": baseline_blocks,
-                "candidate_blocks": confirmation["blocks"],
-                "o3_median_seconds": statistics.median(baseline_values),
-                "candidate_median_seconds": statistics.median(candidate_values),
+                "search_observed_speedup": selected["paired_speedup"],
+                "independent_paired_measurement": confirmation_paired,
+                "independent_paired_speedup": speedup,
+                "paired_95_ci": list(ci),
                 "speedup_vs_o3": speedup,
-                "bootstrap_95_ci": list(ci),
                 "stable_at_least_one_percent": ci[0] >= config["metrics"]["stable_kernel_ci_lower_bound"],
                 "correctness": {"o3_output_sha256": o3_hash, "candidate_output_sha256": candidate_hash, "pass": o3_hash == candidate_hash},
             }
             atomic_write_json(report_path, report)
 
-        if not all_qualified:
-            report["failure_stage"] = "measurement_qualification"
+        if not all_paired_qualified:
+            report["failure_stage"] = "paired_measurement_qualification"
         else:
             confirmations = [kernel["confirmation"] for kernel in report["kernels"]]
             speedups = [item["speedup_vs_o3"] for item in confirmations]
