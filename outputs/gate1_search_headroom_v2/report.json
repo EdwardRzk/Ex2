@@ -1,0 +1,191 @@
+{
+  "config_path": "configs/gate1_search_headroom_v2.json",
+  "config_sha256": "a18cdd44883f7ffabffbeba7c4280d161d02be1b8e492fddd9981d0ce08ca34e",
+  "decision": "FAIL",
+  "dependencies": {
+    "compiler_gym": "0.2.5",
+    "numpy": "1.26.4"
+  },
+  "experiment_name": "gate1_search_headroom_v2",
+  "failure_stage": "paired_measurement_qualification",
+  "finished_at_utc": "2026-08-13T10:42:48.390788+00:00",
+  "git": {
+    "branch": "main",
+    "commit": "3882cb78ba3d17826ae077e9061daba4e9689462",
+    "status_short": [
+      "?? AGENTS.md",
+      "?? scripts/__pycache__/"
+    ]
+  },
+  "kernels": [
+    {
+      "dataset_macro": "MEDIUM_DATASET",
+      "measurement_qualification": {
+        "absolute_baseline_diagnostics": {
+          "blocks": [
+            [
+              0.073834,
+              0.073693,
+              0.073758,
+              0.06965,
+              0.051503,
+              0.052859,
+              0.055442,
+              0.056304,
+              0.053769,
+              0.055715
+            ],
+            [
+              0.054785,
+              0.052195,
+              0.050272,
+              0.053773,
+              0.052618,
+              0.051311,
+              0.051653,
+              0.051101,
+              0.051794,
+              0.051556
+            ]
+          ],
+          "checks": {
+            "maximum_block_median_drift": false,
+            "maximum_cv": false,
+            "maximum_relative_mad": false,
+            "minimum_runtime": true
+          },
+          "hard_stop": false,
+          "stats": [
+            {
+              "cv": 0.1575161994009111,
+              "mad_seconds": 0.003828500000000002,
+              "max_seconds": 0.073834,
+              "mean_seconds": 0.0616527,
+              "median_seconds": 0.056009500000000004,
+              "min_seconds": 0.051503,
+              "relative_mad": 0.06835447558003556,
+              "std_seconds": 0.009711298986804551
+            },
+            {
+              "cv": 0.025458006075471603,
+              "mad_seconds": 0.0005469999999999989,
+              "max_seconds": 0.054785,
+              "mean_seconds": 0.0521058,
+              "median_seconds": 0.0517235,
+              "min_seconds": 0.050272,
+              "relative_mad": 0.01057546376405307,
+              "std_seconds": 0.0013265097729673082
+            }
+          ]
+        },
+        "paired_ratio": {
+          "aggregate_paired_speedup": 0.9970406194765894,
+          "checks": {
+            "maximum_paired_ratio_cv": false,
+            "maximum_paired_ratio_relative_mad": false
+          },
+          "pass": false,
+          "ratios": [
+            0.9862284498451872,
+            1.0243292147820742,
+            1.001930163190374,
+            0.9975070590797306,
+            0.9838503061443341,
+            0.9994227372460694,
+            1.0004628261310031,
+            1.0143719285961021,
+            0.9892251272908104,
+            0.9740616277223862
+          ],
+          "sandwiches": [
+            {
+              "baseline_after_seconds": 0.051657,
+              "baseline_before_seconds": 0.051241,
+              "candidate_seconds": 0.052167,
+              "local_baseline_seconds": 0.05144857954307388,
+              "paired_speedup": 0.9862284498451872
+            },
+            {
+              "baseline_after_seconds": 0.053926,
+              "baseline_before_seconds": 0.054474,
+              "candidate_seconds": 0.052912,
+              "local_baseline_seconds": 0.05419930741254911,
+              "paired_speedup": 1.0243292147820742
+            },
+            {
+              "baseline_after_seconds": 0.050451,
+              "baseline_before_seconds": 0.050861,
+              "candidate_seconds": 0.050558,
+              "local_baseline_seconds": 0.05065558519057894,
+              "paired_speedup": 1.001930163190374
+            },
+            {
+              "baseline_after_seconds": 0.051707,
+              "baseline_before_seconds": 0.049549,
+              "candidate_seconds": 0.050743,
+              "local_baseline_seconds": 0.05061650069888277,
+              "paired_speedup": 0.9975070590797306
+            },
+            {
+              "baseline_after_seconds": 0.052813,
+              "baseline_before_seconds": 0.051338,
+              "candidate_seconds": 0.052925,
+              "local_baseline_seconds": 0.052070277452688885,
+              "paired_speedup": 0.9838503061443341
+            },
+            {
+              "baseline_after_seconds": 0.053971,
+              "baseline_before_seconds": 0.052547,
+              "candidate_seconds": 0.053285,
+              "local_baseline_seconds": 0.05325424055415681,
+              "paired_speedup": 0.9994227372460694
+            },
+            {
+              "baseline_after_seconds": 0.051561,
+              "baseline_before_seconds": 0.053728,
+              "candidate_seconds": 0.052609,
+              "local_baseline_seconds": 0.05263334881992595,
+              "paired_speedup": 1.0004628261310031
+            },
+            {
+              "baseline_after_seconds": 0.053107,
+              "baseline_before_seconds": 0.053116,
+              "candidate_seconds": 0.052359,
+              "local_baseline_seconds": 0.05311149980936332,
+              "paired_speedup": 1.0143719285961021
+            },
+            {
+              "baseline_after_seconds": 0.053057,
+              "baseline_before_seconds": 0.056578,
+              "candidate_seconds": 0.055386,
+              "local_baseline_seconds": 0.05478922290012882,
+              "paired_speedup": 0.9892251272908104
+            },
+            {
+              "baseline_after_seconds": 0.053722,
+              "baseline_before_seconds": 0.054256,
+              "candidate_seconds": 0.055426,
+              "local_baseline_seconds": 0.053988339778140985,
+              "paired_speedup": 0.9740616277223862
+            }
+          ],
+          "stats": {
+            "cv": 0.014824005886101888,
+            "mad_seconds": 0.01073810959490129,
+            "max_seconds": 1.0243292147820742,
+            "mean_seconds": 0.9971389440028071,
+            "median_seconds": 0.9984648981629001,
+            "min_seconds": 0.9740616277223862,
+            "relative_mad": 0.010754619030332063,
+            "std_seconds": 0.014781593575159032
+          }
+        }
+      },
+      "program": "2mm",
+      "source": "linear-algebra/kernels/2mm/2mm.c"
+    }
+  ],
+  "polybench_archive_sha256": "426519ee8443a5f2175de6a3e9328cda8917a5e33053d0e8f59855ab56d689a4",
+  "started_at_utc": "2026-08-13T10:42:42.007638+00:00",
+  "status": "COMPLETE"
+}

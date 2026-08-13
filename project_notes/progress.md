@@ -69,3 +69,27 @@ FAIL. Identical-baseline comparisons no longer show a clear fake improvement at 
 
 ### Git
 Experiment code commit `c18ea905105136237f321a7c645ae3a0ba98037f`.
+
+## 2026-08-13 — Gate 1 paired search headroom v2
+
+### Goal
+Determine whether fixed-budget Random or Greedy phase-ordering search can reproducibly outperform LLVM `-O3` on all nine frozen PolyBench kernels using local paired runtime comparisons.
+
+### Frozen protocol
+PolyBench/C 4.2.1-beta; nine MEDIUM workloads; LLVM 10; the existing 24-pass action subset; sequence length at most 16; Random and Greedy budgets of 128 candidate evaluations per kernel; CPU 24. Every comparison uses consecutive `B1 -> C -> B2` measurements with ratio `sqrt(B1 * B2) / C`; initial search uses two sandwiches, selected candidates receive three additional sandwiches, and the final winner requires a newly built binary and ten independent sandwiches. Absolute baseline CV and MAD are diagnostic only. Paired qualification retains the frozen maximum ratio CV of 1% and relative MAD of 0.5%.
+
+### Changes
+No code, measurement, search, dataset, or toolchain setting changed. Ran the frozen v2 experiment from commit `3882cb7` in a new output directory.
+
+### Result
+The first kernel, `2mm`, failed identical-baseline paired qualification before search. Its ten paired ratios ranged from 0.97406 to 1.02433, with geometric mean 0.99704, CV 1.482%, and relative MAD 1.075%. Both paired stability limits were exceeded. No candidate was evaluated, so Random/Greedy results, independent winner confirmations, and an overall headroom estimate do not exist.
+
+### Decision
+FAIL at paired measurement qualification. This is not a phase-ordering search-headroom conclusion; the frozen protocol correctly stopped before candidate search, and retrying until qualification happened to pass would invalidate the formal run.
+
+### Artifacts
+- `outputs/gate1_search_headroom_v2/report.json` — SHA256 `ec8aa7d0b6f899c694cc3821dc5969227cdd74696c7549ff85c5fe0486e6a80c`
+- `configs/gate1_search_headroom_v2.json` — SHA256 `a18cdd44883f7ffabffbeba7c4280d161d02be1b8e492fddd9981d0ce08ca34e`
+
+### Git
+Experiment code commit `3882cb78ba3d17826ae077e9061daba4e9689462`.
