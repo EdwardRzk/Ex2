@@ -1,0 +1,81 @@
+{
+  "experiment_name": "acpo_loop_unroll_reproduction_v1",
+  "experiment_kind": "ACPO-style tuned Loop-Unroll oracle/headroom reproduction",
+  "claim_scope": "Reproduce the published fine-grained Loop-Unroll problem and test its headroom; this is not bit-for-bit reproduction of the unpublished ACPO-LU compiler/model integration.",
+  "hypothesis": "Within LLVM -O3, per-loop UnrollCount tuning over the ACPO action set has reproducible runtime headroom on the 24 PolyBench programs used by ACPO.",
+  "dataset": {
+    "name": "PolyBench/C 4.2.1-beta",
+    "archive_url": "https://sourceforge.net/projects/polybench/files/polybench-c-4.2.1-beta.tar.gz/download",
+    "archive_sha256": "426519ee8443a5f2175de6a3e9328cda8917a5e33053d0e8f59855ab56d689a4",
+    "dataset_macro": "MEDIUM_DATASET",
+    "cbench_accessed": false,
+    "programs": [
+      {"name": "2mm", "source": "linear-algebra/kernels/2mm/2mm.c"},
+      {"name": "3mm", "source": "linear-algebra/kernels/3mm/3mm.c"},
+      {"name": "adi", "source": "stencils/adi/adi.c"},
+      {"name": "atax", "source": "linear-algebra/kernels/atax/atax.c"},
+      {"name": "bicg", "source": "linear-algebra/kernels/bicg/bicg.c"},
+      {"name": "cholesky", "source": "linear-algebra/solvers/cholesky/cholesky.c"},
+      {"name": "correlation", "source": "datamining/correlation/correlation.c"},
+      {"name": "covariance", "source": "datamining/covariance/covariance.c"},
+      {"name": "deriche", "source": "medley/deriche/deriche.c"},
+      {"name": "doitgen", "source": "linear-algebra/kernels/doitgen/doitgen.c"},
+      {"name": "floyd-warshall", "source": "medley/floyd-warshall/floyd-warshall.c"},
+      {"name": "gemver", "source": "linear-algebra/blas/gemver/gemver.c"},
+      {"name": "gesummv", "source": "linear-algebra/blas/gesummv/gesummv.c"},
+      {"name": "gramschmidt", "source": "linear-algebra/solvers/gramschmidt/gramschmidt.c"},
+      {"name": "lu", "source": "linear-algebra/solvers/lu/lu.c"},
+      {"name": "ludcmp", "source": "linear-algebra/solvers/ludcmp/ludcmp.c"},
+      {"name": "mvt", "source": "linear-algebra/kernels/mvt/mvt.c"},
+      {"name": "nussinov", "source": "medley/nussinov/nussinov.c"},
+      {"name": "seidel-2d", "source": "stencils/seidel-2d/seidel-2d.c"},
+      {"name": "symm", "source": "linear-algebra/blas/symm/symm.c"},
+      {"name": "syr2k", "source": "linear-algebra/blas/syr2k/syr2k.c"},
+      {"name": "syrk", "source": "linear-algebra/blas/syrk/syrk.c"},
+      {"name": "trisolv", "source": "linear-algebra/solvers/trisolv/trisolv.c"},
+      {"name": "trmm", "source": "linear-algebra/blas/trmm/trmm.c"}
+    ]
+  },
+  "sources": {
+    "acpo_repository": {"url": "https://github.com/BiSheng-Compiler-Agents/ACPO", "commit": "9da282efadca8463b2990bab35ea0e4fd9509539"},
+    "openeuler_llvm": {"url": "https://gitee.com/openeuler/llvm-project", "branch": "dev_17.0.6", "commit": "e3899ef38ba23c080a82e36a44cb6acf47d5f4e8"},
+    "bisheng_autotuner": {"url": "https://gitee.com/bisheng-compiler/Autotuner", "commit": "d8667079d0dd1b8365622d48519a74f03a2b26b8"},
+    "paper": {"url": "https://arxiv.org/abs/2312.09982", "version": "v4", "reported_polybench_geomean_speedup": 1.040725}
+  },
+  "toolchain": {
+    "clang_version": "17.0.6",
+    "llvm_build_options": ["LLVM_ENABLE_AUTOTUNER=ON", "LLVM_ENABLE_PROJECTS=clang", "LLVM_TARGETS_TO_BUILD=X86"],
+    "paper_target_difference": "The paper measured ARMv8.2-A at 2.6 GHz; this reproduction runs on the available x86_64 host.",
+    "baseline": "clang -O3",
+    "candidate": "clang -O3 -fautotune with per-loop YAML decisions",
+    "common_defines": ["POLYBENCH_TIME", "POLYBENCH_NO_FLUSH_CACHE"]
+  },
+  "tuning": {
+    "pass": "loop-unroll",
+    "code_region_type": "loop",
+    "parameter": "UnrollCount",
+    "values": [0, 2, 4, 8, 16, 32, 64],
+    "configurations_per_program": 128,
+    "search_technique": "UniformGreedyMutation05",
+    "start_from_compiler_baseline": true,
+    "deterministic": true,
+    "seed": 41,
+    "feedback_objective": "candidate / sqrt(o3_before * o3_after); lower is better"
+  },
+  "measurement": {
+    "cpu_affinity": 24,
+    "search_warmup_runs": 1,
+    "search_paired_repetitions": 2,
+    "confirmation_warmup_runs": 3,
+    "confirmation_paired_repetitions": 10,
+    "bootstrap_resamples": 10000,
+    "speedup_definition": "geomean_i(sqrt(o3_before_i * o3_after_i) / candidate_i)",
+    "stable_improvement_definition": "independent_paired_speedup > 1 and paired_95_ci.lower > 1"
+  },
+  "pass_fail_gate": {
+    "all_24_programs_completed": true,
+    "geometric_mean_independent_speedup_strictly_greater_than": 1.0,
+    "bootstrap_95_percent_ci_lower_bound_strictly_greater_than": 1.0,
+    "correctness_failures": 0
+  }
+}
