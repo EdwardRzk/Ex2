@@ -63,6 +63,7 @@ def distribution_stats(values: Sequence[float]) -> dict[str, float]:
     return {
         "median_seconds": median,
         "mean_seconds": mean,
+        "std_seconds": statistics.stdev(values),
         "cv": statistics.stdev(values) / mean,
         "mad_seconds": mad,
         "relative_mad": mad / median,
@@ -125,17 +126,13 @@ def atomic_write_json(path: Path, value: Mapping[str, Any]) -> None:
 def run_command(
     command: Sequence[str], *, timeout: int = 600, cpu: int | None = None
 ) -> subprocess.CompletedProcess[str]:
-    def set_affinity() -> None:
-        if cpu is not None:
-            os.sched_setaffinity(0, {cpu})
-
+    effective_command = ["taskset", "-c", str(cpu), *command] if cpu is not None else list(command)
     return subprocess.run(
-        list(command),
+        effective_command,
         check=True,
         capture_output=True,
         text=True,
         timeout=timeout,
-        preexec_fn=set_affinity if cpu is not None else None,
     )
 
 
@@ -218,9 +215,21 @@ class Toolchain:
         return time.monotonic() - start
 
 
-def measure_binary(binary: Path, warmup_runs: int, formal_runs: int, cpu: int) -> tuple[list[float], bool]:
-    for _ in range(warmup_runs):
+def measure_binary(
+    binary: Path,
+    warmup_runs: int,
+    formal_runs: int,
+    cpu: int,
+    minimum_warmup_seconds: float = 0.0,
+) -> tuple[list[float], bool]:
+    warmup_started = time.monotonic()
+    completed_warmups = 0
+    while (
+        completed_warmups < warmup_runs
+        or time.monotonic() - warmup_started < minimum_warmup_seconds
+    ):
         run_command([str(binary)], timeout=600, cpu=cpu)
+        completed_warmups += 1
     values = []
     for _ in range(formal_runs):
         completed = run_command([str(binary)], timeout=600, cpu=cpu)
