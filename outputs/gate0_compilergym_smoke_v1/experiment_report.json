@@ -1,0 +1,50 @@
+{
+  "config_sha256": "40f2937e7c71a7fa313dbdf6ff0c652279145833d86211721eb0b1612f2f0360",
+  "decision": "PASS",
+  "dependencies": {
+    "compiler_gym": "0.2.5",
+    "numpy": "1.26.4"
+  },
+  "experiment_name": "gate0_compilergym_smoke_v1",
+  "finished_at_utc": "2026-08-13T04:57:11.786905+00:00",
+  "gate_checks": {
+    "action_had_effect": true,
+    "all_runtime_samples_positive_and_finite": true,
+    "is_buildable": true,
+    "is_runnable": true,
+    "reset_succeeded": true,
+    "runtime_sample_count": true
+  },
+  "git": {
+    "branch": "main",
+    "commit": "31045c5150e1e001dda5a803e8f4d462e2b239a4",
+    "status_short": [
+      "?? AGENTS.md",
+      "?? outputs/",
+      "?? scripts/__pycache__/",
+      "?? tests/__pycache__/"
+    ]
+  },
+  "host": {
+    "platform": "Linux-5.15.0-136-generic-x86_64-with-glibc2.35",
+    "python": "3.10.8 (main, Nov 24 2022, 14:13:03) [GCC 11.2.0]"
+  },
+  "results": {
+    "action_had_effect": true,
+    "action_index": 103,
+    "action_name": "-mem2reg",
+    "action_space_size": 124,
+    "benchmark_uri": "generator://csmith-v0/1",
+    "episode_done_after_action": false,
+    "is_buildable": true,
+    "is_runnable": true,
+    "median_runtime_seconds": 0.002758,
+    "reset_succeeded": true,
+    "runtime_samples_seconds": [
+      0.002758,
+      0.002011,
+      0.003117
+    ]
+  },
+  "started_at_utc": "2026-08-13T04:57:09.773931+00:00"
+}

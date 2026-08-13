@@ -1,0 +1,39 @@
+{
+  "dataset": {
+    "benchmark_uri": "generator://csmith-v0/1",
+    "dev_split": null,
+    "role": "infrastructure_smoke_only",
+    "test_split": null,
+    "train_split": null
+  },
+  "environment": {
+    "action_name": "-mem2reg",
+    "compiler_gym_version": "0.2.5",
+    "id": "llvm-v0",
+    "numpy_version": "1.26.4",
+    "python_major_minor": "3.10",
+    "required_system_package": "libtinfo5",
+    "runtime_measurement_runs": 3,
+    "runtime_warmup_runs": 1
+  },
+  "experiment_name": "gate0_compilergym_smoke_v1",
+  "hypothesis": "CompilerGym 0.2.5 can reset an LLVM environment, apply a named pass, build and run a fixed Csmith program, and return repeated runtime measurements.",
+  "metrics": [
+    "reset_succeeded",
+    "action_had_effect",
+    "is_buildable",
+    "is_runnable",
+    "runtime_sample_count",
+    "median_runtime_seconds"
+  ],
+  "model": null,
+  "objective": "Validate Gate 0 environment functionality only; no learning or performance comparison.",
+  "pass_fail_gate": {
+    "action_had_effect": true,
+    "all_runtime_samples_positive_and_finite": true,
+    "is_buildable": true,
+    "is_runnable": true,
+    "reset_succeeded": true,
+    "runtime_sample_count": 3
+  }
+}
