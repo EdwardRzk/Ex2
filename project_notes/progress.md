@@ -196,3 +196,29 @@ PASS for completion of the frozen MambaPO v0 training protocol; comparative perf
 
 ### Git
 Experiment code commit `14f6e96e7021fd864b31a140f9c15751248b2b2b`.
+
+## 2026-08-15 — LSTM value baseline v0
+
+### Goal
+Train the frozen LSTM sequence baseline on the same ordered Dataset v0 representation used by MambaPO.
+
+### Frozen protocol
+The same program split, target, normalized state/pass/position tokens, Huber plus pairwise objective, optimizer, 30 epochs, no early stopping, and final-epoch reporting as MambaPO; the only model change was a two-layer d_model 128 LSTM with zero dropout.
+
+### Changes
+Added the shared frozen LSTM/Transformer sequence-baseline trainer, independent LSTM config, padding-aware sequence handling, checkpoint/curve writer, and focused tests. Ran one two-program integration smoke before the formal experiment.
+
+### Result
+Final dev MAE was 0.074661, RMSE was 0.098889, Pearson correlation was 0.878970, Spearman correlation was 0.781104, and same-program pairwise accuracy was 0.832911. All 30 epochs completed with finite metrics.
+
+### Decision
+PASS.
+
+### Artifacts
+- `outputs/lstm_value_baseline_v0_seed41/config.json` — SHA256 `257bec3906450ad2defc0feae16a86d9af7e61d8ccff42cf4cbab0df99429ea8`
+- `outputs/lstm_value_baseline_v0_seed41/model.pt` — SHA256 `8bb974f924c60b1281d0af4cb14a7096a41d96f4783fa6e5df906883638ae1c9`
+- `outputs/lstm_value_baseline_v0_seed41/learning_curve.json` — SHA256 `3f2f10c5d4f5d0e46dc8c34c3551c94766cb2c4a4110ff7965fd2e8325ace79a`
+- `outputs/lstm_value_baseline_v0_seed41/experiment_report.json` — SHA256 `f1b0c68600bc21d321dbdc16ba0989498403079145a9827ecd2bbb0dca828b26`
+
+### Git
+Experiment code commit `ed8b68775e7eb4d71481539f9dcbe30ef49cddf9`.
