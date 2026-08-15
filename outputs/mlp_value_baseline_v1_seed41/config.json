@@ -1,0 +1,56 @@
+{
+  "dataset": {
+    "dev_path": "outputs/object_text_size_dataset_v0_seed41/dev.jsonl.gz",
+    "program_split": "program-disjoint; original Dataset v0 dev frozen",
+    "target": "size_reduction_vs_oz",
+    "train_path": [
+      "outputs/object_text_size_dataset_v0_seed41/train.jsonl.gz",
+      "outputs/object_text_size_dataset_v1_extension_seed42/train.jsonl.gz"
+    ]
+  },
+  "experiment_name": "mlp_value_baseline_v1_seed41",
+  "hypothesis": "A small order-agnostic MLP can learn a finite held-out value signal from final InstCount state and pass-count features before sequence models are introduced.",
+  "metrics": [
+    "dev_mae",
+    "dev_rmse",
+    "dev_pearson",
+    "dev_spearman",
+    "dev_same_program_pairwise_accuracy",
+    "constant_predictor_dev_mae",
+    "constant_predictor_dev_rmse"
+  ],
+  "model": {
+    "activation": "ReLU",
+    "hidden_dimensions": [
+      256,
+      128
+    ],
+    "type": "MLP"
+  },
+  "objective": {
+    "pairwise_ranking": "same-program logistic pairwise loss",
+    "pairwise_weight": 0.1,
+    "regression": "Huber loss"
+  },
+  "pass_fail_gate": {
+    "all_dev_metrics_finite": true,
+    "checkpoint_written": true,
+    "completed_epochs": 30
+  },
+  "representation": {
+    "action_count": 124,
+    "max_sequence_length": 32,
+    "pass_history": "124-dimensional normalized action histogram",
+    "sequence_length": "length divided by 32",
+    "state": "final InstCount"
+  },
+  "training": {
+    "device": "cuda",
+    "early_stopping": false,
+    "epochs": 30,
+    "learning_rate": 0.001,
+    "programs_per_batch": 16,
+    "seed": 41,
+    "weight_decay": 1e-05
+  }
+}

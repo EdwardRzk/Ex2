@@ -1,0 +1,51 @@
+{
+  "checks": {
+    "all_dev_metrics_finite": true,
+    "checkpoint_written": true,
+    "completed_epochs": true
+  },
+  "constant_predictor_dev": {
+    "mae": 0.1351282000541687,
+    "rmse": 0.1945524513721466
+  },
+  "dataset": {
+    "dev_programs": 100,
+    "dev_trajectories": 1600,
+    "train_programs": 1900,
+    "train_trajectories": 30400
+  },
+  "decision": "PASS",
+  "experiment_name": "mlp_value_baseline_v1_seed41",
+  "final_dev": {
+    "mae": 0.07322340458631516,
+    "pearson": 0.8981424146754042,
+    "rmse": 0.0960107073187828,
+    "same_program_pairwise_accuracy": 0.8648282097649186,
+    "spearman": 0.800200512299033
+  },
+  "finished_at_utc": "2026-08-15T07:58:08.909127+00:00",
+  "git": {
+    "branch": "main",
+    "commit": "42250e123fdd3442043465fd8aaf226035720c78",
+    "status_short": [
+      "M docs/routeGuide.md",
+      "?? AGENTS.md",
+      "?? opentuner.log",
+      "?? outputs/acpo_loop_unroll_reproduction_v2/",
+      "?? outputs/mlp_value_baseline_v1_seed41/",
+      "?? scripts/__pycache__/",
+      "?? tests/__pycache__/"
+    ]
+  },
+  "host": {
+    "cuda_device": "NVIDIA GeForce RTX 3090",
+    "platform": "Linux-5.15.0-136-generic-x86_64-with-glibc2.35",
+    "python": "3.10.8 (main, Nov 24 2022, 14:13:03) [GCC 11.2.0]",
+    "torch": "2.1.2+cu118"
+  },
+  "model": {
+    "input_dimension": 195,
+    "parameter_count": 83201
+  },
+  "started_at_utc": "2026-08-15T07:56:11.761838+00:00"
+}

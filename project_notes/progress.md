@@ -300,3 +300,30 @@ PASS.
 
 ### Git
 Experiment code commit `31022906334f6a451f0c581acd4da45aaaca77b5`.
+
+
+## 2026-08-15 — MLP value baseline v1
+
+### Goal
+Measure whether the single justified Dataset v1 expansion improves the frozen order-agnostic MLP on the unchanged Dataset v0 dev split.
+
+### Frozen protocol
+The unchanged MLP v0 representation, architecture, target, loss, optimizer, seed, 30-epoch schedule, final-epoch reporting, metrics, and completion gate; training data is the 30,400 trajectories from 1,900 programs in Dataset v0 train plus the disjoint v1 extension; dev remains the original 1,600 trajectories from 100 Dataset v0 programs.
+
+### Changes
+Only the training data input was expanded. The loader reads the two immutable gzip inputs in order; no model or evaluation setting changed.
+
+### Result
+All 30 epochs completed with finite metrics. Final dev MAE was 0.073223, RMSE 0.096011, Pearson 0.898142, Spearman 0.800201, and same-program pairwise accuracy 0.864828. Compared with frozen MLP v0, final RMSE improved from 0.097225 and Spearman improved from 0.762282.
+
+### Decision
+PASS for completion of the frozen expanded-data training protocol; compiler-performance success remains gated on the same-budget held-out search.
+
+### Artifacts
+- `outputs/mlp_value_baseline_v1_seed41/config.json` — SHA256 `ea8ab98f034d8260c984f505377e4793bedcb8b60e46b021c13ef886d499c4d5`
+- `outputs/mlp_value_baseline_v1_seed41/model.pt` — SHA256 `d810603e4326007e85dc69014a82a582d022e46a5eb2360c25ff3f9ffddcf170`
+- `outputs/mlp_value_baseline_v1_seed41/learning_curve.json` — SHA256 `ccf7e34723e67ae890f3720072c34b8a107ffcadc7c42211a262a4cabdb67329`
+- `outputs/mlp_value_baseline_v1_seed41/experiment_report.json` — SHA256 `d86838069d0c87d8668317249fd2fcf14ecb69db724c801025473d1d67ebcd53`
+
+### Git
+Experiment code commit `42250e123fdd3442043465fd8aaf226035720c78`.
