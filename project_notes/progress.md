@@ -222,3 +222,29 @@ PASS.
 
 ### Git
 Experiment code commit `ed8b68775e7eb4d71481539f9dcbe30ef49cddf9`.
+
+## 2026-08-15 — Transformer value baseline v0
+
+### Goal
+Train the frozen Transformer sequence baseline on the same ordered Dataset v0 representation used by MambaPO and LSTM.
+
+### Frozen protocol
+The same program split, target, normalized state/pass/position tokens, Huber plus pairwise objective, optimizer, 30 epochs, no early stopping, and final-epoch reporting as MambaPO; the only model change was a two-layer d_model 128 Transformer with four heads, feedforward dimension 256, GELU, zero dropout, and explicit padding masks.
+
+### Changes
+Reused the already tested shared sequence-baseline trainer with the independent frozen Transformer config. Ran one two-program integration smoke before the formal experiment; no model or data setting changed after seeing results.
+
+### Result
+Final dev MAE was 0.077881, RMSE was 0.104930, Pearson correlation was 0.860206, Spearman correlation was 0.768361, and same-program pairwise accuracy was 0.816184. All 30 epochs completed with finite metrics.
+
+### Decision
+PASS.
+
+### Artifacts
+- `outputs/transformer_value_baseline_v0_seed41/config.json` — SHA256 `8d0fbb650893d75e126ea932e688f76e6e52362784ad00f6f04d059eeb3025f1`
+- `outputs/transformer_value_baseline_v0_seed41/model.pt` — SHA256 `591d32507258777bce202cc4931c91c5b58d5f40f53dbabda5c5873b0d7cce27`
+- `outputs/transformer_value_baseline_v0_seed41/learning_curve.json` — SHA256 `153f49b4e595670eb7840bd831eff0f87fc634b231606f843fdf25fbfe304cd8`
+- `outputs/transformer_value_baseline_v0_seed41/experiment_report.json` — SHA256 `94f358f49d0f3680127478524c404bdc52c81f3a80a284f07cd91f0c0fd16e07`
+
+### Git
+Experiment code commit `c5b2f4aea0641ff25d60500fc94728fbeff84917`.
