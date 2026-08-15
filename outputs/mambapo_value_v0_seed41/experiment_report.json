@@ -1,0 +1,46 @@
+{
+  "checks": {
+    "all_dev_metrics_finite": true,
+    "checkpoint_written": true,
+    "completed_epochs": true
+  },
+  "dataset": {
+    "dev_programs": 100,
+    "dev_trajectories": 1600,
+    "train_programs": 900,
+    "train_trajectories": 14400
+  },
+  "decision": "PASS",
+  "experiment_name": "mambapo_value_v0_seed41",
+  "final_dev": {
+    "mae": 0.08613795042037964,
+    "pearson": 0.838114317215873,
+    "rmse": 0.11358502507209778,
+    "same_program_pairwise_accuracy": 0.7774864376130199,
+    "spearman": 0.7218300759905386
+  },
+  "finished_at_utc": "2026-08-15T06:17:22.827250+00:00",
+  "git": {
+    "branch": "main",
+    "commit": "14f6e96e7021fd864b31a140f9c15751248b2b2b",
+    "status_short": [
+      "M docs/routeGuide.md",
+      "?? AGENTS.md",
+      "?? opentuner.log",
+      "?? outputs/acpo_loop_unroll_reproduction_v2/",
+      "?? outputs/mambapo_value_v0_seed41/",
+      "?? scripts/__pycache__/"
+    ]
+  },
+  "host": {
+    "cuda_device": "NVIDIA GeForce RTX 3090",
+    "mamba_ssm": "2.2.2",
+    "platform": "Linux-5.15.0-136-generic-x86_64-with-glibc2.35",
+    "python": "3.10.8 (main, Nov 24 2022, 14:13:03) [GCC 11.2.0]",
+    "torch": "2.1.2+cu118"
+  },
+  "model": {
+    "parameter_count": 263425
+  },
+  "started_at_utc": "2026-08-15T06:15:40.472229+00:00"
+}

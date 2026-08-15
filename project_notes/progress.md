@@ -170,3 +170,29 @@ PASS.
 
 ### Git
 Experiment code commit `369959be4941457eeb367fffe010c4dc3754ecb6`.
+
+## 2026-08-15 — MambaPO value model v0
+
+### Goal
+Train the frozen two-layer Mamba sequence value model on Dataset v0 after establishing the MLP baseline.
+
+### Frozen protocol
+The same program-disjoint Dataset v0 and `size_reduction_vs_oz` target as MLP; tokens are normalized current InstCount state plus previous-pass embedding plus position embedding, beginning with `state_0 + START`; d_model 128, two Mamba layers, d_state 16, d_conv 4, expand 2; Huber regression plus 0.1-weight same-program pairwise loss; AdamW for exactly 30 epochs with no early stopping or hyperparameter scan; final epoch used for reporting.
+
+### Changes
+Added the frozen MambaPO config, ordered token builder, state normalization, two-layer residual Mamba model, checkpoint/curve writer, and focused tests. Fixed a direct-script import-root bug before the formal training process created its output directory.
+
+### Result
+Final dev MAE was 0.086138, RMSE was 0.113585, Pearson correlation was 0.838114, Spearman correlation was 0.721830, and same-program pairwise accuracy was 0.777486. All 30 epochs completed with finite metrics. The frozen final Mamba metrics were weaker than the MLP baseline, and the curve showed early improvement followed by overfitting; no post-hoc epoch selection was applied.
+
+### Decision
+PASS for completion of the frozen MambaPO v0 training protocol; comparative performance remains unresolved until the remaining sequence baselines and same-budget search are complete.
+
+### Artifacts
+- `outputs/mambapo_value_v0_seed41/config.json` — SHA256 `40537146ee07f6a9afeb0de821478abeef778c495df90f60e1f3f1251e7d9b2c`
+- `outputs/mambapo_value_v0_seed41/model.pt` — SHA256 `dd7a4c80d479ca61eaa4ce89c1d2d577e4c27cd55945a7b458805fffee1af450`
+- `outputs/mambapo_value_v0_seed41/learning_curve.json` — SHA256 `76ee173b4396bd4d6d87a5ee9fc0c793e9015008a6307782384a1baec02515eb`
+- `outputs/mambapo_value_v0_seed41/experiment_report.json` — SHA256 `3345db30c054b69f4311b9d3dded5a9352b34d96360d4a41a12f55f17ef52ed6`
+
+### Git
+Experiment code commit `14f6e96e7021fd864b31a140f9c15751248b2b2b`.
