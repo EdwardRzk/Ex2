@@ -117,3 +117,26 @@ FAIL. The geometric mean was above 1, but its CI lower bound was not above 1, an
 
 ### Git
 Experiment code commit `ad578355b3c3b28adfb87ac5b7ec9a363b42eef0`.
+
+## 2026-08-15 — ObjectTextSize Dataset v0
+
+### Goal
+Generate the first program-disjoint ObjectTextSize trajectory dataset for MambaPO v0 training.
+
+### Frozen protocol
+CompilerGym 0.2.5 LLVM environment; Jotaibench v0; seed 41; 1000 programs split into 900 train and 100 dev programs; 16 uniformly sampled trajectories per program; sequence length 1-32; 124 actions read from the environment; 70-dimensional InstCount state before and after every pass; deterministic ObjectTextSizeBytes primary labels and LLVM -Oz bytes; cBench remained sealed.
+
+### Changes
+Added the frozen Dataset v0 config, parallel trajectory generator, gzip JSONL schema, deterministic program-level split, and focused tests. Installed the official Jotaibench dataset through CompilerGym and generated the formal dataset in a new output directory.
+
+### Result
+Generated 14,400 train and 1,600 dev trajectories from exactly 1000 disjoint programs. The observed sequence lengths covered 1-32, feature dimension was 70, action-space size was 124, and there were zero invalid episodes. All five frozen result checks passed.
+
+### Decision
+PASS.
+
+### Artifacts
+- `outputs/object_text_size_dataset_v0_seed41/config.json` — SHA256 `ef4db4ef4518efdc17149cf6cbd04875b20e2c2df17bf4b63a41dd5a4c849d3a`
+- `outputs/object_text_size_dataset_v0_seed41/program_splits.json` — SHA256 `54d617e8c55f4292aae34c016250be5d799c73d58c382d9c2217503e3d54a06e`
+- `outputs/object_text_size_dataset_v0_seed41/train.jsonl.gz` — SHA256 `9dfde34466748e26b3e4f97ba72045bea9b265d2972fbfac5ba538477d836197`
+- `outputs/object_text_size_dataset_v0_seed41/dev.jsonl.gz` — SHA256 `dbaa6f250d775e4443717833ac85d90cd95bd71a4f5002d93072795e9694c9c1`
