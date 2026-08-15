@@ -354,3 +354,30 @@ PASS for completion of the frozen expanded-data training protocol; compiler-perf
 
 ### Git
 Experiment code commit `42250e123fdd3442043465fd8aaf226035720c78`.
+
+
+## 2026-08-15 — LSTM value baseline v1
+
+### Goal
+Measure whether the single justified Dataset v1 expansion improves the frozen LSTM baseline on the unchanged Dataset v0 dev split.
+
+### Frozen protocol
+The unchanged LSTM v0 representation, architecture, target, loss, optimizer, seed, 30-epoch schedule, final-epoch reporting, metrics, and completion gate; training data is the 30,400 trajectories from 1,900 programs in Dataset v0 train plus the disjoint v1 extension; dev remains the original 1,600 trajectories from 100 Dataset v0 programs.
+
+### Changes
+Only the training data input was expanded. No architecture, loss, normalization rule, or evaluation setting changed.
+
+### Result
+All 30 epochs completed with finite metrics. Final dev MAE was 0.078625, RMSE 0.103243, Pearson 0.892101, Spearman 0.802256, and same-program pairwise accuracy 0.849186. Compared with frozen LSTM v0, Spearman and pairwise accuracy improved, while final RMSE worsened from 0.098889. Earlier epochs were stronger than the final epoch, but no post-hoc epoch selection was applied.
+
+### Decision
+PASS for completion of the frozen expanded-data training protocol; the mixed predictive result does not establish compiler-performance success, which remains gated on the same-budget held-out search.
+
+### Artifacts
+- `outputs/lstm_value_baseline_v1_seed41/config.json` — SHA256 `1c6defd028295a4e854bfdd1a8b510c2a5a798717790e766540654b3e745d8ee`
+- `outputs/lstm_value_baseline_v1_seed41/model.pt` — SHA256 `3a5ecbf79dc1b4e267901a93c2004bc40be31565f86b10f3ddb05738466fd3e4`
+- `outputs/lstm_value_baseline_v1_seed41/learning_curve.json` — SHA256 `b96b22ea1a8a23fbeacbd45b8d1aa5c5bb47bd6eae9ba24126136603e99bd564`
+- `outputs/lstm_value_baseline_v1_seed41/experiment_report.json` — SHA256 `1a2eab13bfa00cf73a1c7985d61ef5c34ee9ba8070e72714723de35e22780c80`
+
+### Git
+Experiment code commit `42250e123fdd3442043465fd8aaf226035720c78`.
