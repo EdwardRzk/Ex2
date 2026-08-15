@@ -1,0 +1,49 @@
+{
+  "dataset": {
+    "dev_programs": 0,
+    "exclude_program_splits_path": "outputs/object_text_size_dataset_v0_seed41/program_splits.json",
+    "final_test_accessed": false,
+    "final_test_dataset": "benchmark://cbench-v1",
+    "name": "benchmark://jotaibench-v0",
+    "selection_seed": 42,
+    "total_programs": 1000,
+    "train_programs": 1000,
+    "trajectories_per_program": 16
+  },
+  "environment": {
+    "compiler_gym_version": "0.2.5",
+    "feature_space": "InstCount",
+    "id": "llvm-v0",
+    "numpy_version": "1.26.4",
+    "oz_baseline_observation": "ObjectTextSizeOz",
+    "python_major_minor": "3.10",
+    "size_observation": "ObjectTextSizeBytes"
+  },
+  "execution": {
+    "workers": 8
+  },
+  "experiment_name": "object_text_size_dataset_v1_extension_seed42",
+  "hypothesis": "Adding 1000 previously unseen Jotaibench training programs while preserving the frozen v0 dev set provides more state/history diversity for sequence-model generalization.",
+  "metrics": [
+    "trajectory_count",
+    "program_count",
+    "invalid_episode_count",
+    "feature_dimension",
+    "action_space_size"
+  ],
+  "model": null,
+  "objective": "Extend Dataset v0 to 1900 train programs while keeping its 100 dev programs and trajectories unchanged.",
+  "pass_fail_gate": {
+    "invalid_episode_count": 0,
+    "program_count": 1000,
+    "sequence_length_maximum": 32,
+    "sequence_length_minimum": 1,
+    "train_dev_program_overlap": 0,
+    "trajectory_count": 16000
+  },
+  "trajectory": {
+    "action_sampling": "uniform_with_replacement",
+    "maximum_sequence_length": 32,
+    "minimum_sequence_length": 1
+  }
+}

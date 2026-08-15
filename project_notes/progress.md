@@ -273,3 +273,30 @@ FAIL for the research hypothesis. The generated report's execution checks are PA
 
 ### Git
 Experiment code commit `c74af32c1fb87e6a0a8da4e1286adc28df2d46a5`.
+
+## 2026-08-15 — ObjectTextSize Dataset v1 extension
+
+### Goal
+Expand the training distribution after the v0 learning/search curves identified data-limited overfitting and out-of-distribution candidate ranking, while preserving the sealed held-out protocol.
+
+### Frozen protocol
+Generate exactly 1,000 new Jotaibench training programs with 16 deterministic trajectories per program, sequence lengths 1–32, seed 42, the unchanged 124-pass action space and ObjectTextSize labels; exclude every program in Dataset v0. The combined v1 training set is the unchanged 14,400 v0 training trajectories plus these 16,000 extension trajectories; the original 100-program/1,600-trajectory v0 dev split remains byte-for-byte unchanged. cBench remains sealed.
+
+### Changes
+Extended the generator with an explicit prior-split exclusion input and added its focused test. Generated only the disjoint training extension; no model, label, metric, search budget, dev program, or pass/fail criterion changed.
+
+### Result
+Generated 16,000 trajectories from 1,000 new training programs with zero invalid episodes. Independent verification counted 16,000 train records, zero dev records, and zero overlap with all 1,000 Dataset v0 train/dev programs. All generator checks passed.
+
+### Decision
+PASS.
+
+### Artifacts
+- `outputs/object_text_size_dataset_v1_extension_seed42/config.json` — SHA256 `1b73e282c66f7698826b916728e14b741c76b2906b0246249050a4b222ed3011`
+- `outputs/object_text_size_dataset_v1_extension_seed42/program_splits.json` — SHA256 `1569a23b82d77b4e99420afb1b20fae9dec8a371a4e4c19e78e03669eec331a6`
+- `outputs/object_text_size_dataset_v1_extension_seed42/train.jsonl.gz` — SHA256 `56d0ea4de1806fa30eede5ae5359ed6dfc790fe7039ad8c49bf3f800c37331e4`
+- `outputs/object_text_size_dataset_v1_extension_seed42/dev.jsonl.gz` — SHA256 `0fc602c2f84ecf53f9a6a2eb28eebc393c3e92de6dfe54fa25727825997f60fc`
+- `outputs/object_text_size_dataset_v1_extension_seed42/experiment_report.json` — SHA256 `47b4b63ef0a96f625b4552032cafc8d7a50643dacc82019fe6da6ce189acb980`
+
+### Git
+Experiment code commit `31022906334f6a451f0c581acd4da45aaaca77b5`.
