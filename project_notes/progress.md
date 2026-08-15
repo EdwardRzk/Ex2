@@ -381,3 +381,30 @@ PASS for completion of the frozen expanded-data training protocol; the mixed pre
 
 ### Git
 Experiment code commit `42250e123fdd3442043465fd8aaf226035720c78`.
+
+
+## 2026-08-15 — Transformer value baseline v1
+
+### Goal
+Measure whether the single justified Dataset v1 expansion improves the frozen Transformer baseline on the unchanged Dataset v0 dev split.
+
+### Frozen protocol
+The unchanged Transformer v0 representation, architecture, target, loss, optimizer, seed, 30-epoch schedule, final-epoch reporting, metrics, and completion gate; training data is the 30,400 trajectories from 1,900 programs in Dataset v0 train plus the disjoint v1 extension; dev remains the original 1,600 trajectories from 100 Dataset v0 programs.
+
+### Changes
+Only the training data input was expanded. No architecture, loss, normalization rule, or evaluation setting changed.
+
+### Result
+All 30 epochs completed with finite metrics. Final dev MAE was 0.075235, RMSE 0.098542, Pearson 0.884164, Spearman 0.794873, and same-program pairwise accuracy 0.850181. Compared with frozen Transformer v0, final RMSE improved from 0.104930, Spearman from 0.768361, and pairwise accuracy from 0.816184. Earlier epochs were stronger than the final epoch, but no post-hoc epoch selection was applied.
+
+### Decision
+PASS for completion of the frozen expanded-data training protocol; compiler-performance success remains gated on the same-budget held-out search.
+
+### Artifacts
+- `outputs/transformer_value_baseline_v1_seed41/config.json` — SHA256 `5ad30b755352ac291a3f0dac0c8a5a12e666aae9453835103f80e80c38a279a0`
+- `outputs/transformer_value_baseline_v1_seed41/model.pt` — SHA256 `2f8f25f37cb23ffcdecd7733da50afc5b34a915fbfafe8a60118621de7c62bbc`
+- `outputs/transformer_value_baseline_v1_seed41/learning_curve.json` — SHA256 `6e255d4b2a49d2c113b556a14ddaa98f32302bb49cbe6e91dfa3712cc4589efb`
+- `outputs/transformer_value_baseline_v1_seed41/experiment_report.json` — SHA256 `694180735069609ddb144163d0f291e1b99d8fcf70e75b56d166fed893504711`
+
+### Git
+Experiment code commit `42250e123fdd3442043465fd8aaf226035720c78`.

@@ -1,0 +1,47 @@
+{
+  "checks": {
+    "all_dev_metrics_finite": true,
+    "checkpoint_written": true,
+    "completed_epochs": true
+  },
+  "dataset": {
+    "dev_programs": 100,
+    "dev_trajectories": 1600,
+    "train_programs": 1900,
+    "train_trajectories": 30400
+  },
+  "decision": "PASS",
+  "experiment_name": "transformer_value_baseline_v1_seed41",
+  "final_dev": {
+    "mae": 0.07523530721664429,
+    "pearson": 0.8841642832591846,
+    "rmse": 0.09854162484407425,
+    "same_program_pairwise_accuracy": 0.8501808318264015,
+    "spearman": 0.7948733487207077
+  },
+  "finished_at_utc": "2026-08-15T08:11:35.805075+00:00",
+  "git": {
+    "branch": "main",
+    "commit": "e66915d45765fcffbd256fd9f7925012f85ed33d",
+    "status_short": [
+      "M docs/routeGuide.md",
+      "?? AGENTS.md",
+      "?? opentuner.log",
+      "?? outputs/acpo_loop_unroll_reproduction_v2/",
+      "?? outputs/transformer_value_baseline_v1_seed41/",
+      "?? scripts/__pycache__/",
+      "?? tests/__pycache__/"
+    ]
+  },
+  "host": {
+    "cuda_device": "NVIDIA GeForce RTX 3090",
+    "platform": "Linux-5.15.0-136-generic-x86_64-with-glibc2.35",
+    "python": "3.10.8 (main, Nov 24 2022, 14:13:03) [GCC 11.2.0]",
+    "torch": "2.1.2+cu118"
+  },
+  "model": {
+    "parameter_count": 295169,
+    "type": "Transformer"
+  },
+  "started_at_utc": "2026-08-15T08:07:58.335782+00:00"
+}
