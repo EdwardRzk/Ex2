@@ -18,17 +18,23 @@ import torch
 from mamba_ssm import Mamba
 from torch import nn
 
-from scripts.train_mlp_value_baseline import (
-    batch_pairwise_loss,
-    correlation,
-    git_metadata,
-    pairwise_accuracy,
-    program_slices,
-    rankdata,
-    read_records,
-    seed_everything,
-    write_json,
-)
+if __package__:
+    from scripts.train_mlp_value_baseline import (
+        batch_pairwise_loss, correlation, git_metadata, pairwise_accuracy,
+        program_slices, rankdata, read_records, seed_everything, write_json,
+    )
+else:
+    from train_mlp_value_baseline import (
+        batch_pairwise_loss,
+        correlation,
+        git_metadata,
+        pairwise_accuracy,
+        program_slices,
+        rankdata,
+        read_records,
+        seed_everything,
+        write_json,
+    )
 
 
 class MambaValueModel(nn.Module):
