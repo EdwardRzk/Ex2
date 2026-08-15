@@ -1,0 +1,50 @@
+{
+  "experiment_name": "transformer_value_baseline_v1_seed41",
+  "hypothesis": "A two-layer Transformer can learn held-out code-size value and ranking signals from ordered LLVM state/pass histories.",
+  "dataset": {
+    "train_path": [
+      "outputs/object_text_size_dataset_v0_seed41/train.jsonl.gz",
+      "outputs/object_text_size_dataset_v1_extension_seed42/train.jsonl.gz"
+    ],
+    "dev_path": "outputs/object_text_size_dataset_v0_seed41/dev.jsonl.gz",
+    "program_split": "program-disjoint; original Dataset v0 dev frozen",
+    "target": "size_reduction_vs_oz"
+  },
+  "representation": {
+    "state_dimension": 70,
+    "action_count": 124,
+    "start_action_index": 124,
+    "max_sequence_length": 32,
+    "token": "normalized current state + previous pass embedding + position embedding"
+  },
+  "model": {
+    "type": "Transformer",
+    "d_model": 128,
+    "layers": 2,
+    "attention_heads": 4,
+    "feedforward_dimension": 256,
+    "dropout": 0.0,
+    "activation": "gelu"
+  },
+  "objective": {
+    "regression": "Huber loss",
+    "pairwise_ranking": "same-program logistic pairwise loss",
+    "pairwise_weight": 0.1
+  },
+  "training": {
+    "seed": 41,
+    "epochs": 30,
+    "programs_per_batch": 8,
+    "evaluation_batch_size": 256,
+    "learning_rate": 0.001,
+    "weight_decay": 0.00001,
+    "early_stopping": false,
+    "device": "cuda"
+  },
+  "metrics": ["dev_mae", "dev_rmse", "dev_pearson", "dev_spearman", "dev_same_program_pairwise_accuracy"],
+  "pass_fail_gate": {
+    "completed_epochs": 30,
+    "all_dev_metrics_finite": true,
+    "checkpoint_written": true
+  }
+}

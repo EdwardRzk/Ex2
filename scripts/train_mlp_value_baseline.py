@@ -63,9 +63,14 @@ def load_config(path: Path) -> dict[str, Any]:
     return config
 
 
-def read_records(path: Path) -> list[dict[str, Any]]:
-    with gzip.open(path, "rt", encoding="utf-8") as file:
-        return [json.loads(line) for line in file]
+def read_records(paths: str | Path | list[str]) -> list[dict[str, Any]]:
+    if isinstance(paths, (str, Path)):
+        paths = [paths]
+    records: list[dict[str, Any]] = []
+    for path in paths:
+        with gzip.open(Path(path), "rt", encoding="utf-8") as file:
+            records.extend(json.loads(line) for line in file)
+    return records
 
 
 def build_feature(record: Mapping[str, Any], action_count: int, max_length: int) -> np.ndarray:
@@ -227,8 +232,8 @@ def run_training(config: Mapping[str, Any], output_dir: Path) -> dict[str, Any]:
     if device.type == "cuda" and not torch.cuda.is_available():
         raise RuntimeError("Frozen training requires CUDA, but CUDA is unavailable")
 
-    train_records = read_records(Path(config["dataset"]["train_path"]))
-    dev_records = read_records(Path(config["dataset"]["dev_path"]))
+    train_records = read_records(config["dataset"]["train_path"])
+    dev_records = read_records(config["dataset"]["dev_path"])
     action_count = int(config["representation"]["action_count"])
     max_sequence_length = int(config["representation"]["max_sequence_length"])
     if any(

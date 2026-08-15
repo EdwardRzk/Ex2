@@ -222,8 +222,8 @@ def run_training(config: Mapping[str, Any], output_dir: Path) -> dict[str, Any]:
     if device.type == "cuda" and not torch.cuda.is_available():
         raise RuntimeError("Frozen training requires CUDA, but CUDA is unavailable")
 
-    train_records = read_records(Path(config["dataset"]["train_path"]))
-    dev_records = read_records(Path(config["dataset"]["dev_path"]))
+    train_records = read_records(config["dataset"]["train_path"])
+    dev_records = read_records(config["dataset"]["dev_path"])
     mean, std = state_statistics(train_records, int(representation["state_dimension"]))
     tensor_args = {
         "state_mean": mean,

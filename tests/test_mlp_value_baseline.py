@@ -1,4 +1,8 @@
+import gzip
+import json
+import tempfile
 import unittest
+from pathlib import Path
 
 import numpy as np
 import torch
@@ -8,6 +12,7 @@ from scripts.train_mlp_value_baseline import (
     pairwise_accuracy,
     pairwise_ranking_loss,
     program_slices,
+    read_records,
 )
 
 
@@ -42,6 +47,22 @@ class MlpValueBaselineTest(unittest.TestCase):
             ),
             0.5,
         )
+
+    def test_read_records_combines_multiple_gzip_files_in_order(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            paths = [
+                Path(directory) / "first.jsonl.gz",
+                Path(directory) / "second.jsonl.gz",
+            ]
+            for path, value in zip(paths, (1, 2)):
+                with gzip.open(path, "wt", encoding="utf-8") as file:
+                    json.dump({"value": value}, file)
+                    file.write("\n")
+
+            self.assertEqual(
+                read_records([str(path) for path in paths]),
+                [{"value": 1}, {"value": 2}],
+            )
 
 
 if __name__ == "__main__":
