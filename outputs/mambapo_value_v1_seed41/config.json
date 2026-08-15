@@ -1,0 +1,56 @@
+{
+  "dataset": {
+    "dev_path": "outputs/object_text_size_dataset_v0_seed41/dev.jsonl.gz",
+    "program_split": "program-disjoint; original Dataset v0 dev frozen",
+    "target": "size_reduction_vs_oz",
+    "train_path": [
+      "outputs/object_text_size_dataset_v0_seed41/train.jsonl.gz",
+      "outputs/object_text_size_dataset_v1_extension_seed42/train.jsonl.gz"
+    ]
+  },
+  "experiment_name": "mambapo_value_v1_seed41",
+  "hypothesis": "A two-layer Mamba model can learn held-out code-size value and ranking signals from ordered LLVM state/pass histories.",
+  "metrics": [
+    "dev_mae",
+    "dev_rmse",
+    "dev_pearson",
+    "dev_spearman",
+    "dev_same_program_pairwise_accuracy"
+  ],
+  "model": {
+    "d_conv": 4,
+    "d_model": 128,
+    "d_state": 16,
+    "expand": 2,
+    "layers": 2,
+    "type": "Mamba",
+    "use_fast_path": true
+  },
+  "objective": {
+    "pairwise_ranking": "same-program logistic pairwise loss",
+    "pairwise_weight": 0.1,
+    "regression": "Huber loss"
+  },
+  "pass_fail_gate": {
+    "all_dev_metrics_finite": true,
+    "checkpoint_written": true,
+    "completed_epochs": 30
+  },
+  "representation": {
+    "action_count": 124,
+    "max_sequence_length": 32,
+    "start_action_index": 124,
+    "state_dimension": 70,
+    "token": "normalized current state + previous pass embedding + position embedding"
+  },
+  "training": {
+    "device": "cuda",
+    "early_stopping": false,
+    "epochs": 30,
+    "evaluation_batch_size": 256,
+    "learning_rate": 0.001,
+    "programs_per_batch": 8,
+    "seed": 41,
+    "weight_decay": 1e-05
+  }
+}

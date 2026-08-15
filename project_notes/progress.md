@@ -327,3 +327,30 @@ PASS for completion of the frozen expanded-data training protocol; compiler-perf
 
 ### Git
 Experiment code commit `42250e123fdd3442043465fd8aaf226035720c78`.
+
+
+## 2026-08-15 — MambaPO value model v1
+
+### Goal
+Measure whether the single justified Dataset v1 expansion improves the frozen two-layer Mamba value model on the unchanged Dataset v0 dev split.
+
+### Frozen protocol
+The unchanged Mamba v0 representation, architecture, target, loss, optimizer, seed, 30-epoch schedule, final-epoch reporting, metrics, and completion gate; training data is the 30,400 trajectories from 1,900 programs in Dataset v0 train plus the disjoint v1 extension; dev remains the original 1,600 trajectories from 100 Dataset v0 programs.
+
+### Changes
+Only the training data input was expanded. No architecture, loss, normalization rule, or evaluation setting changed.
+
+### Result
+All 30 epochs completed with finite metrics. Final dev MAE was 0.080973, RMSE 0.106254, Pearson 0.859649, Spearman 0.766751, and same-program pairwise accuracy 0.809132. Compared with frozen Mamba v0, final RMSE improved from 0.113585 and Spearman improved from 0.721830. Earlier epochs were stronger than the final epoch, but no post-hoc epoch selection was applied.
+
+### Decision
+PASS for completion of the frozen expanded-data training protocol; compiler-performance success remains gated on the same-budget held-out search.
+
+### Artifacts
+- `outputs/mambapo_value_v1_seed41/config.json` — SHA256 `98c12d4c4460132610e71def0a4f953e5906cefd3303d970cdb9b4be41a2aa01`
+- `outputs/mambapo_value_v1_seed41/model.pt` — SHA256 `3414b08c418ed16e9c0e98fbe3c5e4bb2a8b6a0aebfee885dac101be7e6aa451`
+- `outputs/mambapo_value_v1_seed41/learning_curve.json` — SHA256 `c23aa97c1611612449ed52b14c3d1614ba5af661d2b5717e7f27d3ddef3ff263`
+- `outputs/mambapo_value_v1_seed41/experiment_report.json` — SHA256 `1aa94b2cb233cd57ec49fb982cd61357bcd28a27ddfd266e333adcce41c98808`
+
+### Git
+Experiment code commit `42250e123fdd3442043465fd8aaf226035720c78`.
