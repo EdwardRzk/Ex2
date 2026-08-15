@@ -1,0 +1,296 @@
+{
+  "aggregate": {
+    "lstm": {
+      "budget_curve": {
+        "128": {
+          "best_program_reduction": 0.08477366255144032,
+          "geomean_size_ratio_vs_oz": 1.0533145552455463,
+          "geomean_size_reduction_vs_oz": -0.05331455524554629,
+          "mean_size_reduction_vs_oz": -0.05874235894554703,
+          "median_size_reduction_vs_oz": -0.006654682864523184,
+          "positive_program_count": 40,
+          "worst_program_reduction": -0.43167305236270753
+        },
+        "16": {
+          "best_program_reduction": 0.08477366255144032,
+          "geomean_size_ratio_vs_oz": 1.0584699826218267,
+          "geomean_size_reduction_vs_oz": -0.05846998262182668,
+          "mean_size_reduction_vs_oz": -0.06409296895103332,
+          "median_size_reduction_vs_oz": -0.016538208834529465,
+          "positive_program_count": 38,
+          "worst_program_reduction": -0.43167305236270753
+        },
+        "32": {
+          "best_program_reduction": 0.08477366255144032,
+          "geomean_size_ratio_vs_oz": 1.0568084521749224,
+          "geomean_size_reduction_vs_oz": -0.056808452174922364,
+          "mean_size_reduction_vs_oz": -0.062423310608183985,
+          "median_size_reduction_vs_oz": -0.01065747080144986,
+          "positive_program_count": 38,
+          "worst_program_reduction": -0.43167305236270753
+        },
+        "64": {
+          "best_program_reduction": 0.08477366255144032,
+          "geomean_size_ratio_vs_oz": 1.0547541904066555,
+          "geomean_size_reduction_vs_oz": -0.05475419040665552,
+          "mean_size_reduction_vs_oz": -0.06015882896476576,
+          "median_size_reduction_vs_oz": -0.006670185795646334,
+          "positive_program_count": 39,
+          "worst_program_reduction": -0.43167305236270753
+        },
+        "8": {
+          "best_program_reduction": 0.08477366255144032,
+          "geomean_size_ratio_vs_oz": 1.059498728450896,
+          "geomean_size_reduction_vs_oz": -0.0594987284508961,
+          "mean_size_reduction_vs_oz": -0.06517440137731496,
+          "median_size_reduction_vs_oz": -0.018017142033995966,
+          "positive_program_count": 37,
+          "worst_program_reduction": -0.43167305236270753
+        }
+      }
+    },
+    "mamba": {
+      "budget_curve": {
+        "128": {
+          "best_program_reduction": 0.08342989571263036,
+          "geomean_size_ratio_vs_oz": 1.0587705546917954,
+          "geomean_size_reduction_vs_oz": -0.058770554691795374,
+          "mean_size_reduction_vs_oz": -0.06369289088316758,
+          "median_size_reduction_vs_oz": -0.027024994214302246,
+          "positive_program_count": 36,
+          "worst_program_reduction": -0.39719029374201786
+        },
+        "16": {
+          "best_program_reduction": 0.07654320987654321,
+          "geomean_size_ratio_vs_oz": 1.0662858870713112,
+          "geomean_size_reduction_vs_oz": -0.06628588707131122,
+          "mean_size_reduction_vs_oz": -0.07100814414538466,
+          "median_size_reduction_vs_oz": -0.03047222886777746,
+          "positive_program_count": 29,
+          "worst_program_reduction": -0.39719029374201786
+        },
+        "32": {
+          "best_program_reduction": 0.07654320987654321,
+          "geomean_size_ratio_vs_oz": 1.0643369903831308,
+          "geomean_size_reduction_vs_oz": -0.06433699038313079,
+          "mean_size_reduction_vs_oz": -0.06903321123615251,
+          "median_size_reduction_vs_oz": -0.028544826783566745,
+          "positive_program_count": 29,
+          "worst_program_reduction": -0.39719029374201786
+        },
+        "64": {
+          "best_program_reduction": 0.07654320987654321,
+          "geomean_size_ratio_vs_oz": 1.061811544435145,
+          "geomean_size_reduction_vs_oz": -0.06181154443514503,
+          "mean_size_reduction_vs_oz": -0.066564568427419,
+          "median_size_reduction_vs_oz": -0.027024994214302246,
+          "positive_program_count": 34,
+          "worst_program_reduction": -0.39719029374201786
+        },
+        "8": {
+          "best_program_reduction": 0.06337448559670782,
+          "geomean_size_ratio_vs_oz": 1.0695592754552017,
+          "geomean_size_reduction_vs_oz": -0.06955927545520169,
+          "mean_size_reduction_vs_oz": -0.07439551696735143,
+          "median_size_reduction_vs_oz": -0.03244711740051124,
+          "positive_program_count": 27,
+          "worst_program_reduction": -0.41762452107279696
+        }
+      }
+    },
+    "mlp": {
+      "budget_curve": {
+        "128": {
+          "best_program_reduction": 0.07956989247311828,
+          "geomean_size_ratio_vs_oz": 1.076933983025127,
+          "geomean_size_reduction_vs_oz": -0.076933983025127,
+          "mean_size_reduction_vs_oz": -0.08335527982543005,
+          "median_size_reduction_vs_oz": -0.02919095751373569,
+          "positive_program_count": 30,
+          "worst_program_reduction": -0.5197604790419161
+        },
+        "16": {
+          "best_program_reduction": 0.07956989247311828,
+          "geomean_size_ratio_vs_oz": 1.082792052299726,
+          "geomean_size_reduction_vs_oz": -0.08279205229972608,
+          "mean_size_reduction_vs_oz": -0.08921507518401697,
+          "median_size_reduction_vs_oz": -0.03872158478317615,
+          "positive_program_count": 25,
+          "worst_program_reduction": -0.5197604790419161
+        },
+        "32": {
+          "best_program_reduction": 0.07956989247311828,
+          "geomean_size_ratio_vs_oz": 1.0805836470538148,
+          "geomean_size_reduction_vs_oz": -0.08058364705381482,
+          "mean_size_reduction_vs_oz": -0.08695362506414048,
+          "median_size_reduction_vs_oz": -0.03681808059401573,
+          "positive_program_count": 27,
+          "worst_program_reduction": -0.5197604790419161
+        },
+        "64": {
+          "best_program_reduction": 0.07956989247311828,
+          "geomean_size_ratio_vs_oz": 1.079189082654955,
+          "geomean_size_reduction_vs_oz": -0.07918908265495506,
+          "mean_size_reduction_vs_oz": -0.085565800320741,
+          "median_size_reduction_vs_oz": -0.034063855051573194,
+          "positive_program_count": 28,
+          "worst_program_reduction": -0.5197604790419161
+        },
+        "8": {
+          "best_program_reduction": 0.07956989247311828,
+          "geomean_size_ratio_vs_oz": 1.0843019390142652,
+          "geomean_size_reduction_vs_oz": -0.08430193901426519,
+          "mean_size_reduction_vs_oz": -0.09065218724345875,
+          "median_size_reduction_vs_oz": -0.04198635976129582,
+          "positive_program_count": 23,
+          "worst_program_reduction": -0.5197604790419161
+        }
+      }
+    },
+    "random": {
+      "budget_curve": {
+        "128": {
+          "best_program_reduction": 0.10330578512396695,
+          "geomean_size_ratio_vs_oz": 1.0479421089898797,
+          "geomean_size_reduction_vs_oz": -0.04794210898987972,
+          "mean_size_reduction_vs_oz": -0.050999686520871335,
+          "median_size_reduction_vs_oz": -0.020051436472660816,
+          "positive_program_count": 27,
+          "worst_program_reduction": -0.2848020434227331
+        },
+        "16": {
+          "best_program_reduction": 0.08690614136732329,
+          "geomean_size_ratio_vs_oz": 1.0717132998385153,
+          "geomean_size_reduction_vs_oz": -0.07171329983851527,
+          "mean_size_reduction_vs_oz": -0.07567746503526697,
+          "median_size_reduction_vs_oz": -0.0441297504112512,
+          "positive_program_count": 15,
+          "worst_program_reduction": -0.4367816091954023
+        },
+        "32": {
+          "best_program_reduction": 0.09504132231404959,
+          "geomean_size_ratio_vs_oz": 1.0630454006925998,
+          "geomean_size_reduction_vs_oz": -0.06304540069259978,
+          "mean_size_reduction_vs_oz": -0.06662267685240546,
+          "median_size_reduction_vs_oz": -0.03772427243465437,
+          "positive_program_count": 22,
+          "worst_program_reduction": -0.40229885057471265
+        },
+        "64": {
+          "best_program_reduction": 0.10330578512396695,
+          "geomean_size_ratio_vs_oz": 1.0552017358754258,
+          "geomean_size_reduction_vs_oz": -0.05520173587542576,
+          "mean_size_reduction_vs_oz": -0.0585360954268592,
+          "median_size_reduction_vs_oz": -0.027204993958920662,
+          "positive_program_count": 25,
+          "worst_program_reduction": -0.34610472541507026
+        },
+        "8": {
+          "best_program_reduction": 0.037037037037037035,
+          "geomean_size_ratio_vs_oz": 1.0865691670237956,
+          "geomean_size_reduction_vs_oz": -0.08656916702379558,
+          "mean_size_reduction_vs_oz": -0.09088104833050657,
+          "median_size_reduction_vs_oz": -0.06097205337755697,
+          "positive_program_count": 10,
+          "worst_program_reduction": -0.4367816091954023
+        }
+      }
+    },
+    "transformer": {
+      "budget_curve": {
+        "128": {
+          "best_program_reduction": 0.07956989247311828,
+          "geomean_size_ratio_vs_oz": 1.0686343569220074,
+          "geomean_size_reduction_vs_oz": -0.06863435692200737,
+          "mean_size_reduction_vs_oz": -0.07431738287124184,
+          "median_size_reduction_vs_oz": -0.037333333333333336,
+          "positive_program_count": 33,
+          "worst_program_reduction": -0.438058748403576
+        },
+        "16": {
+          "best_program_reduction": 0.07956989247311828,
+          "geomean_size_ratio_vs_oz": 1.0708219194979773,
+          "geomean_size_reduction_vs_oz": -0.07082191949797734,
+          "mean_size_reduction_vs_oz": -0.0765835096348643,
+          "median_size_reduction_vs_oz": -0.037333333333333336,
+          "positive_program_count": 31,
+          "worst_program_reduction": -0.44061302681992337
+        },
+        "32": {
+          "best_program_reduction": 0.07956989247311828,
+          "geomean_size_ratio_vs_oz": 1.0705166510121027,
+          "geomean_size_reduction_vs_oz": -0.0705166510121027,
+          "mean_size_reduction_vs_oz": -0.0762748082018583,
+          "median_size_reduction_vs_oz": -0.037333333333333336,
+          "positive_program_count": 31,
+          "worst_program_reduction": -0.44061302681992337
+        },
+        "64": {
+          "best_program_reduction": 0.07956989247311828,
+          "geomean_size_ratio_vs_oz": 1.069497799154271,
+          "geomean_size_reduction_vs_oz": -0.0694977991542709,
+          "mean_size_reduction_vs_oz": -0.07527810666126061,
+          "median_size_reduction_vs_oz": -0.037333333333333336,
+          "positive_program_count": 33,
+          "worst_program_reduction": -0.44061302681992337
+        },
+        "8": {
+          "best_program_reduction": 0.07415990730011587,
+          "geomean_size_ratio_vs_oz": 1.071633211844766,
+          "geomean_size_reduction_vs_oz": -0.07163321184476601,
+          "mean_size_reduction_vs_oz": -0.07736617367571336,
+          "median_size_reduction_vs_oz": -0.037333333333333336,
+          "positive_program_count": 30,
+          "worst_program_reduction": -0.44061302681992337
+        }
+      }
+    }
+  },
+  "budget_points": [
+    8,
+    16,
+    32,
+    64,
+    128
+  ],
+  "checks": {
+    "completed_programs": true,
+    "final_test_accessed": true,
+    "invalid_episode_count": true,
+    "train_dev_program_overlap": true,
+    "true_candidate_evaluations_per_method": true
+  },
+  "completed_programs": 100,
+  "decision": "PASS",
+  "experiment_name": "same_budget_dev_search_v1_seed41",
+  "finished_at_utc": "2026-08-15T09:19:19.291898+00:00",
+  "git": {
+    "branch": "main",
+    "commit": "23cfefe6fbd6f3567989bec63de44852d87c9501",
+    "status_short": [
+      "M docs/routeGuide.md",
+      "?? AGENTS.md",
+      "?? opentuner.log",
+      "?? outputs/acpo_loop_unroll_reproduction_v2/",
+      "?? outputs/same_budget_dev_search_v1_seed41/",
+      "?? scripts/__pycache__/",
+      "?? tests/__pycache__/"
+    ]
+  },
+  "host": {
+    "compiler_gym": "0.2.5",
+    "cuda_device": "NVIDIA GeForce RTX 3090",
+    "platform": "Linux-5.15.0-136-generic-x86_64-with-glibc2.35",
+    "python": "3.10.8 (main, Nov 24 2022, 14:13:03) [GCC 11.2.0]",
+    "torch": "2.1.2+cu118"
+  },
+  "mode": "formal",
+  "started_at_utc": "2026-08-15T08:13:55.602314+00:00",
+  "true_candidate_evaluations": {
+    "lstm": 12800,
+    "mamba": 12800,
+    "mlp": 12800,
+    "random": 12800,
+    "transformer": 12800
+  }
+}

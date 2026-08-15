@@ -408,3 +408,29 @@ PASS for completion of the frozen expanded-data training protocol; compiler-perf
 
 ### Git
 Experiment code commit `42250e123fdd3442043465fd8aaf226035720c78`.
+
+
+## 2026-08-15 — Same-budget held-out search v1
+
+### Goal
+Test whether the single justified Dataset v1 expansion enables MambaPO to find smaller code than LLVM -Oz, Random, MLP, LSTM, and Transformer under the unchanged true candidate-evaluation budget on the original held-out programs.
+
+### Frozen protocol
+The identical v0 search protocol and original 100 program-disjoint Jotaibench dev programs; cBench sealed; Random plus the four frozen v1 final-epoch checkpoints; sequence length at most 32; learned beam width 8 and top-k 8; exactly 128 deterministic ObjectTextSize candidate evaluations per method and program; budget curves at 8, 16, 32, 64, and 128; primary result remains code-size reduction relative to LLVM -Oz. Only the checkpoint paths changed from search v0.
+
+### Changes
+Replaced the four v0 checkpoints with their expanded-data v1 checkpoints after a one-program/two-candidate compatibility smoke. No dev program, seed, search parameter, evaluation metric, baseline, budget, or gate changed.
+
+### Result
+All 100 programs completed with exactly 12,800 true candidate evaluations per method and zero invalid episodes. At budget 128, geomean size reduction versus -Oz was -4.7942% for Random, -7.6934% for MLP, -5.3315% for LSTM, -6.8634% for Transformer, and -5.8771% for Mamba; positive-program counts were 27, 30, 40, 33, and 36. Mamba did not beat -Oz, Random, or LSTM. Read-only candidate diagnostics found Mamba mean per-program Spearman 0.1775 and pairwise accuracy 0.5856 among its 128 evaluated candidates, but this improved local ranking did not translate into compiler-performance success. All four v1 learning curves still had an earlier best dev RMSE than the frozen final epoch.
+
+### Decision
+FAIL for the research hypothesis. Execution and reproducibility checks are PASS, but the primary compiler-performance gate remains unmet after the route-authorized data expansion. Per the frozen route, no further small model/search variant is started; cBench remains sealed and runtime evaluation is not started.
+
+### Artifacts
+- `outputs/same_budget_dev_search_v1_seed41/config.json` — SHA256 `7ef9fd4620ac0ee973688fdf8a01f44b2280e94a930e32ba2ae2f43648e94b1f`
+- `outputs/same_budget_dev_search_v1_seed41/program_results.jsonl.gz` — SHA256 `708fd8cf6b0eb573e8d2ce84f34050e6945ad9f146f8c6f9ec7949e6d9867a19`
+- `outputs/same_budget_dev_search_v1_seed41/experiment_report.json` — SHA256 `e3aba856cd172e9bdfcea8e7c6e4ae5be7f025802eed4900b8db65e9dee3ae5d`
+
+### Git
+Experiment code/config commit `23cfefe6fbd6f3567989bec63de44852d87c9501`.

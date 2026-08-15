@@ -1,0 +1,57 @@
+{
+  "dataset": {
+    "expected_programs": 100,
+    "final_test_accessed": false,
+    "final_test_dataset": "benchmark://cbench-v1",
+    "program_splits_path": "outputs/object_text_size_dataset_v0_seed41/program_splits.json",
+    "split": "dev"
+  },
+  "environment": {
+    "action_count": 124,
+    "compiler_gym_version": "0.2.5",
+    "feature_space": "InstCount",
+    "id": "llvm-v0",
+    "oz_baseline_observation": "ObjectTextSizeOz",
+    "size_observation": "ObjectTextSizeBytes"
+  },
+  "experiment_name": "same_budget_dev_search_v1_seed41",
+  "hypothesis": "Under the same 128-candidate true ObjectTextSize evaluation budget, Mamba-guided search finds smaller code than Random, MLP, LSTM, and Transformer on held-out Jotaibench programs.",
+  "metrics": [
+    "best_object_text_size_by_budget",
+    "size_reduction_vs_oz",
+    "geomean_size_ratio_vs_oz",
+    "positive_program_count",
+    "best_regression",
+    "worst_regression"
+  ],
+  "models": {
+    "lstm": "outputs/lstm_value_baseline_v1_seed41/model.pt",
+    "mamba": "outputs/mambapo_value_v1_seed41/model.pt",
+    "mlp": "outputs/mlp_value_baseline_v1_seed41/model.pt",
+    "transformer": "outputs/transformer_value_baseline_v1_seed41/model.pt"
+  },
+  "objective": "Minimize deterministic ObjectTextSizeBytes; report size reduction relative to LLVM -Oz.",
+  "pass_fail_gate": {
+    "completed_programs": 100,
+    "final_test_accessed": false,
+    "invalid_episode_count": 0,
+    "train_dev_program_overlap": 0,
+    "true_candidate_evaluations_per_method": 128
+  },
+  "search": {
+    "beam_width": 8,
+    "budget_points": [
+      8,
+      16,
+      32,
+      64,
+      128
+    ],
+    "candidate_budget": 128,
+    "candidate_ranking": "descending predicted size_reduction_vs_oz",
+    "maximum_sequence_length": 32,
+    "minimum_sequence_length": 1,
+    "seed": 41,
+    "top_k_actions": 8
+  }
+}
