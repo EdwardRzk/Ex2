@@ -140,3 +140,33 @@ PASS.
 - `outputs/object_text_size_dataset_v0_seed41/program_splits.json` — SHA256 `54d617e8c55f4292aae34c016250be5d799c73d58c382d9c2217503e3d54a06e`
 - `outputs/object_text_size_dataset_v0_seed41/train.jsonl.gz` — SHA256 `9dfde34466748e26b3e4f97ba72045bea9b265d2972fbfac5ba538477d836197`
 - `outputs/object_text_size_dataset_v0_seed41/dev.jsonl.gz` — SHA256 `dbaa6f250d775e4443717833ac85d90cd95bd71a4f5002d93072795e9694c9c1`
+- `outputs/object_text_size_dataset_v0_seed41/experiment_report.json` — SHA256 `fbfdaded97000b088d9e1ad6b3f8e2c38c5a5c990873f142823a0de089d07c4f`
+
+### Git
+Experiment code commit `53cb6a1b9dc7544526229ee9f9b7d8aac483dc4c`.
+
+## 2026-08-15 — MLP value baseline v0
+
+### Goal
+Train the first order-agnostic value baseline on Dataset v0 before introducing sequence models.
+
+### Frozen protocol
+Program-disjoint Dataset v0 with 14,400 train and 1,600 dev trajectories; target `size_reduction_vs_oz`; final 70-dimensional InstCount state, normalized 124-dimensional pass histogram, and normalized sequence length; MLP hidden dimensions 256 and 128; Huber regression plus 0.1-weight same-program pairwise logistic loss; AdamW for exactly 30 epochs with no early stopping or hyperparameter scan; final epoch used for reporting.
+
+### Changes
+Added the frozen MLP config, order-agnostic feature loader, grouped pairwise objective, learning-curve metrics, checkpoint writer, and focused tests. A tiny integration smoke exposed and fixed an action-dimension inference bug before formal training.
+
+### Result
+Final dev MAE was 0.075943 and RMSE was 0.097225 versus constant-predictor MAE 0.133755 and RMSE 0.194657. Pearson correlation was 0.878388, Spearman correlation was 0.762282, and same-program pairwise accuracy was 0.851627. All 30 epochs completed with finite metrics on the NVIDIA GeForce RTX 3090.
+
+### Decision
+PASS.
+
+### Artifacts
+- `outputs/mlp_value_baseline_v0_seed41/config.json` — SHA256 `c72b60ec605853daca3668a288a0fd67abc1b0c14ad308157857f43da78f7b8d`
+- `outputs/mlp_value_baseline_v0_seed41/model.pt` — SHA256 `b3b793183383b3ceab9a0499a7f9260e0a4e8437178039d78deac332e37a9b4b`
+- `outputs/mlp_value_baseline_v0_seed41/learning_curve.json` — SHA256 `cf370ebe6b50e15d1bb8f5419fdcc532384fff4c0c724bcb5a3d1b78cef20492`
+- `outputs/mlp_value_baseline_v0_seed41/experiment_report.json` — SHA256 `c422578b40badda734b488ddbe1c155d48b6d8683b6c5418929d171936f56223`
+
+### Git
+Experiment code commit `369959be4941457eeb367fffe010c4dc3754ecb6`.
