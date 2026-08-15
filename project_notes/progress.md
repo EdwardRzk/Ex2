@@ -248,3 +248,28 @@ PASS.
 
 ### Git
 Experiment code commit `c5b2f4aea0641ff25d60500fc94728fbeff84917`.
+
+## 2026-08-15 — Same-budget held-out search v0
+
+### Goal
+Test whether MambaPO finds smaller object code than LLVM -Oz, Random, MLP, LSTM, and Transformer under the same true candidate-evaluation budget on held-out programs.
+
+### Frozen protocol
+The 100 program-disjoint Jotaibench dev programs; cBench sealed; LLVM action space read as 124; sequence length at most 32; Random plus four frozen learned checkpoints; learned beam width 8 and top-k action expansion 8; exactly 128 complete candidate sequences per method and program whose deterministic ObjectTextSizeBytes was read once; budget curves at 8, 16, 32, 64, and 128; primary result is code-size reduction relative to LLVM -Oz.
+
+### Changes
+Added the frozen search config, checkpoint scorers, model-guided beam candidate generation, equal-budget true size evaluation, gzip per-program results, aggregate search curves, and focused tests. Ran a one-program/two-candidate smoke before the formal experiment.
+
+### Result
+All 100 programs completed with exactly 12,800 true candidate evaluations per method and zero invalid episodes. At budget 128, geomean size reduction versus -Oz was -4.7942% for Random, -9.3731% for MLP, -4.7932% for LSTM, -7.7790% for Transformer, and -5.4337% for Mamba. Positive-program counts were 27, 29, 41, 22, and 36 respectively. Mamba did not beat -Oz, Random, or LSTM in aggregate.
+
+### Decision
+FAIL for the research hypothesis. The generated report's execution checks are PASS, but the primary comparative compiler-performance criterion is not met. cBench remains sealed and runtime evaluation is not started.
+
+### Artifacts
+- `outputs/same_budget_dev_search_v0_seed41/config.json` — SHA256 `90edff6c8d94a492ed516995b27e88bbf50791c1457e4fd3f888a2e20f65c30a`
+- `outputs/same_budget_dev_search_v0_seed41/program_results.jsonl.gz` — SHA256 `0a9f4bf2c028fb062f2a934d677f57c6c831aaeb0bb08a5e3b4cf4d4c816731f`
+- `outputs/same_budget_dev_search_v0_seed41/experiment_report.json` — SHA256 `c13a202cb0f4292d529494d303493ff50471eb19b7253d122fe8cdb466405594`
+
+### Git
+Experiment code commit `c74af32c1fb87e6a0a8da4e1286adc28df2d46a5`.
