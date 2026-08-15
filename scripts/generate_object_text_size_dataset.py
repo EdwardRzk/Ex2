@@ -86,8 +86,10 @@ def select_program_splits(
     train_programs: int,
     dev_programs: int,
     seed: int,
+    excluded_uris: Iterable[str] = (),
 ) -> dict[str, list[str]]:
-    uris = sorted(str(uri) for uri in benchmark_uris)
+    excluded = {str(uri) for uri in excluded_uris}
+    uris = sorted(str(uri) for uri in benchmark_uris if str(uri) not in excluded)
     total = train_programs + dev_programs
     if len(uris) < total:
         raise ValueError(f"Dataset has {len(uris)} programs, but {total} are required")
@@ -433,12 +435,20 @@ def main() -> int:
         report["dependencies"] = dependency_metadata(config)
         benchmark_uris, action_names = environment_metadata(config)
         dataset = config["dataset"]
+        excluded_uris: set[str] = set()
+        excluded_path = dataset.get("exclude_program_splits_path")
+        if excluded_path:
+            with Path(excluded_path).open(encoding="utf-8") as file:
+                excluded_splits = json.load(file)
+            excluded_uris = set(excluded_splits["train"]) | set(excluded_splits["dev"])
         splits = select_program_splits(
             benchmark_uris,
             train_programs=dataset["train_programs"],
             dev_programs=dataset["dev_programs"],
             seed=dataset["selection_seed"],
+            excluded_uris=excluded_uris,
         )
+        report["excluded_program_count"] = len(excluded_uris)
         workers = config["execution"]["workers"]
         if args.smoke:
             splits = {"train": splits["train"][:1], "dev": splits["dev"][:1]}

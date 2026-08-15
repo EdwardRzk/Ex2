@@ -27,6 +27,15 @@ def test_select_program_splits_is_deterministic_and_disjoint() -> None:
     assert not (set(first["train"]) & set(first["dev"]))
 
 
+def test_select_program_splits_excludes_frozen_programs() -> None:
+    uris = [f"benchmark://jotaibench-v0/{index}" for index in range(20)]
+    excluded = set(uris[:10])
+    splits = select_program_splits(
+        uris, train_programs=8, dev_programs=2, seed=42, excluded_uris=excluded
+    )
+    assert not ((set(splits["train"]) | set(splits["dev"])) & excluded)
+
+
 def test_object_text_size_oz_reward_matches_compiler_gym_definition() -> None:
     assert object_text_size_oz_reward(120, 100, 90) == pytest.approx(1.5)
     assert object_text_size_oz_reward(100, 100, 90) == pytest.approx(10.0)
