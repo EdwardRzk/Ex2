@@ -1,0 +1,50 @@
+{
+  "experiment_name": "mlp_value_baseline_v0_seed41",
+  "hypothesis": "A small order-agnostic MLP can learn a finite held-out value signal from final InstCount state and pass-count features before sequence models are introduced.",
+  "dataset": {
+    "train_path": "outputs/object_text_size_dataset_v0_seed41/train.jsonl.gz",
+    "dev_path": "outputs/object_text_size_dataset_v0_seed41/dev.jsonl.gz",
+    "program_split": "program-disjoint",
+    "target": "size_reduction_vs_oz"
+  },
+  "representation": {
+    "state": "final InstCount",
+    "action_count": 124,
+    "pass_history": "124-dimensional normalized action histogram",
+    "max_sequence_length": 32,
+    "sequence_length": "length divided by 32"
+  },
+  "model": {
+    "type": "MLP",
+    "hidden_dimensions": [256, 128],
+    "activation": "ReLU"
+  },
+  "objective": {
+    "regression": "Huber loss",
+    "pairwise_ranking": "same-program logistic pairwise loss",
+    "pairwise_weight": 0.1
+  },
+  "training": {
+    "seed": 41,
+    "epochs": 30,
+    "programs_per_batch": 16,
+    "learning_rate": 0.001,
+    "weight_decay": 0.00001,
+    "early_stopping": false,
+    "device": "cuda"
+  },
+  "metrics": [
+    "dev_mae",
+    "dev_rmse",
+    "dev_pearson",
+    "dev_spearman",
+    "dev_same_program_pairwise_accuracy",
+    "constant_predictor_dev_mae",
+    "constant_predictor_dev_rmse"
+  ],
+  "pass_fail_gate": {
+    "completed_epochs": 30,
+    "all_dev_metrics_finite": true,
+    "checkpoint_written": true
+  }
+}
