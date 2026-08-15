@@ -1,0 +1,49 @@
+{
+  "experiment_name": "object_text_size_dataset_v0_seed41",
+  "hypothesis": "Random LLVM phase trajectories over Jotaibench can provide deterministic, program-disjoint ObjectTextSize training data for MambaPO v0.",
+  "dataset": {
+    "name": "benchmark://jotaibench-v0",
+    "total_programs": 1000,
+    "train_programs": 900,
+    "dev_programs": 100,
+    "final_test_dataset": "benchmark://cbench-v1",
+    "final_test_accessed": false,
+    "trajectories_per_program": 16,
+    "selection_seed": 41
+  },
+  "environment": {
+    "id": "llvm-v0",
+    "python_major_minor": "3.10",
+    "compiler_gym_version": "0.2.5",
+    "numpy_version": "1.26.4",
+    "feature_space": "InstCount",
+    "size_observation": "ObjectTextSizeBytes",
+    "oz_baseline_observation": "ObjectTextSizeOz"
+  },
+  "trajectory": {
+    "minimum_sequence_length": 1,
+    "maximum_sequence_length": 32,
+    "action_sampling": "uniform_with_replacement"
+  },
+  "model": null,
+  "objective": "Generate MambaPO v0 state/action histories with deterministic object-code-size labels.",
+  "metrics": [
+    "trajectory_count",
+    "program_count",
+    "train_dev_program_overlap",
+    "invalid_episode_count",
+    "feature_dimension",
+    "action_space_size"
+  ],
+  "pass_fail_gate": {
+    "trajectory_count": 16000,
+    "program_count": 1000,
+    "train_dev_program_overlap": 0,
+    "invalid_episode_count": 0,
+    "sequence_length_minimum": 1,
+    "sequence_length_maximum": 32
+  },
+  "execution": {
+    "workers": 8
+  }
+}
