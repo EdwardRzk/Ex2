@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import argparse
 import ast
+from concurrent.futures import ProcessPoolExecutor, as_completed
 import gzip
 import json
 import math
@@ -19,6 +20,9 @@ from typing import Any, Iterable, Mapping, Sequence
 
 
 SCHEMA_VERSION = 1
+_WORKER_ENV: Any | None = None
+_WORKER_CANDIDATES: list[tuple[int, ...]] = []
+_WORKER_METADATA: dict[str, str] = {}
 K = 50
 
 
@@ -241,6 +245,41 @@ def environment_metadata() -> dict[str, str]:
 def write_json(path: Path, payload: Mapping[str, Any]) -> None:
     path.write_text(json.dumps(payload, indent=2, sort_keys=True) + "\n", encoding="utf-8")
 
+def _init_worker(candidates: Sequence[Sequence[int]], metadata: Mapping[str, str]) -> None:
+    global _WORKER_CANDIDATES, _WORKER_ENV, _WORKER_METADATA
+    import compiler_gym
+
+    _WORKER_CANDIDATES = [tuple(candidate) for candidate in candidates]
+    _WORKER_METADATA = dict(metadata)
+    _WORKER_ENV = compiler_gym.make("llvm-v0", reward_space=None)
+
+
+def _label_one_program(index: int, program_id: str) -> tuple[int, list[dict[str, Any]], dict[str, Any]]:
+    if _WORKER_ENV is None:
+        raise RuntimeError("CompilerGym worker environment was not initialized")
+    records, summary = label_program(
+        _WORKER_ENV,
+        program_id=program_id,
+        candidates=_WORKER_CANDIDATES,
+        action_names=list(_WORKER_ENV.action_space.names),
+        metadata=_WORKER_METADATA,
+    )
+    return index, records, summary
+
+
+def _shard_path(output_dir: Path, split_name: str, index: int) -> Path:
+    return output_dir / "shards" / split_name / f"{index:06d}.json.gz"
+
+
+def _write_program_shard(path: Path, records: Sequence[Mapping[str, Any]], summary: Mapping[str, Any]) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    temporary = path.with_suffix(path.suffix + ".tmp")
+    with gzip.open(temporary, "wt", encoding="utf-8") as file:
+        json.dump({"records": records, "program_summary": summary}, file, separators=(",", ":"))
+        file.write("\n")
+    temporary.replace(path)
+
+
 
 def run_split(
     *, output_dir: Path, split_name: str, programs: Iterable[str], candidates: Sequence[Sequence[int]], metadata: Mapping[str, str]
@@ -264,6 +303,36 @@ def run_split(
     counts["programs_incomplete_K50"] = counts["programs_total"] - counts["programs_complete_K50"]
     return dict(counts)
 
+def run_split_parallel(
+    *, output_dir: Path, split_name: str, programs: Sequence[str], candidates: Sequence[Sequence[int]], metadata: Mapping[str, str], workers: int
+) -> dict[str, Any]:
+    counts: Counter[str] = Counter()
+    pending = [
+        (index, program_id)
+        for index, program_id in enumerate(programs)
+        if not _shard_path(output_dir, split_name, index).exists()
+    ]
+    counts["programs_preexisting_complete"] = len(programs) - len(pending)
+    with ProcessPoolExecutor(
+        max_workers=workers,
+        initializer=_init_worker,
+        initargs=(candidates, metadata),
+    ) as executor:
+        futures = [executor.submit(_label_one_program, index, program_id) for index, program_id in pending]
+        for completed, future in enumerate(as_completed(futures), start=1):
+            index, records, summary = future.result()
+            _write_program_shard(_shard_path(output_dir, split_name, index), records, summary)
+            counts["programs_total"] += 1
+            counts["programs_complete_K50"] += summary["program_training_target_validity"] == "valid_complete_K50"
+            for record in records:
+                if record["failure_reason"]:
+                    counts[record["failure_reason"]] += 1
+            if completed % 10 == 0 or completed == len(pending):
+                print(f"{split_name}: completed {completed}/{len(pending)} newly claimed programs", flush=True)
+    counts["programs_incomplete_K50"] = counts["programs_total"] - counts["programs_complete_K50"]
+    return dict(counts)
+
+
 
 def main() -> int:
     parser = argparse.ArgumentParser()
@@ -271,11 +340,14 @@ def main() -> int:
     parser.add_argument("--validation-split", type=Path, required=True)
     parser.add_argument("--candidate-file", type=Path, required=True)
     parser.add_argument("--output-dir", type=Path, required=True)
+    parser.add_argument("--workers", type=int, default=8)
     args = parser.parse_args()
     if args.output_dir.exists():
         raise FileExistsError(f"Refusing to overwrite existing output: {args.output_dir}")
     candidates = load_candidates(args.candidate_file)
     train = load_split_programs(args.train_split)
+    if args.workers < 1:
+        raise ValueError("workers must be positive")
     validation = load_split_programs(args.validation_split)
     if set(train) & set(validation):
         raise ValueError("Official train and validation program populations overlap")
@@ -292,13 +364,19 @@ def main() -> int:
         "train_split_source": str(args.train_split),
         "validation_split_source": str(args.validation_split),
         "final_test_accessed": False,
+        "execution_parallelism": {
+            "workers": args.workers,
+            "unit_of_parallelism": "one complete program per worker",
+            "candidate_rollouts_within_program": "sequential independent resets",
+            "program_commit": "one atomic gzip shard after all K=50 records",
+        },
         "environment": metadata,
     }
     write_json(args.output_dir / "config.json", frozen_config)
     report: dict[str, Any] = {"started_at_utc": datetime.now(timezone.utc).isoformat(), "decision": "INVALID"}
     try:
-        report["train"] = run_split(output_dir=args.output_dir, split_name="train", programs=train, candidates=candidates, metadata=metadata)
-        report["validation"] = run_split(output_dir=args.output_dir, split_name="validation", programs=validation, candidates=candidates, metadata=metadata)
+        report["train"] = run_split_parallel(output_dir=args.output_dir, split_name="train", programs=train, candidates=candidates, metadata=metadata, workers=args.workers)
+        report["validation"] = run_split_parallel(output_dir=args.output_dir, split_name="validation", programs=validation, candidates=candidates, metadata=metadata, workers=args.workers)
         report["decision"] = "COMPLETE"
     except Exception as error:
         report["error"] = {"type": type(error).__name__, "message": str(error), "traceback": traceback.format_exc()}
