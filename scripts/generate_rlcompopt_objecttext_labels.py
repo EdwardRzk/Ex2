@@ -9,6 +9,7 @@ from concurrent.futures import ProcessPoolExecutor, as_completed
 import gzip
 import json
 import math
+import os
 import platform
 import subprocess
 import sys
@@ -274,9 +275,14 @@ def _shard_path(output_dir: Path, split_name: str, index: int) -> Path:
 def _write_program_shard(path: Path, records: Sequence[Mapping[str, Any]], summary: Mapping[str, Any]) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     temporary = path.with_suffix(path.suffix + ".tmp")
-    with gzip.open(temporary, "wt", encoding="utf-8") as file:
-        json.dump({"records": records, "program_summary": summary}, file, separators=(",", ":"))
-        file.write("\n")
+    with temporary.open("wb") as raw_file:
+        with gzip.GzipFile(fileobj=raw_file, mode="wb") as compressed:
+            payload = json.dumps(
+                {"records": records, "program_summary": summary}, separators=(",", ":")
+            ).encode("utf-8") + b"\n"
+            compressed.write(payload)
+        raw_file.flush()
+        os.fsync(raw_file.fileno())
     temporary.replace(path)
 
 
@@ -349,6 +355,9 @@ def main() -> int:
     if args.workers < 1:
         raise ValueError("workers must be positive")
     validation = load_split_programs(args.validation_split)
+    worker_thread_limits = {"OMP_NUM_THREADS": "1", "MKL_NUM_THREADS": "1", "OPENBLAS_NUM_THREADS": "1"}
+    for name, value in worker_thread_limits.items():
+        os.environ[name] = value
     if set(train) & set(validation):
         raise ValueError("Official train and validation program populations overlap")
     args.output_dir.mkdir(parents=True)
@@ -370,6 +379,7 @@ def main() -> int:
             "candidate_rollouts_within_program": "sequential independent resets",
             "program_commit": "one atomic gzip shard after all K=50 records",
         },
+        "worker_thread_limits": worker_thread_limits,
         "environment": metadata,
     }
     write_json(args.output_dir / "config.json", frozen_config)
