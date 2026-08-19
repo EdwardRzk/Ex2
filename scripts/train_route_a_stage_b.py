@@ -12,17 +12,30 @@ from typing import Any, Mapping
 import numpy as np
 import torch
 
-from scripts.train_autophase_nvp_objecttext import AutophaseNVP
-from scripts.train_controlled_nvp_stage_a import (
-    ControlledCandidateModel,
-    evaluate,
-    extract_features,
-    learning_rate,
-    load_candidates,
-    read_jsonl,
-    read_label_matrix,
-    soft_cross_entropy,
-)
+if __package__:
+    from scripts.train_autophase_nvp_objecttext import AutophaseNVP
+    from scripts.train_controlled_nvp_stage_a import (
+        ControlledCandidateModel,
+        evaluate,
+        extract_features,
+        learning_rate,
+        load_candidates,
+        read_jsonl,
+        read_label_matrix,
+        soft_cross_entropy,
+    )
+else:
+    from train_autophase_nvp_objecttext import AutophaseNVP
+    from train_controlled_nvp_stage_a import (
+        ControlledCandidateModel,
+        evaluate,
+        extract_features,
+        learning_rate,
+        load_candidates,
+        read_jsonl,
+        read_label_matrix,
+        soft_cross_entropy,
+    )
 
 
 def load_json(path: Path) -> dict[str, Any]:
