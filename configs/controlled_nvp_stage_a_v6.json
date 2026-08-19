@@ -1,0 +1,92 @@
+{
+  "experiment_name": "controlled_nvp_stage_a_objecttext_v6",
+  "hypothesis": "H2b controlled comparison of MLP, LSTM, Transformer, and Mamba with identical Autophase program inputs, ordered frozen candidate tokens, ObjectText NVP targets, and offline policy-45 selection.",
+  "target_files": {
+    "train": "outputs/rlcompopt_route_a_nvp_targets_v6/train_targets.jsonl.gz",
+    "validation": "outputs/rlcompopt_route_a_nvp_targets_v6/validation_targets.jsonl.gz"
+  },
+  "program_representation": {
+    "name": "Autophase",
+    "dimension": 56,
+    "preprocessing": "raw Autophase vector / raw_feature_51_total_instructions",
+    "shared_across_architectures": true
+  },
+  "candidate_representation": {
+    "candidate_sequences": "configs/rlcompopt_action_seq_50.txt",
+    "K": 50,
+    "token_semantics": "official LLVM action IDs in frozen candidate order; no candidate-ID feature",
+    "vocabulary_size": 125,
+    "action_id_range": [0, 123],
+    "pad_token_id": 124,
+    "special_tokens": ["PAD=124"],
+    "padding": "right-pad each candidate sequence to length 20; use valid-token lengths for LSTM final state and Transformer padding mask; Mamba is causal and reads the final valid token; MLP masks PAD embeddings before flattening",
+    "minimum_sequence_length": 4,
+    "padded_length": 20,
+    "shared_across_architectures": true
+  },
+  "target_and_objective": {
+    "target": "frozen Step-6 normalized_target = softmax(raw_candidate_value / 0.05)",
+    "target_temperature": 0.05,
+    "loss": "mean soft-label CrossEntropyLoss(logits[50], normalized_target[50])",
+    "logit_temperature": 1.0
+  },
+  "capacity_envelope": {
+    "common_d_model": 64,
+    "policy": "one fixed, materially comparable small-capacity configuration per architecture; actual parameter counts are reported without an invented percentage threshold",
+    "no_architecture_receives_extra_inputs": true
+  },
+  "training": {
+    "maximum_configurations_per_architecture": 1,
+    "hyperparameter_selection_seed_policy": "one fixed seed 0 per architecture; no result-conditioned expansion",
+    "seed": 0,
+    "optimizer": "Adam",
+    "learning_rate_candidate_set": [0.0005],
+    "learning_rate": 0.0005,
+    "weight_decay": 0.00001,
+    "batch_size": 256,
+    "evaluation_batch_size": 64,
+    "total_steps": 10000,
+    "lr_schedule": "500-step linear warmup then cosine to lr*0.01 over the remaining 9500 steps",
+    "warmup_steps": 500,
+    "early_stopping": false,
+    "checkpoint_evaluation_cadence_steps": 100,
+    "checkpoint_selection_rule": "maximum ValidationFinalMeanOverOz policy-45 dataset macro mean; deterministic first checkpoint on exact tie"
+  },
+  "validation": {
+    "inference": "sampling=false; descending logits with candidate-ID ascending tie break",
+    "policy": "offline independent-reset prefix-label simulation with exactly 45 scored-pass budget",
+    "selection_metric": "ValidationFinalMeanOverOz policy-45 dataset macro mean",
+    "eligible_train_programs": 28159,
+    "eligible_validation_programs": 4488,
+    "final_test_accessed": false,
+    "ood_accessed": false,
+    "runtime_accessed": false
+  },
+  "models": {
+    "MLP": {
+      "d_model": 64,
+      "architecture": "position-aware token embeddings plus program conditioning, PAD-masked ordered flattening, two 64-unit ReLU layers, scalar candidate logit"
+    },
+    "LSTM": {
+      "d_model": 64,
+      "layers": 2,
+      "architecture": "position-aware token embeddings plus program conditioning, two-layer LSTM, final valid-token state, scalar candidate logit"
+    },
+    "Transformer": {
+      "d_model": 64,
+      "layers": 2,
+      "attention_heads": 4,
+      "feedforward_dimension": 128,
+      "architecture": "position-aware token embeddings plus program conditioning, two-layer masked Transformer encoder, final valid-token state, scalar candidate logit"
+    },
+    "Mamba": {
+      "d_model": 64,
+      "layers": 2,
+      "d_state": 16,
+      "d_conv": 4,
+      "expand": 2,
+      "use_fast_path": true,
+      "architecture": "position-aware token embeddings plus program conditioning, two residual Mamba blocks, final valid-token state, scalar candidate logit"
+    }
+  }
+}
