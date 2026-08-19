@@ -510,3 +510,29 @@ COMPLETE. Step 6 target construction is complete; NVP training was not started.
 
 ### Git
 Step-6 code commit `4b0274c1`.
+
+## 2026-08-19 — Route-A ObjectText Autophase-NVP anchor v6
+
+### Goal
+Train the paper-style Autophase NVP anchor against frozen Step-6 ObjectText K=50 targets, select only by validation policy-45 dataset-macro MeanOverOz, then stop before controlled-model or final/OOD work.
+
+### Frozen protocol
+Inputs are exactly 28,159 complete-K50 train and 4,488 complete-K50 validation target records. The OFFICIAL-CODE-ALIGNED Autophase `CLSLearner` path is `Linear(56,256)`, ReLU, `Linear(256,256)`, ReLU, `Linear(256,50)` (93,234 parameters), with Autophase divided by raw feature 51. Adam (lr `5e-4`, weight decay `1e-5`), batch 256, warmup 500, cosine-to-1%-lr through 10,000 steps, target temperature `0.05`, logit temperature `1`, seed 0, and mean soft-label cross entropy are used. The PROJECT-SPECIFIC interface adaptation replaces the official on-policy target database with frozen ObjectText target files. Offline policy-45 ranks K=50 logits descending with candidate-ID tie breaks and consumes only independent-reset prefix labels; no recompilation occurs.
+
+### Changes
+Added the minimal frozen-target Autophase-NVP trainer, exact offline policy-45 evaluator, configuration, and focused unit tests. Checkpoints were evaluated every 100 steps and selected only by validation policy-45 dataset-macro MeanOverOz.
+
+### Result
+The 10,000-step run completed. Selected checkpoint: step 5,900; validation policy-45 dataset-macro `MeanOverOz = 0.06292471734915961`; validation CE `3.7053382396698`; mean program-level `policy45_regret = S_policy45 - S_oracle = 7.230614973262032` bytes. Dataset values: anghabench-v1 `0.03625893578559407`; blas-v0 `0.028421896761382594`; clgen-v0 `0.08715286242721984`; csmith-v0 `0.2424069521191263`; github-v0 `0.010079968644686688`; linux-v0 `0.0027308075980932967`; llvm-stress-v0 `-0.05328204871619967`; opencv-v0 `0.051984020502374204`; poj104-v1 `0.1923645206449619`; tensorflow-v0 `0.031129257724356863`. Relative to frozen Oracle `0.07743661591867755`, opportunity recovered is `0.06292471734915961 / 0.07743661591867755 = 0.812596426156354` (81.26%). All 4,488 validation programs were valid; no candidate execution occurred.
+
+### Decision
+COMPLETE. This is the requested Autophase-NVP anchor. No MLP, LSTM, Transformer, Mamba, candidate regeneration, Route-B, final/OOD, or runtime experiment was started.
+
+### Artifacts
+- `configs/autophase_nvp_objecttext_v6.json`
+- `outputs/autophase_nvp_objecttext_v6/config.json` — SHA256 `77b65b2d6abe314b187f289267f521a7767443fa91d656e2fbff5ccfee9365da`
+- `outputs/autophase_nvp_objecttext_v6/model.pt` — SHA256 `602adb770f56e7dc1ee4d39bf7336eecca4fd7d589cf9e55a5ac10e1c8ebb733`
+- `outputs/autophase_nvp_objecttext_v6/learning_curve.json`
+- `outputs/autophase_nvp_objecttext_v6/experiment_report.json` — SHA256 `ed1e577e8304740a9454aafdffa56429d29430f1e104794ead210a046acdf050`
+
+### Git
