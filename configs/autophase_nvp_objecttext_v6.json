@@ -1,0 +1,25 @@
+{
+  "architecture": "official CLSLearner Autophase path: Linear(56,256), ReLU, Linear(256,256), ReLU, Linear(256,50)",
+  "autophase_preprocessing": "raw Autophase vector / raw_feature_51_total_instructions",
+  "autophase_dim": 56,
+  "batch_size": 256,
+  "checkpoint_selection_metric": "ValidationFinalMeanOverOz policy-45 dataset macro mean",
+  "dropout": 0.0,
+  "final_test_accessed": false,
+  "gradient_clipping": null,
+  "logit_temperature": 1.0,
+  "lr": 0.0005,
+  "lr_schedule": "500-step linear warmup then cosine to lr*0.01 over remaining 9500 steps",
+  "model_config_source": "official rlcompopt/cl/conf/model/autophase.yaml",
+  "nvp_target_temperature": 0.05,
+  "optimizer": "Adam",
+  "ood_accessed": false,
+  "seed": 0,
+  "target_files": {
+    "train": "outputs/rlcompopt_route_a_nvp_targets_v6/train_targets.jsonl.gz",
+    "validation": "outputs/rlcompopt_route_a_nvp_targets_v6/validation_targets.jsonl.gz"
+  },
+  "total_steps": 10000,
+  "validation_cadence_steps": 100,
+  "weight_decay": 1e-05
+}
