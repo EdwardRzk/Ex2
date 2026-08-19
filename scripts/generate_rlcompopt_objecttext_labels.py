@@ -246,6 +246,27 @@ def environment_metadata() -> dict[str, str]:
 def write_json(path: Path, payload: Mapping[str, Any]) -> None:
     path.write_text(json.dumps(payload, indent=2, sort_keys=True) + "\n", encoding="utf-8")
 
+
+def prepare_output_directory(
+    output_dir: Path, frozen_config: Mapping[str, Any], *, resume: bool
+) -> None:
+    if not output_dir.exists():
+        output_dir.mkdir(parents=True)
+        write_json(output_dir / "config.json", frozen_config)
+        return
+    if not resume:
+        raise FileExistsError(f"Refusing to overwrite existing output: {output_dir}")
+    config_path = output_dir / "config.json"
+    if not config_path.is_file():
+        raise FileNotFoundError(f"Cannot resume without frozen config: {config_path}")
+    existing_config = json.loads(config_path.read_text(encoding="utf-8"))
+    if existing_config != frozen_config:
+        raise ValueError("Resume configuration does not exactly match frozen config")
+    report_path = output_dir / "experiment_report.json"
+    if report_path.exists():
+        raise FileExistsError(f"Refusing to resume completed or failed experiment: {report_path}")
+
+
 def _init_worker(candidates: Sequence[Sequence[int]], metadata: Mapping[str, str]) -> None:
     global _WORKER_CANDIDATES, _WORKER_ENV, _WORKER_METADATA
     import compiler_gym
@@ -286,6 +307,28 @@ def _write_program_shard(path: Path, records: Sequence[Mapping[str, Any]], summa
     temporary.replace(path)
 
 
+def _load_program_shard(path: Path, program_id: str) -> tuple[list[dict[str, Any]], dict[str, Any]]:
+    with gzip.open(path, "rt", encoding="utf-8") as file:
+        payload = json.load(file)
+    records = payload["records"]
+    summary = payload["program_summary"]
+    if len(records) != K or summary["program_id"] != program_id:
+        raise ValueError(f"Invalid completed program shard: {path}")
+    return records, summary
+
+
+def _accumulate_program_result(
+    counts: Counter[str], records: Sequence[Mapping[str, Any]], summary: Mapping[str, Any]
+) -> None:
+    counts["programs_total"] += 1
+    counts["programs_complete_K50"] += (
+        summary["program_training_target_validity"] == "valid_complete_K50"
+    )
+    for record in records:
+        if record["failure_reason"]:
+            counts[record["failure_reason"]] += 1
+
+
 
 def run_split(
     *, output_dir: Path, split_name: str, programs: Iterable[str], candidates: Sequence[Sequence[int]], metadata: Mapping[str, str]
@@ -313,11 +356,14 @@ def run_split_parallel(
     *, output_dir: Path, split_name: str, programs: Sequence[str], candidates: Sequence[Sequence[int]], metadata: Mapping[str, str], workers: int
 ) -> dict[str, Any]:
     counts: Counter[str] = Counter()
-    pending = [
-        (index, program_id)
-        for index, program_id in enumerate(programs)
-        if not _shard_path(output_dir, split_name, index).exists()
-    ]
+    pending: list[tuple[int, str]] = []
+    for index, program_id in enumerate(programs):
+        path = _shard_path(output_dir, split_name, index)
+        if path.exists():
+            records, summary = _load_program_shard(path, program_id)
+            _accumulate_program_result(counts, records, summary)
+        else:
+            pending.append((index, program_id))
     counts["programs_preexisting_complete"] = len(programs) - len(pending)
     with ProcessPoolExecutor(
         max_workers=workers,
@@ -328,11 +374,7 @@ def run_split_parallel(
         for completed, future in enumerate(as_completed(futures), start=1):
             index, records, summary = future.result()
             _write_program_shard(_shard_path(output_dir, split_name, index), records, summary)
-            counts["programs_total"] += 1
-            counts["programs_complete_K50"] += summary["program_training_target_validity"] == "valid_complete_K50"
-            for record in records:
-                if record["failure_reason"]:
-                    counts[record["failure_reason"]] += 1
+            _accumulate_program_result(counts, records, summary)
             if completed % 10 == 0 or completed == len(pending):
                 print(f"{split_name}: completed {completed}/{len(pending)} newly claimed programs", flush=True)
     counts["programs_incomplete_K50"] = counts["programs_total"] - counts["programs_complete_K50"]
@@ -347,9 +389,8 @@ def main() -> int:
     parser.add_argument("--candidate-file", type=Path, required=True)
     parser.add_argument("--output-dir", type=Path, required=True)
     parser.add_argument("--workers", type=int, default=8)
+    parser.add_argument("--resume", action="store_true")
     args = parser.parse_args()
-    if args.output_dir.exists():
-        raise FileExistsError(f"Refusing to overwrite existing output: {args.output_dir}")
     candidates = load_candidates(args.candidate_file)
     train = load_split_programs(args.train_split)
     if args.workers < 1:
@@ -360,7 +401,6 @@ def main() -> int:
         os.environ[name] = value
     if set(train) & set(validation):
         raise ValueError("Official train and validation program populations overlap")
-    args.output_dir.mkdir(parents=True)
     metadata = environment_metadata()
     frozen_config = {
         "route": "Route A",
@@ -382,7 +422,7 @@ def main() -> int:
         "worker_thread_limits": worker_thread_limits,
         "environment": metadata,
     }
-    write_json(args.output_dir / "config.json", frozen_config)
+    prepare_output_directory(args.output_dir, frozen_config, resume=args.resume)
     report: dict[str, Any] = {"started_at_utc": datetime.now(timezone.utc).isoformat(), "decision": "INVALID"}
     try:
         report["train"] = run_split_parallel(output_dir=args.output_dir, split_name="train", programs=train, candidates=candidates, metadata=metadata, workers=args.workers)

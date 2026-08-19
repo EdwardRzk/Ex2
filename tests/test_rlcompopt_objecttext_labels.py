@@ -42,3 +42,50 @@ def test_program_shard_is_atomically_committed_after_complete_payload(tmp_path) 
         payload = json.load(file)
     assert payload["program_summary"] == summary
     assert len(payload["records"]) == K
+
+
+def test_resume_requires_exact_frozen_config_and_no_prior_report(tmp_path) -> None:
+    from scripts.generate_rlcompopt_objecttext_labels import prepare_output_directory
+
+    output_dir = tmp_path / "experiment"
+    frozen_config = {"candidate_count": K, "workers": 12}
+    prepare_output_directory(output_dir, frozen_config, resume=False)
+    prepare_output_directory(output_dir, frozen_config, resume=True)
+
+    try:
+        prepare_output_directory(output_dir, {"candidate_count": K, "workers": 8}, resume=True)
+    except ValueError as error:
+        assert "exactly match" in str(error)
+    else:
+        raise AssertionError("Expected mismatched resume config to fail")
+
+    (output_dir / "experiment_report.json").write_text("{}\n", encoding="utf-8")
+    try:
+        prepare_output_directory(output_dir, frozen_config, resume=True)
+    except FileExistsError as error:
+        assert "completed or failed" in str(error)
+    else:
+        raise AssertionError("Expected reported experiment resume to fail")
+
+
+def test_completed_shard_is_counted_when_resuming(tmp_path) -> None:
+    from collections import Counter
+
+    from scripts.generate_rlcompopt_objecttext_labels import (
+        _accumulate_program_result,
+        _load_program_shard,
+        _write_program_shard,
+    )
+
+    path = tmp_path / "complete.json.gz"
+    program_id = "benchmark://x-v0/a"
+    records = [
+        {"training_target_validity": "valid_completed_candidate_rollout", "failure_reason": None}
+        for _ in range(K)
+    ]
+    summary = {"program_id": program_id, "program_training_target_validity": "valid_complete_K50"}
+    _write_program_shard(path, records, summary)
+    loaded_records, loaded_summary = _load_program_shard(path, program_id)
+    counts = Counter()
+    _accumulate_program_result(counts, loaded_records, loaded_summary)
+    assert counts == {"programs_total": 1, "programs_complete_K50": 1}
