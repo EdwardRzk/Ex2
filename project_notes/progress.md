@@ -536,3 +536,31 @@ COMPLETE. This is the requested Autophase-NVP anchor. No MLP, LSTM, Transformer,
 - `outputs/autophase_nvp_objecttext_v6/experiment_report.json` — SHA256 `ed1e577e8304740a9454aafdffa56429d29430f1e104794ead210a046acdf050`
 
 ### Git
+Anchor implementation commit `67306aa8`; result record commit `f6a590c9`.
+
+## 2026-08-19 — Route-A controlled architecture comparison Stage A v6
+
+### Goal
+Select one frozen Stage-A configuration each for MLP, LSTM, Transformer, and Mamba under a common explicit candidate-sequence interface, using only validation policy-45 dataset-macro MeanOverOz.
+
+### Frozen protocol
+All four methods use normalized 56-D Autophase (`raw / raw[51]`), the same frozen ordered K=50 LLVM action-ID sequences, vocabulary IDs 0–123 plus `PAD=124`, and right padding to the inspected maximum length 20 (actual lengths 4–20). Each receives program conditioning and scores every candidate individually to produce 50 logits. All use the frozen Step-6 target and mean soft-label cross entropy, Adam (`lr=5e-4`, weight decay `1e-5`), batch 256, 500-step warmup then cosine decay, 10,000 steps, seed 0, no early stopping, and evaluation every 100 steps. One configuration per architecture was allowed before seeing results. Policy validation is sampling-disabled, deterministic tie-broken descending logit ranking and offline independent-reset prefix simulation with exactly 45 scored passes; no LLVM candidate execution occurred.
+
+### Changes
+Added the shared controlled-model interface/configuration, four candidate scorers, offline policy-45 evaluator, and focused structural tests. Actual parameters: MLP 99,393; LSTM 79,809; Transformer 80,321; Mamba 78,785.
+
+### Result
+All four 10,000-step runs completed. Selected macro MeanOverOz / checkpoint / validation CE / mean-median regret bytes / positive programs are: MLP `0.061663946640718934` / step 8500 / `3.7238727546630694` / `11.533645276292335, 0.0` / 2230; LSTM `0.06262883725528644` / step 7400 / `3.7210916427367513` / `11.442513368983958, 0.0` / 2192; Transformer `0.06316299598765236` / step 7400 / `3.724460540608289` / `11.37655971479501, 0.0` / 2176; Mamba `0.06417084565779806` / step 7400 / `3.720366789907908` / `9.438725490196079, 0.0` / 2224. Per-dataset MeanOverOz (MLP / LSTM / Transformer / Mamba): anghabench-v1 `0.040928401188955556 / 0.03574650541387411 / 0.03846328113654883 / 0.038986685529899714`; blas-v0 `0.022153961024919518 / 0.018698873368181188 / 0.02661873046075893 / 0.022698144622708454`; clgen-v0 `0.0855566938139966 / 0.08669634225786711 / 0.08567577144400616 / 0.08747341114534274`; csmith-v0 `0.22462241197786434 / 0.23039139434798558 / 0.22515431593527946 / 0.24036140179995746`; github-v0 `0.008578494820972659 / 0.008196340930782904 / 0.007676138005660981 / 0.008880935853575493`; linux-v0 `-0.0016254641143507186 / -0.0010682840834723229 / -0.001214510100457079 / -0.003481568868062433`; llvm-stress-v0 `-0.03785979477250976 / -0.030997558943146233 / -0.025458079874166942 / -0.029024794417755306`; opencv-v0 `0.050874172597977635 / 0.05110349375228405 / 0.05288385284740128 / 0.05236931859965227`; poj104-v1 `0.19240048236882917 / 0.1921998336198982 / 0.1920132841045731 / 0.19245584081946757`; tensorflow-v0 `0.03101010750053432 / 0.03532143188860968 / 0.02981717591691892 / 0.03098908149319463`. Cohort is unchanged for every model: total 4,488, primary-valid 4,488, invalid 0. Frozen Autophase-NVP reference is `0.0629247173`; fixed Route-A Oracle is `0.07743661591867755`.
+
+### Decision
+COMPLETE. Mamba is the highest selected Stage-A controlled architecture under the frozen metric. This is not Stage-B replication or final/OOD evidence. No NVP retraining, Stage B, final/OOD, Route B, candidate search, or runtime experiment was started.
+
+### Artifacts
+- `configs/controlled_nvp_stage_a_v6.json`
+- `outputs/controlled_nvp_stage_a_objecttext_v6/shared_interface_config.json`
+- `outputs/controlled_nvp_stage_a_objecttext_v6/{mlp,lstm,transformer,mamba}/model.pt`
+- `outputs/controlled_nvp_stage_a_objecttext_v6/{mlp,lstm,transformer,mamba}/learning_curve.json`
+- `outputs/controlled_nvp_stage_a_objecttext_v6/comparison_report.json`
+
+### Git
+Stage-A implementation commit `12ad4f32`.
