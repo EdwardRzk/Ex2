@@ -450,7 +450,7 @@ Added observation-only K=50 label generation, atomic per-program shards, fixed o
 All 28,167 training and 4,490 validation program shards were generated. Training had 28,159 complete-K50 programs and 8 incomplete programs; validation had 4,488 complete-K50 programs and 2 incomplete programs. The incomplete programs were marked invalid after LLVM 10 backend code-generation failures (`Cannot emit physreg copy instruction`); no candidate retry, penalty, or imputation was applied.
 
 ### Decision
-FAIL for the K=50 completeness gate: 10 programs lack complete 50/50 candidate labels. These artifacts must not be used for Route-A model training unless a new, separately frozen protocol resolves the compiler-environment root cause.
+COMPLETE under the frozen data-validity policy. Usable supervised population: 28,159 complete-K50 training programs and 4,488 complete-K50 validation programs. Excluded under the frozen policy: train 8, validation 2.
 
 ### Artifacts
 - `outputs/rlcompopt_route_a_objecttext_v6_parallel12/config.json` — SHA256 `500239700f566510b13d040be0a7136b7f76e3d8526f9c6cce7714adca1338af`
@@ -459,3 +459,28 @@ FAIL for the K=50 completeness gate: 10 programs lack complete 50/50 candidate l
 
 ### Git
 Label executor commits `ab67b87` and `3ab490d`.
+
+## 2026-08-19 — Route-A fixed-set Oracle v6
+
+### Goal
+Compute the frozen K=50 validation Oracle from existing Step-3 validation labels and apply the predefined Route-A/B decision rule.
+
+### Frozen protocol
+Existing official validation membership only; every Oracle entry requires `oracle_K50_validity = valid_complete_K50`, `S_Oz > 0`, and exactly all 50 frozen candidate best post-pass ObjectText sizes. No final/OOD access, labels, retries, training, search, or runtime evaluation.
+
+### Changes
+Added the minimal read-only Step-4 Oracle computation and audit output. Corrected the prior Step-3 status wording to the frozen per-program validity policy.
+
+### Result
+Validation accounting: total 4,490; complete-K50 Oracle 4,488; ratio-valid 4,490; Route-A Oracle valid 4,488; excluded incomplete-K50 2; ratio-invalid 0. `OracleMeanOverOz` by dataset: anghabench-v1 0.049343207670108594; blas-v0 0.0348389800763768; clgen-v0 0.09301890236961312; csmith-v0 0.2520939164830973; github-v0 0.012383779566174397; linux-v0 0.00438178271242194; llvm-stress-v0 0.026718478771508267 (147/149 valid); opencv-v0 0.0596191620394285; poj104-v1 0.203875121095325; tensorflow-v0 0.03809282840272151. The macro `RouteAOracleMeanOverOz` is 0.07743661591867755. Every included Oracle used exactly K=50 candidates.
+
+### Decision
+STAY ROUTE A. The branch criterion is defined and positive. No subsequent training or Route-B work was started.
+
+### Artifacts
+- `outputs/rlcompopt_route_a_oracle_v6/config.json`
+- `outputs/rlcompopt_route_a_oracle_v6/validation_oracle_programs.jsonl.gz`
+- `outputs/rlcompopt_route_a_oracle_v6/experiment_report.json`
+
+### Git
+Step-4 code commit `fcc47e95`.
