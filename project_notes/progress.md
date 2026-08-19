@@ -434,3 +434,28 @@ FAIL for the research hypothesis. Execution and reproducibility checks are PASS,
 
 ### Git
 Experiment code/config commit `23cfefe6fbd6f3567989bec63de44852d87c9501`.
+
+## 2026-08-19 — Route A ObjectText K=50 labels v6
+
+### Goal
+Generate frozen official RLCompOpt Route-A K=50 ObjectText labels for the official train and validation program populations without accessing final/OOD data.
+
+### Frozen protocol
+Official 50 candidate pass sequences; independent reset from the original benchmark for every candidate; absolute `ObjectTextSizeBytes` observations with `reward_space=None`; official train (28,167 programs) and validation (4,490 programs) only; generic CompilerGym 0.2.5 compatibility adaptation with LLVM 10.0.0; 12 program-level workers, sequential candidate rollout within each program, no automatic retry. A program is valid only with all 50 candidate rollouts complete.
+
+### Changes
+Added observation-only K=50 label generation, atomic per-program shards, fixed one-thread worker limits, and an exact-config resume path. The run resumed only after its existing frozen config was byte-for-byte validated; existing completed shards were read and included in final counts.
+
+### Result
+All 28,167 training and 4,490 validation program shards were generated. Training had 28,159 complete-K50 programs and 8 incomplete programs; validation had 4,488 complete-K50 programs and 2 incomplete programs. The incomplete programs were marked invalid after LLVM 10 backend code-generation failures (`Cannot emit physreg copy instruction`); no candidate retry, penalty, or imputation was applied.
+
+### Decision
+FAIL for the K=50 completeness gate: 10 programs lack complete 50/50 candidate labels. These artifacts must not be used for Route-A model training unless a new, separately frozen protocol resolves the compiler-environment root cause.
+
+### Artifacts
+- `outputs/rlcompopt_route_a_objecttext_v6_parallel12/config.json` — SHA256 `500239700f566510b13d040be0a7136b7f76e3d8526f9c6cce7714adca1338af`
+- `outputs/rlcompopt_route_a_objecttext_v6_parallel12/experiment_report.json` — SHA256 `1b99218614a638785cb92537ac3c71c76cb1be066e72158af3d727038be91ded`
+- `configs/rlcompopt_action_seq_50.txt` — SHA256 `5243dd2923da9b392b18b81c86532f45a8eef3619c831a9a3e58b50c8f759cba`
+
+### Git
+Label executor commits `ab67b87` and `3ab490d`.
