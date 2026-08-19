@@ -564,3 +564,27 @@ COMPLETE. Mamba is the highest selected Stage-A controlled architecture under th
 
 ### Git
 Stage-A implementation commit `12ad4f32`.
+
+## 2026-08-19 — Route-A Stage B three-seed replication v6
+
+### Goal
+Replicate the exact frozen NVP anchor and Stage-A controlled configurations for final seeds `{1,2,3}` on the existing validation cohort.
+
+### Frozen protocol
+Existing complete-K50 ObjectText targets only: 28,159 training and 4,488 validation programs; fixed configurations, 10,000 steps, fresh initialization per seed, 100-step validation cadence, deterministic offline policy-45 selection, sampling disabled, and no Stage-A checkpoint reuse. No candidate regeneration, LLVM candidate execution, final/OOD, cBench, Route B, runtime, label, or search work.
+
+### Result
+Execution is `COMPLETE`; seed set is `[1,2,3]`; `stage_a_configurations_unchanged=true`; `stage_a_checkpoint_reused=false`; every selected cohort is `4488/4488/0` total/primary-valid/invalid. Selected step:macro MeanOverOz (seed 1 / 2 / 3): NVP `5800:0.06284381550402421 / 7100:0.062365030568491374 / 4800:0.06310418253161729`; MLP `8500:0.062238837856702735 / 6800:0.06152506722228346 / 3900:0.06296220394000068`; LSTM `6900:0.05742434922335341 / 7500:0.05917726290521683 / 6400:0.06530461999389482`; Transformer `6300:0.06394440755644565 / 8200:0.06447248758569549 / 8400:0.060495106504070736`; Mamba `6300:0.063095014307107 / 5400:0.0628207157907167 / 6200:0.0647430152083397`.
+
+Three-seed macro means: NVP `0.06277100953471096`; MLP `0.06224203633966229`; LSTM `0.06063541070748835`; Transformer `0.06297066721540395`; Mamba `0.06355291510205446`. Mean policy-45 regret bytes: NVP `7.785130718954249`; MLP `10.90121806298277`; LSTM `10.662878787878787`; Transformer `10.384878193701724`; Mamba `9.502822341057636`; every seed median is `0.0`. Opportunity recovered: NVP `0.81061147610882`; MLP `0.8037804286931609`; LSTM `0.7830328067430852`; Transformer `0.8131898129630889`; Mamba `0.8207088384233696`. Mamba remains highest controlled and exceeds NVP by `0.0007819055673435049`; exact per-dataset values are in the comparison report.
+
+### Decision
+COMPLETE. Mamba replicates as the highest controlled validation-only model; this is not final/OOD or generalization evidence. Stop here pending review.
+
+### Artifacts
+- `configs/route_a_stage_b_v6.json`
+- `outputs/route_a_stage_b_v6/{nvp,mlp,lstm,transformer,mamba}/seed{1,2,3}/{config.json,model.pt,learning_curve.json,experiment_report.json}`
+- `outputs/route_a_stage_b_v6/comparison_report.json`
+
+### Git
+Stage-B implementation commits `f786c27b` and `f8ac8738`; result-record commit pending.
