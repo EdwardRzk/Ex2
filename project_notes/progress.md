@@ -484,3 +484,29 @@ STAY ROUTE A. The branch criterion is defined and positive. No subsequent traini
 
 ### Git
 Step-4 code commit `fcc47e95`.
+
+## 2026-08-19 — Route-A ObjectText NVP targets v6
+
+### Goal
+Recover official RLCompOpt NVP semantics and construct the frozen complete-K50 ObjectText train and validation soft-target datasets.
+
+### Frozen protocol
+Only complete-K50 Step-3 records enter: train 28,159 and validation 4,488. The OFFICIAL-CODE-ALIGNED value formula from `rlcompopt/cl/dataset.py` is `(ir_compiler - all_ir_searches) / ir_compiler`; the PROJECT-SPECIFIC OBJECTTEXT ADAPTATION replaces those costs with `S_Oz` and candidate best post-pass ObjectText size. The selected official Autophase dense-label configuration uses target temperature `T=0.05`, applies `softmax(value / T)`, and has `logit_temperature=1`. No label regeneration, model training, search, final/OOD access, or runtime evaluation occurred.
+
+### Changes
+Added a Step-6 builder that reads only existing shard records and writes one K=50 value vector plus one normalized soft target per eligible program. The implementation enforces exactly candidate IDs 0–49 and excludes all existing incomplete-K50 records.
+
+### Result
+Official-code recovery: dense labels are formed as `softmax(labels / T)` in `rlcompopt/cl/models/gnn_pyg.py`; the objective is PyTorch soft-label cross entropy on logits (`CrossEntropyLoss(..., reduction='none')`, then mean); deterministic evaluation sorts predicted logits descending in `rlcompopt/model_testing.py`, while the nonzero-temperature path samples without replacement. The Autophase anchor is a 56-dimensional `env.observation["Autophase"]` vector, normalized by raw feature index 51 in official evaluation; the official graph alternative is `Programl` processed through `FeatureExtractor` and `dgl2pyg`, recorded but not implemented. Train targets: 28,159 included and 8 excluded; validation targets: 4,488 included and 2 excluded. Focused checks on one train and one validation record and the dataset-wide checks verified 50 finite nonnegative target values summing to one and higher value -> higher target mass.
+
+### Decision
+COMPLETE. Step 6 target construction is complete; NVP training was not started.
+
+### Artifacts
+- `outputs/rlcompopt_route_a_nvp_targets_v6/config.json`
+- `outputs/rlcompopt_route_a_nvp_targets_v6/train_targets.jsonl.gz`
+- `outputs/rlcompopt_route_a_nvp_targets_v6/validation_targets.jsonl.gz`
+- `outputs/rlcompopt_route_a_nvp_targets_v6/experiment_report.json`
+
+### Git
+Step-6 code commit `4b0274c1`.
