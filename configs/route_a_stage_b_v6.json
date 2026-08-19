@@ -1,0 +1,27 @@
+{
+  "experiment_name": "route_a_stage_b_replication_v6",
+  "final_seed_set": [1, 2, 3],
+  "model_order": ["NVP", "MLP", "LSTM", "Transformer", "Mamba"],
+  "nvp_config_source": "configs/autophase_nvp_objecttext_v6.json",
+  "controlled_config_source": "configs/controlled_nvp_stage_a_v6.json",
+  "target_files": {
+    "train": "outputs/rlcompopt_route_a_nvp_targets_v6/train_targets.jsonl.gz",
+    "validation": "outputs/rlcompopt_route_a_nvp_targets_v6/validation_targets.jsonl.gz"
+  },
+  "validation_label_shards": "outputs/rlcompopt_route_a_objecttext_v6_parallel12/shards/validation",
+  "frozen_data_population": {
+    "train_complete_k50": 28159,
+    "validation_complete_k50": 4488
+  },
+  "frozen_validation": {
+    "selection_metric": "ValidationFinalMeanOverOz policy-45 dataset macro mean",
+    "sampling": false,
+    "offline_label_matrix_only": true,
+    "scored_pass_budget": 45
+  },
+  "fixed_route_a_oracle": 0.07743661591867755,
+  "stage_a_checkpoint_reuse": false,
+  "final_test_accessed": false,
+  "ood_accessed": false,
+  "runtime_accessed": false
+}
