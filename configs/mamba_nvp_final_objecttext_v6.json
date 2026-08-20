@@ -1,0 +1,17 @@
+{
+  "experiment_name": "mamba_nvp_final_objecttext_v6",
+  "mamba_nvp_checkpoint_root": "outputs/mamba_nvp_objecttext_v6",
+  "mamba_nvp_training_config": "configs/mamba_nvp_objecttext_v6.json",
+  "controlled_config": "configs/controlled_nvp_stage_a_v6.json",
+  "final_feature_cache": "outputs/autophase_feature_cache_v6/final_autophase.jsonl.gz",
+  "final_label_shards": "outputs/route_a_final_objecttext_v6/shards/final",
+  "existing_model_results": "outputs/route_a_final_objecttext_v6/model_results",
+  "existing_final_report": "outputs/route_a_final_objecttext_v6/comparison_report.json",
+  "final_seed_set": [1, 2, 3],
+  "final_population": {"total": 4683, "complete_k50": 4679, "invalid": 4},
+  "candidate_representation": {"K": 50, "padded_length": 20, "pad_token_id": 124},
+  "inference": {"sampling": false, "ranking": "descending logits; candidate ID ascending tie break", "scored_pass_budget": 45},
+  "comparison_family": ["NVP", "Mamba", "MambaNVP"],
+  "final_test_access": "offline frozen labels and frozen Autophase cache only",
+  "forbidden": ["CompilerGym initialization", "LLVM execution", "candidate rollout", "ObjectText measurement", "label regeneration", "invalid-program retry", "checkpoint modification", "model training"]
+}

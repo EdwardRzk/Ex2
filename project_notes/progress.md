@@ -654,3 +654,27 @@ COMPLETE — validation-only MambaNVP training and checkpoint freeze are complet
 
 ### Git
 Training and result commit `a38099e2`.
+
+## 2026-08-20 — Route-A MambaNVP final/OOD evaluation v6
+
+### Goal
+Evaluate the three frozen validation-selected MambaNVP residual checkpoints once on the existing final/OOD K=50 artifacts and compare the predeclared common cohort `NVP / Mamba / MambaNVP`.
+
+### Frozen protocol
+Inference only. Each seed used its frozen MambaNVP checkpoint selected at validation step 900, 600, or 4700, the frozen final normalized Autophase cache, and existing complete-K50 final prefix labels. Final scoring used deterministic descending logits with candidate-ID tie breaks and the existing 45-scored-pass offline policy. Existing NVP/Mamba final JSONL results and the frozen Offline K=50 Oracle were read without recomputation. No CompilerGym, LLVM, candidate rollout, ObjectText measurement, label generation, retry, checkpoint modification, or training occurred.
+
+### Changes
+Added a separate offline-only MambaNVP final evaluator, predeclared three-method common-cohort configuration, focused tests, and isolated `outputs/mamba_nvp_final_objecttext_v6/` results.
+
+### Result
+MambaNVP final MeanOverOz is seed 1 `0.08805309505096436`, seed 2 `0.08721274304242747`, seed 3 `0.08771300182975059`; the three-seed dataset-macro mean is `0.08765961330771414`. On the same predeclared common cohort, frozen NVP is `0.08715469206982522` and frozen Mamba is `0.08462666303481921`; MambaNVP minus NVP is `+0.0005049212378889223`. MambaNVP mean policy45 regret is `11.9388045878749` bytes (seed medians `0/0/0`), versus NVP `12.022725653629692` and Mamba `13.445821756785639`; frozen Oracle recovery is `0.8333878360887765`. Each seed has 4,683 total programs, 4,679 valid complete-K50 programs, and 4 frozen invalid programs; all 14 common dataset cohorts are nonempty. Per-dataset NVP/Mamba/MambaNVP results are in the comparison report.
+
+### Decision
+COMPLETE. MambaNVP exceeds frozen NVP on the one-way final/OOD evaluation. Stop; do not retrain, tune, modify checkpoints, or start another experiment.
+
+### Artifacts
+- `configs/mamba_nvp_final_objecttext_v6.json`
+- `outputs/mamba_nvp_final_objecttext_v6/{config.json,model_results,comparison_report.json}`
+
+### Git
+Commit pending.
