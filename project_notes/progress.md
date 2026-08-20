@@ -677,4 +677,4 @@ COMPLETE. MambaNVP exceeds frozen NVP on the one-way final/OOD evaluation. Stop;
 - `outputs/mamba_nvp_final_objecttext_v6/{config.json,model_results,comparison_report.json}`
 
 ### Git
-Commit pending.
+Evaluation and result commit `27379822`.
