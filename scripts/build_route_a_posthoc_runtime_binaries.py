@@ -63,7 +63,7 @@ def main() -> int:
             raise ValueError(f"source bitcode hash mismatch: {source}")
         key = program_id.rsplit("/", 1)[-1]
         frozen = prefixes["programs"].get(program_id, {})
-        if set(frozen) != expected - {"oz"}:
+        if set(frozen) != {prefix_key(method) for method in methods[1:]}:
             raise ValueError(f"missing frozen prefixes for {program_id}")
         program_root = args.output_dir / "work" / key
         binaries = program_root / "binaries"
