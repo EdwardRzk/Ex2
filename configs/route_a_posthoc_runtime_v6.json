@@ -38,6 +38,12 @@
   },
   "methods": {
     "baseline": {"id": "Oz", "build": "clang <original.bc> -Oz -o a.out"},
+    "inference_definitions": {
+      "nvp_config": {"path": "configs/autophase_nvp_objecttext_v6.json", "sha256": "2baaea1839fdc1b30c840b4a5983b618b02e0d186b1ad2dc75c0e636ac017d7d"},
+      "controlled_config": {"path": "configs/controlled_nvp_stage_a_v6.json", "sha256": "345aded6d24cc53465b5589bd7b013cd241947b88087678d7c77f7201ee3d1ed"},
+      "nvp_implementation": {"path": "scripts/train_autophase_nvp_objecttext.py", "sha256": "97f4707d3ad213843d3de9da87e6fd4a0e93ca9db7bf73b537ee96c728e1b108"},
+      "controlled_implementation": {"path": "scripts/train_controlled_nvp_stage_a.py", "sha256": "d78996987053f134c6eb14638e0e918f4ec2e9f466c85f9ee3a5daa776cf76f4"}
+    },
     "learned": [
       {"model": "NVP", "seed": 1, "checkpoint": "outputs/route_a_stage_b_v6/nvp/seed1/model.pt", "sha256": "7590e756d5f4c9b5f4488ea63eeee02df88e1b48873e5515cdef9e71ab85f424"},
       {"model": "NVP", "seed": 2, "checkpoint": "outputs/route_a_stage_b_v6/nvp/seed2/model.pt", "sha256": "54bedb6f04ddd9079211a39d4b4c37eb320711f453fcda8c4d4e345c162ae9ca"},
