@@ -611,4 +611,3 @@ COMPLETE. The one-way final evaluation is closed; no model, checkpoint, candidat
 
 ### Git
 Final evaluator commits `8fa3ddff`, `93d10df3`, and `236370bb`; result-record commit pending.
-
