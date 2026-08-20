@@ -700,4 +700,4 @@ COMPLETE — POST-HOC / EXPLORATORY only. MambaNVP and NVP are runtime-neutral w
 `outputs/mambanvp_nvp_runtime_v1/{config.json,policy_prefixes.json,build_manifest.json,binary_metadata.json,correctness_results.jsonl,runtime_cohort_manifest.json,raw_timing_samples.jsonl,timing_summary.json,runtime_report.json}`.
 
 ### Git
-Commit pending.
+Runtime implementation and results commit `2a9dab23`.
