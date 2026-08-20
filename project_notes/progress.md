@@ -588,3 +588,27 @@ COMPLETE. Mamba replicates as the highest controlled validation-only model; this
 
 ### Git
 Stage-B implementation commits `f786c27b` and `f8ac8738`; result-record commit pending.
+## 2026-08-20 — Route-A final/OOD ObjectText evaluation v6
+
+### Goal
+Evaluate the frozen Stage-B checkpoints once on the recovered official RLCompOpt final/OOD population, with no post-unseal selection.
+
+### Frozen protocol
+The official `benchmarkdataset_all-test.json` manifest contains 4,683 disjoint programs across 14 datasets, including cBench, CHStone, MiBench, and NPB. ObjectText used the existing ordered K=50 sequences, independent resets, no automatic retries, and policy-45 deterministic ranking. The only learned checkpoints were Stage-B NVP/MLP/LSTM/Transformer/Mamba seeds `{1,2,3}`. Primary aggregates use the predeclared H1/H2a/H2b family-specific common cohorts; runtime was not accessed.
+
+### Result
+K=50 labeling completed for all 4,683 programs: 4,679 complete-K50 and 4 incomplete-K50; feature failures were zero. All 15 fixed model/seed evaluations completed and every required family/dataset common cohort was nonempty. Offline K=50 Oracle dataset macro MeanOverOz is `0.10518465654492251`. Final three-seed macro MeanOverOz: H1 Mamba `0.08462666303481921` versus native `-Oz` `0.0`; H2a Mamba `0.08462666303481921` versus NVP `0.08715469206982522`; H2b MLP `0.08199445421951396`, LSTM `0.08445278226557085`, Transformer `0.08439936883039871`, Mamba `0.08462666303481921`. Thus Mamba is the highest controlled final model, but NVP is higher in the system-level H2a comparison. Validation's Mamba-over-NVP ordering did not replicate on final/OOD.
+
+### Decision
+COMPLETE. The one-way final evaluation is closed; no model, checkpoint, candidate, or protocol change followed final inspection.
+
+### Artifacts
+- `outputs/route_a_final_objecttext_v6/config.json` — SHA256 `a0e058d0a530d164bad4a7b99e77d876aa212776d2377e6756619c61d48c6bb1`
+- `outputs/route_a_final_objecttext_v6/final_program_manifest.json` — SHA256 `0beab51064d189d5aee5b89ed2802b39a6ddae9f6c1c0f04731632cdfcbe96fd`
+- `outputs/route_a_final_objecttext_v6/shards/final/`
+- `outputs/route_a_final_objecttext_v6/model_results/`
+- `outputs/route_a_final_objecttext_v6/comparison_report.json` — SHA256 `9904b9f2a3d3d63e6a7e875fe18cdb950e25029070b159f88ae8e700f0f03339`
+
+### Git
+Final evaluator commits `8fa3ddff`, `93d10df3`, and `236370bb`; result-record commit pending.
+
