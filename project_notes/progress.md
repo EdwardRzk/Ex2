@@ -653,4 +653,4 @@ COMPLETE — validation-only MambaNVP training and checkpoint freeze are complet
 - `outputs/mamba_nvp_objecttext_v6/{config.json,seed1,seed2,seed3,comparison_report.json}`
 
 ### Git
-Commit `5edba7f2`.
+Training and result commit `a38099e2`.
