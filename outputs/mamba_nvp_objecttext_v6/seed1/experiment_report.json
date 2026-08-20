@@ -1,0 +1,34 @@
+{
+  "architecture": "MambaNVP",
+  "nvp_frozen": true,
+  "residual_trainable_parameters": 78785,
+  "seed": 1,
+  "selected": {
+    "N_failed_or_invalid": 0,
+    "N_primary_valid": 4488,
+    "N_total": 4488,
+    "ValidationFinalMeanOverOz": 0.0631153533001637,
+    "lr": 0.0004978378571584264,
+    "per_dataset": {
+      "anghabench-v1": 0.04123993759142114,
+      "blas-v0": 0.023385072753388737,
+      "clgen-v0": 0.08742788954387659,
+      "csmith-v0": 0.24400324828968775,
+      "github-v0": 0.009927717296224353,
+      "linux-v0": 0.002677213267996896,
+      "llvm-stress-v0": -0.05339147028915485,
+      "opencv-v0": 0.05266347189346174,
+      "poj104-v1": 0.1925732586432522,
+      "tensorflow-v0": 0.030647194011482456
+    },
+    "policy45_regret_mean_bytes": 7.50222816399287,
+    "policy45_regret_median_bytes": 0.0,
+    "positive_program_count_vs_Oz": 2292,
+    "step": 900,
+    "train_loss": 3.667783260345459,
+    "validation_ce": 3.7050986179481002
+  },
+  "selection_metric": "ValidationFinalMeanOverOz policy-45 dataset macro mean",
+  "stage": "Route-A MambaNVP v6",
+  "step_execution": "COMPLETE"
+}

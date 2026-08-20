@@ -1,0 +1,56 @@
+{
+  "autophase_feature_cache": {
+    "dimension": 56,
+    "preprocessing": "raw_autophase / raw_autophase[51]",
+    "train": "outputs/autophase_feature_cache_v6/train_autophase.jsonl.gz",
+    "validation": "outputs/autophase_feature_cache_v6/validation_autophase.jsonl.gz"
+  },
+  "candidate_representation_source": "configs/controlled_nvp_stage_a_v6.json",
+  "experiment_name": "mamba_nvp_objecttext_v6",
+  "final_seed_set": [
+    1,
+    2,
+    3
+  ],
+  "frozen_data_population": {
+    "train_complete_k50": 28159,
+    "validation_complete_k50": 4488
+  },
+  "fusion": "final_logits = frozen_nvp_logits + mamba_residual_logits",
+  "nvp_branch": {
+    "checkpoint_by_seed": "Stage-B NVP seed s",
+    "frozen": true,
+    "mode": "eval"
+  },
+  "nvp_checkpoint_root": "outputs/route_a_stage_b_v6/nvp",
+  "residual_initialization": "zero final residual scoring head weight and bias",
+  "target_and_objective": {
+    "loss": "mean soft-label CrossEntropyLoss(final_logits[50], normalized_target[50])",
+    "target": "frozen Step-6 normalized_target = softmax(raw_candidate_value / 0.05)",
+    "target_temperature": 0.05
+  },
+  "target_files": {
+    "train": "outputs/rlcompopt_route_a_nvp_targets_v6/train_targets.jsonl.gz",
+    "validation": "outputs/rlcompopt_route_a_nvp_targets_v6/validation_targets.jsonl.gz"
+  },
+  "training": {
+    "batch_size": 256,
+    "checkpoint_evaluation_cadence_steps": 100,
+    "evaluation_batch_size": 64,
+    "learning_rate": 0.0005,
+    "lr_schedule": "500-step linear warmup then cosine to lr*0.01 over remaining 9500 steps",
+    "optimizer": "Adam",
+    "total_steps": 10000,
+    "warmup_steps": 500,
+    "weight_decay": 1e-05
+  },
+  "validation": {
+    "final_test_accessed": false,
+    "ood_accessed": false,
+    "runtime_accessed": false,
+    "sampling": false,
+    "scored_pass_budget": 45,
+    "selection_metric": "ValidationFinalMeanOverOz policy-45 dataset macro mean"
+  },
+  "validation_label_shards": "outputs/rlcompopt_route_a_objecttext_v6_parallel12/shards/validation"
+}

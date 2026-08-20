@@ -630,3 +630,27 @@ COMPLETE — POST-HOC / EXPLORATORY only; no tuning or protocol changes followed
 `outputs/route_a_posthoc_runtime_v6/{amplification_manifest.json,raw_timing_samples.jsonl,timing_summary.json,runtime_comparison_report.json}`.
 
 ### Git
+
+## 2026-08-20 — Route-A MambaNVP residual validation v6
+
+### Goal
+Test whether a frozen seed-matched Stage-B NVP policy improves when a trainable controlled-Mamba residual scores the same ordered K=50 candidates.
+
+### Frozen protocol
+Only existing offline artifacts were used: 28,159 complete-K50 Step-6 train targets, 4,488 validation targets and prefix labels, frozen normalized 56-D Autophase cache, frozen candidate tokens, and seed-matched Stage-B NVP checkpoints. MambaNVP is `frozen_nvp_logits + mamba_residual_logits`; NVP is `requires_grad=False` and forced to eval mode; the Mamba residual head starts at zero. Adam, lr `5e-4`, weight decay `1e-5`, batch 256, 500-step warmup/cosine schedule, 10,000 steps, seeds `{1,2,3}`, and 100-step validation cadence were fixed. Checkpoints were selected only by deterministic offline policy-45 validation dataset-macro MeanOverOz. No CompilerGym, LLVM, candidate rollout, ObjectText measurement, final/OOD, or runtime access occurred.
+
+### Changes
+Added the MambaNVP trainer, frozen configuration, focused tests, and a new isolated `outputs/mamba_nvp_objecttext_v6/` result directory. The residual reuses the existing selected controlled-Mamba configuration and contains 78,785 trainable parameters.
+
+### Result
+All three 10,000-step runs completed with complete validation cohorts `4488/4488/0`. Selected step: MeanOverOz: seed 1 `900:0.0631153533001637`; seed 2 `600:0.062290650307568404`; seed 3 `4700:0.06240116389092171`. The three-seed arithmetic validation mean is `0.06260238916621794`; mean policy45 regret is `7.7105614973262036` bytes and every seed median regret is `0.0`. Frozen validation references are NVP `0.06277100953471096` and controlled Mamba `0.06355291510205446`; MambaNVP minus NVP is `-0.00016862036849302`.
+
+### Decision
+COMPLETE — validation-only MambaNVP training and checkpoint freeze are complete. MambaNVP does not exceed frozen NVP on the three-seed validation mean. Stop before final/OOD evaluation; do not add fusion tuning, unfreeze NVP, or start another experiment.
+
+### Artifacts
+- `configs/mamba_nvp_objecttext_v6.json`
+- `outputs/mamba_nvp_objecttext_v6/{config.json,seed1,seed2,seed3,comparison_report.json}`
+
+### Git
+Commit `5edba7f2`.
