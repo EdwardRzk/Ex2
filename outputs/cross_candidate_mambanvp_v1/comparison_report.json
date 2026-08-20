@@ -1,0 +1,124 @@
+{
+  "compiler_gym_initialized": false,
+  "cross_candidate_mambanvp": {
+    "ValidationFinalMeanOverOz_3seed": 0.06202097991289138,
+    "oracle_recovery_3seed": 0.8009257529800194,
+    "policy45_regret_mean_bytes_3seed": 7.753639334521687,
+    "seed_results": [
+      {
+        "architecture": "CrossCandidateMambaNVP",
+        "seed": 1,
+        "selected": {
+          "N_failed_or_invalid": 0,
+          "N_primary_valid": 4488,
+          "N_total": 4488,
+          "ValidationFinalMeanOverOz": 0.06310448854309879,
+          "lr": 0.00039464634401402854,
+          "per_dataset": {
+            "anghabench-v1": 0.04095583144372889,
+            "blas-v0": 0.023399154285459422,
+            "clgen-v0": 0.0879441518051053,
+            "csmith-v0": 0.24400324828968775,
+            "github-v0": 0.009909161187332836,
+            "linux-v0": 0.0027505350920419397,
+            "llvm-stress-v0": -0.05379163035318046,
+            "opencv-v0": 0.05266347189346174,
+            "poj104-v1": 0.19255343942467312,
+            "tensorflow-v0": 0.030657522362677384
+          },
+          "policy45_regret_mean_bytes": 7.455882352941177,
+          "policy45_regret_median_bytes": 0.0,
+          "positive_program_count_vs_Oz": 2294,
+          "step": 3400,
+          "train_loss": 3.7010090351104736,
+          "validation_ce": 3.7050312292129597
+        },
+        "selection_metric": "ValidationFinalMeanOverOz policy-45 dataset macro mean",
+        "step_execution": "COMPLETE",
+        "trainable_parameters": 112321
+      },
+      {
+        "architecture": "CrossCandidateMambaNVP",
+        "seed": 2,
+        "selected": {
+          "N_failed_or_invalid": 0,
+          "N_primary_valid": 4488,
+          "N_total": 4488,
+          "ValidationFinalMeanOverOz": 0.06075540361266797,
+          "lr": 0.0004998646811918792,
+          "per_dataset": {
+            "anghabench-v1": 0.0392620048410708,
+            "blas-v0": 0.028888864911528457,
+            "clgen-v0": 0.08356735541198328,
+            "csmith-v0": 0.24561282928559477,
+            "github-v0": 0.010210179195694714,
+            "linux-v0": 0.0025839794081271173,
+            "llvm-stress-v0": -0.07724116439397231,
+            "opencv-v0": 0.051407061370875376,
+            "poj104-v1": 0.19212418023712774,
+            "tensorflow-v0": 0.03113874585864972
+          },
+          "policy45_regret_mean_bytes": 7.522058823529412,
+          "policy45_regret_median_bytes": 0.0,
+          "positive_program_count_vs_Oz": 2290,
+          "step": 600,
+          "train_loss": 3.689016580581665,
+          "validation_ce": 3.7041169844846675
+        },
+        "selection_metric": "ValidationFinalMeanOverOz policy-45 dataset macro mean",
+        "step_execution": "COMPLETE",
+        "trainable_parameters": 112321
+      },
+      {
+        "architecture": "CrossCandidateMambaNVP",
+        "seed": 3,
+        "selected": {
+          "N_failed_or_invalid": 0,
+          "N_primary_valid": 4488,
+          "N_total": 4488,
+          "ValidationFinalMeanOverOz": 0.062203047582907366,
+          "lr": 0.0004933983328188814,
+          "per_dataset": {
+            "anghabench-v1": 0.03483699527932539,
+            "blas-v0": 0.025373981351543375,
+            "clgen-v0": 0.08410294800471604,
+            "csmith-v0": 0.24377188762029656,
+            "github-v0": 0.010010577965741977,
+            "linux-v0": 0.002021233354235002,
+            "llvm-stress-v0": -0.05184931767525277,
+            "opencv-v0": 0.051415999570375064,
+            "poj104-v1": 0.1922282205652948,
+            "tensorflow-v0": 0.030117949792798245
+          },
+          "policy45_regret_mean_bytes": 8.282976827094474,
+          "policy45_regret_median_bytes": 0.0,
+          "positive_program_count_vs_Oz": 2270,
+          "step": 1200,
+          "train_loss": 3.7009830474853516,
+          "validation_ce": 3.705845767801458
+        },
+        "selection_metric": "ValidationFinalMeanOverOz policy-45 dataset macro mean",
+        "step_execution": "COMPLETE",
+        "trainable_parameters": 112321
+      }
+    ],
+    "validation_ce_3seed": 3.7049979938330284
+  },
+  "differences": {
+    "Mamba": -0.0015319351891630861,
+    "MambaNVP_v1": -0.0005814092533265591,
+    "NVP": -0.0007500296218195812
+  },
+  "final_test_accessed": false,
+  "frozen_references": {
+    "Mamba": 0.06355291510205446,
+    "MambaNVP_v1": 0.06260238916621794,
+    "NVP": 0.06277100953471096
+  },
+  "llvm_execution": false,
+  "objecttext_measurements": 0,
+  "ood_accessed": false,
+  "step_execution": "COMPLETE",
+  "training_only": true,
+  "trajectory_state_available": false
+}

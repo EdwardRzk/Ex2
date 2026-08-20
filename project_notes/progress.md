@@ -701,3 +701,24 @@ COMPLETE — POST-HOC / EXPLORATORY only. MambaNVP and NVP are runtime-neutral w
 
 ### Git
 Runtime implementation and results commit `2a9dab23`.
+
+## 2026-08-20 — Cross-Candidate MambaNVP validation v1
+
+### Goal
+Test whether fixed candidate-level self-attention on top of frozen NVP plus shared candidate-sequence Mamba residuals improves frozen Route-A validation policy-45 selection.
+
+### Frozen protocol
+Existing 28,159/4,488 complete-K50 targets, cached normalized 56-D Autophase features, frozen ordered 50 candidate sequences, and existing validation prefix labels only. Each seed trained 10,000 steps with Adam, lr `5e-4`, weight decay `1e-5`, batch 256, fixed warmup/cosine schedule, no early stopping, and validation-only checkpoint selection by policy-45 dataset-macro MeanOverOz. The new residual encodes candidates independently with the existing fixed Mamba setup, applies exactly two candidate self-attention layers with four heads and zero dropout, then adds residual logits to frozen seed-matched NVP logits. No trajectory state was available; no CompilerGym, LLVM, ObjectText, label regeneration, final/OOD, or runtime access occurred.
+
+### Result
+All seeds completed with validation cohort `4488/4488/0`. Selected MeanOverOz is seed 1 `0.06310448854309879` (step 3400), seed 2 `0.06075540361266797` (step 600), seed 3 `0.062203047582907366` (step 1200); three-seed mean `0.06202097991289138`, Oracle recovery `0.8009257529800194`, mean policy45 regret `7.753639334521687` bytes, and CE `3.7049979938330284`. Each model has 112,321 trainable parameters. This is below frozen NVP `0.06277100953471096` by `-0.0007500296218195812`, MambaNVP(v1) `0.06260238916621794` by `-0.0005814092533265591`, and Mamba `0.06355291510205446` by `-0.0015319351891630861`.
+
+### Decision
+FAIL. The frozen cross-candidate interaction does not exceed NVP or MambaNVP(v1) on validation. Stop; do not run final/OOD or tune this variant.
+
+### Artifacts
+- `configs/cross_candidate_mambanvp_v1.json`
+- `outputs/cross_candidate_mambanvp_v1/{config.json,seed1,seed2,seed3,comparison_report.json}`
+
+### Git
+Commit pending.
