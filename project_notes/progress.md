@@ -721,4 +721,4 @@ FAIL. The frozen cross-candidate interaction does not exceed NVP or MambaNVP(v1)
 - `outputs/cross_candidate_mambanvp_v1/{config.json,seed1,seed2,seed3,comparison_report.json}`
 
 ### Git
-Commit pending.
+Implementation and result commit `a8b88677`.
