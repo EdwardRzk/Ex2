@@ -1,0 +1,24 @@
+{
+  "ObjectText_measurements": 0,
+  "candidate_rollouts": 0,
+  "compiler_actions_executed": 0,
+  "exported_counts": {
+    "final": 4679,
+    "train": 28159,
+    "validation": 4488
+  },
+  "feature_dimension": 56,
+  "invalid_extraction_count": {
+    "final": 0,
+    "train": 0,
+    "validation": 0
+  },
+  "model_training_executed": false,
+  "normalization_formula": "raw_autophase / raw_autophase[51]",
+  "source_population_artifact_paths": {
+    "final": "outputs/route_a_final_objecttext_v6/shards/final",
+    "train": "outputs/rlcompopt_route_a_nvp_targets_v6/train_targets.jsonl.gz",
+    "validation": "outputs/rlcompopt_route_a_nvp_targets_v6/validation_targets.jsonl.gz"
+  },
+  "step_execution": "COMPLETE"
+}

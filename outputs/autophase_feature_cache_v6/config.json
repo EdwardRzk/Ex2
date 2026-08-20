@@ -1,0 +1,29 @@
+{
+  "allowed_environment_operations": [
+    "env.reset(program)",
+    "env.observation['Autophase']"
+  ],
+  "candidate_rollouts": 0,
+  "compiler_actions_executed": 0,
+  "expected_complete_k50_counts": {
+    "final": 4679,
+    "train": 28159,
+    "validation": 4488
+  },
+  "experiment_name": "autophase_feature_cache_v6",
+  "feature": {
+    "dimension": 56,
+    "normalization": "raw_autophase / raw_autophase[51]",
+    "observation": "Autophase"
+  },
+  "model_training": false,
+  "objecttext_measurements": 0,
+  "output_dir": "outputs/autophase_feature_cache_v6",
+  "purpose": "offline frozen Autophase cache for MambaNVP inputs only",
+  "source_populations": {
+    "final": "outputs/route_a_final_objecttext_v6/shards/final",
+    "train": "outputs/rlcompopt_route_a_nvp_targets_v6/train_targets.jsonl.gz",
+    "validation": "outputs/rlcompopt_route_a_nvp_targets_v6/validation_targets.jsonl.gz"
+  },
+  "workers": 12
+}
