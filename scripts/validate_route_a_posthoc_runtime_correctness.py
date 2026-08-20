@@ -29,7 +29,7 @@ def method_status(records: list[dict]) -> tuple[bool, bool, str | None]:
 
 def run(binary: Path, program: dict, cwd: Path) -> tuple[str, int | None, str, dict[str, str]]:
     (cwd / "_finfo_dataset").write_text("1\n", encoding="utf-8")
-    command = [str(binary) if value == "./a.out" else value for value in program["argv"]]
+    command = [str(binary.resolve()) if value == "./a.out" else value for value in program["argv"]]
     env = {"PATH": os.environ["PATH"], "OMP_NUM_THREADS": "1", "MKL_NUM_THREADS": "1", "OPENBLAS_NUM_THREADS": "1", **program["env"]}
     try:
         done = subprocess.run(command, cwd=cwd, env=env, stdout=subprocess.PIPE, stderr=subprocess.PIPE, timeout=program["timeout_seconds"], check=False)
