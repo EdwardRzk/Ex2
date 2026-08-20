@@ -1,0 +1,259 @@
+{
+  "calibration": "Oz-only; not formal timing samples",
+  "programs": [
+    {
+      "amplification_factor": 16,
+      "applies_to_methods": [
+        "oz",
+        "nvp_seed1",
+        "nvp_seed2",
+        "nvp_seed3",
+        "mamba_seed1",
+        "mamba_seed2",
+        "mamba_seed3"
+      ],
+      "canonical_oz_calibration_seconds": 0.0665366668254137,
+      "cpu": {
+        "affinity_command": "taskset -c 0",
+        "logical_cpu": 0,
+        "model": "Intel(R) Xeon(R) Gold 6330 CPU @ 2.00GHz",
+        "physical_core": 0,
+        "socket": 0
+      },
+      "estimated_amplified_seconds": 1.0645866692066193,
+      "program_id": "benchmark://cbench-v1/bitcount",
+      "thread_environment": {
+        "MKL_NUM_THREADS": "1",
+        "NUMEXPR_NUM_THREADS": "1",
+        "OMP_NUM_THREADS": "1",
+        "OPENBLAS_NUM_THREADS": "1"
+      }
+    },
+    {
+      "amplification_factor": 426,
+      "applies_to_methods": [
+        "oz",
+        "nvp_seed1",
+        "nvp_seed2",
+        "nvp_seed3",
+        "mamba_seed1",
+        "mamba_seed2",
+        "mamba_seed3"
+      ],
+      "canonical_oz_calibration_seconds": 0.002347712405025959,
+      "cpu": {
+        "affinity_command": "taskset -c 0",
+        "logical_cpu": 0,
+        "model": "Intel(R) Xeon(R) Gold 6330 CPU @ 2.00GHz",
+        "physical_core": 0,
+        "socket": 0
+      },
+      "estimated_amplified_seconds": 1.0001254845410585,
+      "program_id": "benchmark://cbench-v1/blowfish",
+      "thread_environment": {
+        "MKL_NUM_THREADS": "1",
+        "NUMEXPR_NUM_THREADS": "1",
+        "OMP_NUM_THREADS": "1",
+        "OPENBLAS_NUM_THREADS": "1"
+      }
+    },
+    {
+      "amplification_factor": 389,
+      "applies_to_methods": [
+        "oz",
+        "nvp_seed1",
+        "nvp_seed2",
+        "nvp_seed3",
+        "mamba_seed1",
+        "mamba_seed2",
+        "mamba_seed3"
+      ],
+      "canonical_oz_calibration_seconds": 0.0025719553232192993,
+      "cpu": {
+        "affinity_command": "taskset -c 0",
+        "logical_cpu": 0,
+        "model": "Intel(R) Xeon(R) Gold 6330 CPU @ 2.00GHz",
+        "physical_core": 0,
+        "socket": 0
+      },
+      "estimated_amplified_seconds": 1.0004906207323074,
+      "program_id": "benchmark://cbench-v1/crc32",
+      "thread_environment": {
+        "MKL_NUM_THREADS": "1",
+        "NUMEXPR_NUM_THREADS": "1",
+        "OMP_NUM_THREADS": "1",
+        "OPENBLAS_NUM_THREADS": "1"
+      }
+    },
+    {
+      "amplification_factor": 935,
+      "applies_to_methods": [
+        "oz",
+        "nvp_seed1",
+        "nvp_seed2",
+        "nvp_seed3",
+        "mamba_seed1",
+        "mamba_seed2",
+        "mamba_seed3"
+      ],
+      "canonical_oz_calibration_seconds": 0.0010702470317482948,
+      "cpu": {
+        "affinity_command": "taskset -c 0",
+        "logical_cpu": 0,
+        "model": "Intel(R) Xeon(R) Gold 6330 CPU @ 2.00GHz",
+        "physical_core": 0,
+        "socket": 0
+      },
+      "estimated_amplified_seconds": 1.0006809746846557,
+      "program_id": "benchmark://cbench-v1/dijkstra",
+      "thread_environment": {
+        "MKL_NUM_THREADS": "1",
+        "NUMEXPR_NUM_THREADS": "1",
+        "OMP_NUM_THREADS": "1",
+        "OPENBLAS_NUM_THREADS": "1"
+      }
+    },
+    {
+      "amplification_factor": 574,
+      "applies_to_methods": [
+        "oz",
+        "nvp_seed1",
+        "nvp_seed2",
+        "nvp_seed3",
+        "mamba_seed1",
+        "mamba_seed2",
+        "mamba_seed3"
+      ],
+      "canonical_oz_calibration_seconds": 0.0017443066462874413,
+      "cpu": {
+        "affinity_command": "taskset -c 0",
+        "logical_cpu": 0,
+        "model": "Intel(R) Xeon(R) Gold 6330 CPU @ 2.00GHz",
+        "physical_core": 0,
+        "socket": 0
+      },
+      "estimated_amplified_seconds": 1.0012320149689913,
+      "program_id": "benchmark://cbench-v1/patricia",
+      "thread_environment": {
+        "MKL_NUM_THREADS": "1",
+        "NUMEXPR_NUM_THREADS": "1",
+        "OMP_NUM_THREADS": "1",
+        "OPENBLAS_NUM_THREADS": "1"
+      }
+    },
+    {
+      "amplification_factor": 54,
+      "applies_to_methods": [
+        "oz",
+        "nvp_seed1",
+        "nvp_seed2",
+        "nvp_seed3",
+        "mamba_seed1",
+        "mamba_seed2",
+        "mamba_seed3"
+      ],
+      "canonical_oz_calibration_seconds": 0.018597261980175972,
+      "cpu": {
+        "affinity_command": "taskset -c 0",
+        "logical_cpu": 0,
+        "model": "Intel(R) Xeon(R) Gold 6330 CPU @ 2.00GHz",
+        "physical_core": 0,
+        "socket": 0
+      },
+      "estimated_amplified_seconds": 1.0042521469295025,
+      "program_id": "benchmark://cbench-v1/qsort",
+      "thread_environment": {
+        "MKL_NUM_THREADS": "1",
+        "NUMEXPR_NUM_THREADS": "1",
+        "OMP_NUM_THREADS": "1",
+        "OPENBLAS_NUM_THREADS": "1"
+      }
+    },
+    {
+      "amplification_factor": 839,
+      "applies_to_methods": [
+        "oz",
+        "nvp_seed1",
+        "nvp_seed2",
+        "nvp_seed3",
+        "mamba_seed1",
+        "mamba_seed2",
+        "mamba_seed3"
+      ],
+      "canonical_oz_calibration_seconds": 0.0011929338797926903,
+      "cpu": {
+        "affinity_command": "taskset -c 0",
+        "logical_cpu": 0,
+        "model": "Intel(R) Xeon(R) Gold 6330 CPU @ 2.00GHz",
+        "physical_core": 0,
+        "socket": 0
+      },
+      "estimated_amplified_seconds": 1.0008715251460671,
+      "program_id": "benchmark://cbench-v1/sha",
+      "thread_environment": {
+        "MKL_NUM_THREADS": "1",
+        "NUMEXPR_NUM_THREADS": "1",
+        "OMP_NUM_THREADS": "1",
+        "OPENBLAS_NUM_THREADS": "1"
+      }
+    },
+    {
+      "amplification_factor": 847,
+      "applies_to_methods": [
+        "oz",
+        "nvp_seed1",
+        "nvp_seed2",
+        "nvp_seed3",
+        "mamba_seed1",
+        "mamba_seed2",
+        "mamba_seed3"
+      ],
+      "canonical_oz_calibration_seconds": 0.001181628555059433,
+      "cpu": {
+        "affinity_command": "taskset -c 0",
+        "logical_cpu": 0,
+        "model": "Intel(R) Xeon(R) Gold 6330 CPU @ 2.00GHz",
+        "physical_core": 0,
+        "socket": 0
+      },
+      "estimated_amplified_seconds": 1.0008393861353397,
+      "program_id": "benchmark://cbench-v1/stringsearch",
+      "thread_environment": {
+        "MKL_NUM_THREADS": "1",
+        "NUMEXPR_NUM_THREADS": "1",
+        "OMP_NUM_THREADS": "1",
+        "OPENBLAS_NUM_THREADS": "1"
+      }
+    },
+    {
+      "amplification_factor": 461,
+      "applies_to_methods": [
+        "oz",
+        "nvp_seed1",
+        "nvp_seed2",
+        "nvp_seed3",
+        "mamba_seed1",
+        "mamba_seed2",
+        "mamba_seed3"
+      ],
+      "canonical_oz_calibration_seconds": 0.0021725669503211975,
+      "cpu": {
+        "affinity_command": "taskset -c 0",
+        "logical_cpu": 0,
+        "model": "Intel(R) Xeon(R) Gold 6330 CPU @ 2.00GHz",
+        "physical_core": 0,
+        "socket": 0
+      },
+      "estimated_amplified_seconds": 1.001553364098072,
+      "program_id": "benchmark://cbench-v1/stringsearch2",
+      "thread_environment": {
+        "MKL_NUM_THREADS": "1",
+        "NUMEXPR_NUM_THREADS": "1",
+        "OMP_NUM_THREADS": "1",
+        "OPENBLAS_NUM_THREADS": "1"
+      }
+    }
+  ],
+  "protocol": "POST-HOC / EXPLORATORY",
+  "timing_samples_collected": 0
+}
