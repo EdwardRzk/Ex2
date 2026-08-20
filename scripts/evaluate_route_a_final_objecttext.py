@@ -281,6 +281,7 @@ def main() -> int:
     if args.workers != execution["workers"]:
         raise ValueError("final worker count must equal frozen execution_parallelism.workers")
     for name, value in execution["worker_thread_limits"].items():
+        os.environ[name] = value
     assert_split_integrity(programs, cfg)
     root = Path(cfg["models"]["checkpoint_root"])
     validate_checkpoint_inventory(root, cfg)
