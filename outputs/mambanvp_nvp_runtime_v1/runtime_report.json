@@ -1,0 +1,431 @@
+{
+  "completed_programs": 9,
+  "correctness": {
+    "N_binaries": 63,
+    "N_execution_failed": 0,
+    "N_execution_only_unverified": 7,
+    "N_primary_common_programs": 8,
+    "N_runtime_programs": 9,
+    "N_secondary_execution_common_programs": 9,
+    "N_semantic_validated_fail": 0,
+    "N_semantic_validated_pass": 56,
+    "N_timeout": 0,
+    "config_sha256": "8658e61abf38fc0514d26803b3ebd3719943a12865c7fbab7604c71a58438c81",
+    "programs": {
+      "benchmark://cbench-v1/bitcount": {
+        "exclusion_reason": null,
+        "execution_runtime_common_valid": true,
+        "primary_runtime_common_valid": true
+      },
+      "benchmark://cbench-v1/blowfish": {
+        "exclusion_reason": null,
+        "execution_runtime_common_valid": true,
+        "primary_runtime_common_valid": true
+      },
+      "benchmark://cbench-v1/crc32": {
+        "exclusion_reason": null,
+        "execution_runtime_common_valid": true,
+        "primary_runtime_common_valid": true
+      },
+      "benchmark://cbench-v1/dijkstra": {
+        "exclusion_reason": null,
+        "execution_runtime_common_valid": true,
+        "primary_runtime_common_valid": true
+      },
+      "benchmark://cbench-v1/patricia": {
+        "exclusion_reason": null,
+        "execution_runtime_common_valid": true,
+        "primary_runtime_common_valid": true
+      },
+      "benchmark://cbench-v1/qsort": {
+        "exclusion_reason": null,
+        "execution_runtime_common_valid": true,
+        "primary_runtime_common_valid": true
+      },
+      "benchmark://cbench-v1/sha": {
+        "exclusion_reason": "execution_only_unverified",
+        "execution_runtime_common_valid": true,
+        "primary_runtime_common_valid": false
+      },
+      "benchmark://cbench-v1/stringsearch": {
+        "exclusion_reason": null,
+        "execution_runtime_common_valid": true,
+        "primary_runtime_common_valid": true
+      },
+      "benchmark://cbench-v1/stringsearch2": {
+        "exclusion_reason": null,
+        "execution_runtime_common_valid": true,
+        "primary_runtime_common_valid": true
+      }
+    }
+  },
+  "input_integrity_after_run": {
+    "checkpoints": {
+      "MambaNVP": {
+        "1": {
+          "path": "/root/Ex2/outputs/mamba_nvp_objecttext_v6/seed1/model.pt",
+          "sha256": "bd8bbed4dbece6af47a760333b3b6670712cfbe52f03f9dc32c020898e392c33"
+        },
+        "2": {
+          "path": "/root/Ex2/outputs/mamba_nvp_objecttext_v6/seed2/model.pt",
+          "sha256": "326702c0d7892ab891373d7740edd03975ac15f99ee1d9fde509d3417a47b05e"
+        },
+        "3": {
+          "path": "/root/Ex2/outputs/mamba_nvp_objecttext_v6/seed3/model.pt",
+          "sha256": "2a6f0957b87bbc5195629735ae81da57f0d9e44d48f768a7f6a9e2967d4cb6fd"
+        }
+      },
+      "NVP": {
+        "1": {
+          "path": "/root/Ex2/outputs/route_a_stage_b_v6/nvp/seed1/model.pt",
+          "sha256": "7590e756d5f4c9b5f4488ea63eeee02df88e1b48873e5515cdef9e71ab85f424"
+        },
+        "2": {
+          "path": "/root/Ex2/outputs/route_a_stage_b_v6/nvp/seed2/model.pt",
+          "sha256": "54bedb6f04ddd9079211a39d4b4c37eb320711f453fcda8c4d4e345c162ae9ca"
+        },
+        "3": {
+          "path": "/root/Ex2/outputs/route_a_stage_b_v6/nvp/seed3/model.pt",
+          "sha256": "461d27c8b38d86f3218f8322a4239ebb43dc341cadb28ed7b1c37b51f49fa92d"
+        }
+      }
+    },
+    "controlled_config": {
+      "path": "/root/Ex2/configs/controlled_nvp_stage_a_v6.json",
+      "sha256": "345aded6d24cc53465b5589bd7b013cd241947b88087678d7c77f7201ee3d1ed"
+    },
+    "final_autophase_cache": {
+      "path": "/root/Ex2/outputs/autophase_feature_cache_v6/final_autophase.jsonl.gz",
+      "sha256": "3b4861d50653b4333b77f7db108aec133408a33cda6b21391d11701d4be157c3"
+    },
+    "final_label_shards": "/root/Ex2/outputs/route_a_final_objecttext_v6/shards/final",
+    "frozen_oz_amplification": {
+      "path": "/root/Ex2/outputs/route_a_posthoc_runtime_v6/amplification_manifest.json",
+      "sha256": "38bb3fc4a5bdfc4ea7d9dd75cf7617e8878e2a4ca0842a74d6fce2b71938cfe1"
+    },
+    "legacy_build_manifest": {
+      "path": "/root/Ex2/outputs/route_a_posthoc_runtime_v6/build_manifest.json",
+      "sha256": "ad155e12b1d4c169712a89f45cc754589e7e94c2ade8cd37d4276601706e7e2c"
+    },
+    "legacy_policy_prefixes": {
+      "path": "/root/Ex2/outputs/route_a_posthoc_runtime_v6/policy_prefixes.json",
+      "sha256": "713706fbab61cf185cf8af05848070e97884c46bb639c5a58572253aa76b2ab4"
+    },
+    "mambanvp_final_config": {
+      "path": "/root/Ex2/configs/mamba_nvp_final_objecttext_v6.json",
+      "sha256": "e8c6c3ee5e2bf8965974b4a04623a469123ef89717a82a7a69b0e24c5ca2c901"
+    },
+    "mambanvp_training_config": {
+      "path": "/root/Ex2/configs/mamba_nvp_objecttext_v6.json",
+      "sha256": "7582f8f572a6564512363460b51c692d983a217b62243200ac90398440384ef1"
+    },
+    "route_a_posthoc_runtime_config": {
+      "path": "/root/Ex2/configs/route_a_posthoc_runtime_v6.json",
+      "sha256": "75cbb07faf077774d103fd7c5c434a558bbefa9a207c3a9e33aaf94a52bc9f5f"
+    }
+  },
+  "invalid_or_failure_programs": 0,
+  "objecttext_runtime_correlation": {
+    "reason": "Runtime uses policy45 winning prefixes while existing ObjectText reports are aggregate policy outputs; no unambiguous per-program paired metric is introduced.",
+    "status": "SKIPPED"
+  },
+  "primary_semantic_cohort": {
+    "N_programs": 8,
+    "per_seed": {
+      "1": {
+        "MambaNVP_geomean_speedup_vs_Oz": 0.7925099386653521,
+        "NVP_geomean_speedup_vs_Oz": 0.802524679671852,
+        "per_program": {
+          "benchmark://cbench-v1/bitcount": {
+            "MambaNVP_speedup_vs_Oz": 0.3597562613017432,
+            "NVP_speedup_vs_Oz": 0.3591761170304498
+          },
+          "benchmark://cbench-v1/blowfish": {
+            "MambaNVP_speedup_vs_Oz": 0.9857310739109076,
+            "NVP_speedup_vs_Oz": 0.9805089692303535
+          },
+          "benchmark://cbench-v1/crc32": {
+            "MambaNVP_speedup_vs_Oz": 1.118235697804187,
+            "NVP_speedup_vs_Oz": 1.1236295465754307
+          },
+          "benchmark://cbench-v1/dijkstra": {
+            "MambaNVP_speedup_vs_Oz": 0.990908270893076,
+            "NVP_speedup_vs_Oz": 1.0255283312865953
+          },
+          "benchmark://cbench-v1/patricia": {
+            "MambaNVP_speedup_vs_Oz": 0.9632310438526028,
+            "NVP_speedup_vs_Oz": 1.0038745901829664
+          },
+          "benchmark://cbench-v1/qsort": {
+            "MambaNVP_speedup_vs_Oz": 0.6924439237305208,
+            "NVP_speedup_vs_Oz": 0.7035622720074662
+          },
+          "benchmark://cbench-v1/stringsearch": {
+            "MambaNVP_speedup_vs_Oz": 0.945423481278201,
+            "NVP_speedup_vs_Oz": 0.936839017050886
+          },
+          "benchmark://cbench-v1/stringsearch2": {
+            "MambaNVP_speedup_vs_Oz": 0.6280043615445617,
+            "NVP_speedup_vs_Oz": 0.6407525838947767
+          }
+        },
+        "speedup_ratio_MambaNVP_over_NVP": 0.9875209557286202
+      },
+      "2": {
+        "MambaNVP_geomean_speedup_vs_Oz": 0.8067883208804888,
+        "NVP_geomean_speedup_vs_Oz": 0.8061873300258701,
+        "per_program": {
+          "benchmark://cbench-v1/bitcount": {
+            "MambaNVP_speedup_vs_Oz": 0.3599182648636041,
+            "NVP_speedup_vs_Oz": 0.3557134534175865
+          },
+          "benchmark://cbench-v1/blowfish": {
+            "MambaNVP_speedup_vs_Oz": 0.9620746037450019,
+            "NVP_speedup_vs_Oz": 0.9670593525824437
+          },
+          "benchmark://cbench-v1/crc32": {
+            "MambaNVP_speedup_vs_Oz": 1.1499500146307704,
+            "NVP_speedup_vs_Oz": 1.1401076740315241
+          },
+          "benchmark://cbench-v1/dijkstra": {
+            "MambaNVP_speedup_vs_Oz": 1.018603595178445,
+            "NVP_speedup_vs_Oz": 0.9920593392728725
+          },
+          "benchmark://cbench-v1/patricia": {
+            "MambaNVP_speedup_vs_Oz": 0.9901149388589844,
+            "NVP_speedup_vs_Oz": 1.0005576065252753
+          },
+          "benchmark://cbench-v1/qsort": {
+            "MambaNVP_speedup_vs_Oz": 0.723287940065183,
+            "NVP_speedup_vs_Oz": 0.7382019599524126
+          },
+          "benchmark://cbench-v1/stringsearch": {
+            "MambaNVP_speedup_vs_Oz": 0.9572335139341482,
+            "NVP_speedup_vs_Oz": 0.9795644416705911
+          },
+          "benchmark://cbench-v1/stringsearch2": {
+            "MambaNVP_speedup_vs_Oz": 0.6456026203942165,
+            "NVP_speedup_vs_Oz": 0.6338704489694552
+          }
+        },
+        "speedup_ratio_MambaNVP_over_NVP": 1.000745472959243
+      },
+      "3": {
+        "MambaNVP_geomean_speedup_vs_Oz": 0.7987879040659466,
+        "NVP_geomean_speedup_vs_Oz": 0.7906051503271915,
+        "per_program": {
+          "benchmark://cbench-v1/bitcount": {
+            "MambaNVP_speedup_vs_Oz": 0.3602092734889291,
+            "NVP_speedup_vs_Oz": 0.30830990832273353
+          },
+          "benchmark://cbench-v1/blowfish": {
+            "MambaNVP_speedup_vs_Oz": 0.9752381434708663,
+            "NVP_speedup_vs_Oz": 0.9553665268919381
+          },
+          "benchmark://cbench-v1/crc32": {
+            "MambaNVP_speedup_vs_Oz": 1.084500179046272,
+            "NVP_speedup_vs_Oz": 1.1462355546996723
+          },
+          "benchmark://cbench-v1/dijkstra": {
+            "MambaNVP_speedup_vs_Oz": 1.0304471939074393,
+            "NVP_speedup_vs_Oz": 1.00045757183616
+          },
+          "benchmark://cbench-v1/patricia": {
+            "MambaNVP_speedup_vs_Oz": 0.9834150113219684,
+            "NVP_speedup_vs_Oz": 0.9866906348739117
+          },
+          "benchmark://cbench-v1/qsort": {
+            "MambaNVP_speedup_vs_Oz": 0.7018025902232317,
+            "NVP_speedup_vs_Oz": 0.7214332714693826
+          },
+          "benchmark://cbench-v1/stringsearch": {
+            "MambaNVP_speedup_vs_Oz": 0.9677395134572009,
+            "NVP_speedup_vs_Oz": 0.9839530410623245
+          },
+          "benchmark://cbench-v1/stringsearch2": {
+            "MambaNVP_speedup_vs_Oz": 0.6321507053356772,
+            "NVP_speedup_vs_Oz": 0.6452017156623393
+          }
+        },
+        "speedup_ratio_MambaNVP_over_NVP": 1.0103499878989768
+      }
+    },
+    "program_ids": [
+      "benchmark://cbench-v1/bitcount",
+      "benchmark://cbench-v1/blowfish",
+      "benchmark://cbench-v1/crc32",
+      "benchmark://cbench-v1/dijkstra",
+      "benchmark://cbench-v1/patricia",
+      "benchmark://cbench-v1/qsort",
+      "benchmark://cbench-v1/stringsearch",
+      "benchmark://cbench-v1/stringsearch2"
+    ],
+    "three_seed": {
+      "MambaNVP_geomean_speedup_vs_Oz": 0.7993407124752895,
+      "NVP_geomean_speedup_vs_Oz": 0.7997446341516607,
+      "speedup_ratio_MambaNVP_over_NVP": 0.9994949366846334
+    }
+  },
+  "prohibitions_observed": {
+    "compiler_gym_candidate_rollouts": 0,
+    "compiler_gym_initialized": false,
+    "label_regeneration": 0,
+    "llvm_phase_application": 0,
+    "llvm_phase_search": 0,
+    "model_training": 0,
+    "objecttext_measurements": 0,
+    "sampling": false
+  },
+  "protocol": "route_a_posthoc_runtime_v6 reused unchanged for benchmarks/toolchain/affinity/warmup/repetitions/correctness",
+  "secondary_execution_cohort": {
+    "N_programs": 9,
+    "per_seed": {
+      "1": {
+        "MambaNVP_geomean_speedup_vs_Oz": 0.8118465583697884,
+        "NVP_geomean_speedup_vs_Oz": 0.8238062928004426,
+        "per_program": {
+          "benchmark://cbench-v1/bitcount": {
+            "MambaNVP_speedup_vs_Oz": 0.3597562613017432,
+            "NVP_speedup_vs_Oz": 0.3591761170304498
+          },
+          "benchmark://cbench-v1/blowfish": {
+            "MambaNVP_speedup_vs_Oz": 0.9857310739109076,
+            "NVP_speedup_vs_Oz": 0.9805089692303535
+          },
+          "benchmark://cbench-v1/crc32": {
+            "MambaNVP_speedup_vs_Oz": 1.118235697804187,
+            "NVP_speedup_vs_Oz": 1.1236295465754307
+          },
+          "benchmark://cbench-v1/dijkstra": {
+            "MambaNVP_speedup_vs_Oz": 0.990908270893076,
+            "NVP_speedup_vs_Oz": 1.0255283312865953
+          },
+          "benchmark://cbench-v1/patricia": {
+            "MambaNVP_speedup_vs_Oz": 0.9632310438526028,
+            "NVP_speedup_vs_Oz": 1.0038745901829664
+          },
+          "benchmark://cbench-v1/qsort": {
+            "MambaNVP_speedup_vs_Oz": 0.6924439237305208,
+            "NVP_speedup_vs_Oz": 0.7035622720074662
+          },
+          "benchmark://cbench-v1/sha": {
+            "MambaNVP_speedup_vs_Oz": 0.9845274899263143,
+            "NVP_speedup_vs_Oz": 1.015684371959059
+          },
+          "benchmark://cbench-v1/stringsearch": {
+            "MambaNVP_speedup_vs_Oz": 0.945423481278201,
+            "NVP_speedup_vs_Oz": 0.936839017050886
+          },
+          "benchmark://cbench-v1/stringsearch2": {
+            "MambaNVP_speedup_vs_Oz": 0.6280043615445617,
+            "NVP_speedup_vs_Oz": 0.6407525838947767
+          }
+        },
+        "speedup_ratio_MambaNVP_over_NVP": 0.9854823463535362
+      },
+      "2": {
+        "MambaNVP_geomean_speedup_vs_Oz": 0.8252137623670094,
+        "NVP_geomean_speedup_vs_Oz": 0.8242831087358709,
+        "per_program": {
+          "benchmark://cbench-v1/bitcount": {
+            "MambaNVP_speedup_vs_Oz": 0.3599182648636041,
+            "NVP_speedup_vs_Oz": 0.3557134534175865
+          },
+          "benchmark://cbench-v1/blowfish": {
+            "MambaNVP_speedup_vs_Oz": 0.9620746037450019,
+            "NVP_speedup_vs_Oz": 0.9670593525824437
+          },
+          "benchmark://cbench-v1/crc32": {
+            "MambaNVP_speedup_vs_Oz": 1.1499500146307704,
+            "NVP_speedup_vs_Oz": 1.1401076740315241
+          },
+          "benchmark://cbench-v1/dijkstra": {
+            "MambaNVP_speedup_vs_Oz": 1.018603595178445,
+            "NVP_speedup_vs_Oz": 0.9920593392728725
+          },
+          "benchmark://cbench-v1/patricia": {
+            "MambaNVP_speedup_vs_Oz": 0.9901149388589844,
+            "NVP_speedup_vs_Oz": 1.0005576065252753
+          },
+          "benchmark://cbench-v1/qsort": {
+            "MambaNVP_speedup_vs_Oz": 0.723287940065183,
+            "NVP_speedup_vs_Oz": 0.7382019599524126
+          },
+          "benchmark://cbench-v1/sha": {
+            "MambaNVP_speedup_vs_Oz": 0.9886016669880621,
+            "NVP_speedup_vs_Oz": 0.9844640348825923
+          },
+          "benchmark://cbench-v1/stringsearch": {
+            "MambaNVP_speedup_vs_Oz": 0.9572335139341482,
+            "NVP_speedup_vs_Oz": 0.9795644416705911
+          },
+          "benchmark://cbench-v1/stringsearch2": {
+            "MambaNVP_speedup_vs_Oz": 0.6456026203942165,
+            "NVP_speedup_vs_Oz": 0.6338704489694552
+          }
+        },
+        "speedup_ratio_MambaNVP_over_NVP": 1.0011290461023346
+      },
+      "3": {
+        "MambaNVP_geomean_speedup_vs_Oz": 0.8193389610764971,
+        "NVP_geomean_speedup_vs_Oz": 0.8121671944026532,
+        "per_program": {
+          "benchmark://cbench-v1/bitcount": {
+            "MambaNVP_speedup_vs_Oz": 0.3602092734889291,
+            "NVP_speedup_vs_Oz": 0.30830990832273353
+          },
+          "benchmark://cbench-v1/blowfish": {
+            "MambaNVP_speedup_vs_Oz": 0.9752381434708663,
+            "NVP_speedup_vs_Oz": 0.9553665268919381
+          },
+          "benchmark://cbench-v1/crc32": {
+            "MambaNVP_speedup_vs_Oz": 1.084500179046272,
+            "NVP_speedup_vs_Oz": 1.1462355546996723
+          },
+          "benchmark://cbench-v1/dijkstra": {
+            "MambaNVP_speedup_vs_Oz": 1.0304471939074393,
+            "NVP_speedup_vs_Oz": 1.00045757183616
+          },
+          "benchmark://cbench-v1/patricia": {
+            "MambaNVP_speedup_vs_Oz": 0.9834150113219684,
+            "NVP_speedup_vs_Oz": 0.9866906348739117
+          },
+          "benchmark://cbench-v1/qsort": {
+            "MambaNVP_speedup_vs_Oz": 0.7018025902232317,
+            "NVP_speedup_vs_Oz": 0.7214332714693826
+          },
+          "benchmark://cbench-v1/sha": {
+            "MambaNVP_speedup_vs_Oz": 1.0039697403622085,
+            "NVP_speedup_vs_Oz": 1.0072374741126384
+          },
+          "benchmark://cbench-v1/stringsearch": {
+            "MambaNVP_speedup_vs_Oz": 0.9677395134572009,
+            "NVP_speedup_vs_Oz": 0.9839530410623245
+          },
+          "benchmark://cbench-v1/stringsearch2": {
+            "MambaNVP_speedup_vs_Oz": 0.6321507053356772,
+            "NVP_speedup_vs_Oz": 0.6452017156623393
+          }
+        },
+        "speedup_ratio_MambaNVP_over_NVP": 1.0088304067478602
+      }
+    },
+    "program_ids": [
+      "benchmark://cbench-v1/bitcount",
+      "benchmark://cbench-v1/blowfish",
+      "benchmark://cbench-v1/crc32",
+      "benchmark://cbench-v1/dijkstra",
+      "benchmark://cbench-v1/patricia",
+      "benchmark://cbench-v1/qsort",
+      "benchmark://cbench-v1/sha",
+      "benchmark://cbench-v1/stringsearch",
+      "benchmark://cbench-v1/stringsearch2"
+    ],
+    "three_seed": {
+      "MambaNVP_geomean_speedup_vs_Oz": 0.8187814740982958,
+      "NVP_geomean_speedup_vs_Oz": 0.8200663332513396,
+      "speedup_ratio_MambaNVP_over_NVP": 0.9984332253368461
+    }
+  },
+  "step_execution": "COMPLETE"
+}

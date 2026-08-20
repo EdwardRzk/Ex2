@@ -1,0 +1,59 @@
+{
+  "N_binaries": 63,
+  "N_execution_failed": 0,
+  "N_execution_only_unverified": 7,
+  "N_primary_common_programs": 8,
+  "N_runtime_programs": 9,
+  "N_secondary_execution_common_programs": 9,
+  "N_semantic_validated_fail": 0,
+  "N_semantic_validated_pass": 56,
+  "N_timeout": 0,
+  "config_sha256": "8658e61abf38fc0514d26803b3ebd3719943a12865c7fbab7604c71a58438c81",
+  "programs": {
+    "benchmark://cbench-v1/bitcount": {
+      "exclusion_reason": null,
+      "execution_runtime_common_valid": true,
+      "primary_runtime_common_valid": true
+    },
+    "benchmark://cbench-v1/blowfish": {
+      "exclusion_reason": null,
+      "execution_runtime_common_valid": true,
+      "primary_runtime_common_valid": true
+    },
+    "benchmark://cbench-v1/crc32": {
+      "exclusion_reason": null,
+      "execution_runtime_common_valid": true,
+      "primary_runtime_common_valid": true
+    },
+    "benchmark://cbench-v1/dijkstra": {
+      "exclusion_reason": null,
+      "execution_runtime_common_valid": true,
+      "primary_runtime_common_valid": true
+    },
+    "benchmark://cbench-v1/patricia": {
+      "exclusion_reason": null,
+      "execution_runtime_common_valid": true,
+      "primary_runtime_common_valid": true
+    },
+    "benchmark://cbench-v1/qsort": {
+      "exclusion_reason": null,
+      "execution_runtime_common_valid": true,
+      "primary_runtime_common_valid": true
+    },
+    "benchmark://cbench-v1/sha": {
+      "exclusion_reason": "execution_only_unverified",
+      "execution_runtime_common_valid": true,
+      "primary_runtime_common_valid": false
+    },
+    "benchmark://cbench-v1/stringsearch": {
+      "exclusion_reason": null,
+      "execution_runtime_common_valid": true,
+      "primary_runtime_common_valid": true
+    },
+    "benchmark://cbench-v1/stringsearch2": {
+      "exclusion_reason": null,
+      "execution_runtime_common_valid": true,
+      "primary_runtime_common_valid": true
+    }
+  }
+}

@@ -1,0 +1,1237 @@
+{
+  "config_sha256": "8658e61abf38fc0514d26803b3ebd3719943a12865c7fbab7604c71a58438c81",
+  "execution": "COPY_VERIFIED_FROZEN_BINARY_NO_COMPILERGYM_ROLLOUT_NO_LLVM_PHASE_APPLICATION",
+  "programs": {
+    "benchmark://cbench-v1/bitcount": {
+      "all_expected_methods_built": true,
+      "methods": {
+        "mambanvp_seed1": {
+          "action_ids": [
+            102,
+            53
+          ],
+          "binary": "outputs/mambanvp_nvp_runtime_v1/work/bitcount/binaries/mambanvp_seed1",
+          "bitcode": "outputs/mambanvp_nvp_runtime_v1/work/bitcount/binaries/mambanvp_seed1.bc",
+          "bitcode_sha256": "870028fdab71f2eb496412b0890623b86a4ee3c032ec8be2738964d4ba7c4993",
+          "candidate_id": 5,
+          "candidate_rank": 2,
+          "legacy_prefix_key": "NVP_seed1",
+          "legacy_source_method": "nvp_seed1",
+          "pass_count": 2,
+          "pass_sequence_id": 5,
+          "policy45_object_text_size_bytes": 3519,
+          "prefix_index": 1,
+          "sha256": "05092afe0f6224885274fb01086fed14f541ce6517a1446cd8218b3822be298b"
+        },
+        "mambanvp_seed2": {
+          "action_ids": [
+            102,
+            53
+          ],
+          "binary": "outputs/mambanvp_nvp_runtime_v1/work/bitcount/binaries/mambanvp_seed2",
+          "bitcode": "outputs/mambanvp_nvp_runtime_v1/work/bitcount/binaries/mambanvp_seed2.bc",
+          "bitcode_sha256": "870028fdab71f2eb496412b0890623b86a4ee3c032ec8be2738964d4ba7c4993",
+          "candidate_id": 5,
+          "candidate_rank": 1,
+          "legacy_prefix_key": "NVP_seed1",
+          "legacy_source_method": "nvp_seed1",
+          "pass_count": 2,
+          "pass_sequence_id": 5,
+          "policy45_object_text_size_bytes": 3519,
+          "prefix_index": 1,
+          "sha256": "05092afe0f6224885274fb01086fed14f541ce6517a1446cd8218b3822be298b"
+        },
+        "mambanvp_seed3": {
+          "action_ids": [
+            102,
+            53
+          ],
+          "binary": "outputs/mambanvp_nvp_runtime_v1/work/bitcount/binaries/mambanvp_seed3",
+          "bitcode": "outputs/mambanvp_nvp_runtime_v1/work/bitcount/binaries/mambanvp_seed3.bc",
+          "bitcode_sha256": "870028fdab71f2eb496412b0890623b86a4ee3c032ec8be2738964d4ba7c4993",
+          "candidate_id": 5,
+          "candidate_rank": 2,
+          "legacy_prefix_key": "NVP_seed1",
+          "legacy_source_method": "nvp_seed1",
+          "pass_count": 2,
+          "pass_sequence_id": 5,
+          "policy45_object_text_size_bytes": 3519,
+          "prefix_index": 1,
+          "sha256": "05092afe0f6224885274fb01086fed14f541ce6517a1446cd8218b3822be298b"
+        },
+        "nvp_seed1": {
+          "action_ids": [
+            102,
+            53
+          ],
+          "binary": "outputs/mambanvp_nvp_runtime_v1/work/bitcount/binaries/nvp_seed1",
+          "bitcode": "outputs/mambanvp_nvp_runtime_v1/work/bitcount/binaries/nvp_seed1.bc",
+          "bitcode_sha256": "870028fdab71f2eb496412b0890623b86a4ee3c032ec8be2738964d4ba7c4993",
+          "candidate_id": 5,
+          "candidate_rank": 2,
+          "legacy_prefix_key": "NVP_seed1",
+          "legacy_source_method": "nvp_seed1",
+          "pass_count": 2,
+          "pass_sequence_id": 5,
+          "policy45_object_text_size_bytes": 3519,
+          "prefix_index": 1,
+          "sha256": "05092afe0f6224885274fb01086fed14f541ce6517a1446cd8218b3822be298b"
+        },
+        "nvp_seed2": {
+          "action_ids": [
+            102,
+            53
+          ],
+          "binary": "outputs/mambanvp_nvp_runtime_v1/work/bitcount/binaries/nvp_seed2",
+          "bitcode": "outputs/mambanvp_nvp_runtime_v1/work/bitcount/binaries/nvp_seed2.bc",
+          "bitcode_sha256": "870028fdab71f2eb496412b0890623b86a4ee3c032ec8be2738964d4ba7c4993",
+          "candidate_id": 5,
+          "candidate_rank": 2,
+          "legacy_prefix_key": "NVP_seed2",
+          "legacy_source_method": "nvp_seed2",
+          "pass_count": 2,
+          "pass_sequence_id": 5,
+          "policy45_object_text_size_bytes": 3519,
+          "prefix_index": 1,
+          "sha256": "05092afe0f6224885274fb01086fed14f541ce6517a1446cd8218b3822be298b"
+        },
+        "nvp_seed3": {
+          "action_ids": [
+            21,
+            121,
+            97,
+            38,
+            31,
+            52,
+            70,
+            53
+          ],
+          "binary": "outputs/mambanvp_nvp_runtime_v1/work/bitcount/binaries/nvp_seed3",
+          "bitcode": "outputs/mambanvp_nvp_runtime_v1/work/bitcount/binaries/nvp_seed3.bc",
+          "bitcode_sha256": "f95359b3ef2bee55325bc694222de20f6f36ba612abc528cc9cebc2d2cb66102",
+          "candidate_id": 31,
+          "candidate_rank": 2,
+          "legacy_prefix_key": "NVP_seed3",
+          "legacy_source_method": "nvp_seed3",
+          "pass_count": 8,
+          "pass_sequence_id": 31,
+          "policy45_object_text_size_bytes": 3581,
+          "prefix_index": 7,
+          "sha256": "0daf29f327afeb1f7f13d2aa3252add87a8704f5ad4a439bdb44fed067d62fd5"
+        },
+        "oz": {
+          "action_ids": null,
+          "binary": "outputs/mambanvp_nvp_runtime_v1/work/bitcount/binaries/oz",
+          "candidate_id": null,
+          "legacy_source_method": "oz",
+          "pass_count": null,
+          "pass_sequence_id": null,
+          "prefix_index": null,
+          "sha256": "c231fcbc0aaed233d7ad3e36b862ac5ac41487cdc39b7a7dd2a2546282fb4222"
+        }
+      }
+    },
+    "benchmark://cbench-v1/blowfish": {
+      "all_expected_methods_built": true,
+      "methods": {
+        "mambanvp_seed1": {
+          "action_ids": [
+            21,
+            121,
+            97,
+            38,
+            31,
+            52,
+            70,
+            53,
+            71,
+            97,
+            56,
+            111,
+            40,
+            39,
+            65,
+            10,
+            53
+          ],
+          "binary": "outputs/mambanvp_nvp_runtime_v1/work/blowfish/binaries/mambanvp_seed1",
+          "bitcode": "outputs/mambanvp_nvp_runtime_v1/work/blowfish/binaries/mambanvp_seed1.bc",
+          "bitcode_sha256": "274381b4965e61f620193a0bf856837f322ac78e112239db962852a40201b291",
+          "candidate_id": 31,
+          "candidate_rank": 1,
+          "legacy_prefix_key": "NVP_seed1",
+          "legacy_source_method": "nvp_seed1",
+          "pass_count": 17,
+          "pass_sequence_id": 31,
+          "policy45_object_text_size_bytes": 13313,
+          "prefix_index": 16,
+          "sha256": "bd4c81372e864d67b835a84ed751b431bb19c0f29eebdcf5de9c58dfd91beebe"
+        },
+        "mambanvp_seed2": {
+          "action_ids": [
+            71,
+            29,
+            111,
+            102,
+            53,
+            120,
+            38,
+            47,
+            21,
+            10
+          ],
+          "binary": "outputs/mambanvp_nvp_runtime_v1/work/blowfish/binaries/mambanvp_seed2",
+          "bitcode": "outputs/mambanvp_nvp_runtime_v1/work/blowfish/binaries/mambanvp_seed2.bc",
+          "bitcode_sha256": "beb42badfd69b6a1a76435818b93baac9f8a0e4ab1752dc191bd6eec9e935124",
+          "candidate_id": 22,
+          "candidate_rank": 0,
+          "legacy_prefix_key": "NVP_seed2",
+          "legacy_source_method": "nvp_seed2",
+          "pass_count": 10,
+          "pass_sequence_id": 22,
+          "policy45_object_text_size_bytes": 13405,
+          "prefix_index": 9,
+          "sha256": "8d81b81a2cba53068cad72cf88eb027b0d2dcebd85857a87a892714faf40e882"
+        },
+        "mambanvp_seed3": {
+          "action_ids": [
+            27,
+            36,
+            103,
+            24,
+            53
+          ],
+          "binary": "outputs/mambanvp_nvp_runtime_v1/work/blowfish/binaries/mambanvp_seed3",
+          "bitcode": "outputs/mambanvp_nvp_runtime_v1/work/blowfish/binaries/mambanvp_seed3.bc",
+          "bitcode_sha256": "da5f34ca4b224408abdd4708636b91d98beab1c9b090c194e87a9773ce120e08",
+          "candidate_id": 27,
+          "candidate_rank": 0,
+          "legacy_prefix_key": "Mamba_seed2",
+          "legacy_source_method": "mamba_seed2",
+          "pass_count": 5,
+          "pass_sequence_id": 27,
+          "policy45_object_text_size_bytes": 12460,
+          "prefix_index": 4,
+          "sha256": "4c45ce61c008cce8ec2179abf2ea0ca82b9dbc4cc5db93a01f0640867300c853"
+        },
+        "nvp_seed1": {
+          "action_ids": [
+            21,
+            121,
+            97,
+            38,
+            31,
+            52,
+            70,
+            53,
+            71,
+            97,
+            56,
+            111,
+            40,
+            39,
+            65,
+            10,
+            53
+          ],
+          "binary": "outputs/mambanvp_nvp_runtime_v1/work/blowfish/binaries/nvp_seed1",
+          "bitcode": "outputs/mambanvp_nvp_runtime_v1/work/blowfish/binaries/nvp_seed1.bc",
+          "bitcode_sha256": "274381b4965e61f620193a0bf856837f322ac78e112239db962852a40201b291",
+          "candidate_id": 31,
+          "candidate_rank": 1,
+          "legacy_prefix_key": "NVP_seed1",
+          "legacy_source_method": "nvp_seed1",
+          "pass_count": 17,
+          "pass_sequence_id": 31,
+          "policy45_object_text_size_bytes": 13313,
+          "prefix_index": 16,
+          "sha256": "bd4c81372e864d67b835a84ed751b431bb19c0f29eebdcf5de9c58dfd91beebe"
+        },
+        "nvp_seed2": {
+          "action_ids": [
+            71,
+            29,
+            111,
+            102,
+            53,
+            120,
+            38,
+            47,
+            21,
+            10
+          ],
+          "binary": "outputs/mambanvp_nvp_runtime_v1/work/blowfish/binaries/nvp_seed2",
+          "bitcode": "outputs/mambanvp_nvp_runtime_v1/work/blowfish/binaries/nvp_seed2.bc",
+          "bitcode_sha256": "beb42badfd69b6a1a76435818b93baac9f8a0e4ab1752dc191bd6eec9e935124",
+          "candidate_id": 22,
+          "candidate_rank": 0,
+          "legacy_prefix_key": "NVP_seed2",
+          "legacy_source_method": "nvp_seed2",
+          "pass_count": 10,
+          "pass_sequence_id": 22,
+          "policy45_object_text_size_bytes": 13405,
+          "prefix_index": 9,
+          "sha256": "8d81b81a2cba53068cad72cf88eb027b0d2dcebd85857a87a892714faf40e882"
+        },
+        "nvp_seed3": {
+          "action_ids": [
+            27,
+            36,
+            103,
+            24,
+            53
+          ],
+          "binary": "outputs/mambanvp_nvp_runtime_v1/work/blowfish/binaries/nvp_seed3",
+          "bitcode": "outputs/mambanvp_nvp_runtime_v1/work/blowfish/binaries/nvp_seed3.bc",
+          "bitcode_sha256": "da5f34ca4b224408abdd4708636b91d98beab1c9b090c194e87a9773ce120e08",
+          "candidate_id": 27,
+          "candidate_rank": 0,
+          "legacy_prefix_key": "NVP_seed3",
+          "legacy_source_method": "nvp_seed3",
+          "pass_count": 5,
+          "pass_sequence_id": 27,
+          "policy45_object_text_size_bytes": 12460,
+          "prefix_index": 4,
+          "sha256": "4c45ce61c008cce8ec2179abf2ea0ca82b9dbc4cc5db93a01f0640867300c853"
+        },
+        "oz": {
+          "action_ids": null,
+          "binary": "outputs/mambanvp_nvp_runtime_v1/work/blowfish/binaries/oz",
+          "candidate_id": null,
+          "legacy_source_method": "oz",
+          "pass_count": null,
+          "pass_sequence_id": null,
+          "prefix_index": null,
+          "sha256": "958ae43d6a00d415a142a5a144be5dfd319de608c77e189d0ec15512bcc0b2ec"
+        }
+      }
+    },
+    "benchmark://cbench-v1/crc32": {
+      "all_expected_methods_built": true,
+      "methods": {
+        "mambanvp_seed1": {
+          "action_ids": [
+            102
+          ],
+          "binary": "outputs/mambanvp_nvp_runtime_v1/work/crc32/binaries/mambanvp_seed1",
+          "bitcode": "outputs/mambanvp_nvp_runtime_v1/work/crc32/binaries/mambanvp_seed1.bc",
+          "bitcode_sha256": "1118ad2ab061d888aab0c586397a11b535b63427d5ecfcbd4f70e2196140c476",
+          "candidate_id": 5,
+          "candidate_rank": 3,
+          "legacy_prefix_key": "NVP_seed1",
+          "legacy_source_method": "nvp_seed1",
+          "pass_count": 1,
+          "pass_sequence_id": 5,
+          "policy45_object_text_size_bytes": 1183,
+          "prefix_index": 0,
+          "sha256": "5c9650343b7263ec03734ddf83d908dda4a673ea7be1c764c2749acc984b8220"
+        },
+        "mambanvp_seed2": {
+          "action_ids": [
+            102
+          ],
+          "binary": "outputs/mambanvp_nvp_runtime_v1/work/crc32/binaries/mambanvp_seed2",
+          "bitcode": "outputs/mambanvp_nvp_runtime_v1/work/crc32/binaries/mambanvp_seed2.bc",
+          "bitcode_sha256": "1118ad2ab061d888aab0c586397a11b535b63427d5ecfcbd4f70e2196140c476",
+          "candidate_id": 5,
+          "candidate_rank": 3,
+          "legacy_prefix_key": "NVP_seed1",
+          "legacy_source_method": "nvp_seed1",
+          "pass_count": 1,
+          "pass_sequence_id": 5,
+          "policy45_object_text_size_bytes": 1183,
+          "prefix_index": 0,
+          "sha256": "5c9650343b7263ec03734ddf83d908dda4a673ea7be1c764c2749acc984b8220"
+        },
+        "mambanvp_seed3": {
+          "action_ids": [
+            102
+          ],
+          "binary": "outputs/mambanvp_nvp_runtime_v1/work/crc32/binaries/mambanvp_seed3",
+          "bitcode": "outputs/mambanvp_nvp_runtime_v1/work/crc32/binaries/mambanvp_seed3.bc",
+          "bitcode_sha256": "1118ad2ab061d888aab0c586397a11b535b63427d5ecfcbd4f70e2196140c476",
+          "candidate_id": 5,
+          "candidate_rank": 3,
+          "legacy_prefix_key": "NVP_seed1",
+          "legacy_source_method": "nvp_seed1",
+          "pass_count": 1,
+          "pass_sequence_id": 5,
+          "policy45_object_text_size_bytes": 1183,
+          "prefix_index": 0,
+          "sha256": "5c9650343b7263ec03734ddf83d908dda4a673ea7be1c764c2749acc984b8220"
+        },
+        "nvp_seed1": {
+          "action_ids": [
+            102
+          ],
+          "binary": "outputs/mambanvp_nvp_runtime_v1/work/crc32/binaries/nvp_seed1",
+          "bitcode": "outputs/mambanvp_nvp_runtime_v1/work/crc32/binaries/nvp_seed1.bc",
+          "bitcode_sha256": "1118ad2ab061d888aab0c586397a11b535b63427d5ecfcbd4f70e2196140c476",
+          "candidate_id": 5,
+          "candidate_rank": 3,
+          "legacy_prefix_key": "NVP_seed1",
+          "legacy_source_method": "nvp_seed1",
+          "pass_count": 1,
+          "pass_sequence_id": 5,
+          "policy45_object_text_size_bytes": 1183,
+          "prefix_index": 0,
+          "sha256": "5c9650343b7263ec03734ddf83d908dda4a673ea7be1c764c2749acc984b8220"
+        },
+        "nvp_seed2": {
+          "action_ids": [
+            102
+          ],
+          "binary": "outputs/mambanvp_nvp_runtime_v1/work/crc32/binaries/nvp_seed2",
+          "bitcode": "outputs/mambanvp_nvp_runtime_v1/work/crc32/binaries/nvp_seed2.bc",
+          "bitcode_sha256": "1118ad2ab061d888aab0c586397a11b535b63427d5ecfcbd4f70e2196140c476",
+          "candidate_id": 5,
+          "candidate_rank": 3,
+          "legacy_prefix_key": "NVP_seed2",
+          "legacy_source_method": "nvp_seed2",
+          "pass_count": 1,
+          "pass_sequence_id": 5,
+          "policy45_object_text_size_bytes": 1183,
+          "prefix_index": 0,
+          "sha256": "5c9650343b7263ec03734ddf83d908dda4a673ea7be1c764c2749acc984b8220"
+        },
+        "nvp_seed3": {
+          "action_ids": [
+            102
+          ],
+          "binary": "outputs/mambanvp_nvp_runtime_v1/work/crc32/binaries/nvp_seed3",
+          "bitcode": "outputs/mambanvp_nvp_runtime_v1/work/crc32/binaries/nvp_seed3.bc",
+          "bitcode_sha256": "1118ad2ab061d888aab0c586397a11b535b63427d5ecfcbd4f70e2196140c476",
+          "candidate_id": 5,
+          "candidate_rank": 3,
+          "legacy_prefix_key": "NVP_seed3",
+          "legacy_source_method": "nvp_seed3",
+          "pass_count": 1,
+          "pass_sequence_id": 5,
+          "policy45_object_text_size_bytes": 1183,
+          "prefix_index": 0,
+          "sha256": "5c9650343b7263ec03734ddf83d908dda4a673ea7be1c764c2749acc984b8220"
+        },
+        "oz": {
+          "action_ids": null,
+          "binary": "outputs/mambanvp_nvp_runtime_v1/work/crc32/binaries/oz",
+          "candidate_id": null,
+          "legacy_source_method": "oz",
+          "pass_count": null,
+          "pass_sequence_id": null,
+          "prefix_index": null,
+          "sha256": "1c3398d3752fa12a80d14ed4880d6162153c1cfc6c995ce44684cdd680ed60f2"
+        }
+      }
+    },
+    "benchmark://cbench-v1/dijkstra": {
+      "all_expected_methods_built": true,
+      "methods": {
+        "mambanvp_seed1": {
+          "action_ids": [
+            10
+          ],
+          "binary": "outputs/mambanvp_nvp_runtime_v1/work/dijkstra/binaries/mambanvp_seed1",
+          "bitcode": "outputs/mambanvp_nvp_runtime_v1/work/dijkstra/binaries/mambanvp_seed1.bc",
+          "bitcode_sha256": "d59cdafc0549a482ceff508b495adf469ec3a917aefce4efe7d5e50435e394c7",
+          "candidate_id": 49,
+          "candidate_rank": 0,
+          "legacy_prefix_key": "Mamba_seed1",
+          "legacy_source_method": "mamba_seed1",
+          "pass_count": 1,
+          "pass_sequence_id": 49,
+          "policy45_object_text_size_bytes": 2460,
+          "prefix_index": 0,
+          "sha256": "874209d1e8657f253abdce528d144b84be9417eccfba0714d189836415a351bb"
+        },
+        "mambanvp_seed2": {
+          "action_ids": [
+            10
+          ],
+          "binary": "outputs/mambanvp_nvp_runtime_v1/work/dijkstra/binaries/mambanvp_seed2",
+          "bitcode": "outputs/mambanvp_nvp_runtime_v1/work/dijkstra/binaries/mambanvp_seed2.bc",
+          "bitcode_sha256": "d59cdafc0549a482ceff508b495adf469ec3a917aefce4efe7d5e50435e394c7",
+          "candidate_id": 49,
+          "candidate_rank": 0,
+          "legacy_prefix_key": "Mamba_seed1",
+          "legacy_source_method": "mamba_seed1",
+          "pass_count": 1,
+          "pass_sequence_id": 49,
+          "policy45_object_text_size_bytes": 2460,
+          "prefix_index": 0,
+          "sha256": "874209d1e8657f253abdce528d144b84be9417eccfba0714d189836415a351bb"
+        },
+        "mambanvp_seed3": {
+          "action_ids": [
+            10
+          ],
+          "binary": "outputs/mambanvp_nvp_runtime_v1/work/dijkstra/binaries/mambanvp_seed3",
+          "bitcode": "outputs/mambanvp_nvp_runtime_v1/work/dijkstra/binaries/mambanvp_seed3.bc",
+          "bitcode_sha256": "d59cdafc0549a482ceff508b495adf469ec3a917aefce4efe7d5e50435e394c7",
+          "candidate_id": 49,
+          "candidate_rank": 0,
+          "legacy_prefix_key": "Mamba_seed1",
+          "legacy_source_method": "mamba_seed1",
+          "pass_count": 1,
+          "pass_sequence_id": 49,
+          "policy45_object_text_size_bytes": 2460,
+          "prefix_index": 0,
+          "sha256": "874209d1e8657f253abdce528d144b84be9417eccfba0714d189836415a351bb"
+        },
+        "nvp_seed1": {
+          "action_ids": [
+            10
+          ],
+          "binary": "outputs/mambanvp_nvp_runtime_v1/work/dijkstra/binaries/nvp_seed1",
+          "bitcode": "outputs/mambanvp_nvp_runtime_v1/work/dijkstra/binaries/nvp_seed1.bc",
+          "bitcode_sha256": "d59cdafc0549a482ceff508b495adf469ec3a917aefce4efe7d5e50435e394c7",
+          "candidate_id": 49,
+          "candidate_rank": 0,
+          "legacy_prefix_key": "NVP_seed1",
+          "legacy_source_method": "nvp_seed1",
+          "pass_count": 1,
+          "pass_sequence_id": 49,
+          "policy45_object_text_size_bytes": 2460,
+          "prefix_index": 0,
+          "sha256": "874209d1e8657f253abdce528d144b84be9417eccfba0714d189836415a351bb"
+        },
+        "nvp_seed2": {
+          "action_ids": [
+            10
+          ],
+          "binary": "outputs/mambanvp_nvp_runtime_v1/work/dijkstra/binaries/nvp_seed2",
+          "bitcode": "outputs/mambanvp_nvp_runtime_v1/work/dijkstra/binaries/nvp_seed2.bc",
+          "bitcode_sha256": "d59cdafc0549a482ceff508b495adf469ec3a917aefce4efe7d5e50435e394c7",
+          "candidate_id": 49,
+          "candidate_rank": 0,
+          "legacy_prefix_key": "NVP_seed2",
+          "legacy_source_method": "nvp_seed2",
+          "pass_count": 1,
+          "pass_sequence_id": 49,
+          "policy45_object_text_size_bytes": 2460,
+          "prefix_index": 0,
+          "sha256": "874209d1e8657f253abdce528d144b84be9417eccfba0714d189836415a351bb"
+        },
+        "nvp_seed3": {
+          "action_ids": [
+            10
+          ],
+          "binary": "outputs/mambanvp_nvp_runtime_v1/work/dijkstra/binaries/nvp_seed3",
+          "bitcode": "outputs/mambanvp_nvp_runtime_v1/work/dijkstra/binaries/nvp_seed3.bc",
+          "bitcode_sha256": "d59cdafc0549a482ceff508b495adf469ec3a917aefce4efe7d5e50435e394c7",
+          "candidate_id": 49,
+          "candidate_rank": 0,
+          "legacy_prefix_key": "NVP_seed3",
+          "legacy_source_method": "nvp_seed3",
+          "pass_count": 1,
+          "pass_sequence_id": 49,
+          "policy45_object_text_size_bytes": 2460,
+          "prefix_index": 0,
+          "sha256": "874209d1e8657f253abdce528d144b84be9417eccfba0714d189836415a351bb"
+        },
+        "oz": {
+          "action_ids": null,
+          "binary": "outputs/mambanvp_nvp_runtime_v1/work/dijkstra/binaries/oz",
+          "candidate_id": null,
+          "legacy_source_method": "oz",
+          "pass_count": null,
+          "pass_sequence_id": null,
+          "prefix_index": null,
+          "sha256": "01c2831062d50ae382940335e6f04f742c3468e367f78497780d159f489606e2"
+        }
+      }
+    },
+    "benchmark://cbench-v1/patricia": {
+      "all_expected_methods_built": true,
+      "methods": {
+        "mambanvp_seed1": {
+          "action_ids": [
+            10,
+            53,
+            122,
+            31,
+            36,
+            111,
+            10,
+            97
+          ],
+          "binary": "outputs/mambanvp_nvp_runtime_v1/work/patricia/binaries/mambanvp_seed1",
+          "bitcode": "outputs/mambanvp_nvp_runtime_v1/work/patricia/binaries/mambanvp_seed1.bc",
+          "bitcode_sha256": "e6287e50ab53725b662dd8a84ccbfe239a172c1ae992e0d2b265449b47fcf255",
+          "candidate_id": 49,
+          "candidate_rank": 0,
+          "legacy_prefix_key": "Mamba_seed1",
+          "legacy_source_method": "mamba_seed1",
+          "pass_count": 8,
+          "pass_sequence_id": 49,
+          "policy45_object_text_size_bytes": 4035,
+          "prefix_index": 7,
+          "sha256": "dd9c385dcbe27b32ce66c8bdc264d8d068cf54066f1a438b6ecb0b79ff665090"
+        },
+        "mambanvp_seed2": {
+          "action_ids": [
+            10,
+            53,
+            122,
+            31,
+            36,
+            111,
+            10,
+            97
+          ],
+          "binary": "outputs/mambanvp_nvp_runtime_v1/work/patricia/binaries/mambanvp_seed2",
+          "bitcode": "outputs/mambanvp_nvp_runtime_v1/work/patricia/binaries/mambanvp_seed2.bc",
+          "bitcode_sha256": "e6287e50ab53725b662dd8a84ccbfe239a172c1ae992e0d2b265449b47fcf255",
+          "candidate_id": 49,
+          "candidate_rank": 0,
+          "legacy_prefix_key": "Mamba_seed1",
+          "legacy_source_method": "mamba_seed1",
+          "pass_count": 8,
+          "pass_sequence_id": 49,
+          "policy45_object_text_size_bytes": 4035,
+          "prefix_index": 7,
+          "sha256": "dd9c385dcbe27b32ce66c8bdc264d8d068cf54066f1a438b6ecb0b79ff665090"
+        },
+        "mambanvp_seed3": {
+          "action_ids": [
+            10,
+            53,
+            122,
+            31,
+            36,
+            111,
+            10,
+            97
+          ],
+          "binary": "outputs/mambanvp_nvp_runtime_v1/work/patricia/binaries/mambanvp_seed3",
+          "bitcode": "outputs/mambanvp_nvp_runtime_v1/work/patricia/binaries/mambanvp_seed3.bc",
+          "bitcode_sha256": "e6287e50ab53725b662dd8a84ccbfe239a172c1ae992e0d2b265449b47fcf255",
+          "candidate_id": 49,
+          "candidate_rank": 0,
+          "legacy_prefix_key": "Mamba_seed1",
+          "legacy_source_method": "mamba_seed1",
+          "pass_count": 8,
+          "pass_sequence_id": 49,
+          "policy45_object_text_size_bytes": 4035,
+          "prefix_index": 7,
+          "sha256": "dd9c385dcbe27b32ce66c8bdc264d8d068cf54066f1a438b6ecb0b79ff665090"
+        },
+        "nvp_seed1": {
+          "action_ids": [
+            10,
+            53,
+            122,
+            31,
+            36,
+            111,
+            10,
+            97
+          ],
+          "binary": "outputs/mambanvp_nvp_runtime_v1/work/patricia/binaries/nvp_seed1",
+          "bitcode": "outputs/mambanvp_nvp_runtime_v1/work/patricia/binaries/nvp_seed1.bc",
+          "bitcode_sha256": "e6287e50ab53725b662dd8a84ccbfe239a172c1ae992e0d2b265449b47fcf255",
+          "candidate_id": 49,
+          "candidate_rank": 0,
+          "legacy_prefix_key": "NVP_seed1",
+          "legacy_source_method": "nvp_seed1",
+          "pass_count": 8,
+          "pass_sequence_id": 49,
+          "policy45_object_text_size_bytes": 4035,
+          "prefix_index": 7,
+          "sha256": "dd9c385dcbe27b32ce66c8bdc264d8d068cf54066f1a438b6ecb0b79ff665090"
+        },
+        "nvp_seed2": {
+          "action_ids": [
+            10,
+            53,
+            122,
+            31,
+            36,
+            111,
+            10,
+            97
+          ],
+          "binary": "outputs/mambanvp_nvp_runtime_v1/work/patricia/binaries/nvp_seed2",
+          "bitcode": "outputs/mambanvp_nvp_runtime_v1/work/patricia/binaries/nvp_seed2.bc",
+          "bitcode_sha256": "e6287e50ab53725b662dd8a84ccbfe239a172c1ae992e0d2b265449b47fcf255",
+          "candidate_id": 49,
+          "candidate_rank": 0,
+          "legacy_prefix_key": "NVP_seed2",
+          "legacy_source_method": "nvp_seed2",
+          "pass_count": 8,
+          "pass_sequence_id": 49,
+          "policy45_object_text_size_bytes": 4035,
+          "prefix_index": 7,
+          "sha256": "dd9c385dcbe27b32ce66c8bdc264d8d068cf54066f1a438b6ecb0b79ff665090"
+        },
+        "nvp_seed3": {
+          "action_ids": [
+            10,
+            53,
+            122,
+            31,
+            36,
+            111,
+            10,
+            97
+          ],
+          "binary": "outputs/mambanvp_nvp_runtime_v1/work/patricia/binaries/nvp_seed3",
+          "bitcode": "outputs/mambanvp_nvp_runtime_v1/work/patricia/binaries/nvp_seed3.bc",
+          "bitcode_sha256": "e6287e50ab53725b662dd8a84ccbfe239a172c1ae992e0d2b265449b47fcf255",
+          "candidate_id": 49,
+          "candidate_rank": 0,
+          "legacy_prefix_key": "NVP_seed3",
+          "legacy_source_method": "nvp_seed3",
+          "pass_count": 8,
+          "pass_sequence_id": 49,
+          "policy45_object_text_size_bytes": 4035,
+          "prefix_index": 7,
+          "sha256": "dd9c385dcbe27b32ce66c8bdc264d8d068cf54066f1a438b6ecb0b79ff665090"
+        },
+        "oz": {
+          "action_ids": null,
+          "binary": "outputs/mambanvp_nvp_runtime_v1/work/patricia/binaries/oz",
+          "candidate_id": null,
+          "legacy_source_method": "oz",
+          "pass_count": null,
+          "pass_sequence_id": null,
+          "prefix_index": null,
+          "sha256": "79d1c5aa311b50c76093a30d729c365d24414cdba214c745a70c37cc263e138d"
+        }
+      }
+    },
+    "benchmark://cbench-v1/qsort": {
+      "all_expected_methods_built": true,
+      "methods": {
+        "mambanvp_seed1": {
+          "action_ids": [
+            10,
+            53
+          ],
+          "binary": "outputs/mambanvp_nvp_runtime_v1/work/qsort/binaries/mambanvp_seed1",
+          "bitcode": "outputs/mambanvp_nvp_runtime_v1/work/qsort/binaries/mambanvp_seed1.bc",
+          "bitcode_sha256": "ae61ac46e5fd61df5ae25a346c773cf8c7fa0acc2042c8c73b5818c21d30c140",
+          "candidate_id": 49,
+          "candidate_rank": 0,
+          "legacy_prefix_key": "Mamba_seed2",
+          "legacy_source_method": "mamba_seed2",
+          "pass_count": 2,
+          "pass_sequence_id": 49,
+          "policy45_object_text_size_bytes": 3023,
+          "prefix_index": 1,
+          "sha256": "6f485c5a468e571a6b7c834ece249355940e8637f88be78df8b8efc2550b2c70"
+        },
+        "mambanvp_seed2": {
+          "action_ids": [
+            21,
+            121,
+            97,
+            38,
+            31,
+            52,
+            70,
+            53
+          ],
+          "binary": "outputs/mambanvp_nvp_runtime_v1/work/qsort/binaries/mambanvp_seed2",
+          "bitcode": "outputs/mambanvp_nvp_runtime_v1/work/qsort/binaries/mambanvp_seed2.bc",
+          "bitcode_sha256": "5455de72ac22ef62462dd75dca6a7471dc2cb1027f06964749236eae5531d2f4",
+          "candidate_id": 31,
+          "candidate_rank": 2,
+          "legacy_prefix_key": "Mamba_seed1",
+          "legacy_source_method": "mamba_seed1",
+          "pass_count": 8,
+          "pass_sequence_id": 31,
+          "policy45_object_text_size_bytes": 2969,
+          "prefix_index": 7,
+          "sha256": "b276c7c51e4443acffdc02a336189838a9c7b6702ad8cd913cb57b790f64b646"
+        },
+        "mambanvp_seed3": {
+          "action_ids": [
+            10,
+            53
+          ],
+          "binary": "outputs/mambanvp_nvp_runtime_v1/work/qsort/binaries/mambanvp_seed3",
+          "bitcode": "outputs/mambanvp_nvp_runtime_v1/work/qsort/binaries/mambanvp_seed3.bc",
+          "bitcode_sha256": "ae61ac46e5fd61df5ae25a346c773cf8c7fa0acc2042c8c73b5818c21d30c140",
+          "candidate_id": 49,
+          "candidate_rank": 0,
+          "legacy_prefix_key": "Mamba_seed2",
+          "legacy_source_method": "mamba_seed2",
+          "pass_count": 2,
+          "pass_sequence_id": 49,
+          "policy45_object_text_size_bytes": 3023,
+          "prefix_index": 1,
+          "sha256": "6f485c5a468e571a6b7c834ece249355940e8637f88be78df8b8efc2550b2c70"
+        },
+        "nvp_seed1": {
+          "action_ids": [
+            10,
+            53
+          ],
+          "binary": "outputs/mambanvp_nvp_runtime_v1/work/qsort/binaries/nvp_seed1",
+          "bitcode": "outputs/mambanvp_nvp_runtime_v1/work/qsort/binaries/nvp_seed1.bc",
+          "bitcode_sha256": "ae61ac46e5fd61df5ae25a346c773cf8c7fa0acc2042c8c73b5818c21d30c140",
+          "candidate_id": 49,
+          "candidate_rank": 0,
+          "legacy_prefix_key": "NVP_seed1",
+          "legacy_source_method": "nvp_seed1",
+          "pass_count": 2,
+          "pass_sequence_id": 49,
+          "policy45_object_text_size_bytes": 3023,
+          "prefix_index": 1,
+          "sha256": "6f485c5a468e571a6b7c834ece249355940e8637f88be78df8b8efc2550b2c70"
+        },
+        "nvp_seed2": {
+          "action_ids": [
+            21,
+            121,
+            97,
+            38,
+            31,
+            52,
+            70,
+            53
+          ],
+          "binary": "outputs/mambanvp_nvp_runtime_v1/work/qsort/binaries/nvp_seed2",
+          "bitcode": "outputs/mambanvp_nvp_runtime_v1/work/qsort/binaries/nvp_seed2.bc",
+          "bitcode_sha256": "5455de72ac22ef62462dd75dca6a7471dc2cb1027f06964749236eae5531d2f4",
+          "candidate_id": 31,
+          "candidate_rank": 2,
+          "legacy_prefix_key": "NVP_seed2",
+          "legacy_source_method": "nvp_seed2",
+          "pass_count": 8,
+          "pass_sequence_id": 31,
+          "policy45_object_text_size_bytes": 2969,
+          "prefix_index": 7,
+          "sha256": "b276c7c51e4443acffdc02a336189838a9c7b6702ad8cd913cb57b790f64b646"
+        },
+        "nvp_seed3": {
+          "action_ids": [
+            21,
+            121,
+            97,
+            38,
+            31,
+            52,
+            70,
+            53
+          ],
+          "binary": "outputs/mambanvp_nvp_runtime_v1/work/qsort/binaries/nvp_seed3",
+          "bitcode": "outputs/mambanvp_nvp_runtime_v1/work/qsort/binaries/nvp_seed3.bc",
+          "bitcode_sha256": "5455de72ac22ef62462dd75dca6a7471dc2cb1027f06964749236eae5531d2f4",
+          "candidate_id": 31,
+          "candidate_rank": 2,
+          "legacy_prefix_key": "NVP_seed3",
+          "legacy_source_method": "nvp_seed3",
+          "pass_count": 8,
+          "pass_sequence_id": 31,
+          "policy45_object_text_size_bytes": 2969,
+          "prefix_index": 7,
+          "sha256": "b276c7c51e4443acffdc02a336189838a9c7b6702ad8cd913cb57b790f64b646"
+        },
+        "oz": {
+          "action_ids": null,
+          "binary": "outputs/mambanvp_nvp_runtime_v1/work/qsort/binaries/oz",
+          "candidate_id": null,
+          "legacy_source_method": "oz",
+          "pass_count": null,
+          "pass_sequence_id": null,
+          "prefix_index": null,
+          "sha256": "62684501f833aeaada1424efc74585a5baec1a2a9b6c011004f768866f5710df"
+        }
+      }
+    },
+    "benchmark://cbench-v1/sha": {
+      "all_expected_methods_built": true,
+      "methods": {
+        "mambanvp_seed1": {
+          "action_ids": [
+            21,
+            121,
+            97,
+            38,
+            31,
+            52,
+            70,
+            53
+          ],
+          "binary": "outputs/mambanvp_nvp_runtime_v1/work/sha/binaries/mambanvp_seed1",
+          "bitcode": "outputs/mambanvp_nvp_runtime_v1/work/sha/binaries/mambanvp_seed1.bc",
+          "bitcode_sha256": "3f1a648dacae66f0a0257e909ba703e73bec2e95d0c221ab9a88d9b0f7e14fc9",
+          "candidate_id": 31,
+          "candidate_rank": 1,
+          "legacy_prefix_key": "Mamba_seed1",
+          "legacy_source_method": "mamba_seed1",
+          "pass_count": 8,
+          "pass_sequence_id": 31,
+          "policy45_object_text_size_bytes": 3204,
+          "prefix_index": 7,
+          "sha256": "4005584bb88e1d0690dee24d89ae08bc4cd44ba79631ca7b9b8c8f2f31ca3f0b"
+        },
+        "mambanvp_seed2": {
+          "action_ids": [
+            21,
+            121,
+            97,
+            38,
+            31,
+            52,
+            70,
+            53
+          ],
+          "binary": "outputs/mambanvp_nvp_runtime_v1/work/sha/binaries/mambanvp_seed2",
+          "bitcode": "outputs/mambanvp_nvp_runtime_v1/work/sha/binaries/mambanvp_seed2.bc",
+          "bitcode_sha256": "3f1a648dacae66f0a0257e909ba703e73bec2e95d0c221ab9a88d9b0f7e14fc9",
+          "candidate_id": 31,
+          "candidate_rank": 0,
+          "legacy_prefix_key": "Mamba_seed1",
+          "legacy_source_method": "mamba_seed1",
+          "pass_count": 8,
+          "pass_sequence_id": 31,
+          "policy45_object_text_size_bytes": 3204,
+          "prefix_index": 7,
+          "sha256": "4005584bb88e1d0690dee24d89ae08bc4cd44ba79631ca7b9b8c8f2f31ca3f0b"
+        },
+        "mambanvp_seed3": {
+          "action_ids": [
+            21,
+            121,
+            97,
+            38,
+            31,
+            52,
+            70,
+            53
+          ],
+          "binary": "outputs/mambanvp_nvp_runtime_v1/work/sha/binaries/mambanvp_seed3",
+          "bitcode": "outputs/mambanvp_nvp_runtime_v1/work/sha/binaries/mambanvp_seed3.bc",
+          "bitcode_sha256": "3f1a648dacae66f0a0257e909ba703e73bec2e95d0c221ab9a88d9b0f7e14fc9",
+          "candidate_id": 31,
+          "candidate_rank": 0,
+          "legacy_prefix_key": "Mamba_seed1",
+          "legacy_source_method": "mamba_seed1",
+          "pass_count": 8,
+          "pass_sequence_id": 31,
+          "policy45_object_text_size_bytes": 3204,
+          "prefix_index": 7,
+          "sha256": "4005584bb88e1d0690dee24d89ae08bc4cd44ba79631ca7b9b8c8f2f31ca3f0b"
+        },
+        "nvp_seed1": {
+          "action_ids": [
+            21,
+            121,
+            97,
+            38,
+            31,
+            52,
+            70,
+            53
+          ],
+          "binary": "outputs/mambanvp_nvp_runtime_v1/work/sha/binaries/nvp_seed1",
+          "bitcode": "outputs/mambanvp_nvp_runtime_v1/work/sha/binaries/nvp_seed1.bc",
+          "bitcode_sha256": "3f1a648dacae66f0a0257e909ba703e73bec2e95d0c221ab9a88d9b0f7e14fc9",
+          "candidate_id": 31,
+          "candidate_rank": 1,
+          "legacy_prefix_key": "NVP_seed1",
+          "legacy_source_method": "nvp_seed1",
+          "pass_count": 8,
+          "pass_sequence_id": 31,
+          "policy45_object_text_size_bytes": 3204,
+          "prefix_index": 7,
+          "sha256": "4005584bb88e1d0690dee24d89ae08bc4cd44ba79631ca7b9b8c8f2f31ca3f0b"
+        },
+        "nvp_seed2": {
+          "action_ids": [
+            21,
+            121,
+            97,
+            38,
+            31,
+            52,
+            70,
+            53
+          ],
+          "binary": "outputs/mambanvp_nvp_runtime_v1/work/sha/binaries/nvp_seed2",
+          "bitcode": "outputs/mambanvp_nvp_runtime_v1/work/sha/binaries/nvp_seed2.bc",
+          "bitcode_sha256": "3f1a648dacae66f0a0257e909ba703e73bec2e95d0c221ab9a88d9b0f7e14fc9",
+          "candidate_id": 31,
+          "candidate_rank": 0,
+          "legacy_prefix_key": "NVP_seed2",
+          "legacy_source_method": "nvp_seed2",
+          "pass_count": 8,
+          "pass_sequence_id": 31,
+          "policy45_object_text_size_bytes": 3204,
+          "prefix_index": 7,
+          "sha256": "4005584bb88e1d0690dee24d89ae08bc4cd44ba79631ca7b9b8c8f2f31ca3f0b"
+        },
+        "nvp_seed3": {
+          "action_ids": [
+            21,
+            121,
+            97,
+            38,
+            31,
+            52,
+            70,
+            53
+          ],
+          "binary": "outputs/mambanvp_nvp_runtime_v1/work/sha/binaries/nvp_seed3",
+          "bitcode": "outputs/mambanvp_nvp_runtime_v1/work/sha/binaries/nvp_seed3.bc",
+          "bitcode_sha256": "3f1a648dacae66f0a0257e909ba703e73bec2e95d0c221ab9a88d9b0f7e14fc9",
+          "candidate_id": 31,
+          "candidate_rank": 0,
+          "legacy_prefix_key": "NVP_seed3",
+          "legacy_source_method": "nvp_seed3",
+          "pass_count": 8,
+          "pass_sequence_id": 31,
+          "policy45_object_text_size_bytes": 3204,
+          "prefix_index": 7,
+          "sha256": "4005584bb88e1d0690dee24d89ae08bc4cd44ba79631ca7b9b8c8f2f31ca3f0b"
+        },
+        "oz": {
+          "action_ids": null,
+          "binary": "outputs/mambanvp_nvp_runtime_v1/work/sha/binaries/oz",
+          "candidate_id": null,
+          "legacy_source_method": "oz",
+          "pass_count": null,
+          "pass_sequence_id": null,
+          "prefix_index": null,
+          "sha256": "6a0fe0aec8290754df3a11295fe2e77d49cfaf1518d70ee9e0ea738ed0ab93ae"
+        }
+      }
+    },
+    "benchmark://cbench-v1/stringsearch": {
+      "all_expected_methods_built": true,
+      "methods": {
+        "mambanvp_seed1": {
+          "action_ids": [
+            10
+          ],
+          "binary": "outputs/mambanvp_nvp_runtime_v1/work/stringsearch/binaries/mambanvp_seed1",
+          "bitcode": "outputs/mambanvp_nvp_runtime_v1/work/stringsearch/binaries/mambanvp_seed1.bc",
+          "bitcode_sha256": "4ee6e4bdb7d45a7011ea8990deeb1d74624a6cab8267658c6659e291de3a89c4",
+          "candidate_id": 49,
+          "candidate_rank": 0,
+          "legacy_prefix_key": "Mamba_seed1",
+          "legacy_source_method": "mamba_seed1",
+          "pass_count": 1,
+          "pass_sequence_id": 49,
+          "policy45_object_text_size_bytes": 5618,
+          "prefix_index": 0,
+          "sha256": "b72f1eda4c36fc950325d2c4d9b07e396e205900d6cf29fd760a7ddf4e4e08a9"
+        },
+        "mambanvp_seed2": {
+          "action_ids": [
+            10
+          ],
+          "binary": "outputs/mambanvp_nvp_runtime_v1/work/stringsearch/binaries/mambanvp_seed2",
+          "bitcode": "outputs/mambanvp_nvp_runtime_v1/work/stringsearch/binaries/mambanvp_seed2.bc",
+          "bitcode_sha256": "4ee6e4bdb7d45a7011ea8990deeb1d74624a6cab8267658c6659e291de3a89c4",
+          "candidate_id": 49,
+          "candidate_rank": 0,
+          "legacy_prefix_key": "Mamba_seed1",
+          "legacy_source_method": "mamba_seed1",
+          "pass_count": 1,
+          "pass_sequence_id": 49,
+          "policy45_object_text_size_bytes": 5618,
+          "prefix_index": 0,
+          "sha256": "b72f1eda4c36fc950325d2c4d9b07e396e205900d6cf29fd760a7ddf4e4e08a9"
+        },
+        "mambanvp_seed3": {
+          "action_ids": [
+            10
+          ],
+          "binary": "outputs/mambanvp_nvp_runtime_v1/work/stringsearch/binaries/mambanvp_seed3",
+          "bitcode": "outputs/mambanvp_nvp_runtime_v1/work/stringsearch/binaries/mambanvp_seed3.bc",
+          "bitcode_sha256": "4ee6e4bdb7d45a7011ea8990deeb1d74624a6cab8267658c6659e291de3a89c4",
+          "candidate_id": 49,
+          "candidate_rank": 0,
+          "legacy_prefix_key": "Mamba_seed1",
+          "legacy_source_method": "mamba_seed1",
+          "pass_count": 1,
+          "pass_sequence_id": 49,
+          "policy45_object_text_size_bytes": 5618,
+          "prefix_index": 0,
+          "sha256": "b72f1eda4c36fc950325d2c4d9b07e396e205900d6cf29fd760a7ddf4e4e08a9"
+        },
+        "nvp_seed1": {
+          "action_ids": [
+            10
+          ],
+          "binary": "outputs/mambanvp_nvp_runtime_v1/work/stringsearch/binaries/nvp_seed1",
+          "bitcode": "outputs/mambanvp_nvp_runtime_v1/work/stringsearch/binaries/nvp_seed1.bc",
+          "bitcode_sha256": "4ee6e4bdb7d45a7011ea8990deeb1d74624a6cab8267658c6659e291de3a89c4",
+          "candidate_id": 49,
+          "candidate_rank": 0,
+          "legacy_prefix_key": "NVP_seed1",
+          "legacy_source_method": "nvp_seed1",
+          "pass_count": 1,
+          "pass_sequence_id": 49,
+          "policy45_object_text_size_bytes": 5618,
+          "prefix_index": 0,
+          "sha256": "b72f1eda4c36fc950325d2c4d9b07e396e205900d6cf29fd760a7ddf4e4e08a9"
+        },
+        "nvp_seed2": {
+          "action_ids": [
+            10
+          ],
+          "binary": "outputs/mambanvp_nvp_runtime_v1/work/stringsearch/binaries/nvp_seed2",
+          "bitcode": "outputs/mambanvp_nvp_runtime_v1/work/stringsearch/binaries/nvp_seed2.bc",
+          "bitcode_sha256": "4ee6e4bdb7d45a7011ea8990deeb1d74624a6cab8267658c6659e291de3a89c4",
+          "candidate_id": 49,
+          "candidate_rank": 0,
+          "legacy_prefix_key": "NVP_seed2",
+          "legacy_source_method": "nvp_seed2",
+          "pass_count": 1,
+          "pass_sequence_id": 49,
+          "policy45_object_text_size_bytes": 5618,
+          "prefix_index": 0,
+          "sha256": "b72f1eda4c36fc950325d2c4d9b07e396e205900d6cf29fd760a7ddf4e4e08a9"
+        },
+        "nvp_seed3": {
+          "action_ids": [
+            10
+          ],
+          "binary": "outputs/mambanvp_nvp_runtime_v1/work/stringsearch/binaries/nvp_seed3",
+          "bitcode": "outputs/mambanvp_nvp_runtime_v1/work/stringsearch/binaries/nvp_seed3.bc",
+          "bitcode_sha256": "4ee6e4bdb7d45a7011ea8990deeb1d74624a6cab8267658c6659e291de3a89c4",
+          "candidate_id": 49,
+          "candidate_rank": 0,
+          "legacy_prefix_key": "NVP_seed3",
+          "legacy_source_method": "nvp_seed3",
+          "pass_count": 1,
+          "pass_sequence_id": 49,
+          "policy45_object_text_size_bytes": 5618,
+          "prefix_index": 0,
+          "sha256": "b72f1eda4c36fc950325d2c4d9b07e396e205900d6cf29fd760a7ddf4e4e08a9"
+        },
+        "oz": {
+          "action_ids": null,
+          "binary": "outputs/mambanvp_nvp_runtime_v1/work/stringsearch/binaries/oz",
+          "candidate_id": null,
+          "legacy_source_method": "oz",
+          "pass_count": null,
+          "pass_sequence_id": null,
+          "prefix_index": null,
+          "sha256": "a41e4d8817ad313296f7dca8133c07910fd8b954d6d03a5e8461d4e1d0a44893"
+        }
+      }
+    },
+    "benchmark://cbench-v1/stringsearch2": {
+      "all_expected_methods_built": true,
+      "methods": {
+        "mambanvp_seed1": {
+          "action_ids": [
+            10
+          ],
+          "binary": "outputs/mambanvp_nvp_runtime_v1/work/stringsearch2/binaries/mambanvp_seed1",
+          "bitcode": "outputs/mambanvp_nvp_runtime_v1/work/stringsearch2/binaries/mambanvp_seed1.bc",
+          "bitcode_sha256": "c0fedcb65394110f7528c9d113fb9e4af7f886bc9321b4a551784e6ffc2263a2",
+          "candidate_id": 49,
+          "candidate_rank": 0,
+          "legacy_prefix_key": "Mamba_seed1",
+          "legacy_source_method": "mamba_seed1",
+          "pass_count": 1,
+          "pass_sequence_id": 49,
+          "policy45_object_text_size_bytes": 2573,
+          "prefix_index": 0,
+          "sha256": "b57aa0cf6480772086ee8fe8cf85c5093910f921a9034c852ada5d17eca0ed22"
+        },
+        "mambanvp_seed2": {
+          "action_ids": [
+            10
+          ],
+          "binary": "outputs/mambanvp_nvp_runtime_v1/work/stringsearch2/binaries/mambanvp_seed2",
+          "bitcode": "outputs/mambanvp_nvp_runtime_v1/work/stringsearch2/binaries/mambanvp_seed2.bc",
+          "bitcode_sha256": "c0fedcb65394110f7528c9d113fb9e4af7f886bc9321b4a551784e6ffc2263a2",
+          "candidate_id": 49,
+          "candidate_rank": 0,
+          "legacy_prefix_key": "Mamba_seed1",
+          "legacy_source_method": "mamba_seed1",
+          "pass_count": 1,
+          "pass_sequence_id": 49,
+          "policy45_object_text_size_bytes": 2573,
+          "prefix_index": 0,
+          "sha256": "b57aa0cf6480772086ee8fe8cf85c5093910f921a9034c852ada5d17eca0ed22"
+        },
+        "mambanvp_seed3": {
+          "action_ids": [
+            10
+          ],
+          "binary": "outputs/mambanvp_nvp_runtime_v1/work/stringsearch2/binaries/mambanvp_seed3",
+          "bitcode": "outputs/mambanvp_nvp_runtime_v1/work/stringsearch2/binaries/mambanvp_seed3.bc",
+          "bitcode_sha256": "c0fedcb65394110f7528c9d113fb9e4af7f886bc9321b4a551784e6ffc2263a2",
+          "candidate_id": 49,
+          "candidate_rank": 0,
+          "legacy_prefix_key": "Mamba_seed1",
+          "legacy_source_method": "mamba_seed1",
+          "pass_count": 1,
+          "pass_sequence_id": 49,
+          "policy45_object_text_size_bytes": 2573,
+          "prefix_index": 0,
+          "sha256": "b57aa0cf6480772086ee8fe8cf85c5093910f921a9034c852ada5d17eca0ed22"
+        },
+        "nvp_seed1": {
+          "action_ids": [
+            10
+          ],
+          "binary": "outputs/mambanvp_nvp_runtime_v1/work/stringsearch2/binaries/nvp_seed1",
+          "bitcode": "outputs/mambanvp_nvp_runtime_v1/work/stringsearch2/binaries/nvp_seed1.bc",
+          "bitcode_sha256": "c0fedcb65394110f7528c9d113fb9e4af7f886bc9321b4a551784e6ffc2263a2",
+          "candidate_id": 49,
+          "candidate_rank": 0,
+          "legacy_prefix_key": "NVP_seed1",
+          "legacy_source_method": "nvp_seed1",
+          "pass_count": 1,
+          "pass_sequence_id": 49,
+          "policy45_object_text_size_bytes": 2573,
+          "prefix_index": 0,
+          "sha256": "b57aa0cf6480772086ee8fe8cf85c5093910f921a9034c852ada5d17eca0ed22"
+        },
+        "nvp_seed2": {
+          "action_ids": [
+            10
+          ],
+          "binary": "outputs/mambanvp_nvp_runtime_v1/work/stringsearch2/binaries/nvp_seed2",
+          "bitcode": "outputs/mambanvp_nvp_runtime_v1/work/stringsearch2/binaries/nvp_seed2.bc",
+          "bitcode_sha256": "c0fedcb65394110f7528c9d113fb9e4af7f886bc9321b4a551784e6ffc2263a2",
+          "candidate_id": 49,
+          "candidate_rank": 0,
+          "legacy_prefix_key": "NVP_seed2",
+          "legacy_source_method": "nvp_seed2",
+          "pass_count": 1,
+          "pass_sequence_id": 49,
+          "policy45_object_text_size_bytes": 2573,
+          "prefix_index": 0,
+          "sha256": "b57aa0cf6480772086ee8fe8cf85c5093910f921a9034c852ada5d17eca0ed22"
+        },
+        "nvp_seed3": {
+          "action_ids": [
+            10
+          ],
+          "binary": "outputs/mambanvp_nvp_runtime_v1/work/stringsearch2/binaries/nvp_seed3",
+          "bitcode": "outputs/mambanvp_nvp_runtime_v1/work/stringsearch2/binaries/nvp_seed3.bc",
+          "bitcode_sha256": "c0fedcb65394110f7528c9d113fb9e4af7f886bc9321b4a551784e6ffc2263a2",
+          "candidate_id": 49,
+          "candidate_rank": 0,
+          "legacy_prefix_key": "NVP_seed3",
+          "legacy_source_method": "nvp_seed3",
+          "pass_count": 1,
+          "pass_sequence_id": 49,
+          "policy45_object_text_size_bytes": 2573,
+          "prefix_index": 0,
+          "sha256": "b57aa0cf6480772086ee8fe8cf85c5093910f921a9034c852ada5d17eca0ed22"
+        },
+        "oz": {
+          "action_ids": null,
+          "binary": "outputs/mambanvp_nvp_runtime_v1/work/stringsearch2/binaries/oz",
+          "candidate_id": null,
+          "legacy_source_method": "oz",
+          "pass_count": null,
+          "pass_sequence_id": null,
+          "prefix_index": null,
+          "sha256": "ad4f6f2c544e4cdfa1613dc98cbb18392cb91aae4241420b820f20b6a1c97288"
+        }
+      }
+    }
+  }
+}

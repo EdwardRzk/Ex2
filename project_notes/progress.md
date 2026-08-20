@@ -678,3 +678,26 @@ COMPLETE. MambaNVP exceeds frozen NVP on the one-way final/OOD evaluation. Stop;
 
 ### Git
 Evaluation and result commit `27379822`.
+
+## 2026-08-20 — MambaNVP versus NVP post-hoc runtime v1
+
+### Goal
+Compare only frozen NVP and frozen MambaNVP checkpoint runtime under the existing Route-A post-hoc runtime protocol.
+
+### Frozen protocol
+The nine CBench workloads, LLVM 10 toolchain, CPU-0 affinity, frozen Oz-only amplification, three excluded warmups, 5–20 formal samples, median timing statistic, and correctness policy were inherited unchanged from `route_a_posthoc_runtime_v6`. NVP and MambaNVP logits were recovered offline from frozen checkpoints, cached Autophase, and existing K=50 labels using deterministic policy-45 ranking. No CompilerGym candidate rollout or LLVM phase application occurred: every selected prefix was required to exactly match a prior frozen Route-A binary and was copied only after SHA256 verification.
+
+### Changes
+Added the isolated runtime runner, focused no-rollout tests, and `outputs/mambanvp_nvp_runtime_v1/` artifacts.
+
+### Result
+All 9 programs and 63 binaries completed; 56 semantic validations passed, 7 SHA executions were protocol-defined execution-only, and there were zero failures/timeouts. The semantic primary cohort has 8 programs and 1,032 raw samples (including warmups). NVP/MambaNVP geometric speedups versus Oz by seed are `0.80252/0.79251`, `0.80619/0.80679`, and `0.79061/0.79879`; three-seed values are `0.79974/0.79934`. The primary MambaNVP/NVP speedup ratio is `0.9994949366846334`. The 9-program execution cohort ratio is `0.9984332253368461`.
+
+### Decision
+COMPLETE — POST-HOC / EXPLORATORY only. MambaNVP and NVP are runtime-neutral within this descriptive protocol; no training, tuning, final/OOD evaluation, Route B, or further runtime variant follows.
+
+### Artifacts
+`outputs/mambanvp_nvp_runtime_v1/{config.json,policy_prefixes.json,build_manifest.json,binary_metadata.json,correctness_results.jsonl,runtime_cohort_manifest.json,raw_timing_samples.jsonl,timing_summary.json,runtime_report.json}`.
+
+### Git
+Commit pending.
