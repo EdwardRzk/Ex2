@@ -15,7 +15,7 @@ def main() -> int:
     cfg=json.loads(a.config.read_text()); build=json.loads(a.build_manifest.read_text()); cpu="0"; programs=[]
     for spec in cfg["programs"]:
         info=build["programs"][spec["program_id"]]["methods"]["oz"]; work=Path(spec["workdir"]); env={"PATH":os.environ["PATH"],**ENV,**spec["env"]}; (work/"_finfo_dataset").write_text("1\n")
-        start=time.perf_counter(); done=subprocess.run(["taskset","-c",cpu,*command(info["binary"],spec["argv"])],cwd=work,env=env,stdout=subprocess.PIPE,stderr=subprocess.PIPE,timeout=spec["timeout_seconds"],check=False); elapsed=time.perf_counter()-start
+        start=time.perf_counter(); done=subprocess.run(["taskset","-c",cpu,*command(str(Path(info["binary"]).resolve()),spec["argv"])],cwd=work,env=env,stdout=subprocess.PIPE,stderr=subprocess.PIPE,timeout=spec["timeout_seconds"],check=False); elapsed=time.perf_counter()-start
         if done.returncode: raise RuntimeError(f"Oz calibration failure: {spec['program_id']}:{done.returncode}")
         factor=max(1,math.ceil(1.0/elapsed)); programs.append({"program_id":spec["program_id"],"canonical_oz_calibration_seconds":elapsed,"amplification_factor":factor,"estimated_amplified_seconds":elapsed*factor,"cpu":{"model":"Intel(R) Xeon(R) Gold 6330 CPU @ 2.00GHz","socket":0,"physical_core":0,"logical_cpu":0,"affinity_command":"taskset -c 0"},"thread_environment":ENV,"applies_to_methods":["oz","nvp_seed1","nvp_seed2","nvp_seed3","mamba_seed1","mamba_seed2","mamba_seed3"]})
     a.output.write_text(json.dumps({"protocol":"POST-HOC / EXPLORATORY","calibration":"Oz-only; not formal timing samples","timing_samples_collected":0,"programs":programs},indent=2,sort_keys=True)+"\n")
