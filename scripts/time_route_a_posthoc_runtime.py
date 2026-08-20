@@ -5,10 +5,12 @@ import argparse,json,math,os,statistics,subprocess,time
 from pathlib import Path
 ENV={"OMP_NUM_THREADS":"1","MKL_NUM_THREADS":"1","OPENBLAS_NUM_THREADS":"1","NUMEXPR_NUM_THREADS":"1"}
 METHODS=["oz","nvp_seed1","nvp_seed2","nvp_seed3","mamba_seed1","mamba_seed2","mamba_seed3"]
+def timed_command(binary, argv):
+    return ["taskset", "-c", "0", str(Path(binary).resolve()), *argv[1:]]
 def invoke(binary,argv,factor,cwd,env,timeout):
     start=time.perf_counter()
     for _ in range(factor):
-        done=subprocess.run(["taskset","-c","0",str(Path(binary).resolve()),*[str(Path(binary).resolve()) if x=="./a.out" else x for x in argv]],cwd=cwd,env=env,stdout=subprocess.PIPE,stderr=subprocess.PIPE,timeout=timeout,check=False)
+        done=subprocess.run(timed_command(binary, argv),cwd=cwd,env=env,stdout=subprocess.PIPE,stderr=subprocess.PIPE,timeout=timeout,check=False)
         if done.returncode: raise RuntimeError(f"execution failed: {done.returncode}")
     return time.perf_counter()-start
 def stats(values):
