@@ -1,0 +1,745 @@
+{
+  "inference_device": "cuda",
+  "policy": {
+    "candidate_order": "descending checkpoint logits; candidate_id ascending ties",
+    "name": "frozen_policy45",
+    "prefix_source": "final K=50 labels only",
+    "scored_pass_budget": 45,
+    "winning_prefix": "first minimum observed prefix by candidate rank then prefix position"
+  },
+  "programs": {
+    "benchmark://cbench-v1/bitcount": {
+      "Mamba_seed1": {
+        "action_ids": [
+          105,
+          9,
+          27,
+          55,
+          46,
+          53
+        ],
+        "candidate_id": 26,
+        "candidate_rank": 1,
+        "object_text_size_bytes": 3518,
+        "pass_count": 6,
+        "prefix_index": 5
+      },
+      "Mamba_seed2": {
+        "action_ids": [
+          102,
+          10,
+          111
+        ],
+        "candidate_id": 0,
+        "candidate_rank": 2,
+        "object_text_size_bytes": 3652,
+        "pass_count": 3,
+        "prefix_index": 2
+      },
+      "Mamba_seed3": {
+        "action_ids": [
+          10,
+          53,
+          122
+        ],
+        "candidate_id": 49,
+        "candidate_rank": 1,
+        "object_text_size_bytes": 3481,
+        "pass_count": 3,
+        "prefix_index": 2
+      },
+      "NVP_seed1": {
+        "action_ids": [
+          102,
+          53
+        ],
+        "candidate_id": 5,
+        "candidate_rank": 2,
+        "object_text_size_bytes": 3519,
+        "pass_count": 2,
+        "prefix_index": 1
+      },
+      "NVP_seed2": {
+        "action_ids": [
+          102,
+          53
+        ],
+        "candidate_id": 5,
+        "candidate_rank": 2,
+        "object_text_size_bytes": 3519,
+        "pass_count": 2,
+        "prefix_index": 1
+      },
+      "NVP_seed3": {
+        "action_ids": [
+          21,
+          121,
+          97,
+          38,
+          31,
+          52,
+          70,
+          53
+        ],
+        "candidate_id": 31,
+        "candidate_rank": 2,
+        "object_text_size_bytes": 3581,
+        "pass_count": 8,
+        "prefix_index": 7
+      }
+    },
+    "benchmark://cbench-v1/blowfish": {
+      "Mamba_seed1": {
+        "action_ids": [
+          102,
+          10,
+          111
+        ],
+        "candidate_id": 0,
+        "candidate_rank": 1,
+        "object_text_size_bytes": 12743,
+        "pass_count": 3,
+        "prefix_index": 2
+      },
+      "Mamba_seed2": {
+        "action_ids": [
+          27,
+          36,
+          103,
+          24,
+          53
+        ],
+        "candidate_id": 27,
+        "candidate_rank": 1,
+        "object_text_size_bytes": 12460,
+        "pass_count": 5,
+        "prefix_index": 4
+      },
+      "Mamba_seed3": {
+        "action_ids": [
+          102,
+          10,
+          111
+        ],
+        "candidate_id": 0,
+        "candidate_rank": 2,
+        "object_text_size_bytes": 12743,
+        "pass_count": 3,
+        "prefix_index": 2
+      },
+      "NVP_seed1": {
+        "action_ids": [
+          21,
+          121,
+          97,
+          38,
+          31,
+          52,
+          70,
+          53,
+          71,
+          97,
+          56,
+          111,
+          40,
+          39,
+          65,
+          10,
+          53
+        ],
+        "candidate_id": 31,
+        "candidate_rank": 1,
+        "object_text_size_bytes": 13313,
+        "pass_count": 17,
+        "prefix_index": 16
+      },
+      "NVP_seed2": {
+        "action_ids": [
+          71,
+          29,
+          111,
+          102,
+          53,
+          120,
+          38,
+          47,
+          21,
+          10
+        ],
+        "candidate_id": 22,
+        "candidate_rank": 0,
+        "object_text_size_bytes": 13405,
+        "pass_count": 10,
+        "prefix_index": 9
+      },
+      "NVP_seed3": {
+        "action_ids": [
+          27,
+          36,
+          103,
+          24,
+          53
+        ],
+        "candidate_id": 27,
+        "candidate_rank": 0,
+        "object_text_size_bytes": 12460,
+        "pass_count": 5,
+        "prefix_index": 4
+      }
+    },
+    "benchmark://cbench-v1/crc32": {
+      "Mamba_seed1": {
+        "action_ids": [
+          105,
+          9,
+          27,
+          55,
+          46,
+          53
+        ],
+        "candidate_id": 26,
+        "candidate_rank": 0,
+        "object_text_size_bytes": 1180,
+        "pass_count": 6,
+        "prefix_index": 5
+      },
+      "Mamba_seed2": {
+        "action_ids": [
+          105
+        ],
+        "candidate_id": 26,
+        "candidate_rank": 3,
+        "object_text_size_bytes": 1183,
+        "pass_count": 1,
+        "prefix_index": 0
+      },
+      "Mamba_seed3": {
+        "action_ids": [
+          27
+        ],
+        "candidate_id": 27,
+        "candidate_rank": 1,
+        "object_text_size_bytes": 1183,
+        "pass_count": 1,
+        "prefix_index": 0
+      },
+      "NVP_seed1": {
+        "action_ids": [
+          102
+        ],
+        "candidate_id": 5,
+        "candidate_rank": 3,
+        "object_text_size_bytes": 1183,
+        "pass_count": 1,
+        "prefix_index": 0
+      },
+      "NVP_seed2": {
+        "action_ids": [
+          102
+        ],
+        "candidate_id": 5,
+        "candidate_rank": 3,
+        "object_text_size_bytes": 1183,
+        "pass_count": 1,
+        "prefix_index": 0
+      },
+      "NVP_seed3": {
+        "action_ids": [
+          102
+        ],
+        "candidate_id": 5,
+        "candidate_rank": 3,
+        "object_text_size_bytes": 1183,
+        "pass_count": 1,
+        "prefix_index": 0
+      }
+    },
+    "benchmark://cbench-v1/dijkstra": {
+      "Mamba_seed1": {
+        "action_ids": [
+          10
+        ],
+        "candidate_id": 49,
+        "candidate_rank": 2,
+        "object_text_size_bytes": 2460,
+        "pass_count": 1,
+        "prefix_index": 0
+      },
+      "Mamba_seed2": {
+        "action_ids": [
+          10
+        ],
+        "candidate_id": 49,
+        "candidate_rank": 1,
+        "object_text_size_bytes": 2460,
+        "pass_count": 1,
+        "prefix_index": 0
+      },
+      "Mamba_seed3": {
+        "action_ids": [
+          10
+        ],
+        "candidate_id": 49,
+        "candidate_rank": 0,
+        "object_text_size_bytes": 2460,
+        "pass_count": 1,
+        "prefix_index": 0
+      },
+      "NVP_seed1": {
+        "action_ids": [
+          10
+        ],
+        "candidate_id": 49,
+        "candidate_rank": 0,
+        "object_text_size_bytes": 2460,
+        "pass_count": 1,
+        "prefix_index": 0
+      },
+      "NVP_seed2": {
+        "action_ids": [
+          10
+        ],
+        "candidate_id": 49,
+        "candidate_rank": 0,
+        "object_text_size_bytes": 2460,
+        "pass_count": 1,
+        "prefix_index": 0
+      },
+      "NVP_seed3": {
+        "action_ids": [
+          10
+        ],
+        "candidate_id": 49,
+        "candidate_rank": 0,
+        "object_text_size_bytes": 2460,
+        "pass_count": 1,
+        "prefix_index": 0
+      }
+    },
+    "benchmark://cbench-v1/patricia": {
+      "Mamba_seed1": {
+        "action_ids": [
+          10,
+          53,
+          122,
+          31,
+          36,
+          111,
+          10,
+          97
+        ],
+        "candidate_id": 49,
+        "candidate_rank": 2,
+        "object_text_size_bytes": 4035,
+        "pass_count": 8,
+        "prefix_index": 7
+      },
+      "Mamba_seed2": {
+        "action_ids": [
+          10,
+          53,
+          122,
+          31,
+          36,
+          111,
+          10,
+          97
+        ],
+        "candidate_id": 49,
+        "candidate_rank": 2,
+        "object_text_size_bytes": 4035,
+        "pass_count": 8,
+        "prefix_index": 7
+      },
+      "Mamba_seed3": {
+        "action_ids": [
+          10,
+          53,
+          122,
+          31,
+          36,
+          111,
+          10,
+          97
+        ],
+        "candidate_id": 49,
+        "candidate_rank": 0,
+        "object_text_size_bytes": 4035,
+        "pass_count": 8,
+        "prefix_index": 7
+      },
+      "NVP_seed1": {
+        "action_ids": [
+          10,
+          53,
+          122,
+          31,
+          36,
+          111,
+          10,
+          97
+        ],
+        "candidate_id": 49,
+        "candidate_rank": 0,
+        "object_text_size_bytes": 4035,
+        "pass_count": 8,
+        "prefix_index": 7
+      },
+      "NVP_seed2": {
+        "action_ids": [
+          10,
+          53,
+          122,
+          31,
+          36,
+          111,
+          10,
+          97
+        ],
+        "candidate_id": 49,
+        "candidate_rank": 0,
+        "object_text_size_bytes": 4035,
+        "pass_count": 8,
+        "prefix_index": 7
+      },
+      "NVP_seed3": {
+        "action_ids": [
+          10,
+          53,
+          122,
+          31,
+          36,
+          111,
+          10,
+          97
+        ],
+        "candidate_id": 49,
+        "candidate_rank": 0,
+        "object_text_size_bytes": 4035,
+        "pass_count": 8,
+        "prefix_index": 7
+      }
+    },
+    "benchmark://cbench-v1/qsort": {
+      "Mamba_seed1": {
+        "action_ids": [
+          21,
+          121,
+          97,
+          38,
+          31,
+          52,
+          70,
+          53
+        ],
+        "candidate_id": 31,
+        "candidate_rank": 0,
+        "object_text_size_bytes": 2969,
+        "pass_count": 8,
+        "prefix_index": 7
+      },
+      "Mamba_seed2": {
+        "action_ids": [
+          10,
+          53
+        ],
+        "candidate_id": 49,
+        "candidate_rank": 0,
+        "object_text_size_bytes": 3023,
+        "pass_count": 2,
+        "prefix_index": 1
+      },
+      "Mamba_seed3": {
+        "action_ids": [
+          21,
+          121,
+          97,
+          38,
+          31,
+          52,
+          70,
+          53
+        ],
+        "candidate_id": 31,
+        "candidate_rank": 1,
+        "object_text_size_bytes": 2969,
+        "pass_count": 8,
+        "prefix_index": 7
+      },
+      "NVP_seed1": {
+        "action_ids": [
+          10,
+          53
+        ],
+        "candidate_id": 49,
+        "candidate_rank": 0,
+        "object_text_size_bytes": 3023,
+        "pass_count": 2,
+        "prefix_index": 1
+      },
+      "NVP_seed2": {
+        "action_ids": [
+          21,
+          121,
+          97,
+          38,
+          31,
+          52,
+          70,
+          53
+        ],
+        "candidate_id": 31,
+        "candidate_rank": 2,
+        "object_text_size_bytes": 2969,
+        "pass_count": 8,
+        "prefix_index": 7
+      },
+      "NVP_seed3": {
+        "action_ids": [
+          21,
+          121,
+          97,
+          38,
+          31,
+          52,
+          70,
+          53
+        ],
+        "candidate_id": 31,
+        "candidate_rank": 2,
+        "object_text_size_bytes": 2969,
+        "pass_count": 8,
+        "prefix_index": 7
+      }
+    },
+    "benchmark://cbench-v1/sha": {
+      "Mamba_seed1": {
+        "action_ids": [
+          21,
+          121,
+          97,
+          38,
+          31,
+          52,
+          70,
+          53
+        ],
+        "candidate_id": 31,
+        "candidate_rank": 1,
+        "object_text_size_bytes": 3204,
+        "pass_count": 8,
+        "prefix_index": 7
+      },
+      "Mamba_seed2": {
+        "action_ids": [
+          47,
+          53
+        ],
+        "candidate_id": 16,
+        "candidate_rank": 1,
+        "object_text_size_bytes": 3363,
+        "pass_count": 2,
+        "prefix_index": 1
+      },
+      "Mamba_seed3": {
+        "action_ids": [
+          71,
+          29,
+          111,
+          102,
+          53,
+          120,
+          38,
+          47,
+          21,
+          10
+        ],
+        "candidate_id": 22,
+        "candidate_rank": 0,
+        "object_text_size_bytes": 3158,
+        "pass_count": 10,
+        "prefix_index": 9
+      },
+      "NVP_seed1": {
+        "action_ids": [
+          21,
+          121,
+          97,
+          38,
+          31,
+          52,
+          70,
+          53
+        ],
+        "candidate_id": 31,
+        "candidate_rank": 1,
+        "object_text_size_bytes": 3204,
+        "pass_count": 8,
+        "prefix_index": 7
+      },
+      "NVP_seed2": {
+        "action_ids": [
+          21,
+          121,
+          97,
+          38,
+          31,
+          52,
+          70,
+          53
+        ],
+        "candidate_id": 31,
+        "candidate_rank": 0,
+        "object_text_size_bytes": 3204,
+        "pass_count": 8,
+        "prefix_index": 7
+      },
+      "NVP_seed3": {
+        "action_ids": [
+          21,
+          121,
+          97,
+          38,
+          31,
+          52,
+          70,
+          53
+        ],
+        "candidate_id": 31,
+        "candidate_rank": 0,
+        "object_text_size_bytes": 3204,
+        "pass_count": 8,
+        "prefix_index": 7
+      }
+    },
+    "benchmark://cbench-v1/stringsearch": {
+      "Mamba_seed1": {
+        "action_ids": [
+          10
+        ],
+        "candidate_id": 49,
+        "candidate_rank": 1,
+        "object_text_size_bytes": 5618,
+        "pass_count": 1,
+        "prefix_index": 0
+      },
+      "Mamba_seed2": {
+        "action_ids": [
+          10
+        ],
+        "candidate_id": 49,
+        "candidate_rank": 0,
+        "object_text_size_bytes": 5618,
+        "pass_count": 1,
+        "prefix_index": 0
+      },
+      "Mamba_seed3": {
+        "action_ids": [
+          10,
+          64,
+          31,
+          10,
+          52
+        ],
+        "candidate_id": 1,
+        "candidate_rank": 3,
+        "object_text_size_bytes": 5607,
+        "pass_count": 5,
+        "prefix_index": 4
+      },
+      "NVP_seed1": {
+        "action_ids": [
+          10
+        ],
+        "candidate_id": 49,
+        "candidate_rank": 0,
+        "object_text_size_bytes": 5618,
+        "pass_count": 1,
+        "prefix_index": 0
+      },
+      "NVP_seed2": {
+        "action_ids": [
+          10
+        ],
+        "candidate_id": 49,
+        "candidate_rank": 0,
+        "object_text_size_bytes": 5618,
+        "pass_count": 1,
+        "prefix_index": 0
+      },
+      "NVP_seed3": {
+        "action_ids": [
+          10
+        ],
+        "candidate_id": 49,
+        "candidate_rank": 0,
+        "object_text_size_bytes": 5618,
+        "pass_count": 1,
+        "prefix_index": 0
+      }
+    },
+    "benchmark://cbench-v1/stringsearch2": {
+      "Mamba_seed1": {
+        "action_ids": [
+          10
+        ],
+        "candidate_id": 49,
+        "candidate_rank": 0,
+        "object_text_size_bytes": 2573,
+        "pass_count": 1,
+        "prefix_index": 0
+      },
+      "Mamba_seed2": {
+        "action_ids": [
+          10
+        ],
+        "candidate_id": 49,
+        "candidate_rank": 0,
+        "object_text_size_bytes": 2573,
+        "pass_count": 1,
+        "prefix_index": 0
+      },
+      "Mamba_seed3": {
+        "action_ids": [
+          10
+        ],
+        "candidate_id": 49,
+        "candidate_rank": 0,
+        "object_text_size_bytes": 2573,
+        "pass_count": 1,
+        "prefix_index": 0
+      },
+      "NVP_seed1": {
+        "action_ids": [
+          10
+        ],
+        "candidate_id": 49,
+        "candidate_rank": 0,
+        "object_text_size_bytes": 2573,
+        "pass_count": 1,
+        "prefix_index": 0
+      },
+      "NVP_seed2": {
+        "action_ids": [
+          10
+        ],
+        "candidate_id": 49,
+        "candidate_rank": 0,
+        "object_text_size_bytes": 2573,
+        "pass_count": 1,
+        "prefix_index": 0
+      },
+      "NVP_seed3": {
+        "action_ids": [
+          10
+        ],
+        "candidate_id": 49,
+        "candidate_rank": 0,
+        "object_text_size_bytes": 2573,
+        "pass_count": 1,
+        "prefix_index": 0
+      }
+    }
+  },
+  "protocol_config_sha256": "75cbb07faf077774d103fd7c5c434a558bbefa9a207c3a9e33aaf94a52bc9f5f"
+}
