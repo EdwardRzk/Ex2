@@ -277,6 +277,10 @@ def main() -> int:
     cfg = load_json(args.config); validate_config(cfg)
     programs = load_final_manifest(args.official_manifest, cfg)
     if args.workers < 1: raise ValueError("workers must be positive")
+    execution = cfg["execution_parallelism"]
+    if args.workers != execution["workers"]:
+        raise ValueError("final worker count must equal frozen execution_parallelism.workers")
+    for name, value in execution["worker_thread_limits"].items():
     assert_split_integrity(programs, cfg)
     root = Path(cfg["models"]["checkpoint_root"])
     validate_checkpoint_inventory(root, cfg)

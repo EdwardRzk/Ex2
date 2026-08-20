@@ -65,6 +65,17 @@
     "H2a": ["Mamba", "NVP"],
     "H2b": ["MLP", "LSTM", "Transformer", "Mamba"]
   },
+  "execution_parallelism": {
+    "workers": 12,
+    "unit_of_parallelism": "one complete program per worker",
+    "candidate_rollouts_within_program": "sequential independent resets",
+    "program_commit": "one atomic gzip shard after all K=50 records",
+    "worker_thread_limits": {
+      "OMP_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1"
+    }
+  },
   "validity": {
     "automatic_retry_count": 0,
     "candidate_rollout": "independent reset from original benchmark; all 50 required for complete K50",
