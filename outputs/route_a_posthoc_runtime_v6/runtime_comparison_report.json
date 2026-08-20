@@ -1,0 +1,315 @@
+{
+  "direct_mamba_vs_nvp_3seed": 1.000881725068764,
+  "mamba_3seed_speedup": 0.7931043438552989,
+  "nvp_3seed_speedup": 0.7924056599203166,
+  "primary": {
+    "direct_mamba_vs_nvp": {
+      "seed1": {
+        "geomean": 1.0195064785892152,
+        "per_program_nvp_over_mamba": {
+          "benchmark://cbench-v1/bitcount": 1.1001427280654654,
+          "benchmark://cbench-v1/blowfish": 1.0001244319821097,
+          "benchmark://cbench-v1/crc32": 0.9787613152251083,
+          "benchmark://cbench-v1/dijkstra": 0.9986634677788268,
+          "benchmark://cbench-v1/patricia": 1.0004616418802565,
+          "benchmark://cbench-v1/qsort": 1.030026893822272,
+          "benchmark://cbench-v1/stringsearch": 1.001773529728049,
+          "benchmark://cbench-v1/stringsearch2": 1.0512411013573324
+        }
+      },
+      "seed2": {
+        "geomean": 0.9658397588095288,
+        "per_program_nvp_over_mamba": {
+          "benchmark://cbench-v1/bitcount": 0.8554025834485802,
+          "benchmark://cbench-v1/blowfish": 1.0431439650697676,
+          "benchmark://cbench-v1/crc32": 1.0193276157515994,
+          "benchmark://cbench-v1/dijkstra": 0.9422633878445659,
+          "benchmark://cbench-v1/patricia": 0.9640330026375548,
+          "benchmark://cbench-v1/qsort": 0.9504652187850349,
+          "benchmark://cbench-v1/stringsearch": 1.0159004283334818,
+          "benchmark://cbench-v1/stringsearch2": 0.9492059344070086
+        }
+      },
+      "seed3": {
+        "geomean": 1.01824716537923,
+        "per_program_nvp_over_mamba": {
+          "benchmark://cbench-v1/bitcount": 1.2857187355342554,
+          "benchmark://cbench-v1/blowfish": 0.9687634193172746,
+          "benchmark://cbench-v1/crc32": 1.0014297892174406,
+          "benchmark://cbench-v1/dijkstra": 1.024143499758668,
+          "benchmark://cbench-v1/patricia": 0.8669212913785322,
+          "benchmark://cbench-v1/qsort": 1.009007113722209,
+          "benchmark://cbench-v1/stringsearch": 1.0288404197388172,
+          "benchmark://cbench-v1/stringsearch2": 1.0052144892868284
+        }
+      }
+    },
+    "mamba_seed1": {
+      "geomean_speedup_vs_oz": 0.8042983267881703,
+      "per_program_speedup_vs_oz": {
+        "benchmark://cbench-v1/bitcount": 0.3991114367787541,
+        "benchmark://cbench-v1/blowfish": 0.9497175666933589,
+        "benchmark://cbench-v1/crc32": 1.0169939536961576,
+        "benchmark://cbench-v1/dijkstra": 1.0023893840107194,
+        "benchmark://cbench-v1/patricia": 1.0118792577179503,
+        "benchmark://cbench-v1/qsort": 0.7220619685384116,
+        "benchmark://cbench-v1/stringsearch": 0.9730687628301466,
+        "benchmark://cbench-v1/stringsearch2": 0.6374515075728555
+      }
+    },
+    "mamba_seed2": {
+      "geomean_speedup_vs_oz": 0.7727036138750498,
+      "per_program_speedup_vs_oz": {
+        "benchmark://cbench-v1/bitcount": 0.30812779315032396,
+        "benchmark://cbench-v1/blowfish": 0.9698503618410991,
+        "benchmark://cbench-v1/crc32": 1.0315408357618192,
+        "benchmark://cbench-v1/dijkstra": 0.9743949869984905,
+        "benchmark://cbench-v1/patricia": 1.000997091762961,
+        "benchmark://cbench-v1/qsort": 0.6933884918133891,
+        "benchmark://cbench-v1/stringsearch": 0.9710146837662297,
+        "benchmark://cbench-v1/stringsearch2": 0.62778543135602
+      }
+    },
+    "mamba_seed3": {
+      "geomean_speedup_vs_oz": 0.8027140729100994,
+      "per_program_speedup_vs_oz": {
+        "benchmark://cbench-v1/bitcount": 0.4009924096881599,
+        "benchmark://cbench-v1/blowfish": 0.9601285970898321,
+        "benchmark://cbench-v1/crc32": 1.0131982087588944,
+        "benchmark://cbench-v1/dijkstra": 1.0389052251731683,
+        "benchmark://cbench-v1/patricia": 0.9415499865506337,
+        "benchmark://cbench-v1/qsort": 0.7164756423836701,
+        "benchmark://cbench-v1/stringsearch": 0.9759533953495216,
+        "benchmark://cbench-v1/stringsearch2": 0.6460665009753465
+      }
+    },
+    "nvp_seed1": {
+      "geomean_speedup_vs_oz": 0.7889094808903537,
+      "per_program_speedup_vs_oz": {
+        "benchmark://cbench-v1/bitcount": 0.3627815069782513,
+        "benchmark://cbench-v1/blowfish": 0.9495994061570407,
+        "benchmark://cbench-v1/crc32": 1.0390622697038818,
+        "benchmark://cbench-v1/dijkstra": 1.0037309027035701,
+        "benchmark://cbench-v1/patricia": 1.0114123474201726,
+        "benchmark://cbench-v1/qsort": 0.7010127336180033,
+        "benchmark://cbench-v1/stringsearch": 0.9713460517311784,
+        "benchmark://cbench-v1/stringsearch2": 0.606379932015402
+      }
+    },
+    "nvp_seed2": {
+      "geomean_speedup_vs_oz": 0.8000329317851503,
+      "per_program_speedup_vs_oz": {
+        "benchmark://cbench-v1/bitcount": 0.36021377432377844,
+        "benchmark://cbench-v1/blowfish": 0.9297377872250198,
+        "benchmark://cbench-v1/crc32": 1.0119816434103126,
+        "benchmark://cbench-v1/dijkstra": 1.034100443218351,
+        "benchmark://cbench-v1/patricia": 1.038343178111407,
+        "benchmark://cbench-v1/qsort": 0.7295253714804388,
+        "benchmark://cbench-v1/stringsearch": 0.9558167874376386,
+        "benchmark://cbench-v1/stringsearch2": 0.6613795896126718
+      }
+    },
+    "nvp_seed3": {
+      "geomean_speedup_vs_oz": 0.7883292978391363,
+      "per_program_speedup_vs_oz": {
+        "benchmark://cbench-v1/bitcount": 0.3118819058987542,
+        "benchmark://cbench-v1/blowfish": 0.9910867585880484,
+        "benchmark://cbench-v1/crc32": 1.0117516172058851,
+        "benchmark://cbench-v1/dijkstra": 1.0144137275860061,
+        "benchmark://cbench-v1/patricia": 1.0860847413880341,
+        "benchmark://cbench-v1/qsort": 0.7100798722227084,
+        "benchmark://cbench-v1/stringsearch": 0.9485955028839927,
+        "benchmark://cbench-v1/stringsearch2": 0.6427150701276825
+      }
+    }
+  },
+  "primary_correctness_qualified_programs": [
+    "benchmark://cbench-v1/bitcount",
+    "benchmark://cbench-v1/blowfish",
+    "benchmark://cbench-v1/crc32",
+    "benchmark://cbench-v1/dijkstra",
+    "benchmark://cbench-v1/patricia",
+    "benchmark://cbench-v1/qsort",
+    "benchmark://cbench-v1/stringsearch",
+    "benchmark://cbench-v1/stringsearch2"
+  ],
+  "protocol": "POST-HOC / EXPLORATORY RUNTIME EVALUATION",
+  "secondary_execution_common_programs": [
+    "benchmark://cbench-v1/bitcount",
+    "benchmark://cbench-v1/blowfish",
+    "benchmark://cbench-v1/crc32",
+    "benchmark://cbench-v1/dijkstra",
+    "benchmark://cbench-v1/patricia",
+    "benchmark://cbench-v1/qsort",
+    "benchmark://cbench-v1/sha",
+    "benchmark://cbench-v1/stringsearch",
+    "benchmark://cbench-v1/stringsearch2"
+  ],
+  "secondary_execution_common_runtime_result_semantic_correctness_not_verified_for_all_programs": {
+    "direct_mamba_vs_nvp": {
+      "seed1": {
+        "geomean": 1.016616086037444,
+        "per_program_nvp_over_mamba": {
+          "benchmark://cbench-v1/bitcount": 1.1001427280654654,
+          "benchmark://cbench-v1/blowfish": 1.0001244319821097,
+          "benchmark://cbench-v1/crc32": 0.9787613152251083,
+          "benchmark://cbench-v1/dijkstra": 0.9986634677788268,
+          "benchmark://cbench-v1/patricia": 1.0004616418802565,
+          "benchmark://cbench-v1/qsort": 1.030026893822272,
+          "benchmark://cbench-v1/sha": 0.9937860052147629,
+          "benchmark://cbench-v1/stringsearch": 1.001773529728049,
+          "benchmark://cbench-v1/stringsearch2": 1.0512411013573324
+        }
+      },
+      "seed2": {
+        "geomean": 0.9665910410778932,
+        "per_program_nvp_over_mamba": {
+          "benchmark://cbench-v1/bitcount": 0.8554025834485802,
+          "benchmark://cbench-v1/blowfish": 1.0431439650697676,
+          "benchmark://cbench-v1/crc32": 1.0193276157515994,
+          "benchmark://cbench-v1/dijkstra": 0.9422633878445659,
+          "benchmark://cbench-v1/patricia": 0.9640330026375548,
+          "benchmark://cbench-v1/qsort": 0.9504652187850349,
+          "benchmark://cbench-v1/sha": 0.9726223754167357,
+          "benchmark://cbench-v1/stringsearch": 1.0159004283334818,
+          "benchmark://cbench-v1/stringsearch2": 0.9492059344070086
+        }
+      },
+      "seed3": {
+        "geomean": 1.0178212196072014,
+        "per_program_nvp_over_mamba": {
+          "benchmark://cbench-v1/bitcount": 1.2857187355342554,
+          "benchmark://cbench-v1/blowfish": 0.9687634193172746,
+          "benchmark://cbench-v1/crc32": 1.0014297892174406,
+          "benchmark://cbench-v1/dijkstra": 1.024143499758668,
+          "benchmark://cbench-v1/patricia": 0.8669212913785322,
+          "benchmark://cbench-v1/qsort": 1.009007113722209,
+          "benchmark://cbench-v1/sha": 1.0144200616017147,
+          "benchmark://cbench-v1/stringsearch": 1.0288404197388172,
+          "benchmark://cbench-v1/stringsearch2": 1.0052144892868284
+        }
+      }
+    },
+    "mamba_seed1": {
+      "geomean_speedup_vs_oz": 0.823417091796668,
+      "per_program_speedup_vs_oz": {
+        "benchmark://cbench-v1/bitcount": 0.3991114367787541,
+        "benchmark://cbench-v1/blowfish": 0.9497175666933589,
+        "benchmark://cbench-v1/crc32": 1.0169939536961576,
+        "benchmark://cbench-v1/dijkstra": 1.0023893840107194,
+        "benchmark://cbench-v1/patricia": 1.0118792577179503,
+        "benchmark://cbench-v1/qsort": 0.7220619685384116,
+        "benchmark://cbench-v1/sha": 0.9936686209648365,
+        "benchmark://cbench-v1/stringsearch": 0.9730687628301466,
+        "benchmark://cbench-v1/stringsearch2": 0.6374515075728555
+      }
+    },
+    "mamba_seed2": {
+      "geomean_speedup_vs_oz": 0.7949051624294465,
+      "per_program_speedup_vs_oz": {
+        "benchmark://cbench-v1/bitcount": 0.30812779315032396,
+        "benchmark://cbench-v1/blowfish": 0.9698503618410991,
+        "benchmark://cbench-v1/crc32": 1.0315408357618192,
+        "benchmark://cbench-v1/dijkstra": 0.9743949869984905,
+        "benchmark://cbench-v1/patricia": 1.000997091762961,
+        "benchmark://cbench-v1/qsort": 0.6933884918133891,
+        "benchmark://cbench-v1/sha": 0.9970898836258694,
+        "benchmark://cbench-v1/stringsearch": 0.9710146837662297,
+        "benchmark://cbench-v1/stringsearch2": 0.62778543135602
+      }
+    },
+    "mamba_seed3": {
+      "geomean_speedup_vs_oz": 0.8232407743817955,
+      "per_program_speedup_vs_oz": {
+        "benchmark://cbench-v1/bitcount": 0.4009924096881599,
+        "benchmark://cbench-v1/blowfish": 0.9601285970898321,
+        "benchmark://cbench-v1/crc32": 1.0131982087588944,
+        "benchmark://cbench-v1/dijkstra": 1.0389052251731683,
+        "benchmark://cbench-v1/patricia": 0.9415499865506337,
+        "benchmark://cbench-v1/qsort": 0.7164756423836701,
+        "benchmark://cbench-v1/sha": 1.00752269345434,
+        "benchmark://cbench-v1/stringsearch": 0.9759533953495216,
+        "benchmark://cbench-v1/stringsearch2": 0.6460665009753465
+      }
+    },
+    "nvp_seed1": {
+      "geomean_speedup_vs_oz": 0.8099587475604236,
+      "per_program_speedup_vs_oz": {
+        "benchmark://cbench-v1/bitcount": 0.3627815069782513,
+        "benchmark://cbench-v1/blowfish": 0.9495994061570407,
+        "benchmark://cbench-v1/crc32": 1.0390622697038818,
+        "benchmark://cbench-v1/dijkstra": 1.0037309027035701,
+        "benchmark://cbench-v1/patricia": 1.0114123474201726,
+        "benchmark://cbench-v1/qsort": 0.7010127336180033,
+        "benchmark://cbench-v1/sha": 0.999881881763971,
+        "benchmark://cbench-v1/stringsearch": 0.9713460517311784,
+        "benchmark://cbench-v1/stringsearch2": 0.606379932015402
+      }
+    },
+    "nvp_seed2": {
+      "geomean_speedup_vs_oz": 0.8223800228305538,
+      "per_program_speedup_vs_oz": {
+        "benchmark://cbench-v1/bitcount": 0.36021377432377844,
+        "benchmark://cbench-v1/blowfish": 0.9297377872250198,
+        "benchmark://cbench-v1/crc32": 1.0119816434103126,
+        "benchmark://cbench-v1/dijkstra": 1.034100443218351,
+        "benchmark://cbench-v1/patricia": 1.038343178111407,
+        "benchmark://cbench-v1/qsort": 0.7295253714804388,
+        "benchmark://cbench-v1/sha": 1.0251562259182554,
+        "benchmark://cbench-v1/stringsearch": 0.9558167874376386,
+        "benchmark://cbench-v1/stringsearch2": 0.6613795896126718
+      }
+    },
+    "nvp_seed3": {
+      "geomean_speedup_vs_oz": 0.8088264997064036,
+      "per_program_speedup_vs_oz": {
+        "benchmark://cbench-v1/bitcount": 0.3118819058987542,
+        "benchmark://cbench-v1/blowfish": 0.9910867585880484,
+        "benchmark://cbench-v1/crc32": 1.0117516172058851,
+        "benchmark://cbench-v1/dijkstra": 1.0144137275860061,
+        "benchmark://cbench-v1/patricia": 1.0860847413880341,
+        "benchmark://cbench-v1/qsort": 0.7100798722227084,
+        "benchmark://cbench-v1/sha": 0.9932006784876827,
+        "benchmark://cbench-v1/stringsearch": 0.9485955028839927,
+        "benchmark://cbench-v1/stringsearch2": 0.6427150701276825
+      }
+    }
+  },
+  "stability": {
+    "mamba_seed1": {
+      "N_RSE_le_1pct": 2,
+      "N_hit_20_run_cap": 7,
+      "N_timing_success": 9
+    },
+    "mamba_seed2": {
+      "N_RSE_le_1pct": 3,
+      "N_hit_20_run_cap": 6,
+      "N_timing_success": 9
+    },
+    "mamba_seed3": {
+      "N_RSE_le_1pct": 3,
+      "N_hit_20_run_cap": 6,
+      "N_timing_success": 9
+    },
+    "nvp_seed1": {
+      "N_RSE_le_1pct": 1,
+      "N_hit_20_run_cap": 8,
+      "N_timing_success": 9
+    },
+    "nvp_seed2": {
+      "N_RSE_le_1pct": 3,
+      "N_hit_20_run_cap": 6,
+      "N_timing_success": 9
+    },
+    "nvp_seed3": {
+      "N_RSE_le_1pct": 2,
+      "N_hit_20_run_cap": 7,
+      "N_timing_success": 9
+    },
+    "oz": {
+      "N_RSE_le_1pct": 1,
+      "N_hit_20_run_cap": 8,
+      "N_timing_success": 9
+    }
+  }
+}

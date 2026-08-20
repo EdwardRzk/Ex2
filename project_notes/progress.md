@@ -611,3 +611,22 @@ COMPLETE. The one-way final evaluation is closed; no model, checkpoint, candidat
 
 ### Git
 Final evaluator commits `8fa3ddff`, `93d10df3`, and `236370bb`; result-record commit pending.
+
+## 2026-08-20 — POST-HOC / EXPLORATORY Route-A runtime evaluation
+
+### Goal
+Measure frozen native runtime of Oz, NVP, and Mamba on the local canonical CBench subset after the closed ObjectText study.
+
+### Frozen protocol
+Nine CBench programs, CPU 0 single-thread execution, frozen Oz-only amplification, three excluded warmups, 5–20 formal samples, median primary time, and pre-frozen 8-program semantic primary / 9-program execution-only secondary cohorts.
+
+### Result
+All 63 binaries timed successfully; 1,071 formal samples. Primary geomean speedup versus Oz: NVP seeds `0.78891/0.80003/0.78833`, 3-seed `0.79241`; Mamba seeds `0.80430/0.77270/0.80271`, 3-seed `0.79310`. Direct Mamba/NVP geomeans `1.01951/0.96584/1.01825`, 3-seed `1.00088`. Thus both learned policies regress runtime versus native Oz despite final ObjectText reductions; direct Mamba/NVP runtime is effectively neutral descriptively.
+
+### Decision
+COMPLETE — POST-HOC / EXPLORATORY only; no tuning or protocol changes followed timing.
+
+### Artifacts
+`outputs/route_a_posthoc_runtime_v6/{amplification_manifest.json,raw_timing_samples.jsonl,timing_summary.json,runtime_comparison_report.json}`.
+
+### Git
