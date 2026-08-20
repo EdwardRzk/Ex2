@@ -1,0 +1,1446 @@
+{
+  "execution": "BUILD_ONLY_NO_BENCHMARK_EXECUTION",
+  "prefixes_sha256": "713706fbab61cf185cf8af05848070e97884c46bb639c5a58572253aa76b2ab4",
+  "programs": {
+    "benchmark://cbench-v1/bitcount": {
+      "all_expected_methods_built": true,
+      "methods": {
+        "mamba_seed1": {
+          "action_ids": [
+            105,
+            9,
+            27,
+            55,
+            46,
+            53
+          ],
+          "binary": "outputs/route_a_posthoc_runtime_v6/work/bitcount/binaries/mamba_seed1",
+          "bitcode": "outputs/route_a_posthoc_runtime_v6/work/bitcount/binaries/mamba_seed1.bc",
+          "bitcode_sha256": "fba866ed584624a57ab4607aa85e3ef533e7fb0a3247d9839ffe8a22e48c862e",
+          "candidate_id": 26,
+          "command": [
+            "/root/.local/share/compiler_gym/llvm-v0/bin/clang",
+            "outputs/route_a_posthoc_runtime_v6/work/bitcount/binaries/mamba_seed1.bc",
+            "-o",
+            "outputs/route_a_posthoc_runtime_v6/work/bitcount/binaries/mamba_seed1"
+          ],
+          "pass_count": 6,
+          "policy45_object_text_size_bytes": 3518,
+          "prefix_index": 5,
+          "sha256": "e8cf08d20ea7018f06118a70c96696157d3030ff63e3453bc6d3a15f23b45e44",
+          "stdout": ""
+        },
+        "mamba_seed2": {
+          "action_ids": [
+            102,
+            10,
+            111
+          ],
+          "binary": "outputs/route_a_posthoc_runtime_v6/work/bitcount/binaries/mamba_seed2",
+          "bitcode": "outputs/route_a_posthoc_runtime_v6/work/bitcount/binaries/mamba_seed2.bc",
+          "bitcode_sha256": "86040188012fe0dcd1716123aab682713591c37376e0dba727c0efc08602c47f",
+          "candidate_id": 0,
+          "command": [
+            "/root/.local/share/compiler_gym/llvm-v0/bin/clang",
+            "outputs/route_a_posthoc_runtime_v6/work/bitcount/binaries/mamba_seed2.bc",
+            "-o",
+            "outputs/route_a_posthoc_runtime_v6/work/bitcount/binaries/mamba_seed2"
+          ],
+          "pass_count": 3,
+          "policy45_object_text_size_bytes": 3652,
+          "prefix_index": 2,
+          "sha256": "2f88d691d2a9fbd767465fb21b9fb8e36c01fcca8d757b1a91cb30189f611656",
+          "stdout": ""
+        },
+        "mamba_seed3": {
+          "action_ids": [
+            10,
+            53,
+            122
+          ],
+          "binary": "outputs/route_a_posthoc_runtime_v6/work/bitcount/binaries/mamba_seed3",
+          "bitcode": "outputs/route_a_posthoc_runtime_v6/work/bitcount/binaries/mamba_seed3.bc",
+          "bitcode_sha256": "eea4f73f2701d6c2256c4204dd8d0dc7e9034c08e8814f786e1a9865d6aac39e",
+          "candidate_id": 49,
+          "command": [
+            "/root/.local/share/compiler_gym/llvm-v0/bin/clang",
+            "outputs/route_a_posthoc_runtime_v6/work/bitcount/binaries/mamba_seed3.bc",
+            "-o",
+            "outputs/route_a_posthoc_runtime_v6/work/bitcount/binaries/mamba_seed3"
+          ],
+          "pass_count": 3,
+          "policy45_object_text_size_bytes": 3481,
+          "prefix_index": 2,
+          "sha256": "6809f5327b846750a8ea1475db35cb8d2a8b2d0c550bad34453981462a2e49d4",
+          "stdout": ""
+        },
+        "nvp_seed1": {
+          "action_ids": [
+            102,
+            53
+          ],
+          "binary": "outputs/route_a_posthoc_runtime_v6/work/bitcount/binaries/nvp_seed1",
+          "bitcode": "outputs/route_a_posthoc_runtime_v6/work/bitcount/binaries/nvp_seed1.bc",
+          "bitcode_sha256": "870028fdab71f2eb496412b0890623b86a4ee3c032ec8be2738964d4ba7c4993",
+          "candidate_id": 5,
+          "command": [
+            "/root/.local/share/compiler_gym/llvm-v0/bin/clang",
+            "outputs/route_a_posthoc_runtime_v6/work/bitcount/binaries/nvp_seed1.bc",
+            "-o",
+            "outputs/route_a_posthoc_runtime_v6/work/bitcount/binaries/nvp_seed1"
+          ],
+          "pass_count": 2,
+          "policy45_object_text_size_bytes": 3519,
+          "prefix_index": 1,
+          "sha256": "05092afe0f6224885274fb01086fed14f541ce6517a1446cd8218b3822be298b",
+          "stdout": ""
+        },
+        "nvp_seed2": {
+          "action_ids": [
+            102,
+            53
+          ],
+          "binary": "outputs/route_a_posthoc_runtime_v6/work/bitcount/binaries/nvp_seed2",
+          "bitcode": "outputs/route_a_posthoc_runtime_v6/work/bitcount/binaries/nvp_seed2.bc",
+          "bitcode_sha256": "870028fdab71f2eb496412b0890623b86a4ee3c032ec8be2738964d4ba7c4993",
+          "candidate_id": 5,
+          "command": [
+            "/root/.local/share/compiler_gym/llvm-v0/bin/clang",
+            "outputs/route_a_posthoc_runtime_v6/work/bitcount/binaries/nvp_seed2.bc",
+            "-o",
+            "outputs/route_a_posthoc_runtime_v6/work/bitcount/binaries/nvp_seed2"
+          ],
+          "pass_count": 2,
+          "policy45_object_text_size_bytes": 3519,
+          "prefix_index": 1,
+          "sha256": "05092afe0f6224885274fb01086fed14f541ce6517a1446cd8218b3822be298b",
+          "stdout": ""
+        },
+        "nvp_seed3": {
+          "action_ids": [
+            21,
+            121,
+            97,
+            38,
+            31,
+            52,
+            70,
+            53
+          ],
+          "binary": "outputs/route_a_posthoc_runtime_v6/work/bitcount/binaries/nvp_seed3",
+          "bitcode": "outputs/route_a_posthoc_runtime_v6/work/bitcount/binaries/nvp_seed3.bc",
+          "bitcode_sha256": "f95359b3ef2bee55325bc694222de20f6f36ba612abc528cc9cebc2d2cb66102",
+          "candidate_id": 31,
+          "command": [
+            "/root/.local/share/compiler_gym/llvm-v0/bin/clang",
+            "outputs/route_a_posthoc_runtime_v6/work/bitcount/binaries/nvp_seed3.bc",
+            "-o",
+            "outputs/route_a_posthoc_runtime_v6/work/bitcount/binaries/nvp_seed3"
+          ],
+          "pass_count": 8,
+          "policy45_object_text_size_bytes": 3581,
+          "prefix_index": 7,
+          "sha256": "0daf29f327afeb1f7f13d2aa3252add87a8704f5ad4a439bdb44fed067d62fd5",
+          "stdout": ""
+        },
+        "oz": {
+          "action_ids": null,
+          "binary": "outputs/route_a_posthoc_runtime_v6/work/bitcount/binaries/oz",
+          "command": [
+            "/root/.local/share/compiler_gym/llvm-v0/bin/clang",
+            "/root/.local/share/compiler_gym/llvm-v0/benchmark/cbench-v1/contents/cBench-v1/bitcount.bc",
+            "-Oz",
+            "-o",
+            "outputs/route_a_posthoc_runtime_v6/work/bitcount/binaries/oz"
+          ],
+          "pass_count": null,
+          "sha256": "c231fcbc0aaed233d7ad3e36b862ac5ac41487cdc39b7a7dd2a2546282fb4222",
+          "stdout": ""
+        }
+      }
+    },
+    "benchmark://cbench-v1/blowfish": {
+      "all_expected_methods_built": true,
+      "methods": {
+        "mamba_seed1": {
+          "action_ids": [
+            102,
+            10,
+            111
+          ],
+          "binary": "outputs/route_a_posthoc_runtime_v6/work/blowfish/binaries/mamba_seed1",
+          "bitcode": "outputs/route_a_posthoc_runtime_v6/work/blowfish/binaries/mamba_seed1.bc",
+          "bitcode_sha256": "2ef3f5c71d8ac286e6dde3d802f5f9e0ec418e6a58d57b162d394451c0af0aa9",
+          "candidate_id": 0,
+          "command": [
+            "/root/.local/share/compiler_gym/llvm-v0/bin/clang",
+            "outputs/route_a_posthoc_runtime_v6/work/blowfish/binaries/mamba_seed1.bc",
+            "-o",
+            "outputs/route_a_posthoc_runtime_v6/work/blowfish/binaries/mamba_seed1"
+          ],
+          "pass_count": 3,
+          "policy45_object_text_size_bytes": 12743,
+          "prefix_index": 2,
+          "sha256": "b58db50be4af831a9baabd37be57322951ac2d5e23ed74d4d1b56f9dd9412197",
+          "stdout": ""
+        },
+        "mamba_seed2": {
+          "action_ids": [
+            27,
+            36,
+            103,
+            24,
+            53
+          ],
+          "binary": "outputs/route_a_posthoc_runtime_v6/work/blowfish/binaries/mamba_seed2",
+          "bitcode": "outputs/route_a_posthoc_runtime_v6/work/blowfish/binaries/mamba_seed2.bc",
+          "bitcode_sha256": "da5f34ca4b224408abdd4708636b91d98beab1c9b090c194e87a9773ce120e08",
+          "candidate_id": 27,
+          "command": [
+            "/root/.local/share/compiler_gym/llvm-v0/bin/clang",
+            "outputs/route_a_posthoc_runtime_v6/work/blowfish/binaries/mamba_seed2.bc",
+            "-o",
+            "outputs/route_a_posthoc_runtime_v6/work/blowfish/binaries/mamba_seed2"
+          ],
+          "pass_count": 5,
+          "policy45_object_text_size_bytes": 12460,
+          "prefix_index": 4,
+          "sha256": "4c45ce61c008cce8ec2179abf2ea0ca82b9dbc4cc5db93a01f0640867300c853",
+          "stdout": ""
+        },
+        "mamba_seed3": {
+          "action_ids": [
+            102,
+            10,
+            111
+          ],
+          "binary": "outputs/route_a_posthoc_runtime_v6/work/blowfish/binaries/mamba_seed3",
+          "bitcode": "outputs/route_a_posthoc_runtime_v6/work/blowfish/binaries/mamba_seed3.bc",
+          "bitcode_sha256": "2ef3f5c71d8ac286e6dde3d802f5f9e0ec418e6a58d57b162d394451c0af0aa9",
+          "candidate_id": 0,
+          "command": [
+            "/root/.local/share/compiler_gym/llvm-v0/bin/clang",
+            "outputs/route_a_posthoc_runtime_v6/work/blowfish/binaries/mamba_seed3.bc",
+            "-o",
+            "outputs/route_a_posthoc_runtime_v6/work/blowfish/binaries/mamba_seed3"
+          ],
+          "pass_count": 3,
+          "policy45_object_text_size_bytes": 12743,
+          "prefix_index": 2,
+          "sha256": "b58db50be4af831a9baabd37be57322951ac2d5e23ed74d4d1b56f9dd9412197",
+          "stdout": ""
+        },
+        "nvp_seed1": {
+          "action_ids": [
+            21,
+            121,
+            97,
+            38,
+            31,
+            52,
+            70,
+            53,
+            71,
+            97,
+            56,
+            111,
+            40,
+            39,
+            65,
+            10,
+            53
+          ],
+          "binary": "outputs/route_a_posthoc_runtime_v6/work/blowfish/binaries/nvp_seed1",
+          "bitcode": "outputs/route_a_posthoc_runtime_v6/work/blowfish/binaries/nvp_seed1.bc",
+          "bitcode_sha256": "274381b4965e61f620193a0bf856837f322ac78e112239db962852a40201b291",
+          "candidate_id": 31,
+          "command": [
+            "/root/.local/share/compiler_gym/llvm-v0/bin/clang",
+            "outputs/route_a_posthoc_runtime_v6/work/blowfish/binaries/nvp_seed1.bc",
+            "-o",
+            "outputs/route_a_posthoc_runtime_v6/work/blowfish/binaries/nvp_seed1"
+          ],
+          "pass_count": 17,
+          "policy45_object_text_size_bytes": 13313,
+          "prefix_index": 16,
+          "sha256": "bd4c81372e864d67b835a84ed751b431bb19c0f29eebdcf5de9c58dfd91beebe",
+          "stdout": ""
+        },
+        "nvp_seed2": {
+          "action_ids": [
+            71,
+            29,
+            111,
+            102,
+            53,
+            120,
+            38,
+            47,
+            21,
+            10
+          ],
+          "binary": "outputs/route_a_posthoc_runtime_v6/work/blowfish/binaries/nvp_seed2",
+          "bitcode": "outputs/route_a_posthoc_runtime_v6/work/blowfish/binaries/nvp_seed2.bc",
+          "bitcode_sha256": "beb42badfd69b6a1a76435818b93baac9f8a0e4ab1752dc191bd6eec9e935124",
+          "candidate_id": 22,
+          "command": [
+            "/root/.local/share/compiler_gym/llvm-v0/bin/clang",
+            "outputs/route_a_posthoc_runtime_v6/work/blowfish/binaries/nvp_seed2.bc",
+            "-o",
+            "outputs/route_a_posthoc_runtime_v6/work/blowfish/binaries/nvp_seed2"
+          ],
+          "pass_count": 10,
+          "policy45_object_text_size_bytes": 13405,
+          "prefix_index": 9,
+          "sha256": "8d81b81a2cba53068cad72cf88eb027b0d2dcebd85857a87a892714faf40e882",
+          "stdout": ""
+        },
+        "nvp_seed3": {
+          "action_ids": [
+            27,
+            36,
+            103,
+            24,
+            53
+          ],
+          "binary": "outputs/route_a_posthoc_runtime_v6/work/blowfish/binaries/nvp_seed3",
+          "bitcode": "outputs/route_a_posthoc_runtime_v6/work/blowfish/binaries/nvp_seed3.bc",
+          "bitcode_sha256": "da5f34ca4b224408abdd4708636b91d98beab1c9b090c194e87a9773ce120e08",
+          "candidate_id": 27,
+          "command": [
+            "/root/.local/share/compiler_gym/llvm-v0/bin/clang",
+            "outputs/route_a_posthoc_runtime_v6/work/blowfish/binaries/nvp_seed3.bc",
+            "-o",
+            "outputs/route_a_posthoc_runtime_v6/work/blowfish/binaries/nvp_seed3"
+          ],
+          "pass_count": 5,
+          "policy45_object_text_size_bytes": 12460,
+          "prefix_index": 4,
+          "sha256": "4c45ce61c008cce8ec2179abf2ea0ca82b9dbc4cc5db93a01f0640867300c853",
+          "stdout": ""
+        },
+        "oz": {
+          "action_ids": null,
+          "binary": "outputs/route_a_posthoc_runtime_v6/work/blowfish/binaries/oz",
+          "command": [
+            "/root/.local/share/compiler_gym/llvm-v0/bin/clang",
+            "/root/.local/share/compiler_gym/llvm-v0/benchmark/cbench-v1/contents/cBench-v1/blowfish.bc",
+            "-Oz",
+            "-o",
+            "outputs/route_a_posthoc_runtime_v6/work/blowfish/binaries/oz"
+          ],
+          "pass_count": null,
+          "sha256": "958ae43d6a00d415a142a5a144be5dfd319de608c77e189d0ec15512bcc0b2ec",
+          "stdout": ""
+        }
+      }
+    },
+    "benchmark://cbench-v1/crc32": {
+      "all_expected_methods_built": true,
+      "methods": {
+        "mamba_seed1": {
+          "action_ids": [
+            105,
+            9,
+            27,
+            55,
+            46,
+            53
+          ],
+          "binary": "outputs/route_a_posthoc_runtime_v6/work/crc32/binaries/mamba_seed1",
+          "bitcode": "outputs/route_a_posthoc_runtime_v6/work/crc32/binaries/mamba_seed1.bc",
+          "bitcode_sha256": "fcdaed6ee63d88e5f310f83d040fda5a38a0ff57fd3689499c92c583a16d936c",
+          "candidate_id": 26,
+          "command": [
+            "/root/.local/share/compiler_gym/llvm-v0/bin/clang",
+            "outputs/route_a_posthoc_runtime_v6/work/crc32/binaries/mamba_seed1.bc",
+            "-o",
+            "outputs/route_a_posthoc_runtime_v6/work/crc32/binaries/mamba_seed1"
+          ],
+          "pass_count": 6,
+          "policy45_object_text_size_bytes": 1180,
+          "prefix_index": 5,
+          "sha256": "bbc34d4577b6a03fea6ce00a0d3d9c5b14661b5ade1fb1eff63b64bc1e26478f",
+          "stdout": ""
+        },
+        "mamba_seed2": {
+          "action_ids": [
+            105
+          ],
+          "binary": "outputs/route_a_posthoc_runtime_v6/work/crc32/binaries/mamba_seed2",
+          "bitcode": "outputs/route_a_posthoc_runtime_v6/work/crc32/binaries/mamba_seed2.bc",
+          "bitcode_sha256": "5dfc899eee35aa89e16c9c6b89f4b3d2bfc0ce74f41b3579d5999041526b1bd5",
+          "candidate_id": 26,
+          "command": [
+            "/root/.local/share/compiler_gym/llvm-v0/bin/clang",
+            "outputs/route_a_posthoc_runtime_v6/work/crc32/binaries/mamba_seed2.bc",
+            "-o",
+            "outputs/route_a_posthoc_runtime_v6/work/crc32/binaries/mamba_seed2"
+          ],
+          "pass_count": 1,
+          "policy45_object_text_size_bytes": 1183,
+          "prefix_index": 0,
+          "sha256": "8e44b44b90a0b0cb359f3265fb9e7dc04e8ae6f79605b5fc987708b0f239f6d3",
+          "stdout": ""
+        },
+        "mamba_seed3": {
+          "action_ids": [
+            27
+          ],
+          "binary": "outputs/route_a_posthoc_runtime_v6/work/crc32/binaries/mamba_seed3",
+          "bitcode": "outputs/route_a_posthoc_runtime_v6/work/crc32/binaries/mamba_seed3.bc",
+          "bitcode_sha256": "e26793c0abd06f4abef8a8eeeb0b55f72cb6f655667ae541c961162bbdc0d8c2",
+          "candidate_id": 27,
+          "command": [
+            "/root/.local/share/compiler_gym/llvm-v0/bin/clang",
+            "outputs/route_a_posthoc_runtime_v6/work/crc32/binaries/mamba_seed3.bc",
+            "-o",
+            "outputs/route_a_posthoc_runtime_v6/work/crc32/binaries/mamba_seed3"
+          ],
+          "pass_count": 1,
+          "policy45_object_text_size_bytes": 1183,
+          "prefix_index": 0,
+          "sha256": "eef2506131d3e4dddd68068ebcbba26268e541d57b6d2abbe71898cf6805037b",
+          "stdout": ""
+        },
+        "nvp_seed1": {
+          "action_ids": [
+            102
+          ],
+          "binary": "outputs/route_a_posthoc_runtime_v6/work/crc32/binaries/nvp_seed1",
+          "bitcode": "outputs/route_a_posthoc_runtime_v6/work/crc32/binaries/nvp_seed1.bc",
+          "bitcode_sha256": "1118ad2ab061d888aab0c586397a11b535b63427d5ecfcbd4f70e2196140c476",
+          "candidate_id": 5,
+          "command": [
+            "/root/.local/share/compiler_gym/llvm-v0/bin/clang",
+            "outputs/route_a_posthoc_runtime_v6/work/crc32/binaries/nvp_seed1.bc",
+            "-o",
+            "outputs/route_a_posthoc_runtime_v6/work/crc32/binaries/nvp_seed1"
+          ],
+          "pass_count": 1,
+          "policy45_object_text_size_bytes": 1183,
+          "prefix_index": 0,
+          "sha256": "5c9650343b7263ec03734ddf83d908dda4a673ea7be1c764c2749acc984b8220",
+          "stdout": ""
+        },
+        "nvp_seed2": {
+          "action_ids": [
+            102
+          ],
+          "binary": "outputs/route_a_posthoc_runtime_v6/work/crc32/binaries/nvp_seed2",
+          "bitcode": "outputs/route_a_posthoc_runtime_v6/work/crc32/binaries/nvp_seed2.bc",
+          "bitcode_sha256": "1118ad2ab061d888aab0c586397a11b535b63427d5ecfcbd4f70e2196140c476",
+          "candidate_id": 5,
+          "command": [
+            "/root/.local/share/compiler_gym/llvm-v0/bin/clang",
+            "outputs/route_a_posthoc_runtime_v6/work/crc32/binaries/nvp_seed2.bc",
+            "-o",
+            "outputs/route_a_posthoc_runtime_v6/work/crc32/binaries/nvp_seed2"
+          ],
+          "pass_count": 1,
+          "policy45_object_text_size_bytes": 1183,
+          "prefix_index": 0,
+          "sha256": "5c9650343b7263ec03734ddf83d908dda4a673ea7be1c764c2749acc984b8220",
+          "stdout": ""
+        },
+        "nvp_seed3": {
+          "action_ids": [
+            102
+          ],
+          "binary": "outputs/route_a_posthoc_runtime_v6/work/crc32/binaries/nvp_seed3",
+          "bitcode": "outputs/route_a_posthoc_runtime_v6/work/crc32/binaries/nvp_seed3.bc",
+          "bitcode_sha256": "1118ad2ab061d888aab0c586397a11b535b63427d5ecfcbd4f70e2196140c476",
+          "candidate_id": 5,
+          "command": [
+            "/root/.local/share/compiler_gym/llvm-v0/bin/clang",
+            "outputs/route_a_posthoc_runtime_v6/work/crc32/binaries/nvp_seed3.bc",
+            "-o",
+            "outputs/route_a_posthoc_runtime_v6/work/crc32/binaries/nvp_seed3"
+          ],
+          "pass_count": 1,
+          "policy45_object_text_size_bytes": 1183,
+          "prefix_index": 0,
+          "sha256": "5c9650343b7263ec03734ddf83d908dda4a673ea7be1c764c2749acc984b8220",
+          "stdout": ""
+        },
+        "oz": {
+          "action_ids": null,
+          "binary": "outputs/route_a_posthoc_runtime_v6/work/crc32/binaries/oz",
+          "command": [
+            "/root/.local/share/compiler_gym/llvm-v0/bin/clang",
+            "/root/.local/share/compiler_gym/llvm-v0/benchmark/cbench-v1/contents/cBench-v1/crc32.bc",
+            "-Oz",
+            "-o",
+            "outputs/route_a_posthoc_runtime_v6/work/crc32/binaries/oz"
+          ],
+          "pass_count": null,
+          "sha256": "1c3398d3752fa12a80d14ed4880d6162153c1cfc6c995ce44684cdd680ed60f2",
+          "stdout": ""
+        }
+      }
+    },
+    "benchmark://cbench-v1/dijkstra": {
+      "all_expected_methods_built": true,
+      "methods": {
+        "mamba_seed1": {
+          "action_ids": [
+            10
+          ],
+          "binary": "outputs/route_a_posthoc_runtime_v6/work/dijkstra/binaries/mamba_seed1",
+          "bitcode": "outputs/route_a_posthoc_runtime_v6/work/dijkstra/binaries/mamba_seed1.bc",
+          "bitcode_sha256": "d59cdafc0549a482ceff508b495adf469ec3a917aefce4efe7d5e50435e394c7",
+          "candidate_id": 49,
+          "command": [
+            "/root/.local/share/compiler_gym/llvm-v0/bin/clang",
+            "outputs/route_a_posthoc_runtime_v6/work/dijkstra/binaries/mamba_seed1.bc",
+            "-o",
+            "outputs/route_a_posthoc_runtime_v6/work/dijkstra/binaries/mamba_seed1"
+          ],
+          "pass_count": 1,
+          "policy45_object_text_size_bytes": 2460,
+          "prefix_index": 0,
+          "sha256": "874209d1e8657f253abdce528d144b84be9417eccfba0714d189836415a351bb",
+          "stdout": ""
+        },
+        "mamba_seed2": {
+          "action_ids": [
+            10
+          ],
+          "binary": "outputs/route_a_posthoc_runtime_v6/work/dijkstra/binaries/mamba_seed2",
+          "bitcode": "outputs/route_a_posthoc_runtime_v6/work/dijkstra/binaries/mamba_seed2.bc",
+          "bitcode_sha256": "d59cdafc0549a482ceff508b495adf469ec3a917aefce4efe7d5e50435e394c7",
+          "candidate_id": 49,
+          "command": [
+            "/root/.local/share/compiler_gym/llvm-v0/bin/clang",
+            "outputs/route_a_posthoc_runtime_v6/work/dijkstra/binaries/mamba_seed2.bc",
+            "-o",
+            "outputs/route_a_posthoc_runtime_v6/work/dijkstra/binaries/mamba_seed2"
+          ],
+          "pass_count": 1,
+          "policy45_object_text_size_bytes": 2460,
+          "prefix_index": 0,
+          "sha256": "874209d1e8657f253abdce528d144b84be9417eccfba0714d189836415a351bb",
+          "stdout": ""
+        },
+        "mamba_seed3": {
+          "action_ids": [
+            10
+          ],
+          "binary": "outputs/route_a_posthoc_runtime_v6/work/dijkstra/binaries/mamba_seed3",
+          "bitcode": "outputs/route_a_posthoc_runtime_v6/work/dijkstra/binaries/mamba_seed3.bc",
+          "bitcode_sha256": "d59cdafc0549a482ceff508b495adf469ec3a917aefce4efe7d5e50435e394c7",
+          "candidate_id": 49,
+          "command": [
+            "/root/.local/share/compiler_gym/llvm-v0/bin/clang",
+            "outputs/route_a_posthoc_runtime_v6/work/dijkstra/binaries/mamba_seed3.bc",
+            "-o",
+            "outputs/route_a_posthoc_runtime_v6/work/dijkstra/binaries/mamba_seed3"
+          ],
+          "pass_count": 1,
+          "policy45_object_text_size_bytes": 2460,
+          "prefix_index": 0,
+          "sha256": "874209d1e8657f253abdce528d144b84be9417eccfba0714d189836415a351bb",
+          "stdout": ""
+        },
+        "nvp_seed1": {
+          "action_ids": [
+            10
+          ],
+          "binary": "outputs/route_a_posthoc_runtime_v6/work/dijkstra/binaries/nvp_seed1",
+          "bitcode": "outputs/route_a_posthoc_runtime_v6/work/dijkstra/binaries/nvp_seed1.bc",
+          "bitcode_sha256": "d59cdafc0549a482ceff508b495adf469ec3a917aefce4efe7d5e50435e394c7",
+          "candidate_id": 49,
+          "command": [
+            "/root/.local/share/compiler_gym/llvm-v0/bin/clang",
+            "outputs/route_a_posthoc_runtime_v6/work/dijkstra/binaries/nvp_seed1.bc",
+            "-o",
+            "outputs/route_a_posthoc_runtime_v6/work/dijkstra/binaries/nvp_seed1"
+          ],
+          "pass_count": 1,
+          "policy45_object_text_size_bytes": 2460,
+          "prefix_index": 0,
+          "sha256": "874209d1e8657f253abdce528d144b84be9417eccfba0714d189836415a351bb",
+          "stdout": ""
+        },
+        "nvp_seed2": {
+          "action_ids": [
+            10
+          ],
+          "binary": "outputs/route_a_posthoc_runtime_v6/work/dijkstra/binaries/nvp_seed2",
+          "bitcode": "outputs/route_a_posthoc_runtime_v6/work/dijkstra/binaries/nvp_seed2.bc",
+          "bitcode_sha256": "d59cdafc0549a482ceff508b495adf469ec3a917aefce4efe7d5e50435e394c7",
+          "candidate_id": 49,
+          "command": [
+            "/root/.local/share/compiler_gym/llvm-v0/bin/clang",
+            "outputs/route_a_posthoc_runtime_v6/work/dijkstra/binaries/nvp_seed2.bc",
+            "-o",
+            "outputs/route_a_posthoc_runtime_v6/work/dijkstra/binaries/nvp_seed2"
+          ],
+          "pass_count": 1,
+          "policy45_object_text_size_bytes": 2460,
+          "prefix_index": 0,
+          "sha256": "874209d1e8657f253abdce528d144b84be9417eccfba0714d189836415a351bb",
+          "stdout": ""
+        },
+        "nvp_seed3": {
+          "action_ids": [
+            10
+          ],
+          "binary": "outputs/route_a_posthoc_runtime_v6/work/dijkstra/binaries/nvp_seed3",
+          "bitcode": "outputs/route_a_posthoc_runtime_v6/work/dijkstra/binaries/nvp_seed3.bc",
+          "bitcode_sha256": "d59cdafc0549a482ceff508b495adf469ec3a917aefce4efe7d5e50435e394c7",
+          "candidate_id": 49,
+          "command": [
+            "/root/.local/share/compiler_gym/llvm-v0/bin/clang",
+            "outputs/route_a_posthoc_runtime_v6/work/dijkstra/binaries/nvp_seed3.bc",
+            "-o",
+            "outputs/route_a_posthoc_runtime_v6/work/dijkstra/binaries/nvp_seed3"
+          ],
+          "pass_count": 1,
+          "policy45_object_text_size_bytes": 2460,
+          "prefix_index": 0,
+          "sha256": "874209d1e8657f253abdce528d144b84be9417eccfba0714d189836415a351bb",
+          "stdout": ""
+        },
+        "oz": {
+          "action_ids": null,
+          "binary": "outputs/route_a_posthoc_runtime_v6/work/dijkstra/binaries/oz",
+          "command": [
+            "/root/.local/share/compiler_gym/llvm-v0/bin/clang",
+            "/root/.local/share/compiler_gym/llvm-v0/benchmark/cbench-v1/contents/cBench-v1/dijkstra.bc",
+            "-Oz",
+            "-o",
+            "outputs/route_a_posthoc_runtime_v6/work/dijkstra/binaries/oz"
+          ],
+          "pass_count": null,
+          "sha256": "01c2831062d50ae382940335e6f04f742c3468e367f78497780d159f489606e2",
+          "stdout": ""
+        }
+      }
+    },
+    "benchmark://cbench-v1/patricia": {
+      "all_expected_methods_built": true,
+      "methods": {
+        "mamba_seed1": {
+          "action_ids": [
+            10,
+            53,
+            122,
+            31,
+            36,
+            111,
+            10,
+            97
+          ],
+          "binary": "outputs/route_a_posthoc_runtime_v6/work/patricia/binaries/mamba_seed1",
+          "bitcode": "outputs/route_a_posthoc_runtime_v6/work/patricia/binaries/mamba_seed1.bc",
+          "bitcode_sha256": "e6287e50ab53725b662dd8a84ccbfe239a172c1ae992e0d2b265449b47fcf255",
+          "candidate_id": 49,
+          "command": [
+            "/root/.local/share/compiler_gym/llvm-v0/bin/clang",
+            "outputs/route_a_posthoc_runtime_v6/work/patricia/binaries/mamba_seed1.bc",
+            "-o",
+            "outputs/route_a_posthoc_runtime_v6/work/patricia/binaries/mamba_seed1"
+          ],
+          "pass_count": 8,
+          "policy45_object_text_size_bytes": 4035,
+          "prefix_index": 7,
+          "sha256": "dd9c385dcbe27b32ce66c8bdc264d8d068cf54066f1a438b6ecb0b79ff665090",
+          "stdout": ""
+        },
+        "mamba_seed2": {
+          "action_ids": [
+            10,
+            53,
+            122,
+            31,
+            36,
+            111,
+            10,
+            97
+          ],
+          "binary": "outputs/route_a_posthoc_runtime_v6/work/patricia/binaries/mamba_seed2",
+          "bitcode": "outputs/route_a_posthoc_runtime_v6/work/patricia/binaries/mamba_seed2.bc",
+          "bitcode_sha256": "e6287e50ab53725b662dd8a84ccbfe239a172c1ae992e0d2b265449b47fcf255",
+          "candidate_id": 49,
+          "command": [
+            "/root/.local/share/compiler_gym/llvm-v0/bin/clang",
+            "outputs/route_a_posthoc_runtime_v6/work/patricia/binaries/mamba_seed2.bc",
+            "-o",
+            "outputs/route_a_posthoc_runtime_v6/work/patricia/binaries/mamba_seed2"
+          ],
+          "pass_count": 8,
+          "policy45_object_text_size_bytes": 4035,
+          "prefix_index": 7,
+          "sha256": "dd9c385dcbe27b32ce66c8bdc264d8d068cf54066f1a438b6ecb0b79ff665090",
+          "stdout": ""
+        },
+        "mamba_seed3": {
+          "action_ids": [
+            10,
+            53,
+            122,
+            31,
+            36,
+            111,
+            10,
+            97
+          ],
+          "binary": "outputs/route_a_posthoc_runtime_v6/work/patricia/binaries/mamba_seed3",
+          "bitcode": "outputs/route_a_posthoc_runtime_v6/work/patricia/binaries/mamba_seed3.bc",
+          "bitcode_sha256": "e6287e50ab53725b662dd8a84ccbfe239a172c1ae992e0d2b265449b47fcf255",
+          "candidate_id": 49,
+          "command": [
+            "/root/.local/share/compiler_gym/llvm-v0/bin/clang",
+            "outputs/route_a_posthoc_runtime_v6/work/patricia/binaries/mamba_seed3.bc",
+            "-o",
+            "outputs/route_a_posthoc_runtime_v6/work/patricia/binaries/mamba_seed3"
+          ],
+          "pass_count": 8,
+          "policy45_object_text_size_bytes": 4035,
+          "prefix_index": 7,
+          "sha256": "dd9c385dcbe27b32ce66c8bdc264d8d068cf54066f1a438b6ecb0b79ff665090",
+          "stdout": ""
+        },
+        "nvp_seed1": {
+          "action_ids": [
+            10,
+            53,
+            122,
+            31,
+            36,
+            111,
+            10,
+            97
+          ],
+          "binary": "outputs/route_a_posthoc_runtime_v6/work/patricia/binaries/nvp_seed1",
+          "bitcode": "outputs/route_a_posthoc_runtime_v6/work/patricia/binaries/nvp_seed1.bc",
+          "bitcode_sha256": "e6287e50ab53725b662dd8a84ccbfe239a172c1ae992e0d2b265449b47fcf255",
+          "candidate_id": 49,
+          "command": [
+            "/root/.local/share/compiler_gym/llvm-v0/bin/clang",
+            "outputs/route_a_posthoc_runtime_v6/work/patricia/binaries/nvp_seed1.bc",
+            "-o",
+            "outputs/route_a_posthoc_runtime_v6/work/patricia/binaries/nvp_seed1"
+          ],
+          "pass_count": 8,
+          "policy45_object_text_size_bytes": 4035,
+          "prefix_index": 7,
+          "sha256": "dd9c385dcbe27b32ce66c8bdc264d8d068cf54066f1a438b6ecb0b79ff665090",
+          "stdout": ""
+        },
+        "nvp_seed2": {
+          "action_ids": [
+            10,
+            53,
+            122,
+            31,
+            36,
+            111,
+            10,
+            97
+          ],
+          "binary": "outputs/route_a_posthoc_runtime_v6/work/patricia/binaries/nvp_seed2",
+          "bitcode": "outputs/route_a_posthoc_runtime_v6/work/patricia/binaries/nvp_seed2.bc",
+          "bitcode_sha256": "e6287e50ab53725b662dd8a84ccbfe239a172c1ae992e0d2b265449b47fcf255",
+          "candidate_id": 49,
+          "command": [
+            "/root/.local/share/compiler_gym/llvm-v0/bin/clang",
+            "outputs/route_a_posthoc_runtime_v6/work/patricia/binaries/nvp_seed2.bc",
+            "-o",
+            "outputs/route_a_posthoc_runtime_v6/work/patricia/binaries/nvp_seed2"
+          ],
+          "pass_count": 8,
+          "policy45_object_text_size_bytes": 4035,
+          "prefix_index": 7,
+          "sha256": "dd9c385dcbe27b32ce66c8bdc264d8d068cf54066f1a438b6ecb0b79ff665090",
+          "stdout": ""
+        },
+        "nvp_seed3": {
+          "action_ids": [
+            10,
+            53,
+            122,
+            31,
+            36,
+            111,
+            10,
+            97
+          ],
+          "binary": "outputs/route_a_posthoc_runtime_v6/work/patricia/binaries/nvp_seed3",
+          "bitcode": "outputs/route_a_posthoc_runtime_v6/work/patricia/binaries/nvp_seed3.bc",
+          "bitcode_sha256": "e6287e50ab53725b662dd8a84ccbfe239a172c1ae992e0d2b265449b47fcf255",
+          "candidate_id": 49,
+          "command": [
+            "/root/.local/share/compiler_gym/llvm-v0/bin/clang",
+            "outputs/route_a_posthoc_runtime_v6/work/patricia/binaries/nvp_seed3.bc",
+            "-o",
+            "outputs/route_a_posthoc_runtime_v6/work/patricia/binaries/nvp_seed3"
+          ],
+          "pass_count": 8,
+          "policy45_object_text_size_bytes": 4035,
+          "prefix_index": 7,
+          "sha256": "dd9c385dcbe27b32ce66c8bdc264d8d068cf54066f1a438b6ecb0b79ff665090",
+          "stdout": ""
+        },
+        "oz": {
+          "action_ids": null,
+          "binary": "outputs/route_a_posthoc_runtime_v6/work/patricia/binaries/oz",
+          "command": [
+            "/root/.local/share/compiler_gym/llvm-v0/bin/clang",
+            "/root/.local/share/compiler_gym/llvm-v0/benchmark/cbench-v1/contents/cBench-v1/patricia.bc",
+            "-Oz",
+            "-o",
+            "outputs/route_a_posthoc_runtime_v6/work/patricia/binaries/oz"
+          ],
+          "pass_count": null,
+          "sha256": "79d1c5aa311b50c76093a30d729c365d24414cdba214c745a70c37cc263e138d",
+          "stdout": ""
+        }
+      }
+    },
+    "benchmark://cbench-v1/qsort": {
+      "all_expected_methods_built": true,
+      "methods": {
+        "mamba_seed1": {
+          "action_ids": [
+            21,
+            121,
+            97,
+            38,
+            31,
+            52,
+            70,
+            53
+          ],
+          "binary": "outputs/route_a_posthoc_runtime_v6/work/qsort/binaries/mamba_seed1",
+          "bitcode": "outputs/route_a_posthoc_runtime_v6/work/qsort/binaries/mamba_seed1.bc",
+          "bitcode_sha256": "5455de72ac22ef62462dd75dca6a7471dc2cb1027f06964749236eae5531d2f4",
+          "candidate_id": 31,
+          "command": [
+            "/root/.local/share/compiler_gym/llvm-v0/bin/clang",
+            "outputs/route_a_posthoc_runtime_v6/work/qsort/binaries/mamba_seed1.bc",
+            "-o",
+            "outputs/route_a_posthoc_runtime_v6/work/qsort/binaries/mamba_seed1",
+            "-lm"
+          ],
+          "pass_count": 8,
+          "policy45_object_text_size_bytes": 2969,
+          "prefix_index": 7,
+          "sha256": "b276c7c51e4443acffdc02a336189838a9c7b6702ad8cd913cb57b790f64b646",
+          "stdout": ""
+        },
+        "mamba_seed2": {
+          "action_ids": [
+            10,
+            53
+          ],
+          "binary": "outputs/route_a_posthoc_runtime_v6/work/qsort/binaries/mamba_seed2",
+          "bitcode": "outputs/route_a_posthoc_runtime_v6/work/qsort/binaries/mamba_seed2.bc",
+          "bitcode_sha256": "ae61ac46e5fd61df5ae25a346c773cf8c7fa0acc2042c8c73b5818c21d30c140",
+          "candidate_id": 49,
+          "command": [
+            "/root/.local/share/compiler_gym/llvm-v0/bin/clang",
+            "outputs/route_a_posthoc_runtime_v6/work/qsort/binaries/mamba_seed2.bc",
+            "-o",
+            "outputs/route_a_posthoc_runtime_v6/work/qsort/binaries/mamba_seed2",
+            "-lm"
+          ],
+          "pass_count": 2,
+          "policy45_object_text_size_bytes": 3023,
+          "prefix_index": 1,
+          "sha256": "6f485c5a468e571a6b7c834ece249355940e8637f88be78df8b8efc2550b2c70",
+          "stdout": ""
+        },
+        "mamba_seed3": {
+          "action_ids": [
+            21,
+            121,
+            97,
+            38,
+            31,
+            52,
+            70,
+            53
+          ],
+          "binary": "outputs/route_a_posthoc_runtime_v6/work/qsort/binaries/mamba_seed3",
+          "bitcode": "outputs/route_a_posthoc_runtime_v6/work/qsort/binaries/mamba_seed3.bc",
+          "bitcode_sha256": "5455de72ac22ef62462dd75dca6a7471dc2cb1027f06964749236eae5531d2f4",
+          "candidate_id": 31,
+          "command": [
+            "/root/.local/share/compiler_gym/llvm-v0/bin/clang",
+            "outputs/route_a_posthoc_runtime_v6/work/qsort/binaries/mamba_seed3.bc",
+            "-o",
+            "outputs/route_a_posthoc_runtime_v6/work/qsort/binaries/mamba_seed3",
+            "-lm"
+          ],
+          "pass_count": 8,
+          "policy45_object_text_size_bytes": 2969,
+          "prefix_index": 7,
+          "sha256": "b276c7c51e4443acffdc02a336189838a9c7b6702ad8cd913cb57b790f64b646",
+          "stdout": ""
+        },
+        "nvp_seed1": {
+          "action_ids": [
+            10,
+            53
+          ],
+          "binary": "outputs/route_a_posthoc_runtime_v6/work/qsort/binaries/nvp_seed1",
+          "bitcode": "outputs/route_a_posthoc_runtime_v6/work/qsort/binaries/nvp_seed1.bc",
+          "bitcode_sha256": "ae61ac46e5fd61df5ae25a346c773cf8c7fa0acc2042c8c73b5818c21d30c140",
+          "candidate_id": 49,
+          "command": [
+            "/root/.local/share/compiler_gym/llvm-v0/bin/clang",
+            "outputs/route_a_posthoc_runtime_v6/work/qsort/binaries/nvp_seed1.bc",
+            "-o",
+            "outputs/route_a_posthoc_runtime_v6/work/qsort/binaries/nvp_seed1",
+            "-lm"
+          ],
+          "pass_count": 2,
+          "policy45_object_text_size_bytes": 3023,
+          "prefix_index": 1,
+          "sha256": "6f485c5a468e571a6b7c834ece249355940e8637f88be78df8b8efc2550b2c70",
+          "stdout": ""
+        },
+        "nvp_seed2": {
+          "action_ids": [
+            21,
+            121,
+            97,
+            38,
+            31,
+            52,
+            70,
+            53
+          ],
+          "binary": "outputs/route_a_posthoc_runtime_v6/work/qsort/binaries/nvp_seed2",
+          "bitcode": "outputs/route_a_posthoc_runtime_v6/work/qsort/binaries/nvp_seed2.bc",
+          "bitcode_sha256": "5455de72ac22ef62462dd75dca6a7471dc2cb1027f06964749236eae5531d2f4",
+          "candidate_id": 31,
+          "command": [
+            "/root/.local/share/compiler_gym/llvm-v0/bin/clang",
+            "outputs/route_a_posthoc_runtime_v6/work/qsort/binaries/nvp_seed2.bc",
+            "-o",
+            "outputs/route_a_posthoc_runtime_v6/work/qsort/binaries/nvp_seed2",
+            "-lm"
+          ],
+          "pass_count": 8,
+          "policy45_object_text_size_bytes": 2969,
+          "prefix_index": 7,
+          "sha256": "b276c7c51e4443acffdc02a336189838a9c7b6702ad8cd913cb57b790f64b646",
+          "stdout": ""
+        },
+        "nvp_seed3": {
+          "action_ids": [
+            21,
+            121,
+            97,
+            38,
+            31,
+            52,
+            70,
+            53
+          ],
+          "binary": "outputs/route_a_posthoc_runtime_v6/work/qsort/binaries/nvp_seed3",
+          "bitcode": "outputs/route_a_posthoc_runtime_v6/work/qsort/binaries/nvp_seed3.bc",
+          "bitcode_sha256": "5455de72ac22ef62462dd75dca6a7471dc2cb1027f06964749236eae5531d2f4",
+          "candidate_id": 31,
+          "command": [
+            "/root/.local/share/compiler_gym/llvm-v0/bin/clang",
+            "outputs/route_a_posthoc_runtime_v6/work/qsort/binaries/nvp_seed3.bc",
+            "-o",
+            "outputs/route_a_posthoc_runtime_v6/work/qsort/binaries/nvp_seed3",
+            "-lm"
+          ],
+          "pass_count": 8,
+          "policy45_object_text_size_bytes": 2969,
+          "prefix_index": 7,
+          "sha256": "b276c7c51e4443acffdc02a336189838a9c7b6702ad8cd913cb57b790f64b646",
+          "stdout": ""
+        },
+        "oz": {
+          "action_ids": null,
+          "binary": "outputs/route_a_posthoc_runtime_v6/work/qsort/binaries/oz",
+          "command": [
+            "/root/.local/share/compiler_gym/llvm-v0/bin/clang",
+            "/root/.local/share/compiler_gym/llvm-v0/benchmark/cbench-v1/contents/cBench-v1/qsort.bc",
+            "-Oz",
+            "-o",
+            "outputs/route_a_posthoc_runtime_v6/work/qsort/binaries/oz",
+            "-lm"
+          ],
+          "pass_count": null,
+          "sha256": "62684501f833aeaada1424efc74585a5baec1a2a9b6c011004f768866f5710df",
+          "stdout": ""
+        }
+      }
+    },
+    "benchmark://cbench-v1/sha": {
+      "all_expected_methods_built": true,
+      "methods": {
+        "mamba_seed1": {
+          "action_ids": [
+            21,
+            121,
+            97,
+            38,
+            31,
+            52,
+            70,
+            53
+          ],
+          "binary": "outputs/route_a_posthoc_runtime_v6/work/sha/binaries/mamba_seed1",
+          "bitcode": "outputs/route_a_posthoc_runtime_v6/work/sha/binaries/mamba_seed1.bc",
+          "bitcode_sha256": "3f1a648dacae66f0a0257e909ba703e73bec2e95d0c221ab9a88d9b0f7e14fc9",
+          "candidate_id": 31,
+          "command": [
+            "/root/.local/share/compiler_gym/llvm-v0/bin/clang",
+            "outputs/route_a_posthoc_runtime_v6/work/sha/binaries/mamba_seed1.bc",
+            "-o",
+            "outputs/route_a_posthoc_runtime_v6/work/sha/binaries/mamba_seed1"
+          ],
+          "pass_count": 8,
+          "policy45_object_text_size_bytes": 3204,
+          "prefix_index": 7,
+          "sha256": "4005584bb88e1d0690dee24d89ae08bc4cd44ba79631ca7b9b8c8f2f31ca3f0b",
+          "stdout": ""
+        },
+        "mamba_seed2": {
+          "action_ids": [
+            47,
+            53
+          ],
+          "binary": "outputs/route_a_posthoc_runtime_v6/work/sha/binaries/mamba_seed2",
+          "bitcode": "outputs/route_a_posthoc_runtime_v6/work/sha/binaries/mamba_seed2.bc",
+          "bitcode_sha256": "8da8006bbe553ad512d42e60cb70c63bf478af2d04a6fb85b80b380706095a4b",
+          "candidate_id": 16,
+          "command": [
+            "/root/.local/share/compiler_gym/llvm-v0/bin/clang",
+            "outputs/route_a_posthoc_runtime_v6/work/sha/binaries/mamba_seed2.bc",
+            "-o",
+            "outputs/route_a_posthoc_runtime_v6/work/sha/binaries/mamba_seed2"
+          ],
+          "pass_count": 2,
+          "policy45_object_text_size_bytes": 3363,
+          "prefix_index": 1,
+          "sha256": "f6d034d655e74a922b5dc8d82cdaa9b72144150c2aef3b755bff1fa226f73123",
+          "stdout": ""
+        },
+        "mamba_seed3": {
+          "action_ids": [
+            71,
+            29,
+            111,
+            102,
+            53,
+            120,
+            38,
+            47,
+            21,
+            10
+          ],
+          "binary": "outputs/route_a_posthoc_runtime_v6/work/sha/binaries/mamba_seed3",
+          "bitcode": "outputs/route_a_posthoc_runtime_v6/work/sha/binaries/mamba_seed3.bc",
+          "bitcode_sha256": "8af79eff7149858ddb6f42db8ecfd5cda85f5f4e6bc5b1c72d19682d31df95ee",
+          "candidate_id": 22,
+          "command": [
+            "/root/.local/share/compiler_gym/llvm-v0/bin/clang",
+            "outputs/route_a_posthoc_runtime_v6/work/sha/binaries/mamba_seed3.bc",
+            "-o",
+            "outputs/route_a_posthoc_runtime_v6/work/sha/binaries/mamba_seed3"
+          ],
+          "pass_count": 10,
+          "policy45_object_text_size_bytes": 3158,
+          "prefix_index": 9,
+          "sha256": "ef73b40d7c296de607e1cd97a793fc5a82208ccd7f28c6950eb22820f932b831",
+          "stdout": ""
+        },
+        "nvp_seed1": {
+          "action_ids": [
+            21,
+            121,
+            97,
+            38,
+            31,
+            52,
+            70,
+            53
+          ],
+          "binary": "outputs/route_a_posthoc_runtime_v6/work/sha/binaries/nvp_seed1",
+          "bitcode": "outputs/route_a_posthoc_runtime_v6/work/sha/binaries/nvp_seed1.bc",
+          "bitcode_sha256": "3f1a648dacae66f0a0257e909ba703e73bec2e95d0c221ab9a88d9b0f7e14fc9",
+          "candidate_id": 31,
+          "command": [
+            "/root/.local/share/compiler_gym/llvm-v0/bin/clang",
+            "outputs/route_a_posthoc_runtime_v6/work/sha/binaries/nvp_seed1.bc",
+            "-o",
+            "outputs/route_a_posthoc_runtime_v6/work/sha/binaries/nvp_seed1"
+          ],
+          "pass_count": 8,
+          "policy45_object_text_size_bytes": 3204,
+          "prefix_index": 7,
+          "sha256": "4005584bb88e1d0690dee24d89ae08bc4cd44ba79631ca7b9b8c8f2f31ca3f0b",
+          "stdout": ""
+        },
+        "nvp_seed2": {
+          "action_ids": [
+            21,
+            121,
+            97,
+            38,
+            31,
+            52,
+            70,
+            53
+          ],
+          "binary": "outputs/route_a_posthoc_runtime_v6/work/sha/binaries/nvp_seed2",
+          "bitcode": "outputs/route_a_posthoc_runtime_v6/work/sha/binaries/nvp_seed2.bc",
+          "bitcode_sha256": "3f1a648dacae66f0a0257e909ba703e73bec2e95d0c221ab9a88d9b0f7e14fc9",
+          "candidate_id": 31,
+          "command": [
+            "/root/.local/share/compiler_gym/llvm-v0/bin/clang",
+            "outputs/route_a_posthoc_runtime_v6/work/sha/binaries/nvp_seed2.bc",
+            "-o",
+            "outputs/route_a_posthoc_runtime_v6/work/sha/binaries/nvp_seed2"
+          ],
+          "pass_count": 8,
+          "policy45_object_text_size_bytes": 3204,
+          "prefix_index": 7,
+          "sha256": "4005584bb88e1d0690dee24d89ae08bc4cd44ba79631ca7b9b8c8f2f31ca3f0b",
+          "stdout": ""
+        },
+        "nvp_seed3": {
+          "action_ids": [
+            21,
+            121,
+            97,
+            38,
+            31,
+            52,
+            70,
+            53
+          ],
+          "binary": "outputs/route_a_posthoc_runtime_v6/work/sha/binaries/nvp_seed3",
+          "bitcode": "outputs/route_a_posthoc_runtime_v6/work/sha/binaries/nvp_seed3.bc",
+          "bitcode_sha256": "3f1a648dacae66f0a0257e909ba703e73bec2e95d0c221ab9a88d9b0f7e14fc9",
+          "candidate_id": 31,
+          "command": [
+            "/root/.local/share/compiler_gym/llvm-v0/bin/clang",
+            "outputs/route_a_posthoc_runtime_v6/work/sha/binaries/nvp_seed3.bc",
+            "-o",
+            "outputs/route_a_posthoc_runtime_v6/work/sha/binaries/nvp_seed3"
+          ],
+          "pass_count": 8,
+          "policy45_object_text_size_bytes": 3204,
+          "prefix_index": 7,
+          "sha256": "4005584bb88e1d0690dee24d89ae08bc4cd44ba79631ca7b9b8c8f2f31ca3f0b",
+          "stdout": ""
+        },
+        "oz": {
+          "action_ids": null,
+          "binary": "outputs/route_a_posthoc_runtime_v6/work/sha/binaries/oz",
+          "command": [
+            "/root/.local/share/compiler_gym/llvm-v0/bin/clang",
+            "/root/.local/share/compiler_gym/llvm-v0/benchmark/cbench-v1/contents/cBench-v1/sha.bc",
+            "-Oz",
+            "-o",
+            "outputs/route_a_posthoc_runtime_v6/work/sha/binaries/oz"
+          ],
+          "pass_count": null,
+          "sha256": "6a0fe0aec8290754df3a11295fe2e77d49cfaf1518d70ee9e0ea738ed0ab93ae",
+          "stdout": ""
+        }
+      }
+    },
+    "benchmark://cbench-v1/stringsearch": {
+      "all_expected_methods_built": true,
+      "methods": {
+        "mamba_seed1": {
+          "action_ids": [
+            10
+          ],
+          "binary": "outputs/route_a_posthoc_runtime_v6/work/stringsearch/binaries/mamba_seed1",
+          "bitcode": "outputs/route_a_posthoc_runtime_v6/work/stringsearch/binaries/mamba_seed1.bc",
+          "bitcode_sha256": "4ee6e4bdb7d45a7011ea8990deeb1d74624a6cab8267658c6659e291de3a89c4",
+          "candidate_id": 49,
+          "command": [
+            "/root/.local/share/compiler_gym/llvm-v0/bin/clang",
+            "outputs/route_a_posthoc_runtime_v6/work/stringsearch/binaries/mamba_seed1.bc",
+            "-o",
+            "outputs/route_a_posthoc_runtime_v6/work/stringsearch/binaries/mamba_seed1",
+            "-lm"
+          ],
+          "pass_count": 1,
+          "policy45_object_text_size_bytes": 5618,
+          "prefix_index": 0,
+          "sha256": "b72f1eda4c36fc950325d2c4d9b07e396e205900d6cf29fd760a7ddf4e4e08a9",
+          "stdout": ""
+        },
+        "mamba_seed2": {
+          "action_ids": [
+            10
+          ],
+          "binary": "outputs/route_a_posthoc_runtime_v6/work/stringsearch/binaries/mamba_seed2",
+          "bitcode": "outputs/route_a_posthoc_runtime_v6/work/stringsearch/binaries/mamba_seed2.bc",
+          "bitcode_sha256": "4ee6e4bdb7d45a7011ea8990deeb1d74624a6cab8267658c6659e291de3a89c4",
+          "candidate_id": 49,
+          "command": [
+            "/root/.local/share/compiler_gym/llvm-v0/bin/clang",
+            "outputs/route_a_posthoc_runtime_v6/work/stringsearch/binaries/mamba_seed2.bc",
+            "-o",
+            "outputs/route_a_posthoc_runtime_v6/work/stringsearch/binaries/mamba_seed2",
+            "-lm"
+          ],
+          "pass_count": 1,
+          "policy45_object_text_size_bytes": 5618,
+          "prefix_index": 0,
+          "sha256": "b72f1eda4c36fc950325d2c4d9b07e396e205900d6cf29fd760a7ddf4e4e08a9",
+          "stdout": ""
+        },
+        "mamba_seed3": {
+          "action_ids": [
+            10,
+            64,
+            31,
+            10,
+            52
+          ],
+          "binary": "outputs/route_a_posthoc_runtime_v6/work/stringsearch/binaries/mamba_seed3",
+          "bitcode": "outputs/route_a_posthoc_runtime_v6/work/stringsearch/binaries/mamba_seed3.bc",
+          "bitcode_sha256": "3e83aeea554831af7da43b13d56fecdca93ff49c9a71dbf886b79d839bc8ae41",
+          "candidate_id": 1,
+          "command": [
+            "/root/.local/share/compiler_gym/llvm-v0/bin/clang",
+            "outputs/route_a_posthoc_runtime_v6/work/stringsearch/binaries/mamba_seed3.bc",
+            "-o",
+            "outputs/route_a_posthoc_runtime_v6/work/stringsearch/binaries/mamba_seed3",
+            "-lm"
+          ],
+          "pass_count": 5,
+          "policy45_object_text_size_bytes": 5607,
+          "prefix_index": 4,
+          "sha256": "c2ed0f20a1ac2b4974b0a9ec6222628c6846d6321ce39aed03275bcf9b9e399a",
+          "stdout": ""
+        },
+        "nvp_seed1": {
+          "action_ids": [
+            10
+          ],
+          "binary": "outputs/route_a_posthoc_runtime_v6/work/stringsearch/binaries/nvp_seed1",
+          "bitcode": "outputs/route_a_posthoc_runtime_v6/work/stringsearch/binaries/nvp_seed1.bc",
+          "bitcode_sha256": "4ee6e4bdb7d45a7011ea8990deeb1d74624a6cab8267658c6659e291de3a89c4",
+          "candidate_id": 49,
+          "command": [
+            "/root/.local/share/compiler_gym/llvm-v0/bin/clang",
+            "outputs/route_a_posthoc_runtime_v6/work/stringsearch/binaries/nvp_seed1.bc",
+            "-o",
+            "outputs/route_a_posthoc_runtime_v6/work/stringsearch/binaries/nvp_seed1",
+            "-lm"
+          ],
+          "pass_count": 1,
+          "policy45_object_text_size_bytes": 5618,
+          "prefix_index": 0,
+          "sha256": "b72f1eda4c36fc950325d2c4d9b07e396e205900d6cf29fd760a7ddf4e4e08a9",
+          "stdout": ""
+        },
+        "nvp_seed2": {
+          "action_ids": [
+            10
+          ],
+          "binary": "outputs/route_a_posthoc_runtime_v6/work/stringsearch/binaries/nvp_seed2",
+          "bitcode": "outputs/route_a_posthoc_runtime_v6/work/stringsearch/binaries/nvp_seed2.bc",
+          "bitcode_sha256": "4ee6e4bdb7d45a7011ea8990deeb1d74624a6cab8267658c6659e291de3a89c4",
+          "candidate_id": 49,
+          "command": [
+            "/root/.local/share/compiler_gym/llvm-v0/bin/clang",
+            "outputs/route_a_posthoc_runtime_v6/work/stringsearch/binaries/nvp_seed2.bc",
+            "-o",
+            "outputs/route_a_posthoc_runtime_v6/work/stringsearch/binaries/nvp_seed2",
+            "-lm"
+          ],
+          "pass_count": 1,
+          "policy45_object_text_size_bytes": 5618,
+          "prefix_index": 0,
+          "sha256": "b72f1eda4c36fc950325d2c4d9b07e396e205900d6cf29fd760a7ddf4e4e08a9",
+          "stdout": ""
+        },
+        "nvp_seed3": {
+          "action_ids": [
+            10
+          ],
+          "binary": "outputs/route_a_posthoc_runtime_v6/work/stringsearch/binaries/nvp_seed3",
+          "bitcode": "outputs/route_a_posthoc_runtime_v6/work/stringsearch/binaries/nvp_seed3.bc",
+          "bitcode_sha256": "4ee6e4bdb7d45a7011ea8990deeb1d74624a6cab8267658c6659e291de3a89c4",
+          "candidate_id": 49,
+          "command": [
+            "/root/.local/share/compiler_gym/llvm-v0/bin/clang",
+            "outputs/route_a_posthoc_runtime_v6/work/stringsearch/binaries/nvp_seed3.bc",
+            "-o",
+            "outputs/route_a_posthoc_runtime_v6/work/stringsearch/binaries/nvp_seed3",
+            "-lm"
+          ],
+          "pass_count": 1,
+          "policy45_object_text_size_bytes": 5618,
+          "prefix_index": 0,
+          "sha256": "b72f1eda4c36fc950325d2c4d9b07e396e205900d6cf29fd760a7ddf4e4e08a9",
+          "stdout": ""
+        },
+        "oz": {
+          "action_ids": null,
+          "binary": "outputs/route_a_posthoc_runtime_v6/work/stringsearch/binaries/oz",
+          "command": [
+            "/root/.local/share/compiler_gym/llvm-v0/bin/clang",
+            "/root/.local/share/compiler_gym/llvm-v0/benchmark/cbench-v1/contents/cBench-v1/stringsearch.bc",
+            "-Oz",
+            "-o",
+            "outputs/route_a_posthoc_runtime_v6/work/stringsearch/binaries/oz",
+            "-lm"
+          ],
+          "pass_count": null,
+          "sha256": "a41e4d8817ad313296f7dca8133c07910fd8b954d6d03a5e8461d4e1d0a44893",
+          "stdout": ""
+        }
+      }
+    },
+    "benchmark://cbench-v1/stringsearch2": {
+      "all_expected_methods_built": true,
+      "methods": {
+        "mamba_seed1": {
+          "action_ids": [
+            10
+          ],
+          "binary": "outputs/route_a_posthoc_runtime_v6/work/stringsearch2/binaries/mamba_seed1",
+          "bitcode": "outputs/route_a_posthoc_runtime_v6/work/stringsearch2/binaries/mamba_seed1.bc",
+          "bitcode_sha256": "c0fedcb65394110f7528c9d113fb9e4af7f886bc9321b4a551784e6ffc2263a2",
+          "candidate_id": 49,
+          "command": [
+            "/root/.local/share/compiler_gym/llvm-v0/bin/clang",
+            "outputs/route_a_posthoc_runtime_v6/work/stringsearch2/binaries/mamba_seed1.bc",
+            "-o",
+            "outputs/route_a_posthoc_runtime_v6/work/stringsearch2/binaries/mamba_seed1"
+          ],
+          "pass_count": 1,
+          "policy45_object_text_size_bytes": 2573,
+          "prefix_index": 0,
+          "sha256": "b57aa0cf6480772086ee8fe8cf85c5093910f921a9034c852ada5d17eca0ed22",
+          "stdout": ""
+        },
+        "mamba_seed2": {
+          "action_ids": [
+            10
+          ],
+          "binary": "outputs/route_a_posthoc_runtime_v6/work/stringsearch2/binaries/mamba_seed2",
+          "bitcode": "outputs/route_a_posthoc_runtime_v6/work/stringsearch2/binaries/mamba_seed2.bc",
+          "bitcode_sha256": "c0fedcb65394110f7528c9d113fb9e4af7f886bc9321b4a551784e6ffc2263a2",
+          "candidate_id": 49,
+          "command": [
+            "/root/.local/share/compiler_gym/llvm-v0/bin/clang",
+            "outputs/route_a_posthoc_runtime_v6/work/stringsearch2/binaries/mamba_seed2.bc",
+            "-o",
+            "outputs/route_a_posthoc_runtime_v6/work/stringsearch2/binaries/mamba_seed2"
+          ],
+          "pass_count": 1,
+          "policy45_object_text_size_bytes": 2573,
+          "prefix_index": 0,
+          "sha256": "b57aa0cf6480772086ee8fe8cf85c5093910f921a9034c852ada5d17eca0ed22",
+          "stdout": ""
+        },
+        "mamba_seed3": {
+          "action_ids": [
+            10
+          ],
+          "binary": "outputs/route_a_posthoc_runtime_v6/work/stringsearch2/binaries/mamba_seed3",
+          "bitcode": "outputs/route_a_posthoc_runtime_v6/work/stringsearch2/binaries/mamba_seed3.bc",
+          "bitcode_sha256": "c0fedcb65394110f7528c9d113fb9e4af7f886bc9321b4a551784e6ffc2263a2",
+          "candidate_id": 49,
+          "command": [
+            "/root/.local/share/compiler_gym/llvm-v0/bin/clang",
+            "outputs/route_a_posthoc_runtime_v6/work/stringsearch2/binaries/mamba_seed3.bc",
+            "-o",
+            "outputs/route_a_posthoc_runtime_v6/work/stringsearch2/binaries/mamba_seed3"
+          ],
+          "pass_count": 1,
+          "policy45_object_text_size_bytes": 2573,
+          "prefix_index": 0,
+          "sha256": "b57aa0cf6480772086ee8fe8cf85c5093910f921a9034c852ada5d17eca0ed22",
+          "stdout": ""
+        },
+        "nvp_seed1": {
+          "action_ids": [
+            10
+          ],
+          "binary": "outputs/route_a_posthoc_runtime_v6/work/stringsearch2/binaries/nvp_seed1",
+          "bitcode": "outputs/route_a_posthoc_runtime_v6/work/stringsearch2/binaries/nvp_seed1.bc",
+          "bitcode_sha256": "c0fedcb65394110f7528c9d113fb9e4af7f886bc9321b4a551784e6ffc2263a2",
+          "candidate_id": 49,
+          "command": [
+            "/root/.local/share/compiler_gym/llvm-v0/bin/clang",
+            "outputs/route_a_posthoc_runtime_v6/work/stringsearch2/binaries/nvp_seed1.bc",
+            "-o",
+            "outputs/route_a_posthoc_runtime_v6/work/stringsearch2/binaries/nvp_seed1"
+          ],
+          "pass_count": 1,
+          "policy45_object_text_size_bytes": 2573,
+          "prefix_index": 0,
+          "sha256": "b57aa0cf6480772086ee8fe8cf85c5093910f921a9034c852ada5d17eca0ed22",
+          "stdout": ""
+        },
+        "nvp_seed2": {
+          "action_ids": [
+            10
+          ],
+          "binary": "outputs/route_a_posthoc_runtime_v6/work/stringsearch2/binaries/nvp_seed2",
+          "bitcode": "outputs/route_a_posthoc_runtime_v6/work/stringsearch2/binaries/nvp_seed2.bc",
+          "bitcode_sha256": "c0fedcb65394110f7528c9d113fb9e4af7f886bc9321b4a551784e6ffc2263a2",
+          "candidate_id": 49,
+          "command": [
+            "/root/.local/share/compiler_gym/llvm-v0/bin/clang",
+            "outputs/route_a_posthoc_runtime_v6/work/stringsearch2/binaries/nvp_seed2.bc",
+            "-o",
+            "outputs/route_a_posthoc_runtime_v6/work/stringsearch2/binaries/nvp_seed2"
+          ],
+          "pass_count": 1,
+          "policy45_object_text_size_bytes": 2573,
+          "prefix_index": 0,
+          "sha256": "b57aa0cf6480772086ee8fe8cf85c5093910f921a9034c852ada5d17eca0ed22",
+          "stdout": ""
+        },
+        "nvp_seed3": {
+          "action_ids": [
+            10
+          ],
+          "binary": "outputs/route_a_posthoc_runtime_v6/work/stringsearch2/binaries/nvp_seed3",
+          "bitcode": "outputs/route_a_posthoc_runtime_v6/work/stringsearch2/binaries/nvp_seed3.bc",
+          "bitcode_sha256": "c0fedcb65394110f7528c9d113fb9e4af7f886bc9321b4a551784e6ffc2263a2",
+          "candidate_id": 49,
+          "command": [
+            "/root/.local/share/compiler_gym/llvm-v0/bin/clang",
+            "outputs/route_a_posthoc_runtime_v6/work/stringsearch2/binaries/nvp_seed3.bc",
+            "-o",
+            "outputs/route_a_posthoc_runtime_v6/work/stringsearch2/binaries/nvp_seed3"
+          ],
+          "pass_count": 1,
+          "policy45_object_text_size_bytes": 2573,
+          "prefix_index": 0,
+          "sha256": "b57aa0cf6480772086ee8fe8cf85c5093910f921a9034c852ada5d17eca0ed22",
+          "stdout": ""
+        },
+        "oz": {
+          "action_ids": null,
+          "binary": "outputs/route_a_posthoc_runtime_v6/work/stringsearch2/binaries/oz",
+          "command": [
+            "/root/.local/share/compiler_gym/llvm-v0/bin/clang",
+            "/root/.local/share/compiler_gym/llvm-v0/benchmark/cbench-v1/contents/cBench-v1/stringsearch2.bc",
+            "-Oz",
+            "-o",
+            "outputs/route_a_posthoc_runtime_v6/work/stringsearch2/binaries/oz"
+          ],
+          "pass_count": null,
+          "sha256": "ad4f6f2c544e4cdfa1613dc98cbb18392cb91aae4241420b820f20b6a1c97288",
+          "stdout": ""
+        }
+      }
+    }
+  },
+  "protocol_config_sha256": "75cbb07faf077774d103fd7c5c434a558bbefa9a207c3a9e33aaf94a52bc9f5f"
+}
