@@ -1,0 +1,89 @@
+{
+  "experiment_name": "route_a_posthoc_runtime_v6",
+  "protocol_class": "post_hoc_exploratory_runtime",
+  "post_hoc_after_completed_objecttext_final": true,
+  "outcomes_not_seen_at_protocol_freeze": true,
+  "runtime_accessed_before_protocol_freeze": false,
+  "scope": {
+    "goal": "Measure native runtime of frozen -Oz, Route-A Stage-B NVP seeds 1/2/3, and Route-A Stage-B Mamba seeds 1/2/3 on pre-existing executable OOD harnesses.",
+    "read_only_parent_study": "outputs/route_a_final_objecttext_v6",
+    "forbidden": ["retraining", "candidate_generation", "candidate_remeasurement", "oracle_selection", "policy_budget_change", "ObjectText_result_modification", "Route_B"]
+  },
+  "parent_objecttext_artifacts": {
+    "final_config": {"path": "configs/route_a_final_objecttext_v6.json", "sha256": "7fe718cb7fbabae5e3ed77a71d0eddec16d5824b62876a19b263fc40bcfcdac9"},
+    "final_manifest": {"path": "outputs/route_a_final_objecttext_v6/final_program_manifest.json", "sha256": "0beab51064d189d5aee5b89ed2802b39a6ddae9f6c1c0f04731632cdfcbe96fd"},
+    "final_label_shards": "outputs/route_a_final_objecttext_v6/shards/final/*.json.gz",
+    "candidate_file": {"path": "configs/rlcompopt_action_seq_50.txt", "sha256": "5243dd2923da9b392b18b81c86532f45a8eef3619c831a9a3e58b50c8f759cba"}
+  },
+  "population": {
+    "inclusion": "Final-study program, existing local canonical executable harness, deterministic documented default workload/input/invocation.",
+    "final_ood_suites_considered": ["cbench-v1", "chstone-v0", "mibench-v1", "npb-v0"],
+    "included_program_count": 9,
+    "excluded": {
+      "cbench-v1/adpcm": "CompilerGym upstream validator disabled: timeout errors.",
+      "cbench-v1/rijndael": "CompilerGym upstream validator disabled: memory errors under basic optimizations.",
+      "chstone-v0": "Installed content has bitcode only; no pre-existing canonical executable entry, workload, or runner.",
+      "mibench-v1": "Installed content has bitcode/manifest only; no pre-existing local runner or workload.",
+      "npb-v0": "Installed content has bitcode/manifest only; no pre-existing local runner or workload."
+    }
+  },
+  "environment": {
+    "compiler_gym_version": "0.2.5",
+    "llvm_version": "10.0.0",
+    "clang": "/root/.local/share/compiler_gym/llvm-v0/bin/clang",
+    "cbench_runtime_data": "/root/.local/share/compiler_gym/llvm-v0/cbench-v1-runtime-data/runtime_data",
+    "cpu_affinity": "0",
+    "thread_environment": {"OMP_NUM_THREADS": "1", "MKL_NUM_THREADS": "1", "OPENBLAS_NUM_THREADS": "1"},
+    "no_parallel_timing": true
+  },
+  "methods": {
+    "baseline": {"id": "Oz", "build": "clang <original.bc> -Oz -o a.out"},
+    "learned": [
+      {"model": "NVP", "seed": 1, "checkpoint": "outputs/route_a_stage_b_v6/nvp/seed1/model.pt", "sha256": "7590e756d5f4c9b5f4488ea63eeee02df88e1b48873e5515cdef9e71ab85f424"},
+      {"model": "NVP", "seed": 2, "checkpoint": "outputs/route_a_stage_b_v6/nvp/seed2/model.pt", "sha256": "54bedb6f04ddd9079211a39d4b4c37eb320711f453fcda8c4d4e345c162ae9ca"},
+      {"model": "NVP", "seed": 3, "checkpoint": "outputs/route_a_stage_b_v6/nvp/seed3/model.pt", "sha256": "461d27c8b38d86f3218f8322a4239ebb43dc341cadb28ed7b1c37b51f49fa92d"},
+      {"model": "Mamba", "seed": 1, "checkpoint": "outputs/route_a_stage_b_v6/mamba/seed1/model.pt", "sha256": "ed4b01c53850381cf9ab0bf168a92caa6589c2fb4041d6dd873667b33bc2409b"},
+      {"model": "Mamba", "seed": 2, "checkpoint": "outputs/route_a_stage_b_v6/mamba/seed2/model.pt", "sha256": "8544eee0ff46c0568a685f7530827ae9d11d05a420bf142c1f762ac2439692f7"},
+      {"model": "Mamba", "seed": 3, "checkpoint": "outputs/route_a_stage_b_v6/mamba/seed3/model.pt", "sha256": "4c799d3c16867106f9b50468ec1e29fae41fd748ae8d290741b0ead22b8bc42a"}
+    ],
+    "policy": {"name": "frozen_policy45", "scored_pass_budget": 45, "candidate_order": "descending checkpoint logits; candidate_id ascending ties", "winning_prefix": "first minimum observed prefix by candidate rank then prefix position", "prefix_source": "final K=50 labels only"}
+  },
+  "correctness": {
+    "official_source": "compiler_gym.envs.llvm.datasets.cbench validator declarations",
+    "reference": "original bitcode compiled with the same fixed clang at -O2; compare stdout and declared output files exactly",
+    "sha_execution_only": "The installed CBench SHA validator sets compare_output=false and discards its format-validator return; it is execution_only.",
+    "no_retry": true,
+    "failure_policy": "Record fail/execution_only; exclude failed methods from the appropriate cohort without substitution or rerun."
+  },
+  "measurement": {
+    "calibration": "Pre-formal -Oz-only neutral run determines one integer amplification factor per program targeting at least 1.0 elapsed second; factors are written and committed in the run manifest before warmups or timed samples.",
+    "warmup_runs_excluded": 3,
+    "initial_timed_samples": 5,
+    "rse_target": 0.01,
+    "maximum_timed_samples": 20,
+    "per_sample_timeout_seconds": 300,
+    "statistic": "median elapsed seconds; also record arithmetic mean, sample standard deviation, and RSE",
+    "timing_order": "deterministic round-robin by program then method; no concurrent timed processes"
+  },
+  "aggregation": {
+    "primary_cohort": "semantic validation passes for Oz, all NVP seeds, and all Mamba seeds",
+    "secondary_cohort": "all seven methods execute successfully",
+    "program_speedup": "T_Oz / T_method using per-binary median",
+    "dataset_speedup": "geometric mean of common-cohort program speedups",
+    "overall": "geometric mean of per-dataset speedups with equal dataset log weight; undefined for empty cohort",
+    "seed_aggregate": "geometric mean across seeds 1/2/3",
+    "direct_comparison": "T_NVP / T_Mamba; greater than 1 favors Mamba",
+    "pooled_program_summary": "secondary only"
+  },
+  "programs": [
+    {"program_id": "benchmark://cbench-v1/bitcount", "source_bitcode": "/root/.local/share/compiler_gym/llvm-v0/benchmark/cbench-v1/contents/cBench-v1/bitcount.bc", "source_sha256": "d527be711ab8b8b54f4eec8a49fae9897d5854dfb0ab80f28586a12744445006", "workdir": "outputs/route_a_posthoc_runtime_v6/work/bitcount", "argv": ["./a.out", "1125000"], "input_files": [], "linkopts": [], "env": {}, "correctness": "semantic_stdout", "timeout_seconds": 300, "amplification": "pending_calibration"},
+    {"program_id": "benchmark://cbench-v1/blowfish", "source_bitcode": "/root/.local/share/compiler_gym/llvm-v0/benchmark/cbench-v1/contents/cBench-v1/blowfish.bc", "source_sha256": "67e0b6bf85b321f7552598b25f2df7c017979034d1a57b2c29705783aa854716", "workdir": "outputs/route_a_posthoc_runtime_v6/work/blowfish", "argv": ["./a.out", "d", "/root/.local/share/compiler_gym/llvm-v0/cbench-v1-runtime-data/runtime_data/office_data/1.benc", "output.txt", "1234567890abcdeffedcba0987654321"], "input_files": [{"path": "/root/.local/share/compiler_gym/llvm-v0/cbench-v1-runtime-data/runtime_data/office_data/1.benc", "sha256": "f3d749084b8444d32e8f18dbbf84384b343118449251f0a6600f293fa365953c"}], "linkopts": [], "env": {}, "correctness": "semantic_stdout_and_output.txt", "timeout_seconds": 300, "amplification": "pending_calibration"},
+    {"program_id": "benchmark://cbench-v1/crc32", "source_bitcode": "/root/.local/share/compiler_gym/llvm-v0/benchmark/cbench-v1/contents/cBench-v1/crc32.bc", "source_sha256": "1ef3fe0dbd104ad4cb2e22fe7fad471f590ea0461609986cc092356ba509f6b4", "workdir": "outputs/route_a_posthoc_runtime_v6/work/crc32", "argv": ["./a.out", "/root/.local/share/compiler_gym/llvm-v0/cbench-v1-runtime-data/runtime_data/telecom_data/1.pcm"], "input_files": [{"path": "/root/.local/share/compiler_gym/llvm-v0/cbench-v1-runtime-data/runtime_data/telecom_data/1.pcm", "sha256": "f25ac9239ff906aeffb7715e2b0b258ba4f479909856a4edd95661d576ef6742"}], "linkopts": [], "env": {}, "correctness": "semantic_stdout", "timeout_seconds": 300, "amplification": "pending_calibration"},
+    {"program_id": "benchmark://cbench-v1/dijkstra", "source_bitcode": "/root/.local/share/compiler_gym/llvm-v0/benchmark/cbench-v1/contents/cBench-v1/dijkstra.bc", "source_sha256": "bb5e3ba542f913d8cf2cd44c43e5a9a7f130865b58907df299666aff16312adc", "workdir": "outputs/route_a_posthoc_runtime_v6/work/dijkstra", "argv": ["./a.out", "/root/.local/share/compiler_gym/llvm-v0/cbench-v1-runtime-data/runtime_data/network_dijkstra_data/1.dat"], "input_files": [{"path": "/root/.local/share/compiler_gym/llvm-v0/cbench-v1-runtime-data/runtime_data/network_dijkstra_data/1.dat", "sha256": "0946fe706dc9367764f11d3437823b0b14008389eb4e322f98a2fe66848e45a1"}], "linkopts": [], "env": {}, "correctness": "semantic_stdout", "timeout_seconds": 300, "amplification": "pending_calibration"},
+    {"program_id": "benchmark://cbench-v1/patricia", "source_bitcode": "/root/.local/share/compiler_gym/llvm-v0/benchmark/cbench-v1/contents/cBench-v1/patricia.bc", "source_sha256": "55b0f02b0d00c4350b6fa38664f25cb19359c759587865aa8637aedd7ed53e45", "workdir": "outputs/route_a_posthoc_runtime_v6/work/patricia", "argv": ["./a.out", "/root/.local/share/compiler_gym/llvm-v0/cbench-v1-runtime-data/runtime_data/network_patricia_data/1.udp"], "input_files": [{"path": "/root/.local/share/compiler_gym/llvm-v0/cbench-v1-runtime-data/runtime_data/network_patricia_data/1.udp", "sha256": "ec223d31e4a864613867d5dc799914f58cedc76df51fea6bc971971d95d3b641"}], "linkopts": [], "env": {"ASAN_OPTIONS": "detect_leaks=0"}, "correctness": "semantic_stdout", "timeout_seconds": 300, "amplification": "pending_calibration"},
+    {"program_id": "benchmark://cbench-v1/qsort", "source_bitcode": "/root/.local/share/compiler_gym/llvm-v0/benchmark/cbench-v1/contents/cBench-v1/qsort.bc", "source_sha256": "d205025726f2ef82de3451199650780166a9bc32c528f4ea6ad1f688e10ac56d", "workdir": "outputs/route_a_posthoc_runtime_v6/work/qsort", "argv": ["./a.out", "/root/.local/share/compiler_gym/llvm-v0/cbench-v1-runtime-data/runtime_data/automotive_qsort_data/1.dat"], "input_files": [{"path": "/root/.local/share/compiler_gym/llvm-v0/cbench-v1-runtime-data/runtime_data/automotive_qsort_data/1.dat", "sha256": "3e9babc6b7a9152a1b5ff1cc3c78c60a05fc676e03e63b5941ac84eed2a94b79"}], "linkopts": ["-lm"], "env": {}, "correctness": "semantic_stdout_and_sorted_output.dat", "timeout_seconds": 300, "amplification": "pending_calibration"},
+    {"program_id": "benchmark://cbench-v1/sha", "source_bitcode": "/root/.local/share/compiler_gym/llvm-v0/benchmark/cbench-v1/contents/cBench-v1/sha.bc", "source_sha256": "c47686e9823c10c66e5f01c04831893ccd3413cf24580073a6456d5af64a31c1", "workdir": "outputs/route_a_posthoc_runtime_v6/work/sha", "argv": ["./a.out", "/root/.local/share/compiler_gym/llvm-v0/cbench-v1-runtime-data/runtime_data/office_data/1.txt"], "input_files": [{"path": "/root/.local/share/compiler_gym/llvm-v0/cbench-v1-runtime-data/runtime_data/office_data/1.txt", "sha256": "604ff2928bf47da1cb0a8eb921b96dde052dd4a865eff5c8086f283be5c03be9"}], "linkopts": [], "env": {}, "correctness": "execution_only", "timeout_seconds": 300, "amplification": "pending_calibration"},
+    {"program_id": "benchmark://cbench-v1/stringsearch", "source_bitcode": "/root/.local/share/compiler_gym/llvm-v0/benchmark/cbench-v1/contents/cBench-v1/stringsearch.bc", "source_sha256": "1cc5940263765514550e751ea7c3435d24c56b8c6d54c35c230bb7df1eb8dcee", "workdir": "outputs/route_a_posthoc_runtime_v6/work/stringsearch", "argv": ["./a.out", "/root/.local/share/compiler_gym/llvm-v0/cbench-v1-runtime-data/runtime_data/office_data/1.txt", "/root/.local/share/compiler_gym/llvm-v0/cbench-v1-runtime-data/runtime_data/office_data/1.s.txt", "output.txt"], "input_files": [{"path": "/root/.local/share/compiler_gym/llvm-v0/cbench-v1-runtime-data/runtime_data/office_data/1.txt", "sha256": "604ff2928bf47da1cb0a8eb921b96dde052dd4a865eff5c8086f283be5c03be9"}, {"path": "/root/.local/share/compiler_gym/llvm-v0/cbench-v1-runtime-data/runtime_data/office_data/1.s.txt", "sha256": "899df8bf7588b0c4eaadf678c42fb6b12163e180258d58b5ba808f529c947dbd"}], "linkopts": ["-lm"], "env": {"ASAN_OPTIONS": "detect_leaks=0"}, "correctness": "semantic_stdout_and_output.txt", "timeout_seconds": 300, "amplification": "pending_calibration"},
+    {"program_id": "benchmark://cbench-v1/stringsearch2", "source_bitcode": "/root/.local/share/compiler_gym/llvm-v0/benchmark/cbench-v1/contents/cBench-v1/stringsearch2.bc", "source_sha256": "d4672d92796b63e8e5a53044de40f7e1040dcba4f924c98752c851e4759942ad", "workdir": "outputs/route_a_posthoc_runtime_v6/work/stringsearch2", "argv": ["./a.out", "/root/.local/share/compiler_gym/llvm-v0/cbench-v1-runtime-data/runtime_data/office_data/1.txt", "/root/.local/share/compiler_gym/llvm-v0/cbench-v1-runtime-data/runtime_data/office_data/1.s.txt", "output.txt"], "input_files": [{"path": "/root/.local/share/compiler_gym/llvm-v0/cbench-v1-runtime-data/runtime_data/office_data/1.txt", "sha256": "604ff2928bf47da1cb0a8eb921b96dde052dd4a865eff5c8086f283be5c03be9"}, {"path": "/root/.local/share/compiler_gym/llvm-v0/cbench-v1-runtime-data/runtime_data/office_data/1.s.txt", "sha256": "899df8bf7588b0c4eaadf678c42fb6b12163e180258d58b5ba808f529c947dbd"}], "linkopts": [], "env": {"ASAN_OPTIONS": "detect_leaks=0"}, "correctness": "semantic_stdout_and_output.txt", "timeout_seconds": 300, "amplification": "pending_calibration"}
+  ]
+}
