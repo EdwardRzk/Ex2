@@ -1,0 +1,78 @@
+{
+  "experiment_name": "route_a_final_objecttext_v6",
+  "step": "Step 10 freeze followed by Step 11 final/OOD ObjectText evaluation",
+  "environment": {
+    "compiler_gym_version": "0.2.5",
+    "llvm_version": "10.0.0",
+    "environment_id": "llvm-v0",
+    "reward_space": null,
+    "objecttext_observation": "ObjectTextSizeBytes/ObjectTextSizeO0/ObjectTextSizeOz"
+  },
+  "program_manifest": {
+    "official_source": "RLCompOpt Google Drive data/benchmarkdataset_all-test.json",
+    "google_drive_file_id": "1yaLY17EmYeFKFsur8Igkj_Nyh8CKErBR",
+    "sha256": "0beab51064d189d5aee5b89ed2802b39a6ddae9f6c1c0f04731632cdfcbe96fd",
+    "expected_program_count": 4683,
+    "expected_dataset_counts": {
+      "anghabench-v1": 1000,
+      "blas-v0": 29,
+      "cbench-v1": 11,
+      "chstone-v0": 12,
+      "clgen-v0": 150,
+      "github-v0": 1000,
+      "linux-v0": 1000,
+      "mibench-v1": 40,
+      "npb-v0": 121,
+      "opencv-v0": 32,
+      "poj104-v1": 1000,
+      "tensorflow-v0": 90,
+      "csmith-v0": 48,
+      "llvm-stress-v0": 150
+    }
+  },
+  "split_integrity": {
+    "train_source": "/tmp/rlcompopt-v6-data/train.json",
+    "validation_source": "/tmp/rlcompopt-v6-data/validation.json",
+    "train_expected_count": 28167,
+    "validation_expected_count": 4490,
+    "require_final_disjointness": true
+  },
+  "candidate_space": {
+    "source": "configs/rlcompopt_action_seq_50.txt",
+    "K": 50,
+    "candidate_order": "official frozen order",
+    "candidate_best": "minimum valid post-pass ObjectTextSizeBytes of a completed rollout"
+  },
+  "target": {
+    "raw_candidate_value": "(S_Oz - candidate_best_size) / S_Oz",
+    "temperature": 0.05
+  },
+  "inference": {
+    "sampling": false,
+    "logit_order": "descending logits; candidate ID ascending tie break",
+    "learned_scored_pass_budget": 45,
+    "native_Oz_budget": "unrestricted external baseline"
+  },
+  "models": {
+    "checkpoint_root": "outputs/route_a_stage_b_v6",
+    "names": ["NVP", "MLP", "LSTM", "Transformer", "Mamba"],
+    "seeds": [1, 2, 3],
+    "stage_a_checkpoint_allowed": false,
+    "final_checkpoint_selection": false
+  },
+  "comparison_families": {
+    "H1": ["Mamba", "Oz"],
+    "H2a": ["Mamba", "NVP"],
+    "H2b": ["MLP", "LSTM", "Transformer", "Mamba"]
+  },
+  "validity": {
+    "automatic_retry_count": 0,
+    "candidate_rollout": "independent reset from original benchmark; all 50 required for complete K50",
+    "ratio_denominator": "S_Oz > 0",
+    "empty_common_cohort": "undefined; retain dataset in macro denominator",
+    "failure_policy": "report separately; no penalties, imputation, epsilon, K reduction, or retries"
+  },
+  "aggregation": "per dataset and method/seed on the predeclared family common-valid cohort; arithmetic dataset macro; then arithmetic mean across seeds",
+  "runtime_accessed": false,
+  "pre_unseal_final_optimization_results_accessed": false
+}
