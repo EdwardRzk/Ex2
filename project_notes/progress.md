@@ -722,3 +722,30 @@ FAIL. The frozen cross-candidate interaction does not exceed NVP or MambaNVP(v1)
 
 ### Git
 Implementation and result commit `a8b88677`.
+
+
+## 2026-08-21 — Cross-Candidate MambaNVP final/OOD offline evaluation v1
+
+### Goal
+Evaluate once the three validation-selected frozen Cross-Candidate MambaNVP checkpoints on the frozen final/OOD K=50 cohort, with the predeclared common comparison `NVP / Mamba / MambaNVP(v1) / Cross-Candidate MambaNVP`.
+
+### Frozen protocol
+The evaluation used only final cached normalized 56-D Autophase features, existing final K=50 prefix-label shards, and the validation-selected Cross-Candidate checkpoints at steps seed 1 `3400`, seed 2 `600`, and seed 3 `1200`. Inference was deterministic descending-logit ranking with candidate-ID tie breaks and the existing 45-scored-pass offline policy. Existing NVP, Mamba, and MambaNVP final JSONL files were read as frozen baselines. No CompilerGym initialization, LLVM execution, candidate rollout, ObjectText measurement, label generation, invalid retry, checkpoint reselection, training, or tuning occurred.
+
+### Changes
+Added an isolated offline-only evaluator, frozen configuration, focused safety test, and `outputs/cross_candidate_mambanvp_final_objecttext_v1/` containing exactly `config.json`, `comparison_report.json`, and combined `per_program_results.jsonl.gz`.
+
+### Result
+Each method/seed has the same cohort: 4,683 total programs, 4,679 complete-K50 valid programs, and 4 frozen incomplete-K50 invalid programs. Cross-Candidate MambaNVP final MeanOverOz is seed 1 `0.08804090510837047`, seed 2 `0.08710943832275728`, seed 3 `0.08801293106531356`; three-seed dataset-macro mean `0.08772109149881376`, Oracle recovery `0.8339723147867067`, and mean policy45 regret `11.898625062335256` bytes. On this common cohort NVP is `0.08715469206982522`, Mamba `0.08462666303481921`, and MambaNVP(v1) `0.08765961330771414`; Cross-Candidate minus NVP is `+0.0005663994289885343`, versus Mamba `+0.0030944284639945474`, and versus MambaNVP(v1) `+0.00006147819109961206`. All 14 dataset cohorts are nonempty; complete per-dataset and per-seed results are in the comparison report.
+
+### Decision
+COMPLETE — this one-way frozen final/OOD evaluation is complete. It does not alter the validation-stage FAIL decision or authorize additional training, loss experiments, checkpoint changes, or tuning.
+
+### Artifacts
+- `configs/cross_candidate_mambanvp_final_objecttext_v1.json` — SHA256 `65cf335d14645d806f0fa4c64efec9901168ec44d64ec003f7bba6a468e12250`
+- `outputs/cross_candidate_mambanvp_final_objecttext_v1/config.json` — SHA256 `39d8e3218a92795ef97c2596e7ec8de6db361d95f2742165e3eb8d8f770c0f47`
+- `outputs/cross_candidate_mambanvp_final_objecttext_v1/comparison_report.json` — SHA256 `dcd801ae52ab83abad9b55d875abe9897fbc51e630a73473ec4b376202782d93`
+- `outputs/cross_candidate_mambanvp_final_objecttext_v1/per_program_results.jsonl.gz` — SHA256 `52d2803b79fb61165be491d30e47fee2efaee818dbacac70308d573b597299ba`
+
+### Git
+Evaluation implementation and results commit `28fbd465f06a1be3d2a562e68d87d7d2256a0f29`.
