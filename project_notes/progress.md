@@ -774,3 +774,28 @@ FAIL. The direct Set-conditioned Listwise Mamba Ranker does not exceed frozen NV
 
 ### Git
 Implementation and result commit `ded1b67b9c08ed6dcc03234f464975d4aec53773`.
+
+
+## 2026-08-21 — Set-conditioned Listwise Mamba Ranker final/OOD offline evaluation v1
+
+### Goal
+Evaluate once the three frozen validation-selected SetConditionedMambaRanker checkpoints on the frozen final/OOD K=50 cohort, with the predeclared common comparison `NVP / Mamba / MambaNVP(v1) / Cross-Candidate MambaNVP / SetConditionedMambaRanker`.
+
+### Frozen protocol
+The final evaluation used only the frozen final normalized 56-D Autophase cache, existing final K=50 prefix-label shards, and the validation-selected Listwise checkpoints at steps seed 1 `7200`, seed 2 `6200`, and seed 3 `6700`. Inference used deterministic descending scores with candidate-ID tie breaks and existing 45-scored-pass offline policy aggregation. Existing frozen final results for NVP, Mamba, MambaNVP, and Cross-Candidate MambaNVP were read without recomputation. Top-1 and tie-aware Spearman diagnostics were read from the predicted rankings and existing candidate best ObjectText labels only. No CompilerGym, LLVM, candidate rollout, ObjectText measurement, label generation, invalid retry, model/checkpoint modification, retraining, tuning, or checkpoint reselection occurred.
+
+### Changes
+Added an isolated offline-only Listwise final evaluator, frozen final configuration, focused safety test, and `outputs/set_conditioned_mamba_ranker_final_objecttext_v1/` with comparison report plus per-seed and per-dataset results.
+
+### Result
+All methods and seeds share the same final cohort: 4,683 total programs, 4,679 complete-K50 valid programs, and 4 frozen incomplete-K50 invalid programs; all 14 dataset common cohorts are nonempty. Listwise final MeanOverOz is seed 1 `0.06065870417713577`, seed 2 `0.058411964015531496`, and seed 3 `0.060905770681423964`; three-seed dataset-macro mean `0.05999214629136374`, Oracle recovery `0.5703507361431764`, and mean policy45 regret `27.751015174182516` bytes. Final top-1 oracle-tie accuracy is `0.5708484718957042`; final tie-aware Spearman is `0.44490531319463306` over 4,052 non-all-tied programs per seed (627 all-tied/constant targets excluded from this optional diagnostic). Frozen common-cohort references are NVP `0.08715469206982522`, Mamba `0.08462666303481921`, MambaNVP(v1) `0.08765961330771414`, and Cross-Candidate MambaNVP `0.08772109149881376`; Listwise differs by `-0.02716254577846148`, `-0.024634516743455466`, `-0.0276674670163504`, and `-0.027728945207450013`, respectively.
+
+### Decision
+FAIL — do not enter the final method set. The one-way final/OOD evaluation confirms that the direct Listwise ranker remains below every frozen reference. Stop; do not start a new loss/model experiment, retrain, tune, modify checkpoints, or use final/OOD outcomes to change protocol.
+
+### Artifacts
+- `configs/set_conditioned_mamba_ranker_final_objecttext_v1.json`
+- `outputs/set_conditioned_mamba_ranker_final_objecttext_v1/{config.json,comparison_report.json,per_seed_results.json,per_dataset_results.json}`
+
+### Git
+Evaluation implementation and results commit `ed37d8b7d31525126f49e66adc2e2ecedeb992d2`.
