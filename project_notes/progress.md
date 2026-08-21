@@ -749,3 +749,28 @@ COMPLETE — this one-way frozen final/OOD evaluation is complete. It does not a
 
 ### Git
 Evaluation implementation and results commit `28fbd465f06a1be3d2a562e68d87d7d2256a0f29`.
+
+
+## 2026-08-21 — Set-conditioned Listwise Mamba Ranker validation v1
+
+### Goal
+Test whether a direct listwise Mamba candidate-set ranker, without an NVP soft-value branch, improves frozen Route-A validation policy-45 selection.
+
+### Frozen protocol
+The model used only the existing 28,159/4,488 complete-K50 target rows, cached normalized 56-D Autophase features, frozen ordered 50 candidate sequences, and existing validation prefix labels. Candidate ranking targets were derived from frozen `raw_candidate_value` in descending order with candidate-ID ascending tie breaks. The project-specific objective was mean-normalized ListMLE plus `0.1` times logistic pairwise loss from 32 uniformly sampled candidate pairs/program when the frozen values strictly differed. The architecture used a shared two-layer Mamba candidate encoder, exactly two candidate-set self-attention layers with four heads and zero dropout, and a scalar ranking head. Each seed used Adam, batch 256, lr `5e-4`, weight decay `1e-5`, the existing warmup/cosine schedule, 10,000 steps, no early stopping, and validation-only selection by policy-45 dataset-macro MeanOverOz. No CompilerGym, LLVM, rollout, ObjectText measurement, label generation, final/OOD, runtime, or tuning occurred.
+
+### Changes
+Added the isolated SetConditionedMambaRanker implementation, frozen configuration, listwise/pairwise focused tests, and `outputs/set_conditioned_mamba_ranker_v1/` with config, three selected checkpoints, 100-point-per-seed training curves, and comparison report.
+
+### Result
+All seeds completed the full 10,000-step budget with validation cohort `4488/4488/0`. Selected MeanOverOz is seed 1 `0.040812221746181244` (step 7200), seed 2 `0.03837999109148573` (step 6200), and seed 3 `0.042452996355951206` (step 6700); three-seed mean `0.04054840306453939`, Oracle recovery `0.5236334592297079`, mean policy45 regret `20.403074866310163` bytes, top-1 oracle-tie accuracy `0.5828877005347594`, and tie-aware Spearman correlation `0.46200927326313374` over 3,835 non-all-tied programs per seed (653 all-tied/constant targets excluded from this optional diagnostic). The model has 112,321 trainable parameters. Frozen references are NVP `0.06277100953471096`, Mamba `0.06355291510205446`, MambaNVP(v1) `0.06260238916621794`, and Cross-Candidate MambaNVP `0.06202097991289138`; the listwise model differs by `-0.022222606470171567`, `-0.023004512037515072`, `-0.022053986101678545`, and `-0.021472576848351986`, respectively.
+
+### Decision
+FAIL. The direct Set-conditioned Listwise Mamba Ranker does not exceed frozen NVP or any listed Mamba reference on validation. Stop; do not run final/OOD, add another loss variant, tune, or modify checkpoints.
+
+### Artifacts
+- `configs/set_conditioned_mamba_ranker_v1.json`
+- `outputs/set_conditioned_mamba_ranker_v1/{config.json,checkpoints,training_curve.json,comparison_report.json}`
+
+### Git
+Implementation and result commit `ded1b67b9c08ed6dcc03234f464975d4aec53773`.
