@@ -1,0 +1,64 @@
+{
+  "candidate_representation": {
+    "K": 50,
+    "pad_token_id": 124,
+    "padded_length": 20
+  },
+  "checkpoint_selection": {
+    "rule": "frozen validation-selected checkpoint; no re-selection during final/OOD evaluation",
+    "selected_steps": {
+      "1": 7200,
+      "2": 6200,
+      "3": 6700
+    },
+    "source": "outputs/set_conditioned_mamba_ranker_v1/comparison_report.json"
+  },
+  "comparison_family": [
+    "NVP",
+    "Mamba",
+    "MambaNVP",
+    "CrossCandidateMambaNVP",
+    "SetConditionedMambaRanker"
+  ],
+  "existing_final_report": "outputs/route_a_final_objecttext_v6/comparison_report.json",
+  "existing_model_results": {
+    "CrossCandidateMambaNVP": "outputs/cross_candidate_mambanvp_final_objecttext_v1/per_program_results.jsonl.gz",
+    "Mamba": "outputs/route_a_final_objecttext_v6/model_results/mamba",
+    "MambaNVP": "outputs/mamba_nvp_final_objecttext_v6/model_results/mambanvp",
+    "NVP": "outputs/route_a_final_objecttext_v6/model_results/nvp"
+  },
+  "experiment_name": "set_conditioned_mamba_ranker_final_objecttext_v1",
+  "final_feature_cache": "outputs/autophase_feature_cache_v6/final_autophase.jsonl.gz",
+  "final_label_shards": "outputs/route_a_final_objecttext_v6/shards/final",
+  "final_population": {
+    "complete_k50": 4679,
+    "invalid": 4,
+    "total": 4683
+  },
+  "final_seed_set": [
+    1,
+    2,
+    3
+  ],
+  "final_test_access": "offline frozen labels and frozen Autophase cache only",
+  "forbidden": [
+    "CompilerGym initialization",
+    "LLVM execution",
+    "candidate rollout",
+    "ObjectText measurement",
+    "label regeneration",
+    "invalid-program retry",
+    "checkpoint modification",
+    "model training",
+    "hyperparameter tuning",
+    "checkpoint selection"
+  ],
+  "inference": {
+    "ranking": "descending scores; candidate ID ascending tie break",
+    "sampling": false,
+    "scored_pass_budget": 45
+  },
+  "ranker_checkpoint_root": "outputs/set_conditioned_mamba_ranker_v1/checkpoints",
+  "ranker_training_config": "configs/set_conditioned_mamba_ranker_v1.json",
+  "ranker_validation_report": "outputs/set_conditioned_mamba_ranker_v1/comparison_report.json"
+}

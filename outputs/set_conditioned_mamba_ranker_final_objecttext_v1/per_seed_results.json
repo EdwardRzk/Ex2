@@ -1,0 +1,78 @@
+{
+  "oracle_recovery": 0.5703507361431764,
+  "policy45_regret": {
+    "mean_3seed": 27.751015174182516,
+    "median_per_seed": [
+      0,
+      0,
+      0
+    ],
+    "per_seed": {
+      "1": {
+        "mean": 26.894421885018165,
+        "median": 0
+      },
+      "2": {
+        "mean": 30.24535157084847,
+        "median": 0
+      },
+      "3": {
+        "mean": 26.113272066680913,
+        "median": 0
+      }
+    }
+  },
+  "ranking_correlation_3seed": 0.44490531319463306,
+  "seed_results": [
+    {
+      "N_primary_valid": 4679,
+      "N_total": 4683,
+      "failure_count_by_reason": {
+        "incomplete_K50": 4
+      },
+      "model": "SetConditionedMambaRanker",
+      "ranking_correlation": {
+        "N_defined": 4052,
+        "N_undefined_all_tied_or_constant": 627,
+        "mean": 0.4468530879587204,
+        "name": "tie-aware Spearman rank correlation of predicted scores against final K=50 best ObjectText size"
+      },
+      "seed": 1,
+      "top1_accuracy": 0.577473819192135
+    },
+    {
+      "N_primary_valid": 4679,
+      "N_total": 4683,
+      "failure_count_by_reason": {
+        "incomplete_K50": 4
+      },
+      "model": "SetConditionedMambaRanker",
+      "ranking_correlation": {
+        "N_defined": 4052,
+        "N_undefined_all_tied_or_constant": 627,
+        "mean": 0.44417623102232306,
+        "name": "tie-aware Spearman rank correlation of predicted scores against final K=50 best ObjectText size"
+      },
+      "seed": 2,
+      "top1_accuracy": 0.5719170762983543
+    },
+    {
+      "N_primary_valid": 4679,
+      "N_total": 4683,
+      "failure_count_by_reason": {
+        "incomplete_K50": 4
+      },
+      "model": "SetConditionedMambaRanker",
+      "ranking_correlation": {
+        "N_defined": 4052,
+        "N_undefined_all_tied_or_constant": 627,
+        "mean": 0.4436866206028558,
+        "name": "tie-aware Spearman rank correlation of predicted scores against final K=50 best ObjectText size"
+      },
+      "seed": 3,
+      "top1_accuracy": 0.5631545201966233
+    }
+  ],
+  "three_seed_mean_over_oz": 0.05999214629136374,
+  "top1_accuracy_3seed": 0.5708484718957042
+}
