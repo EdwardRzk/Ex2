@@ -1,0 +1,193 @@
+{
+  "candidate_rollouts": 0,
+  "compiler_gym_initialized": false,
+  "differences": {
+    "CrossCandidateMambaNVP": -0.021472576848351986,
+    "Mamba": -0.023004512037515072,
+    "MambaNVP_v1": -0.022053986101678545,
+    "NVP": -0.022222606470171567
+  },
+  "final_test_accessed": false,
+  "frozen_references": {
+    "CrossCandidateMambaNVP": {
+      "MeanOverOz_3seed": 0.06202097991289138,
+      "oracle_recovery": 0.8009257529800194,
+      "policy45_regret_mean_bytes": 7.753639334521687,
+      "trainable_parameters": 112321
+    },
+    "Mamba": {
+      "MeanOverOz_3seed": 0.06355291510205446,
+      "oracle_recovery": 0.8207088384233696,
+      "policy45_regret_mean_bytes": 9.502822341057636,
+      "trainable_parameters": 78785
+    },
+    "MambaNVP_v1": {
+      "MeanOverOz_3seed": 0.06260238916621794,
+      "oracle_recovery": 0.8084339485077934,
+      "policy45_regret_mean_bytes": 7.7105614973262036,
+      "trainable_parameters": 78785
+    },
+    "NVP": {
+      "MeanOverOz_3seed": 0.06277100953471096,
+      "oracle_recovery": 0.81061147610882,
+      "policy45_regret_mean_bytes": 7.785130718954249,
+      "trainable_parameters": 93234
+    }
+  },
+  "label_regeneration": false,
+  "llvm_execution": false,
+  "objecttext_measurements": 0,
+  "ood_accessed": false,
+  "runtime_accessed": false,
+  "set_conditioned_mamba_ranker": {
+    "ValidationFinalMeanOverOz_3seed": 0.04054840306453939,
+    "architecture": "SetConditionedMambaRanker",
+    "oracle_recovery_3seed": 0.5236334592297079,
+    "policy45_regret_mean_bytes_3seed": 20.403074866310163,
+    "ranking_correlation_3seed": 0.46200927326313374,
+    "ranking_correlation_defined_programs_per_seed": [
+      3835,
+      3835,
+      3835
+    ],
+    "ranking_correlation_undefined_programs_per_seed": [
+      653,
+      653,
+      653
+    ],
+    "seed_results": [
+      {
+        "architecture": "SetConditionedMambaRanker",
+        "seed": 1,
+        "selected": {
+          "N_failed_or_invalid": 0,
+          "N_primary_valid": 4488,
+          "N_total": 4488,
+          "ValidationFinalMeanOverOz": 0.040812221746181244,
+          "lr": 0.00010373241604745131,
+          "per_dataset": {
+            "anghabench-v1": 0.029705461916145953,
+            "blas-v0": 0.008554175201675292,
+            "clgen-v0": 0.08632043196434365,
+            "csmith-v0": 0.16895416959640044,
+            "github-v0": 0.008258143391131862,
+            "linux-v0": -0.01492351150912953,
+            "llvm-stress-v0": -0.0927269165534183,
+            "opencv-v0": 0.021516890345797488,
+            "poj104-v1": 0.19045940596976504,
+            "tensorflow-v0": 0.0020039671391005325
+          },
+          "policy45_regret_mean_bytes": 20.01693404634581,
+          "policy45_regret_median_bytes": 0.0,
+          "positive_program_count_vs_Oz": 2137,
+          "ranking_correlation": {
+            "N_defined": 3835,
+            "N_undefined_all_tied_or_constant": 653,
+            "mean": 0.463475036011399,
+            "name": "tie-aware Spearman rank correlation of predicted scores against frozen raw_candidate_value"
+          },
+          "step": 7200,
+          "top1_accuracy": 0.589349376114082,
+          "train_listmle_loss": 2.272630214691162,
+          "train_pairwise_loss": 0.593907356262207,
+          "train_total_loss": 2.3320209980010986,
+          "validation_listmle_loss": 2.2738566024630678
+        },
+        "selection_metric": "ValidationFinalMeanOverOz policy-45 dataset macro mean",
+        "step_execution": "COMPLETE",
+        "trainable_parameters": 112321
+      },
+      {
+        "architecture": "SetConditionedMambaRanker",
+        "seed": 2,
+        "selected": {
+          "N_failed_or_invalid": 0,
+          "N_primary_valid": 4488,
+          "N_total": 4488,
+          "ValidationFinalMeanOverOz": 0.03837999109148573,
+          "lr": 0.0001760182938922006,
+          "per_dataset": {
+            "anghabench-v1": 0.03006235031759507,
+            "blas-v0": 0.004692739558918535,
+            "clgen-v0": 0.08653836457409082,
+            "csmith-v0": 0.13729173862120703,
+            "github-v0": 0.00814043249509481,
+            "linux-v0": -0.015304813529081246,
+            "llvm-stress-v0": -0.06693905914296931,
+            "opencv-v0": 0.0025142543142616354,
+            "poj104-v1": 0.1883899440505878,
+            "tensorflow-v0": 0.008413959655152133
+          },
+          "policy45_regret_mean_bytes": 22.619429590017827,
+          "policy45_regret_median_bytes": 0.0,
+          "positive_program_count_vs_Oz": 2125,
+          "ranking_correlation": {
+            "N_defined": 3835,
+            "N_undefined_all_tied_or_constant": 653,
+            "mean": 0.4607559066163826,
+            "name": "tie-aware Spearman rank correlation of predicted scores against frozen raw_candidate_value"
+          },
+          "step": 6200,
+          "top1_accuracy": 0.5806595365418895,
+          "train_listmle_loss": 2.335639476776123,
+          "train_pairwise_loss": 0.5781245231628418,
+          "train_total_loss": 2.3934519290924072,
+          "validation_listmle_loss": 2.29389607035115
+        },
+        "selection_metric": "ValidationFinalMeanOverOz policy-45 dataset macro mean",
+        "step_execution": "COMPLETE",
+        "trainable_parameters": 112321
+      },
+      {
+        "architecture": "SetConditionedMambaRanker",
+        "seed": 3,
+        "selected": {
+          "N_failed_or_invalid": 0,
+          "N_primary_valid": 4488,
+          "N_total": 4488,
+          "ValidationFinalMeanOverOz": 0.042452996355951206,
+          "lr": 0.0001383180621627748,
+          "per_dataset": {
+            "anghabench-v1": 0.02991636621944151,
+            "blas-v0": 0.004139065980262699,
+            "clgen-v0": 0.08645601599254514,
+            "csmith-v0": 0.16192750718498847,
+            "github-v0": 0.008302441405186144,
+            "linux-v0": -0.015053263822770674,
+            "llvm-stress-v0": -0.06768544467211055,
+            "opencv-v0": 0.008771553888542257,
+            "poj104-v1": 0.18891274253804624,
+            "tensorflow-v0": 0.018842978845380793
+          },
+          "policy45_regret_mean_bytes": 18.572860962566846,
+          "policy45_regret_median_bytes": 0.0,
+          "positive_program_count_vs_Oz": 2137,
+          "ranking_correlation": {
+            "N_defined": 3835,
+            "N_undefined_all_tied_or_constant": 653,
+            "mean": 0.4617968771616196,
+            "name": "tie-aware Spearman rank correlation of predicted scores against frozen raw_candidate_value"
+          },
+          "step": 6700,
+          "top1_accuracy": 0.5786541889483066,
+          "train_listmle_loss": 2.233325719833374,
+          "train_pairwise_loss": 0.6390370726585388,
+          "train_total_loss": 2.297229528427124,
+          "validation_listmle_loss": 2.291940385645086
+        },
+        "selection_metric": "ValidationFinalMeanOverOz policy-45 dataset macro mean",
+        "step_execution": "COMPLETE",
+        "trainable_parameters": 112321
+      }
+    ],
+    "top1_accuracy_3seed": 0.5828877005347594,
+    "trainable_parameters": 112321
+  },
+  "step_execution": "COMPLETE",
+  "training_only": true,
+  "validation_cohort": {
+    "N_failed_or_invalid": 0,
+    "N_primary_valid": 4488,
+    "N_total": 4488
+  }
+}
