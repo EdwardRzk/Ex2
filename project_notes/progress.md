@@ -878,3 +878,28 @@ REPRODUCIBLE FAIL. The frozen final/OOD result is exact and the method does not 
 
 ### Git
 Retry artifacts commit `0971abb526000e33e852b3cef844fe000702338c`.
+
+
+## 2026-08-22 — Gated-Calibrated MambaNVP v2 validation-only
+
+### Goal
+Test whether a frozen NVP anchor plus a sigmoid-gated Mamba residual and fixed calibration constraint preserves NVP value calibration while improving frozen Route-A validation policy-45 selection.
+
+### Frozen protocol
+Only the existing 28,159/4,488 complete-K50 target rows, cached normalized 56-D Autophase features, frozen candidate sequences, frozen validation prefix labels, and seed-matched frozen Stage-B NVP checkpoints were used. The NVP branch remained eval-only with no trainable parameters. The Mamba branch used the existing two-layer candidate encoder, scalar residual head initialized to zero, and a sigmoid gate from the candidate embedding plus Autophase vector. Final logits were exactly `nvp_logits + alpha * residual`. The target stayed `softmax(raw_candidate_value / 0.05)`; loss was soft-label CE plus fixed `0.1 * KL(P_final || P_nvp)`. Seeds 1/2/3 each ran 10,000 steps with the same Adam, batch 256, lr `5e-4`, weight decay `1e-5`, warmup/cosine schedule, no early stopping, and checkpoint selection by validation policy-45 dataset-macro MeanOverOz. No CompilerGym, LLVM, rollout, ObjectText measurement, label/Autophase regeneration, final/OOD, runtime, tuning, or checkpoint reselection occurred.
+
+### Changes
+Added the isolated GatedCalibratedMambaNVP trainer, frozen config, focused calibration-contract tests, and `outputs/gated_calibrated_mambanvp_v2/`. Training ran in a detached `screen` session so it was independent of SSH connectivity.
+
+### Result
+All seeds completed the same validation cohort `4488/4488/0`. Selected MeanOverOz is seed1 `0.06313043252765024` (step `3400`), seed2 `0.06074945034704312` (step `500`), and seed3 `0.062463617595829704` (step `3500`); three-seed mean `0.06211450015684102`, Oracle recovery `0.802133453534081`, mean policy45 regret `7.702688651218064` bytes, top-1 oracle-tie accuracy `0.6570112893642305`, CE `3.7049536393358817`, average gate `0.22489463934215562`, and objective-direction calibration `KL(P_final || P_nvp)` `0.0001500139413854038`. The requested diagnostic `KL(P_nvp || P_final)` is `0.00014967646827276492`. The model has 86,594 trainable parameters. Relative to frozen references: NVP `-0.0006565093778699363`, MambaNVP(v1) `-0.0004878890093769142`, Mamba `-0.0014384149452134412`, and Cross-Candidate MambaNVP `+0.00009352024394964492`.
+
+### Decision
+FAIL against NVP and MambaNVP(v1) on validation. Stop; do not run final/OOD, runtime, tuning, or another model variant from this task.
+
+### Artifacts
+- `configs/gated_calibrated_mambanvp_v2.json`
+- `outputs/gated_calibrated_mambanvp_v2/{config.json,checkpoints,training_curve.json,comparison_report.json,experiment_report.json}`
+
+### Git
+Implementation commit `5fd50b56b61e9301a97eddd231136a3dab6250ea`; results commit `0512dd112b1886a19e4f7abbfa0c96d013f66429`.
