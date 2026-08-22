@@ -1,0 +1,24 @@
+{
+  "offline_only": true,
+  "selected_checkpoints": [
+    {
+      "path": "outputs/preference_mambanvp_v1/checkpoints/seed1/model.pt",
+      "seed": 1,
+      "sha256": "681da2fbc6e177de1ec8b75d5c750aab5777e3514cee14093cdaeedab872944c",
+      "step": 5800
+    },
+    {
+      "path": "outputs/preference_mambanvp_v1/checkpoints/seed2/model.pt",
+      "seed": 2,
+      "sha256": "8c16ada46ae4021db6bc781a6f3e67c10be2eac76d9bb0a51fd55e26d13cffb4",
+      "step": 7500
+    },
+    {
+      "path": "outputs/preference_mambanvp_v1_recovery_seed3/checkpoints/seed3/model.pt",
+      "seed": 3,
+      "sha256": "6ab2232ea5556fd97df395370c341c408442c39d874ac7d706cfdfdb4418ff37",
+      "step": 6800
+    }
+  ],
+  "step_execution": "COMPLETE"
+}

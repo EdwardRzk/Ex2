@@ -1,0 +1,71 @@
+{
+  "final_strict_pair_count_per_seed": 2888694,
+  "oracle_recovery": 0.7876394350044847,
+  "policy45_regret": {
+    "mean_3seed": 11.357412552539719,
+    "median_per_seed": [
+      0,
+      0,
+      0
+    ],
+    "per_seed": {
+      "1": {
+        "mean": 11.930754434708271,
+        "median": 0
+      },
+      "2": {
+        "mean": 11.751228895063047,
+        "median": 0
+      },
+      "3": {
+        "mean": 10.390254327847831,
+        "median": 0
+      }
+    }
+  },
+  "preference_accuracy_3seed": 0.7606304671476684,
+  "seed_results": [
+    {
+      "N_primary_valid": 4679,
+      "N_total": 4683,
+      "failure_count_by_reason": {
+        "incomplete_K50": 4
+      },
+      "final_strict_pair_count": 2888694,
+      "model": "PreferenceAwareMambaNVP",
+      "preference_accuracy": 0.7583070411750085,
+      "seed": 1,
+      "top1_accuracy": 0.6223552041034409,
+      "value_pairwise_accuracy": 0.7453994781032536
+    },
+    {
+      "N_primary_valid": 4679,
+      "N_total": 4683,
+      "failure_count_by_reason": {
+        "incomplete_K50": 4
+      },
+      "final_strict_pair_count": 2888694,
+      "model": "PreferenceAwareMambaNVP",
+      "preference_accuracy": 0.7631040186326417,
+      "seed": 2,
+      "top1_accuracy": 0.6193631117760205,
+      "value_pairwise_accuracy": 0.7534802924781926
+    },
+    {
+      "N_primary_valid": 4679,
+      "N_total": 4683,
+      "failure_count_by_reason": {
+        "incomplete_K50": 4
+      },
+      "final_strict_pair_count": 2888694,
+      "model": "PreferenceAwareMambaNVP",
+      "preference_accuracy": 0.7604803416353549,
+      "seed": 3,
+      "top1_accuracy": 0.6338961316520624,
+      "value_pairwise_accuracy": 0.7446873916032644
+    }
+  ],
+  "three_seed_mean_over_oz": 0.08284758345218354,
+  "top1_accuracy_3seed": 0.6252048158438412,
+  "value_pairwise_accuracy_3seed": 0.7478557207282369
+}
