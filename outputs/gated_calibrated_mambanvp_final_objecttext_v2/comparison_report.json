@@ -1,0 +1,1048 @@
+{
+  "candidate_rollouts": 0,
+  "checkpoint_reselection": false,
+  "combined_comparison": {
+    "dataset_macro": {
+      "CrossCandidateMambaNVP": {
+        "per_seed": {
+          "1": 0.08804090510837047,
+          "2": 0.08710943832275728,
+          "3": 0.08801293106531356
+        },
+        "three_seed_mean": 0.08772109149881376
+      },
+      "GatedCalibratedMambaNVP": {
+        "per_seed": {
+          "1": 0.0881268103519816,
+          "2": 0.08734139972723186,
+          "3": 0.08789773844589048
+        },
+        "three_seed_mean": 0.08778864950836797
+      },
+      "Mamba": {
+        "per_seed": {
+          "1": 0.08493805013175956,
+          "2": 0.08210069016603284,
+          "3": 0.08684124880666519
+        },
+        "three_seed_mean": 0.08462666303481921
+      },
+      "MambaNVP": {
+        "per_seed": {
+          "1": 0.08805309505096436,
+          "2": 0.08721274304242747,
+          "3": 0.08771300182975059
+        },
+        "three_seed_mean": 0.08765961330771414
+      },
+      "NVP": {
+        "per_seed": {
+          "1": 0.08781183536807133,
+          "2": 0.08752695928331179,
+          "3": 0.08612528155809254
+        },
+        "three_seed_mean": 0.08715469206982522
+      }
+    },
+    "methods": [
+      "NVP",
+      "Mamba",
+      "MambaNVP",
+      "CrossCandidateMambaNVP",
+      "GatedCalibratedMambaNVP"
+    ],
+    "per_dataset": {
+      "anghabench-v1": {
+        "CrossCandidateMambaNVP": {
+          "per_seed": {
+            "1": 0.03706772288841158,
+            "2": 0.03631501646367238,
+            "3": 0.03629505165923092
+          },
+          "three_seed_mean": 0.03655926367043829
+        },
+        "GatedCalibratedMambaNVP": {
+          "per_seed": {
+            "1": 0.03702876607392647,
+            "2": 0.03637534560217047,
+            "3": 0.03664611417257606
+          },
+          "three_seed_mean": 0.03668340861622433
+        },
+        "Mamba": {
+          "per_seed": {
+            "1": 0.03544686201624967,
+            "2": 0.03562701792065806,
+            "3": 0.03569689679646873
+          },
+          "three_seed_mean": 0.03559025891112549
+        },
+        "MambaNVP": {
+          "per_seed": {
+            "1": 0.036954804919405594,
+            "2": 0.036292971648013636,
+            "3": 0.036699037470944815
+          },
+          "three_seed_mean": 0.03664893801278802
+        },
+        "NVP": {
+          "per_seed": {
+            "1": 0.037368368454469725,
+            "2": 0.0365463896071298,
+            "3": 0.036857377775847744
+          },
+          "three_seed_mean": 0.03692404527914909
+        },
+        "N_failed_or_invalid": 1,
+        "N_primary_valid": 999,
+        "N_total": 1000
+      },
+      "blas-v0": {
+        "CrossCandidateMambaNVP": {
+          "per_seed": {
+            "1": 0.011254542021222612,
+            "2": 0.01156478911908813,
+            "3": 0.010920963114061445
+          },
+          "three_seed_mean": 0.011246764751457396
+        },
+        "GatedCalibratedMambaNVP": {
+          "per_seed": {
+            "1": 0.011254542021222612,
+            "2": 0.011727617072971055,
+            "3": 0.010793854472489655
+          },
+          "three_seed_mean": 0.011258671188894441
+        },
+        "Mamba": {
+          "per_seed": {
+            "1": 0.0052356944633225235,
+            "2": 0.004911310149376269,
+            "3": 0.006040589089369727
+          },
+          "three_seed_mean": 0.005395864567356173
+        },
+        "MambaNVP": {
+          "per_seed": {
+            "1": 0.011254542021222612,
+            "2": 0.009920403872512565,
+            "3": 0.010563640537969076
+          },
+          "three_seed_mean": 0.010579528810568084
+        },
+        "NVP": {
+          "per_seed": {
+            "1": 0.011785674559219016,
+            "2": 0.01156478911908813,
+            "3": 0.010690749179540864
+          },
+          "three_seed_mean": 0.011347070952616006
+        },
+        "N_failed_or_invalid": 0,
+        "N_primary_valid": 29,
+        "N_total": 29
+      },
+      "cbench-v1": {
+        "CrossCandidateMambaNVP": {
+          "per_seed": {
+            "1": 0.18684478235738472,
+            "2": 0.1877542905988104,
+            "3": 0.18807692754687408
+          },
+          "three_seed_mean": 0.1875586668343564
+        },
+        "GatedCalibratedMambaNVP": {
+          "per_seed": {
+            "1": 0.18684478235738472,
+            "2": 0.1877542905988104,
+            "3": 0.1899630518727976
+          },
+          "three_seed_mean": 0.18818737494299756
+        },
+        "Mamba": {
+          "per_seed": {
+            "1": 0.18976339465496378,
+            "2": 0.18269424191465203,
+            "3": 0.19180510519859703
+          },
+          "three_seed_mean": 0.1880875805894043
+        },
+        "MambaNVP": {
+          "per_seed": {
+            "1": 0.18684478235738472,
+            "2": 0.1877542905988104,
+            "3": 0.18946656355189467
+          },
+          "three_seed_mean": 0.18802187883602994
+        },
+        "NVP": {
+          "per_seed": {
+            "1": 0.18684478235738472,
+            "2": 0.1877542905988104,
+            "3": 0.18936947386311706
+          },
+          "three_seed_mean": 0.1879895156064374
+        },
+        "N_failed_or_invalid": 0,
+        "N_primary_valid": 11,
+        "N_total": 11
+      },
+      "chstone-v0": {
+        "CrossCandidateMambaNVP": {
+          "per_seed": {
+            "1": 0.0920298150608993,
+            "2": 0.0933677760602048,
+            "3": 0.09238508626432347
+          },
+          "three_seed_mean": 0.09259422579514252
+        },
+        "GatedCalibratedMambaNVP": {
+          "per_seed": {
+            "1": 0.0920298150608993,
+            "2": 0.09288586057296289,
+            "3": 0.0900683787145824
+          },
+          "three_seed_mean": 0.09166135144948152
+        },
+        "Mamba": {
+          "per_seed": {
+            "1": 0.09848881643414566,
+            "2": 0.09376992949640091,
+            "3": 0.09527936698534249
+          },
+          "three_seed_mean": 0.09584603763862969
+        },
+        "MambaNVP": {
+          "per_seed": {
+            "1": 0.0920298150608993,
+            "2": 0.0933677760602048,
+            "3": 0.09238508626432347
+          },
+          "three_seed_mean": 0.09259422579514252
+        },
+        "NVP": {
+          "per_seed": {
+            "1": 0.0920298150608993,
+            "2": 0.09343588132846309,
+            "3": 0.09095417866007165
+          },
+          "three_seed_mean": 0.09213995834981135
+        },
+        "N_failed_or_invalid": 0,
+        "N_primary_valid": 12,
+        "N_total": 12
+      },
+      "clgen-v0": {
+        "CrossCandidateMambaNVP": {
+          "per_seed": {
+            "1": 0.10219015793534937,
+            "2": 0.10019405624265679,
+            "3": 0.10044716119709082
+          },
+          "three_seed_mean": 0.10094379179169899
+        },
+        "GatedCalibratedMambaNVP": {
+          "per_seed": {
+            "1": 0.10219015793534937,
+            "2": 0.10019405624265679,
+            "3": 0.1012557825274513
+          },
+          "three_seed_mean": 0.1012133322351525
+        },
+        "Mamba": {
+          "per_seed": {
+            "1": 0.1012444538610906,
+            "2": 0.10623222739644556,
+            "3": 0.1007368833751995
+          },
+          "three_seed_mean": 0.10273785487757854
+        },
+        "MambaNVP": {
+          "per_seed": {
+            "1": 0.10229654091407278,
+            "2": 0.10019405624265679,
+            "3": 0.10079135501496886
+          },
+          "three_seed_mean": 0.1010939840572328
+        },
+        "NVP": {
+          "per_seed": {
+            "1": 0.10230352590889684,
+            "2": 0.10019405624265679,
+            "3": 0.10079135501496886
+          },
+          "three_seed_mean": 0.10109631238884083
+        },
+        "N_failed_or_invalid": 0,
+        "N_primary_valid": 150,
+        "N_total": 150
+      },
+      "csmith-v0": {
+        "CrossCandidateMambaNVP": {
+          "per_seed": {
+            "1": 0.2563563798417077,
+            "2": 0.2599396697767654,
+            "3": 0.2598782688532955
+          },
+          "three_seed_mean": 0.25872477282392287
+        },
+        "GatedCalibratedMambaNVP": {
+          "per_seed": {
+            "1": 0.2563563798417077,
+            "2": 0.2599396697767654,
+            "3": 0.2598782688532955
+          },
+          "three_seed_mean": 0.25872477282392287
+        },
+        "Mamba": {
+          "per_seed": {
+            "1": 0.2526332174583861,
+            "2": 0.2301242533242731,
+            "3": 0.24946109136415998
+          },
+          "three_seed_mean": 0.24407285404893972
+        },
+        "MambaNVP": {
+          "per_seed": {
+            "1": 0.2563563798417077,
+            "2": 0.25967796345152483,
+            "3": 0.2598782688532955
+          },
+          "three_seed_mean": 0.25863753738217604
+        },
+        "NVP": {
+          "per_seed": {
+            "1": 0.2563563798417077,
+            "2": 0.2599396697767654,
+            "3": 0.25889800519063894
+          },
+          "three_seed_mean": 0.25839801826970404
+        },
+        "N_failed_or_invalid": 0,
+        "N_primary_valid": 48,
+        "N_total": 48
+      },
+      "github-v0": {
+        "CrossCandidateMambaNVP": {
+          "per_seed": {
+            "1": 0.007304619444562223,
+            "2": 0.007272787853433015,
+            "3": 0.0071146807801544245
+          },
+          "three_seed_mean": 0.007230696026049887
+        },
+        "GatedCalibratedMambaNVP": {
+          "per_seed": {
+            "1": 0.007323322686457485,
+            "2": 0.007237523369805811,
+            "3": 0.00714083403634084
+          },
+          "three_seed_mean": 0.007233893364201378
+        },
+        "Mamba": {
+          "per_seed": {
+            "1": 0.006598444561876316,
+            "2": 0.0064313141543196175,
+            "3": 0.006454647846153423
+          },
+          "three_seed_mean": 0.006494802187449786
+        },
+        "MambaNVP": {
+          "per_seed": {
+            "1": 0.007304619444562223,
+            "2": 0.0072776451697657415,
+            "3": 0.007150532951332872
+          },
+          "three_seed_mean": 0.007244265855220279
+        },
+        "NVP": {
+          "per_seed": {
+            "1": 0.007203116983137434,
+            "2": 0.007264812345715513,
+            "3": 0.007143912085648773
+          },
+          "three_seed_mean": 0.00720394713816724
+        },
+        "N_failed_or_invalid": 0,
+        "N_primary_valid": 1000,
+        "N_total": 1000
+      },
+      "linux-v0": {
+        "CrossCandidateMambaNVP": {
+          "per_seed": {
+            "1": 0.0033772554734958007,
+            "2": 0.003187056348947167,
+            "3": 0.002739715125593923
+          },
+          "three_seed_mean": 0.0031013423160122966
+        },
+        "GatedCalibratedMambaNVP": {
+          "per_seed": {
+            "1": 0.0033173748902199946,
+            "2": 0.003253905026342718,
+            "3": 0.00273142674738021
+          },
+          "three_seed_mean": 0.0031009022213143076
+        },
+        "Mamba": {
+          "per_seed": {
+            "1": 0.0023047421784219515,
+            "2": 0.002042547044892555,
+            "3": 0.002949847075580986
+          },
+          "three_seed_mean": 0.0024323787662984975
+        },
+        "MambaNVP": {
+          "per_seed": {
+            "1": 0.00329853634727662,
+            "2": 0.003311269659622236,
+            "3": 0.002728613321084054
+          },
+          "three_seed_mean": 0.0031128064426609696
+        },
+        "NVP": {
+          "per_seed": {
+            "1": 0.003125644341293801,
+            "2": 0.003232658981482769,
+            "3": 0.0027675031703861958
+          },
+          "three_seed_mean": 0.003041935497720922
+        },
+        "N_failed_or_invalid": 0,
+        "N_primary_valid": 1000,
+        "N_total": 1000
+      },
+      "llvm-stress-v0": {
+        "CrossCandidateMambaNVP": {
+          "per_seed": {
+            "1": -0.034164676729607844,
+            "2": -0.045973418977631436,
+            "3": -0.03482802028401868
+          },
+          "three_seed_mean": -0.03832203866375266
+        },
+        "GatedCalibratedMambaNVP": {
+          "per_seed": {
+            "1": -0.0332370329448212,
+            "2": -0.040087731369254746,
+            "3": -0.034344900206719466
+          },
+          "three_seed_mean": -0.03588988817359847
+        },
+        "Mamba": {
+          "per_seed": {
+            "1": -0.06438045763143753,
+            "2": -0.07960328606849082,
+            "3": -0.03515970232222277
+          },
+          "three_seed_mean": -0.0597144820073837
+        },
+        "MambaNVP": {
+          "per_seed": {
+            "1": -0.03365183301118922,
+            "2": -0.04342239856946817,
+            "3": -0.038063797353467155
+          },
+          "three_seed_mean": -0.03837934297804151
+        },
+        "NVP": {
+          "per_seed": {
+            "1": -0.03675510684104636,
+            "2": -0.03753671096109148,
+            "3": -0.060306836949697594
+          },
+          "three_seed_mean": -0.044866218250611815
+        },
+        "N_failed_or_invalid": 3,
+        "N_primary_valid": 147,
+        "N_total": 150
+      },
+      "mibench-v1": {
+        "CrossCandidateMambaNVP": {
+          "per_seed": {
+            "1": 0.0637942246024947,
+            "2": 0.0644894747353194,
+            "3": 0.06531755799796789
+          },
+          "three_seed_mean": 0.06453375244526066
+        },
+        "GatedCalibratedMambaNVP": {
+          "per_seed": {
+            "1": 0.06362105079896824,
+            "2": 0.06451999757799806,
+            "3": 0.06531755799796789
+          },
+          "three_seed_mean": 0.06448620212497806
+        },
+        "Mamba": {
+          "per_seed": {
+            "1": 0.06237675782959218,
+            "2": 0.06068026917933954,
+            "3": 0.06739944978012764
+          },
+          "three_seed_mean": 0.06348549226301979
+        },
+        "MambaNVP": {
+          "per_seed": {
+            "1": 0.06292242921009669,
+            "2": 0.06471009502443142,
+            "3": 0.06447004076628973
+          },
+          "three_seed_mean": 0.06403418833360595
+        },
+        "NVP": {
+          "per_seed": {
+            "1": 0.06258077769641021,
+            "2": 0.06451999757799806,
+            "3": 0.06332113240134694
+          },
+          "three_seed_mean": 0.06347396922525174
+        },
+        "N_failed_or_invalid": 0,
+        "N_primary_valid": 40,
+        "N_total": 40
+      },
+      "npb-v0": {
+        "CrossCandidateMambaNVP": {
+          "per_seed": {
+            "1": 0.22215654952438993,
+            "2": 0.21748504209457056,
+            "3": 0.2209282354996645
+          },
+          "three_seed_mean": 0.220189942372875
+        },
+        "GatedCalibratedMambaNVP": {
+          "per_seed": {
+            "1": 0.22209346202202418,
+            "2": 0.21756659004514986,
+            "3": 0.21826694965701302
+          },
+          "three_seed_mean": 0.21930900057472902
+        },
+        "Mamba": {
+          "per_seed": {
+            "1": 0.2214126480031863,
+            "2": 0.22772582959737842,
+            "3": 0.2205410374028785
+          },
+          "three_seed_mean": 0.2232265050011477
+        },
+        "MambaNVP": {
+          "per_seed": {
+            "1": 0.22293775097041676,
+            "2": 0.21788458406203592,
+            "3": 0.21935896371900107
+          },
+          "three_seed_mean": 0.22006043291715127
+        },
+        "NVP": {
+          "per_seed": {
+            "1": 0.22262036763499096,
+            "2": 0.21704912368447937,
+            "3": 0.22139059751946952
+          },
+          "three_seed_mean": 0.22035336294631327
+        },
+        "N_failed_or_invalid": 0,
+        "N_primary_valid": 121,
+        "N_total": 121
+      },
+      "opencv-v0": {
+        "CrossCandidateMambaNVP": {
+          "per_seed": {
+            "1": 0.04153066614620482,
+            "2": 0.04141279520778173,
+            "3": 0.04196746018449856
+          },
+          "three_seed_mean": 0.04163697384616171
+        },
+        "GatedCalibratedMambaNVP": {
+          "per_seed": {
+            "1": 0.042170295620330984,
+            "2": 0.0403556632358812,
+            "3": 0.04188135342187958
+          },
+          "three_seed_mean": 0.04146910409269726
+        },
+        "Mamba": {
+          "per_seed": {
+            "1": 0.03580136733694417,
+            "2": 0.03627790296014795,
+            "3": 0.036120268890955085
+          },
+          "three_seed_mean": 0.0360665130626824
+        },
+        "MambaNVP": {
+          "per_seed": {
+            "1": 0.04134041737954165,
+            "2": 0.04148227148169475,
+            "3": 0.041747690057491106
+          },
+          "three_seed_mean": 0.04152345963957583
+        },
+        "NVP": {
+          "per_seed": {
+            "1": 0.04134041737954165,
+            "2": 0.0403556632358812,
+            "3": 0.04145913152376321
+          },
+          "three_seed_mean": 0.04105173737972869
+        },
+        "N_failed_or_invalid": 0,
+        "N_primary_valid": 32,
+        "N_total": 32
+      },
+      "poj104-v1": {
+        "CrossCandidateMambaNVP": {
+          "per_seed": {
+            "1": 0.18717889046879516,
+            "2": 0.18665949268452992,
+            "3": 0.18672666696435153
+          },
+          "three_seed_mean": 0.18685501670589222
+        },
+        "GatedCalibratedMambaNVP": {
+          "per_seed": {
+            "1": 0.18717889046879516,
+            "2": 0.18659397380816267,
+            "3": 0.18675838596411076
+          },
+          "three_seed_mean": 0.18684375008035622
+        },
+        "Mamba": {
+          "per_seed": {
+            "1": 0.18696042240204,
+            "2": 0.18775045415006028,
+            "3": 0.18698233325678687
+          },
+          "three_seed_mean": 0.1872310699362957
+        },
+        "MambaNVP": {
+          "per_seed": {
+            "1": 0.18720280277622697,
+            "2": 0.18666416558172616,
+            "3": 0.18659475045007848
+          },
+          "three_seed_mean": 0.18682057293601054
+        },
+        "NVP": {
+          "per_seed": {
+            "1": 0.18717739108928683,
+            "2": 0.18659397380816267,
+            "3": 0.18680560867726168
+          },
+          "three_seed_mean": 0.18685899119157037
+        },
+        "N_failed_or_invalid": 0,
+        "N_primary_valid": 1000,
+        "N_total": 1000
+      },
+      "tensorflow-v0": {
+        "CrossCandidateMambaNVP": {
+          "per_seed": {
+            "1": 0.05565174248187652,
+            "2": 0.055863308310453566,
+            "3": 0.054211280011301384
+          },
+          "three_seed_mean": 0.055242110267877155
+        },
+        "GatedCalibratedMambaNVP": {
+          "per_seed": {
+            "1": 0.05560353809527734,
+            "2": 0.054462834620823256,
+            "3": 0.054211280011301384
+          },
+          "three_seed_mean": 0.054759217575800656
+        },
+        "Mamba": {
+          "per_seed": {
+            "1": 0.055246338275852444,
+            "2": 0.054745651105006204,
+            "3": 0.051469668553915354
+          },
+          "three_seed_mean": 0.05382055264492467
+        },
+        "MambaNVP": {
+          "per_seed": {
+            "1": 0.05565174248187652,
+            "2": 0.055863308310453566,
+            "3": 0.054211280011301384
+          },
+          "three_seed_mean": 0.055242110267877155
+        },
+        "NVP": {
+          "per_seed": {
+            "1": 0.05538454068680663,
+            "2": 0.054462834620823256,
+            "3": 0.0556117537009317
+          },
+          "three_seed_mean": 0.05515304300285386
+        },
+        "N_failed_or_invalid": 0,
+        "N_primary_valid": 90,
+        "N_total": 90
+      }
+    }
+  },
+  "common_cohort_invalid_statistics": {
+    "CrossCandidateMambaNVP": {
+      "1": {
+        "N_invalid": 4,
+        "N_primary_valid": 4679,
+        "N_total": 4683,
+        "failure_count_by_reason": {
+          "incomplete_K50": 4
+        }
+      },
+      "2": {
+        "N_invalid": 4,
+        "N_primary_valid": 4679,
+        "N_total": 4683,
+        "failure_count_by_reason": {
+          "incomplete_K50": 4
+        }
+      },
+      "3": {
+        "N_invalid": 4,
+        "N_primary_valid": 4679,
+        "N_total": 4683,
+        "failure_count_by_reason": {
+          "incomplete_K50": 4
+        }
+      }
+    },
+    "GatedCalibratedMambaNVP": {
+      "1": {
+        "N_invalid": 4,
+        "N_primary_valid": 4679,
+        "N_total": 4683,
+        "failure_count_by_reason": {
+          "incomplete_K50": 4
+        }
+      },
+      "2": {
+        "N_invalid": 4,
+        "N_primary_valid": 4679,
+        "N_total": 4683,
+        "failure_count_by_reason": {
+          "incomplete_K50": 4
+        }
+      },
+      "3": {
+        "N_invalid": 4,
+        "N_primary_valid": 4679,
+        "N_total": 4683,
+        "failure_count_by_reason": {
+          "incomplete_K50": 4
+        }
+      }
+    },
+    "Mamba": {
+      "1": {
+        "N_invalid": 4,
+        "N_primary_valid": 4679,
+        "N_total": 4683,
+        "failure_count_by_reason": {
+          "incomplete_K50": 4
+        }
+      },
+      "2": {
+        "N_invalid": 4,
+        "N_primary_valid": 4679,
+        "N_total": 4683,
+        "failure_count_by_reason": {
+          "incomplete_K50": 4
+        }
+      },
+      "3": {
+        "N_invalid": 4,
+        "N_primary_valid": 4679,
+        "N_total": 4683,
+        "failure_count_by_reason": {
+          "incomplete_K50": 4
+        }
+      }
+    },
+    "MambaNVP": {
+      "1": {
+        "N_invalid": 4,
+        "N_primary_valid": 4679,
+        "N_total": 4683,
+        "failure_count_by_reason": {
+          "incomplete_K50": 4
+        }
+      },
+      "2": {
+        "N_invalid": 4,
+        "N_primary_valid": 4679,
+        "N_total": 4683,
+        "failure_count_by_reason": {
+          "incomplete_K50": 4
+        }
+      },
+      "3": {
+        "N_invalid": 4,
+        "N_primary_valid": 4679,
+        "N_total": 4683,
+        "failure_count_by_reason": {
+          "incomplete_K50": 4
+        }
+      }
+    },
+    "NVP": {
+      "1": {
+        "N_invalid": 4,
+        "N_primary_valid": 4679,
+        "N_total": 4683,
+        "failure_count_by_reason": {
+          "incomplete_K50": 4
+        }
+      },
+      "2": {
+        "N_invalid": 4,
+        "N_primary_valid": 4679,
+        "N_total": 4683,
+        "failure_count_by_reason": {
+          "incomplete_K50": 4
+        }
+      },
+      "3": {
+        "N_invalid": 4,
+        "N_primary_valid": 4679,
+        "N_total": 4683,
+        "failure_count_by_reason": {
+          "incomplete_K50": 4
+        }
+      }
+    }
+  },
+  "compiler_gym_initialized": false,
+  "device": "cuda",
+  "final_population": {
+    "N_complete_K50_valid": 4679,
+    "N_invalid": 4,
+    "N_total": 4683
+  },
+  "frozen_offline_k50_oracle": {
+    "dataset_macro": 0.10518465654492251,
+    "per_dataset": {
+      "anghabench-v1": 0.04561583017768337,
+      "blas-v0": 0.025652998753889364,
+      "cbench-v1": 0.21156411908070136,
+      "chstone-v0": 0.11471253965083543,
+      "clgen-v0": 0.1084684493440416,
+      "csmith-v0": 0.2657450019550968,
+      "github-v0": 0.008928384949088581,
+      "linux-v0": 0.004922726059191825,
+      "llvm-stress-v0": 0.045919615393255106,
+      "mibench-v1": 0.08262960447407915,
+      "npb-v0": 0.2489842609291388,
+      "opencv-v0": 0.05285963701881168,
+      "poj104-v1": 0.1967983158730604,
+      "tensorflow-v0": 0.05978370797004188
+    }
+  },
+  "gated_calibrated_mambanvp": {
+    "average_gate_alpha_3seed": 0.22490808749866428,
+    "calibration_kl_final_to_nvp_3seed": 0.0001474649163384832,
+    "oracle_recovery": 0.8346145948660771,
+    "policy45_regret": {
+      "mean_3seed": 11.93089691529529,
+      "median_per_seed": [
+        0,
+        0,
+        0
+      ],
+      "per_seed": {
+        "1": {
+          "mean": 11.679632400085488,
+          "median": 0
+        },
+        "2": {
+          "mean": 12.320367599914512,
+          "median": 0
+        },
+        "3": {
+          "mean": 11.792690745885873,
+          "median": 0
+        }
+      }
+    },
+    "seed_results": [
+      {
+        "N_primary_valid": 4679,
+        "N_total": 4683,
+        "average_gate_alpha": 0.2405535668220039,
+        "calibration_kl_final_to_nvp": 0.0001563653726565434,
+        "failure_count_by_reason": {
+          "incomplete_K50": 4
+        },
+        "model": "GatedCalibratedMambaNVP",
+        "seed": 1,
+        "top1_accuracy": 0.6441547339175038,
+        "validation_kl_nvp_to_final": 0.00015637782617253365
+      },
+      {
+        "N_primary_valid": 4679,
+        "N_total": 4683,
+        "average_gate_alpha": 0.230165775606433,
+        "calibration_kl_final_to_nvp": 1.2394291420165176e-05,
+        "failure_count_by_reason": {
+          "incomplete_K50": 4
+        },
+        "model": "GatedCalibratedMambaNVP",
+        "seed": 2,
+        "top1_accuracy": 0.6469331053643941,
+        "validation_kl_nvp_to_final": 1.2413040501827377e-05
+      },
+      {
+        "N_primary_valid": 4679,
+        "N_total": 4683,
+        "average_gate_alpha": 0.20400492006755583,
+        "calibration_kl_final_to_nvp": 0.00027363508493874104,
+        "failure_count_by_reason": {
+          "incomplete_K50": 4
+        },
+        "model": "GatedCalibratedMambaNVP",
+        "seed": 3,
+        "top1_accuracy": 0.6450096174396238,
+        "validation_kl_nvp_to_final": 0.0002727049944283549
+      }
+    ],
+    "three_seed_mean_over_oz": 0.08778864950836797,
+    "top1_accuracy_3seed": 0.6453658189071739,
+    "validation_kl_nvp_to_final_3seed": 0.00014716528703423863
+  },
+  "gated_calibrated_minus": {
+    "CrossCandidateMambaNVP": 6.755800955421387e-05,
+    "Mamba": 0.0031619864735487613,
+    "MambaNVP": 0.00012903620065382593,
+    "NVP": 0.0006339574385427482
+  },
+  "invalid_program_retry": false,
+  "label_regeneration": false,
+  "llvm_execution": false,
+  "model_training": false,
+  "objecttext_measurements": 0,
+  "offline_only": true,
+  "oracle_recovery": {
+    "CrossCandidateMambaNVP": 0.8339723147867067,
+    "GatedCalibratedMambaNVP": 0.8346145948660771,
+    "Mamba": 0.8045533047747953,
+    "MambaNVP": 0.8333878360887765,
+    "NVP": 0.828587504419934
+  },
+  "policy45_regret": {
+    "CrossCandidateMambaNVP": {
+      "mean_3seed": 11.898625062335256,
+      "median_per_seed": [
+        0,
+        0,
+        0
+      ],
+      "per_seed": {
+        "1": {
+          "mean": 11.679418679204959,
+          "median": 0
+        },
+        "2": {
+          "mean": 12.250267151100662,
+          "median": 0
+        },
+        "3": {
+          "mean": 11.76618935670015,
+          "median": 0
+        }
+      }
+    },
+    "GatedCalibratedMambaNVP": {
+      "mean_3seed": 11.93089691529529,
+      "median_per_seed": [
+        0,
+        0,
+        0
+      ],
+      "per_seed": {
+        "1": {
+          "mean": 11.679632400085488,
+          "median": 0
+        },
+        "2": {
+          "mean": 12.320367599914512,
+          "median": 0
+        },
+        "3": {
+          "mean": 11.792690745885873,
+          "median": 0
+        }
+      }
+    },
+    "Mamba": {
+      "mean_3seed": 13.445821756785639,
+      "median_per_seed": [
+        0,
+        0,
+        0
+      ],
+      "per_seed": {
+        "1": {
+          "mean": 13.242145757640522,
+          "median": 0
+        },
+        "2": {
+          "mean": 14.288523188715537,
+          "median": 0
+        },
+        "3": {
+          "mean": 12.806796324000855,
+          "median": 0
+        }
+      }
+    },
+    "MambaNVP": {
+      "mean_3seed": 11.9388045878749,
+      "median_per_seed": [
+        0,
+        0,
+        0
+      ],
+      "per_seed": {
+        "1": {
+          "mean": 11.724727505877324,
+          "median": 0
+        },
+        "2": {
+          "mean": 12.14981833725155,
+          "median": 0
+        },
+        "3": {
+          "mean": 11.941867920495833,
+          "median": 0
+        }
+      }
+    },
+    "NVP": {
+      "mean_3seed": 12.022725653629692,
+      "median_per_seed": [
+        0,
+        0,
+        0
+      ],
+      "per_seed": {
+        "1": {
+          "mean": 11.828595853814917,
+          "median": 0
+        },
+        "2": {
+          "mean": 12.316306903184442,
+          "median": 0
+        },
+        "3": {
+          "mean": 11.92327420388972,
+          "median": 0
+        }
+      }
+    }
+  },
+  "step_execution": "COMPLETE"
+}

@@ -1,0 +1,9 @@
+{
+  "offline_only": true,
+  "selected_steps": {
+    "1": 3400,
+    "2": 500,
+    "3": 3500
+  },
+  "step_execution": "COMPLETE"
+}
