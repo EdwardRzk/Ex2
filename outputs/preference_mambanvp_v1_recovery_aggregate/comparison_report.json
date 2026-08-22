@@ -1,0 +1,173 @@
+{
+  "candidate_rollouts": 0,
+  "compiler_gym_initialized": false,
+  "differences": {
+    "CrossCandidateMambaNVP": 0.000927530075065533,
+    "Mamba": -0.0006044051140975532,
+    "MambaNVP_v1": 0.00034612082173897385,
+    "NVP": 0.00017750045324595176
+  },
+  "final_test_accessed": false,
+  "frozen_references": {
+    "CrossCandidateMambaNVP": 0.06202097991289138,
+    "Mamba": 0.06355291510205446,
+    "MambaNVP_v1": 0.06260238916621794,
+    "NVP": 0.06277100953471096
+  },
+  "label_regeneration": false,
+  "llvm_execution": false,
+  "objecttext_measurements": 0,
+  "ood_accessed": false,
+  "pass_fail_gate": {
+    "actual": 0.06294850998795691,
+    "baseline_NVP": 0.06277100953471096,
+    "criterion": "PreferenceAwareMambaNVP validation three-seed MeanOverOz must exceed frozen NVP three-seed MeanOverOz",
+    "decision": "PASS"
+  },
+  "preference_aware_mambanvp": {
+    "ValidationFinalMeanOverOz_3seed": 0.06294850998795691,
+    "architecture": "PreferenceAwareMambaNVP",
+    "oracle_recovery_3seed": 0.8129036792370192,
+    "pairwise_accuracy_3seed": 0.7516964868553795,
+    "policy45_regret_mean_bytes_3seed": 9.15136660724896,
+    "preference_accuracy_3seed": 0.766551564694479,
+    "seed_results": [
+      {
+        "architecture": "PreferenceAwareMambaNVP",
+        "checkpoint_path": "outputs/preference_mambanvp_v1/checkpoints/seed1/model.pt",
+        "checkpoint_sha256": "681da2fbc6e177de1ec8b75d5c750aab5777e3514cee14093cdaeedab872944c",
+        "seed": 1,
+        "selected": {
+          "N_failed_or_invalid": 0,
+          "N_primary_valid": 4488,
+          "N_total": 4488,
+          "ValidationFinalMeanOverOz": 0.061370967335924856,
+          "lr": 0.00020773206775280282,
+          "pairwise_accuracy": 0.7499295294047831,
+          "per_dataset": {
+            "anghabench-v1": 0.038273969645758146,
+            "blas-v0": 0.016573299899813928,
+            "clgen-v0": 0.08708817976629492,
+            "csmith-v0": 0.23747040101027164,
+            "github-v0": 0.008347583707003324,
+            "linux-v0": -0.0033944295370117003,
+            "llvm-stress-v0": -0.04615385640260213,
+            "opencv-v0": 0.05161211174341921,
+            "poj104-v1": 0.1925664238046754,
+            "tensorflow-v0": 0.03132598972162568
+          },
+          "policy45_regret_mean_bytes": 9.813948306595366,
+          "policy45_regret_median_bytes": 0.0,
+          "positive_program_count_vs_Oz": 2236,
+          "preference_accuracy": 0.7640792831285977,
+          "step": 5800,
+          "train_preference_loss": 0.4166351556777954,
+          "train_total_loss": 3.7490131855010986,
+          "train_value_loss": 3.7073497772216797,
+          "validation_nvp_ce": 3.7184685309303,
+          "validation_strict_pair_count": 2696160
+        },
+        "selected_step": 5800,
+        "step_execution": "COMPLETE",
+        "trainable_parameters": 84060
+      },
+      {
+        "architecture": "PreferenceAwareMambaNVP",
+        "checkpoint_path": "outputs/preference_mambanvp_v1/checkpoints/seed2/model.pt",
+        "checkpoint_sha256": "8c16ada46ae4021db6bc781a6f3e67c10be2eac76d9bb0a51fd55e26d13cffb4",
+        "seed": 2,
+        "selected": {
+          "N_failed_or_invalid": 0,
+          "N_primary_valid": 4488,
+          "N_total": 4488,
+          "ValidationFinalMeanOverOz": 0.06386679802476343,
+          "lr": 8.487281102262914e-05,
+          "pairwise_accuracy": 0.7556888315233518,
+          "per_dataset": {
+            "anghabench-v1": 0.037051856231788596,
+            "blas-v0": 0.02107238953032046,
+            "clgen-v0": 0.08552044666609397,
+            "csmith-v0": 0.2400598447737831,
+            "github-v0": 0.008407285279425244,
+            "linux-v0": 0.0005821184994660515,
+            "llvm-stress-v0": -0.03122305596837824,
+            "opencv-v0": 0.05364494180812474,
+            "poj104-v1": 0.19256066986994358,
+            "tensorflow-v0": 0.030991483557066716
+          },
+          "policy45_regret_mean_bytes": 9.524064171122994,
+          "policy45_regret_median_bytes": 0.0,
+          "positive_program_count_vs_Oz": 2245,
+          "preference_accuracy": 0.7678565070322236,
+          "step": 7500,
+          "train_preference_loss": 0.41654592752456665,
+          "train_total_loss": 3.7829904556274414,
+          "train_value_loss": 3.741335868835449,
+          "validation_nvp_ce": 3.7177891025781205,
+          "validation_strict_pair_count": 2696160
+        },
+        "selected_step": 7500,
+        "step_execution": "COMPLETE",
+        "trainable_parameters": 84060
+      },
+      {
+        "architecture": "PreferenceAwareMambaNVP",
+        "checkpoint_path": "outputs/preference_mambanvp_v1_recovery_seed3/checkpoints/seed3/model.pt",
+        "checkpoint_sha256": "6ab2232ea5556fd97df395370c341c408442c39d874ac7d706cfdfdb4418ff37",
+        "seed": 3,
+        "selected": {
+          "N_failed_or_invalid": 0,
+          "N_primary_valid": 4488,
+          "N_total": 4488,
+          "ValidationFinalMeanOverOz": 0.06360776460318242,
+          "lr": 0.00013112018280194923,
+          "pairwise_accuracy": 0.7494710996380036,
+          "per_dataset": {
+            "anghabench-v1": 0.03954380169775741,
+            "blas-v0": 0.018558773389977298,
+            "clgen-v0": 0.08536326030929042,
+            "csmith-v0": 0.24391909649083454,
+            "github-v0": 0.008525061575837906,
+            "linux-v0": 0.0008888457002104496,
+            "llvm-stress-v0": -0.0364319696745997,
+            "opencv-v0": 0.052782858029262296,
+            "poj104-v1": 0.19340770334620272,
+            "tensorflow-v0": 0.029520215167050747
+          },
+          "policy45_regret_mean_bytes": 8.11608734402852,
+          "policy45_regret_median_bytes": 0.0,
+          "positive_program_count_vs_Oz": 2274,
+          "preference_accuracy": 0.7677189039226159,
+          "step": 6800,
+          "train_preference_loss": 0.3623766303062439,
+          "train_total_loss": 3.7442739009857178,
+          "train_value_loss": 3.708036184310913,
+          "validation_nvp_ce": 3.718990463624026,
+          "validation_strict_pair_count": 2696160
+        },
+        "selected_step": 6800,
+        "step_execution": "COMPLETE",
+        "trainable_parameters": 84060
+      }
+    ],
+    "trainable_parameters": 84060,
+    "validation_nvp_ce_3seed": 3.718416032377482
+  },
+  "recovery_aggregate": true,
+  "recovery_protocol": {
+    "no_existing_artifact_modified": true,
+    "reason": "The original three-seed process ended after seed2 and before aggregate reporting; seed3 was rerun from its frozen initial seed in a separate directory because no optimizer/RNG resume state existed.",
+    "source_seed1_checkpoint": "outputs/preference_mambanvp_v1/checkpoints/seed1/model.pt",
+    "source_seed2_checkpoint": "outputs/preference_mambanvp_v1/checkpoints/seed2/model.pt",
+    "source_seed3_checkpoint": "outputs/preference_mambanvp_v1_recovery_seed3/checkpoints/seed3/model.pt"
+  },
+  "runtime_accessed": false,
+  "step_execution": "COMPLETE",
+  "tie_handling": "all-tie programs retain L_value and contribute L_preference=0; they remain in train and validation",
+  "training_only": true,
+  "validation_cohort": {
+    "N_failed_or_invalid": 0,
+    "N_primary_valid": 4488,
+    "N_total": 4488
+  }
+}

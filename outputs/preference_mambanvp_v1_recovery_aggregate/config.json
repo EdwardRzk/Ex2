@@ -1,0 +1,94 @@
+{
+  "architecture": {
+    "candidate_encoder": "shared program-conditioned two-layer Mamba candidate encoder",
+    "candidate_id_feature": false,
+    "name": "PreferenceAwareMambaNVP",
+    "preference_head": "MLP Linear(d_model,d_model), ReLU, Linear(d_model,1) over h_i-h_j",
+    "value_head": "shared scalar head from candidate embedding"
+  },
+  "autophase_feature_cache": {
+    "dimension": 56,
+    "preprocessing": "raw_autophase / raw_autophase[51]",
+    "train": "outputs/autophase_feature_cache_v6/train_autophase.jsonl.gz",
+    "validation": "outputs/autophase_feature_cache_v6/validation_autophase.jsonl.gz"
+  },
+  "candidate_representation_source": "configs/controlled_nvp_stage_a_v6.json",
+  "experiment_name": "preference_mambanvp_v1_recovery_aggregate",
+  "final_seed_set": [
+    1,
+    2,
+    3
+  ],
+  "forbidden": [
+    "CompilerGym",
+    "LLVM",
+    "candidate rollout",
+    "ObjectText measurement",
+    "label regeneration",
+    "Autophase regeneration",
+    "final/OOD evaluation",
+    "runtime evaluation",
+    "hyperparameter tuning",
+    "checkpoint reselection"
+  ],
+  "frozen_data_population": {
+    "train_complete_k50": 28159,
+    "validation_complete_k50": 4488
+  },
+  "frozen_reference_reports": {
+    "cross_candidate_mambanvp": "outputs/cross_candidate_mambanvp_v1/comparison_report.json",
+    "mamba_nvp_v1": "outputs/mamba_nvp_objecttext_v6/comparison_report.json",
+    "stage_b": "outputs/route_a_stage_b_v6/comparison_report.json"
+  },
+  "pair_sampling": {
+    "all_tie_program_rule": "retain L_value; set L_preference=0; do not delete program",
+    "construction": "sample 5 strict winner/loser pairs then include each canonical positive orientation and its reversed negative orientation",
+    "eligible_program_rule": "program has at least one strict pair",
+    "pairs_per_eligible_program_per_epoch": 10,
+    "positive_negative_ratio": "exact 5:5 per eligible program visit",
+    "sampling_seed": "seed-specific Torch RNG; resample candidate indices until strict",
+    "strict_definition": "raw_candidate_value_i != raw_candidate_value_j; ties never create a pair"
+  },
+  "recovery": {
+    "no_existing_artifact_modified": true,
+    "reason": "The original three-seed process ended after seed2 and before aggregate reporting; seed3 was rerun from its frozen initial seed in a separate directory because no optimizer/RNG resume state existed.",
+    "source_seed1_checkpoint": "outputs/preference_mambanvp_v1/checkpoints/seed1/model.pt",
+    "source_seed2_checkpoint": "outputs/preference_mambanvp_v1/checkpoints/seed2/model.pt",
+    "source_seed3_checkpoint": "outputs/preference_mambanvp_v1_recovery_seed3/checkpoints/seed3/model.pt"
+  },
+  "target_and_objective": {
+    "lambda_preference": 0.1,
+    "preference_loss": "balanced binary cross entropy over strict raw_candidate_value pairs",
+    "target": "frozen normalized_target = softmax(raw_candidate_value / 0.05)",
+    "target_temperature": 0.05,
+    "total_loss": "L_value + 0.1 * L_preference",
+    "value_loss": "mean soft-label CrossEntropyLoss(logits[50], normalized_target[50])"
+  },
+  "target_files": {
+    "train": "outputs/rlcompopt_route_a_nvp_targets_v6/train_targets.jsonl.gz",
+    "validation": "outputs/rlcompopt_route_a_nvp_targets_v6/validation_targets.jsonl.gz"
+  },
+  "training": {
+    "batch_size": 256,
+    "checkpoint_evaluation_cadence_steps": 100,
+    "checkpoint_selection_rule": "maximum ValidationFinalMeanOverOz policy-45 dataset macro mean; deterministic first checkpoint on exact tie",
+    "early_stopping": false,
+    "evaluation_batch_size": 64,
+    "learning_rate": 0.0005,
+    "lr_schedule": "500-step linear warmup then cosine to lr*0.01 over remaining 9500 steps",
+    "optimizer": "Adam",
+    "total_steps": 10000,
+    "warmup_steps": 500,
+    "weight_decay": 1e-05
+  },
+  "validation": {
+    "final_test_accessed": false,
+    "ood_accessed": false,
+    "ranking": "descending logits; candidate ID ascending tie break",
+    "runtime_accessed": false,
+    "sampling": false,
+    "scored_pass_budget": 45,
+    "selection_metric": "ValidationFinalMeanOverOz policy-45 dataset macro mean"
+  },
+  "validation_label_shards": "outputs/rlcompopt_route_a_objecttext_v6_parallel12/shards/validation"
+}

@@ -1,0 +1,46 @@
+{
+  "executed_seeds": [
+    3
+  ],
+  "pair_statistics_file": "pair_statistics.json",
+  "seeds": [
+    {
+      "architecture": "PreferenceAwareMambaNVP",
+      "seed": 3,
+      "selected": {
+        "N_failed_or_invalid": 0,
+        "N_primary_valid": 4488,
+        "N_total": 4488,
+        "ValidationFinalMeanOverOz": 0.06360776460318242,
+        "lr": 0.00013112018280194923,
+        "pairwise_accuracy": 0.7494710996380036,
+        "per_dataset": {
+          "anghabench-v1": 0.03954380169775741,
+          "blas-v0": 0.018558773389977298,
+          "clgen-v0": 0.08536326030929042,
+          "csmith-v0": 0.24391909649083454,
+          "github-v0": 0.008525061575837906,
+          "linux-v0": 0.0008888457002104496,
+          "llvm-stress-v0": -0.0364319696745997,
+          "opencv-v0": 0.052782858029262296,
+          "poj104-v1": 0.19340770334620272,
+          "tensorflow-v0": 0.029520215167050747
+        },
+        "policy45_regret_mean_bytes": 8.11608734402852,
+        "policy45_regret_median_bytes": 0.0,
+        "positive_program_count_vs_Oz": 2274,
+        "preference_accuracy": 0.7677189039226159,
+        "step": 6800,
+        "train_preference_loss": 0.3623766303062439,
+        "train_total_loss": 3.7442739009857178,
+        "train_value_loss": 3.708036184310913,
+        "validation_nvp_ce": 3.718990463624026,
+        "validation_strict_pair_count": 2696160
+      },
+      "selection_metric": "ValidationFinalMeanOverOz policy-45 dataset macro mean",
+      "step_execution": "COMPLETE",
+      "trainable_parameters": 83010
+    }
+  ],
+  "step_execution": "COMPLETE"
+}

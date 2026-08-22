@@ -1,0 +1,20 @@
+{
+  "pair_sampling": {
+    "all_tie_program_rule": "retain L_value; set L_preference=0; do not delete program",
+    "construction": "sample 5 strict winner/loser pairs then include each canonical positive orientation and its reversed negative orientation",
+    "eligible_program_rule": "program has at least one strict pair",
+    "pairs_per_eligible_program_per_epoch": 10,
+    "positive_negative_ratio": "exact 5:5 per eligible program visit",
+    "sampling_seed": "seed-specific Torch RNG; resample candidate indices until strict",
+    "strict_definition": "raw_candidate_value_i != raw_candidate_value_j; ties never create a pair"
+  },
+  "per_seed": {
+    "3": {
+      "eligible_program_count": 2197990,
+      "negative_pairs": 10989950,
+      "positive_pairs": 10989950,
+      "skipped_tie_program_count": 361920,
+      "total_pairs": 21979900
+    }
+  }
+}
