@@ -799,3 +799,32 @@ FAIL — do not enter the final method set. The one-way final/OOD evaluation con
 
 ### Git
 Evaluation implementation and results commit `ed37d8b7d31525126f49e66adc2e2ecedeb992d2`.
+
+
+## 2026-08-22 — Preference-aware MambaNVP validation v1 (seed3 recovery)
+
+### Goal
+Test whether balanced strict-pair preference supervision added to the frozen Route-A Mamba candidate value model improves validation policy-45 selection, without changing frozen K=50 targets or evaluating final/OOD.
+
+### Frozen protocol
+The experiment used only the existing 28,159/4,488 complete-K50 target rows, cached normalized 56-D Autophase features, frozen ordered candidate sequences, and existing validation prefix labels. `L_value` remained soft-label cross entropy against `softmax(raw_candidate_value / 0.05)`. For strict raw-value programs, five sampled winner/loser pairs plus their reversed orientations gave exactly ten balanced binary preference pairs; all-tie programs retained `L_value` and had `L_preference=0`. The model used the existing two-layer shared Mamba candidate encoder and scalar value head, plus an MLP preference head over candidate-embedding differences. Each seed used Adam, batch 256, lr `5e-4`, weight decay `1e-5`, the frozen warmup/cosine schedule, 10,000 steps, no early stopping, and checkpoint selection only by validation policy-45 dataset-macro MeanOverOz. No CompilerGym, LLVM, candidate rollout, ObjectText measurement, label regeneration, final/OOD, runtime, tuning, or checkpoint reselection occurred.
+
+### Changes
+Added the isolated PreferenceAwareMambaNVP trainer, frozen config, strict-pair focused tests, and a recovery-only seed3 run. The original process ended after seed2 without an optimizer/RNG resume snapshot; seed3 was therefore rerun from its frozen initial seed in `outputs/preference_mambanvp_v1_recovery_seed3/`. Existing partial artifacts were left unchanged. `outputs/preference_mambanvp_v1_recovery_aggregate/` binds the original seed1/seed2 selected checkpoints and recovered seed3 checkpoint by SHA256 without copying or modifying them.
+
+### Result
+All three selected checkpoints cover validation cohort `4488/4488/0`: seed1 step `5800`, MeanOverOz `0.061370967335924856`; seed2 step `7500`, `0.06386679802476343`; recovered seed3 step `6800`, `0.06360776460318242`. The three-seed mean is `0.06294850998795691`, Oracle recovery `0.8129132623205412`, mean policy45 regret `9.15136660724896` bytes, preference accuracy `0.7665515646944791`, value-pairwise accuracy `0.7516964868553795`, and NVP-target CE `3.7184160323774823`. It exceeds frozen NVP `0.06277100953471096` by `+0.00017750045324595176`, MambaNVP(v1) `0.06260238916621794` by `+0.00034612082173897385`, and Cross-Candidate MambaNVP `0.06202097991289138` by `+0.000927530075065533`, but is below frozen Mamba `0.06355291510205446` by `-0.0006044051140975532`.
+
+### Decision
+PASS against the predeclared NVP gate. This validation-only result does not authorize final/OOD evaluation or use final/OOD results for method selection; stop awaiting instruction.
+
+### Artifacts
+- `configs/preference_mambanvp_v1.json`
+- `outputs/preference_mambanvp_v1_recovery_seed3/{config.json,training_curve.json,pair_statistics.json,comparison_report.json,experiment_report.json}`
+- `outputs/preference_mambanvp_v1_recovery_aggregate/config.json` — SHA256 `7db1a279bdce33a264900c1d68998a9f33284fe8ee1078c7abb7f2302596912e`
+- `outputs/preference_mambanvp_v1_recovery_aggregate/comparison_report.json` — SHA256 `1854bd0032312efe5ff182fc9129d99381f2c92016f7d121a9fd20b40ef9f4ea`
+- `outputs/preference_mambanvp_v1_recovery_aggregate/experiment_report.json` — SHA256 `15160c8272528afc363830df7c027b7d91c0ee837fe0373dc98d634c0323296d`
+- `outputs/preference_mambanvp_v1_recovery_aggregate/recovery_manifest.json` — SHA256 `00d05da7a52393d9667115c0b7dea181d5489fa895e949158389a75dae4377db`
+
+### Git
+Implementation and recovery-result commit `8f89008d167bbb800192ec1da1b553fff82a1b13`.
