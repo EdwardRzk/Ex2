@@ -1,0 +1,160 @@
+{
+  "candidate_rollouts": 0,
+  "compiler_gym_initialized": false,
+  "differences": {
+    "CrossCandidateMambaNVP": 9.352024394964492e-05,
+    "Mamba": -0.0014384149452134412,
+    "MambaNVP_v1": -0.0004878890093769142,
+    "NVP": -0.0006565093778699363
+  },
+  "final_test_accessed": false,
+  "frozen_references": {
+    "CrossCandidateMambaNVP": 0.06202097991289138,
+    "Mamba": 0.06355291510205446,
+    "MambaNVP_v1": 0.06260238916621794,
+    "NVP": 0.06277100953471096
+  },
+  "gated_calibrated_mambanvp": {
+    "ValidationFinalMeanOverOz_3seed": 0.06211450015684102,
+    "architecture": "GatedCalibratedMambaNVP",
+    "average_gate_alpha_3seed": 0.22489463934215562,
+    "calibration_kl_final_to_nvp_3seed": 0.0001500139413854038,
+    "oracle_recovery_3seed": 0.802133453534081,
+    "policy45_regret_mean_bytes_3seed": 7.702688651218064,
+    "seed_results": [
+      {
+        "architecture": "GatedCalibratedMambaNVP",
+        "nvp_frozen": true,
+        "seed": 1,
+        "selected": {
+          "N_failed_or_invalid": 0,
+          "N_primary_valid": 4488,
+          "N_total": 4488,
+          "ValidationFinalMeanOverOz": 0.06313043252765024,
+          "average_gate_alpha": 0.2405305235483642,
+          "calibration_kl_final_to_nvp": 0.00015670729104019435,
+          "lr": 0.00039464634401402854,
+          "per_dataset": {
+            "anghabench-v1": 0.0410846222936103,
+            "blas-v0": 0.023399154285459422,
+            "clgen-v0": 0.0879441518051053,
+            "csmith-v0": 0.24400324828968775,
+            "github-v0": 0.00991800936494411,
+            "linux-v0": 0.0026815877661393096,
+            "llvm-stress-v0": -0.05339147028915485,
+            "opencv-v0": 0.052471280624269534,
+            "poj104-v1": 0.19256179221629233,
+            "tensorflow-v0": 0.03063194892014923
+          },
+          "policy45_regret_mean_bytes": 7.494429590017825,
+          "policy45_regret_median_bytes": 0.0,
+          "positive_program_count_vs_Oz": 2290,
+          "step": 3400,
+          "top1_accuracy": 0.6579768270944741,
+          "train_calibration_kl_final_to_nvp": 0.00016068093827925622,
+          "train_total_loss": 3.7010862827301025,
+          "train_value_loss": 3.7010703086853027,
+          "validation_ce": 3.7050289712487694,
+          "validation_kl_nvp_to_final": 0.00015670950708158792
+        },
+        "selection_metric": "ValidationFinalMeanOverOz policy-45 dataset macro mean",
+        "step_execution": "COMPLETE",
+        "trainable_parameters": 86594
+      },
+      {
+        "architecture": "GatedCalibratedMambaNVP",
+        "nvp_frozen": true,
+        "seed": 2,
+        "selected": {
+          "N_failed_or_invalid": 0,
+          "N_primary_valid": 4488,
+          "N_total": 4488,
+          "ValidationFinalMeanOverOz": 0.06074945034704312,
+          "average_gate_alpha": 0.23015794662230793,
+          "calibration_kl_final_to_nvp": 1.2394087597922424e-05,
+          "lr": 0.0005,
+          "per_dataset": {
+            "anghabench-v1": 0.039286111987234466,
+            "blas-v0": 0.028888864911528457,
+            "clgen-v0": 0.08356735541198328,
+            "csmith-v0": 0.24561282928559477,
+            "github-v0": 0.010226829357128164,
+            "linux-v0": 0.0026060539091714236,
+            "llvm-stress-v0": -0.07724116439397231,
+            "opencv-v0": 0.051407061370875376,
+            "poj104-v1": 0.19200181577223793,
+            "tensorflow-v0": 0.03113874585864972
+          },
+          "policy45_regret_mean_bytes": 7.492869875222817,
+          "policy45_regret_median_bytes": 0.0,
+          "positive_program_count_vs_Oz": 2289,
+          "step": 500,
+          "top1_accuracy": 0.6590909090909091,
+          "train_calibration_kl_final_to_nvp": 1.27165121739381e-05,
+          "train_total_loss": 3.6787893772125244,
+          "train_value_loss": 3.678788185119629,
+          "validation_ce": 3.704088950964644,
+          "validation_kl_nvp_to_final": 1.2412441528487143e-05
+        },
+        "selection_metric": "ValidationFinalMeanOverOz policy-45 dataset macro mean",
+        "step_execution": "COMPLETE",
+        "trainable_parameters": 86594
+      },
+      {
+        "architecture": "GatedCalibratedMambaNVP",
+        "nvp_frozen": true,
+        "seed": 3,
+        "selected": {
+          "N_failed_or_invalid": 0,
+          "N_primary_valid": 4488,
+          "N_total": 4488,
+          "ValidationFinalMeanOverOz": 0.062463617595829704,
+          "average_gate_alpha": 0.2039954478557947,
+          "calibration_kl_final_to_nvp": 0.00028094044551809456,
+          "lr": 0.0003878696691353007,
+          "per_dataset": {
+            "anghabench-v1": 0.039440946506458824,
+            "blas-v0": 0.025373981351543375,
+            "clgen-v0": 0.08433045340796937,
+            "csmith-v0": 0.24386305388678234,
+            "github-v0": 0.009998133639615311,
+            "linux-v0": 0.0022047702196714937,
+            "llvm-stress-v0": -0.054288029008842824,
+            "opencv-v0": 0.051589771591289926,
+            "poj104-v1": 0.19199888149684374,
+            "tensorflow-v0": 0.03012421286696557
+          },
+          "policy45_regret_mean_bytes": 8.120766488413548,
+          "policy45_regret_median_bytes": 0.0,
+          "positive_program_count_vs_Oz": 2273,
+          "step": 3500,
+          "top1_accuracy": 0.6539661319073083,
+          "train_calibration_kl_final_to_nvp": 0.00028886599466204643,
+          "train_total_loss": 3.678950548171997,
+          "train_value_loss": 3.678921699523926,
+          "validation_ce": 3.705742995794232,
+          "validation_kl_nvp_to_final": 0.00027990745620821967
+        },
+        "selection_metric": "ValidationFinalMeanOverOz policy-45 dataset macro mean",
+        "step_execution": "COMPLETE",
+        "trainable_parameters": 86594
+      }
+    ],
+    "top1_accuracy_3seed": 0.6570112893642305,
+    "trainable_parameters": 86594,
+    "validation_ce_3seed": 3.7049536393358817,
+    "validation_kl_nvp_to_final_3seed": 0.00014967646827276492
+  },
+  "label_regeneration": false,
+  "llvm_execution": false,
+  "objecttext_measurements": 0,
+  "ood_accessed": false,
+  "runtime_accessed": false,
+  "step_execution": "COMPLETE",
+  "training_only": true,
+  "validation_cohort": {
+    "N_failed_or_invalid": 0,
+    "N_primary_valid": 4488,
+    "N_total": 4488
+  }
+}
