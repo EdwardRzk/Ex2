@@ -857,3 +857,24 @@ FAIL — the validation PASS versus NVP does not generalize to the frozen final/
 
 ### Git
 Evaluation implementation and results commit `80d1e97ba2819ec5a3cd3f65e521097bea1d791a`.
+
+
+## 2026-08-22 — Preference-aware MambaNVP final/OOD exact retry
+
+### Goal
+Repeat the completed PreferenceAwareMambaNVP final/OOD offline evaluation using exactly the same frozen checkpoints, final Autophase cache, final K=50 labels, evaluator, and deterministic policy45 procedure, solely to verify reproducibility.
+
+### Frozen protocol
+Identical to `preference_mambanvp_final_objecttext_v1`: no model, checkpoint, lambda, pair sampling, target, feature, candidate, invalid-program, compiler, LLVM, rollout, ObjectText, or hyperparameter change. The retry wrote only `outputs/preference_mambanvp_final_objecttext_v1_retry1/`.
+
+### Result
+All five retry JSON files are byte-for-byte identical to the original output, including config, comparison report, per-seed results, per-dataset results, and experiment report. Consequently the three-seed final MeanOverOz remains `0.08284758345218354`, versus NVP `-0.004307108617641678` and MambaNVP(v1) `-0.0048120298555306`.
+
+### Decision
+REPRODUCIBLE FAIL. The frozen final/OOD result is exact and the method does not enter the final method set. Stop; no further experiment, tuning, runtime, or model work is authorized by this retry.
+
+### Artifacts
+- `outputs/preference_mambanvp_final_objecttext_v1_retry1/{config.json,comparison_report.json,per_seed_results.json,per_dataset_results.json,experiment_report.json}` — byte-identical to the original final output.
+
+### Git
+Retry artifacts commit `0971abb526000e33e852b3cef844fe000702338c`.
