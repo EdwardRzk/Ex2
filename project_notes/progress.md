@@ -828,3 +828,32 @@ PASS against the predeclared NVP gate. This validation-only result does not auth
 
 ### Git
 Implementation and recovery-result commit `8f89008d167bbb800192ec1da1b553fff82a1b13`.
+
+
+## 2026-08-22 — Preference-aware MambaNVP final/OOD offline evaluation v1
+
+### Goal
+Evaluate once the frozen validation-selected PreferenceAwareMambaNVP checkpoints on the frozen Route-A final/OOD cohort, with the common comparison `NVP / Mamba / MambaNVP(v1) / Cross-Candidate MambaNVP / PreferenceAwareMambaNVP`.
+
+### Frozen protocol
+The evaluation used only the existing final normalized 56-D Autophase cache, final K=50 ObjectText label shards, and the validation-selected PreferenceAware checkpoints: seed1 step `5800`, seed2 step `7500`, and recovered seed3 step `6800`. Each checkpoint SHA256 was verified against the frozen validation aggregate before inference. Ranking used only descending value-head logits with candidate-ID ascending tie breaks and the existing offline policy45 evaluator. The preference head did not affect ranking; it was used only for a strict final K=50 diagnostic, where lower frozen best ObjectText size is preferred. Existing NVP, Mamba, MambaNVP, and Cross-Candidate result rows were read unchanged. No CompilerGym, LLVM, candidate rollout, ObjectText measurement, label generation, invalid retry, training, tuning, checkpoint modification, or checkpoint reselection occurred.
+
+### Changes
+Added an isolated offline evaluator, frozen final config, focused safety/config test, and `outputs/preference_mambanvp_final_objecttext_v1/` containing exactly the five requested JSON files.
+
+### Result
+All methods/seeds share the frozen cohort `4683` total, `4679` complete-K50 valid, `4` incomplete-K50 invalid; the common cohort has all 14 datasets nonempty. PreferenceAwareMambaNVP final MeanOverOz is seed1 `0.08333621930972909`, seed2 `0.08097535710610103`, seed3 `0.08423117394072052`; three-seed dataset-macro mean `0.08284758345218354`, Oracle recovery `0.7876394350044847`, and mean policy45 regret `11.357412552539719` bytes. Frozen final top-1 oracle-tie accuracy is `0.6252048158438412`; strict final preference-head accuracy is `0.7606304671476684` over `2,888,694` strict pairs/seed; value-head pairwise accuracy is `0.7478557207282369`. Common-cohort references are NVP `0.08715469206982522`, Mamba `0.08462666303481921`, MambaNVP(v1) `0.08765961330771414`, and Cross-Candidate MambaNVP `0.08772109149881376`. PreferenceAware differs by `-0.004307108617641678`, `-0.0017790795826356648`, `-0.0048120298555306`, and `-0.004873508046630212`, respectively.
+
+### Decision
+FAIL — the validation PASS versus NVP does not generalize to the frozen final/OOD cohort. PreferenceAwareMambaNVP does not enter the final method set. Stop; do not tune, retrain, run runtime experiments, or start a new model experiment.
+
+### Artifacts
+- `configs/preference_mambanvp_final_objecttext_v1.json`
+- `outputs/preference_mambanvp_final_objecttext_v1/config.json` — SHA256 `2e6803e3b53e1027dd1c9c6a26f6893d865791ae91df6f56824e9d666d72a219`
+- `outputs/preference_mambanvp_final_objecttext_v1/comparison_report.json` — SHA256 `960bf02787dce324ebfec16a28ac4c04d607fcea77e197fc3f5f6460fcea9b11`
+- `outputs/preference_mambanvp_final_objecttext_v1/per_seed_results.json` — SHA256 `200b1149ee1f567961264cc3f13c2fea5dce8927fca1145ae09e9ee3f1a81bb2`
+- `outputs/preference_mambanvp_final_objecttext_v1/per_dataset_results.json` — SHA256 `e3913d2bd275d20897fe672d101c31d7a5c694b0ff5385ff957bc06a28670a26`
+- `outputs/preference_mambanvp_final_objecttext_v1/experiment_report.json` — SHA256 `468881b097a364fd46ad751c80adf7624cbb6c21106d39e340e3f97418d7be13`
+
+### Git
+Evaluation implementation and results commit `80d1e97ba2819ec5a3cd3f65e521097bea1d791a`.
