@@ -903,3 +903,28 @@ FAIL against NVP and MambaNVP(v1) on validation. Stop; do not run final/OOD, run
 
 ### Git
 Implementation commit `5fd50b56b61e9301a97eddd231136a3dab6250ea`; results commit `0512dd112b1886a19e4f7abbfa0c96d013f66429`.
+
+
+## 2026-08-22 — Gated-Calibrated MambaNVP v2 final/OOD offline evaluation
+
+### Goal
+Evaluate exactly once the validation-selected Gated-Calibrated MambaNVP v2 checkpoints on the frozen Route-A final/OOD cohort, using the same common cohort as the existing frozen comparison methods.
+
+### Frozen protocol
+Used only the existing final normalized 56-D Autophase cache, frozen final K=50 ObjectText label shards, fixed candidate ordering, and the validation-selected Gated checkpoints: seed1 step `3400`, seed2 step `500`, and seed3 step `3500`. The seed-matched NVP branch was loaded frozen; final logits were exactly `nvp_logits + alpha * mamba_residual`, with the trained sigmoid gate and no parameter, lambda, checkpoint, or ranking-rule change. Inference was deterministic and evaluated through the existing offline policy45 evaluator. No CompilerGym, LLVM, candidate rollout/search, ObjectText measurement, label generation, invalid retry, training, tuning, or checkpoint reselection occurred.
+
+### Changes
+Added an isolated frozen final evaluator/config and `outputs/gated_calibrated_mambanvp_final_objecttext_v2/`, containing only the requested five JSON reports.
+
+### Result
+All five methods and all seeds use `4683` total programs, `4679` complete-K50 valid programs, and `4` frozen incomplete-K50 invalid programs. Gated-Calibrated MambaNVP final MeanOverOz is seed1 `0.0881268103519816`, seed2 `0.08734139972723186`, and seed3 `0.08789773844589048`; the three-seed dataset-macro mean is `0.08778864950836797`. Oracle recovery is `0.8346145948660771`, mean policy45 regret is `11.93089691529529` bytes, and top-1 oracle-tie accuracy is `0.6453658189071739`. Mean gate alpha is `0.22490808749866428`; `KL(P_final || P_nvp)` is `0.0001474649163384832` and `KL(P_nvp || P_final)` is `0.00014716528703423863`. Common-cohort means are NVP `0.08715469206982522`, Mamba `0.08462666303481921`, MambaNVP(v1) `0.08765961330771414`, and Cross-Candidate MambaNVP `0.08772109149881376`; Gated-Calibrated MambaNVP differs by `+0.0006339574385427482`, `+0.0031619864735487613`, `+0.00012903620065382593`, and `+0.00006755800955421387`, respectively.
+
+### Decision
+PASS on this frozen common final/OOD cohort: it is the highest MeanOverOz among the required comparison methods and enters the final method set. This is a completed one-way final evaluation; do not tune or run a follow-up experiment under this task.
+
+### Artifacts
+- `configs/gated_calibrated_mambanvp_final_objecttext_v2.json`
+- `outputs/gated_calibrated_mambanvp_final_objecttext_v2/{config.json,comparison_report.json,per_seed_results.json,per_dataset_results.json,experiment_report.json}`
+
+### Git
+Evaluation implementation commit `f09dc3e84c4b8ca449308829c85086e675edd810`; results commit `b170f5d998ed2d97aa83f3cab3c23d85f93a3cfc`.
