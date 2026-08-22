@@ -1,0 +1,62 @@
+{
+  "experiment_name": "gated_calibrated_mambanvp_v2",
+  "target_files": {
+    "train": "outputs/rlcompopt_route_a_nvp_targets_v6/train_targets.jsonl.gz",
+    "validation": "outputs/rlcompopt_route_a_nvp_targets_v6/validation_targets.jsonl.gz"
+  },
+  "autophase_feature_cache": {
+    "train": "outputs/autophase_feature_cache_v6/train_autophase.jsonl.gz",
+    "validation": "outputs/autophase_feature_cache_v6/validation_autophase.jsonl.gz",
+    "preprocessing": "raw_autophase / raw_autophase[51]",
+    "dimension": 56
+  },
+  "validation_label_shards": "outputs/rlcompopt_route_a_objecttext_v6_parallel12/shards/validation",
+  "candidate_representation_source": "configs/controlled_nvp_stage_a_v6.json",
+  "nvp_checkpoint_root": "outputs/route_a_stage_b_v6/nvp",
+  "frozen_data_population": {"train_complete_k50": 28159, "validation_complete_k50": 4488},
+  "final_seed_set": [1, 2, 3],
+  "architecture": {
+    "name": "GatedCalibratedMambaNVP",
+    "nvp_branch": "frozen seed-matched Stage-B NVP in eval mode",
+    "residual_branch": "shared two-layer Mamba candidate encoder with scalar residual head",
+    "gate_branch": "sigmoid MLP over concatenated candidate embedding and normalized 56-D Autophase feature",
+    "fusion": "final_logits = frozen_nvp_logits + sigmoid(gate(h_i, program)) * mamba_residual_i",
+    "residual_initialization": "zero scalar residual head weight and bias"
+  },
+  "target_and_objective": {
+    "target": "frozen normalized_target = softmax(raw_candidate_value / 0.05)",
+    "target_temperature": 0.05,
+    "value_loss": "mean soft-label CrossEntropyLoss(final_logits[50], normalized_target[50])",
+    "calibration_constraint": "mean KL(softmax(final_logits) || softmax(frozen_nvp_logits))",
+    "lambda_kl": 0.1,
+    "total_loss": "L_NVP + 0.1 * L_KL"
+  },
+  "training": {
+    "optimizer": "Adam",
+    "learning_rate": 0.0005,
+    "weight_decay": 0.00001,
+    "batch_size": 256,
+    "evaluation_batch_size": 64,
+    "total_steps": 10000,
+    "warmup_steps": 500,
+    "lr_schedule": "500-step linear warmup then cosine to lr*0.01 over remaining 9500 steps",
+    "early_stopping": false,
+    "checkpoint_evaluation_cadence_steps": 100,
+    "checkpoint_selection_rule": "maximum ValidationFinalMeanOverOz policy-45 dataset macro mean; deterministic first checkpoint on exact tie"
+  },
+  "validation": {
+    "sampling": false,
+    "ranking": "descending final logits; candidate ID ascending tie break",
+    "scored_pass_budget": 45,
+    "selection_metric": "ValidationFinalMeanOverOz policy-45 dataset macro mean",
+    "final_test_accessed": false,
+    "ood_accessed": false,
+    "runtime_accessed": false
+  },
+  "frozen_reference_reports": {
+    "stage_b": "outputs/route_a_stage_b_v6/comparison_report.json",
+    "mamba_nvp_v1": "outputs/mamba_nvp_objecttext_v6/comparison_report.json",
+    "cross_candidate_mambanvp": "outputs/cross_candidate_mambanvp_v1/comparison_report.json"
+  },
+  "forbidden": ["CompilerGym", "LLVM", "candidate rollout", "ObjectText measurement", "label regeneration", "Autophase regeneration", "final/OOD evaluation", "runtime evaluation", "hyperparameter tuning", "checkpoint reselection"]
+}
