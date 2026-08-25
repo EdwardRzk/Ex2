@@ -1,0 +1,1112 @@
+{
+  "candidate_rollouts": 0,
+  "compiler_gym_initialized": false,
+  "config_sha256": "5f926b635a0e4ad121c7011e43a5a996f5469addf9935ea45030e48af9fbc5d5",
+  "inference_device": "cuda",
+  "llvm_phase_application": 0,
+  "objecttext_measurements": 0,
+  "programs": {
+    "benchmark://cbench-v1/bitcount": {
+      "gatedcalibratedmambanvp_seed1": {
+        "action_ids": [
+          102,
+          53
+        ],
+        "candidate_id": 5,
+        "candidate_rank": 2,
+        "pass_count": 2,
+        "policy45_object_text_size_bytes": 3519,
+        "prefix_index": 1
+      },
+      "gatedcalibratedmambanvp_seed2": {
+        "action_ids": [
+          102,
+          53
+        ],
+        "candidate_id": 5,
+        "candidate_rank": 1,
+        "pass_count": 2,
+        "policy45_object_text_size_bytes": 3519,
+        "prefix_index": 1
+      },
+      "gatedcalibratedmambanvp_seed3": {
+        "action_ids": [
+          21,
+          121,
+          97,
+          38,
+          31,
+          52,
+          70,
+          53
+        ],
+        "candidate_id": 31,
+        "candidate_rank": 2,
+        "pass_count": 8,
+        "policy45_object_text_size_bytes": 3581,
+        "prefix_index": 7
+      },
+      "mambanvp_seed1": {
+        "action_ids": [
+          102,
+          53
+        ],
+        "candidate_id": 5,
+        "candidate_rank": 2,
+        "pass_count": 2,
+        "policy45_object_text_size_bytes": 3519,
+        "prefix_index": 1
+      },
+      "mambanvp_seed2": {
+        "action_ids": [
+          102,
+          53
+        ],
+        "candidate_id": 5,
+        "candidate_rank": 1,
+        "pass_count": 2,
+        "policy45_object_text_size_bytes": 3519,
+        "prefix_index": 1
+      },
+      "mambanvp_seed3": {
+        "action_ids": [
+          102,
+          53
+        ],
+        "candidate_id": 5,
+        "candidate_rank": 2,
+        "pass_count": 2,
+        "policy45_object_text_size_bytes": 3519,
+        "prefix_index": 1
+      },
+      "nvp_seed1": {
+        "action_ids": [
+          102,
+          53
+        ],
+        "candidate_id": 5,
+        "candidate_rank": 2,
+        "pass_count": 2,
+        "policy45_object_text_size_bytes": 3519,
+        "prefix_index": 1
+      },
+      "nvp_seed2": {
+        "action_ids": [
+          102,
+          53
+        ],
+        "candidate_id": 5,
+        "candidate_rank": 2,
+        "pass_count": 2,
+        "policy45_object_text_size_bytes": 3519,
+        "prefix_index": 1
+      },
+      "nvp_seed3": {
+        "action_ids": [
+          21,
+          121,
+          97,
+          38,
+          31,
+          52,
+          70,
+          53
+        ],
+        "candidate_id": 31,
+        "candidate_rank": 2,
+        "pass_count": 8,
+        "policy45_object_text_size_bytes": 3581,
+        "prefix_index": 7
+      }
+    },
+    "benchmark://cbench-v1/blowfish": {
+      "gatedcalibratedmambanvp_seed1": {
+        "action_ids": [
+          21,
+          121,
+          97,
+          38,
+          31,
+          52,
+          70,
+          53,
+          71,
+          97,
+          56,
+          111,
+          40,
+          39,
+          65,
+          10,
+          53
+        ],
+        "candidate_id": 31,
+        "candidate_rank": 1,
+        "pass_count": 17,
+        "policy45_object_text_size_bytes": 13313,
+        "prefix_index": 16
+      },
+      "gatedcalibratedmambanvp_seed2": {
+        "action_ids": [
+          71,
+          29,
+          111,
+          102,
+          53,
+          120,
+          38,
+          47,
+          21,
+          10
+        ],
+        "candidate_id": 22,
+        "candidate_rank": 0,
+        "pass_count": 10,
+        "policy45_object_text_size_bytes": 13405,
+        "prefix_index": 9
+      },
+      "gatedcalibratedmambanvp_seed3": {
+        "action_ids": [
+          27,
+          36,
+          103,
+          24,
+          53
+        ],
+        "candidate_id": 27,
+        "candidate_rank": 1,
+        "pass_count": 5,
+        "policy45_object_text_size_bytes": 12460,
+        "prefix_index": 4
+      },
+      "mambanvp_seed1": {
+        "action_ids": [
+          21,
+          121,
+          97,
+          38,
+          31,
+          52,
+          70,
+          53,
+          71,
+          97,
+          56,
+          111,
+          40,
+          39,
+          65,
+          10,
+          53
+        ],
+        "candidate_id": 31,
+        "candidate_rank": 1,
+        "pass_count": 17,
+        "policy45_object_text_size_bytes": 13313,
+        "prefix_index": 16
+      },
+      "mambanvp_seed2": {
+        "action_ids": [
+          71,
+          29,
+          111,
+          102,
+          53,
+          120,
+          38,
+          47,
+          21,
+          10
+        ],
+        "candidate_id": 22,
+        "candidate_rank": 0,
+        "pass_count": 10,
+        "policy45_object_text_size_bytes": 13405,
+        "prefix_index": 9
+      },
+      "mambanvp_seed3": {
+        "action_ids": [
+          27,
+          36,
+          103,
+          24,
+          53
+        ],
+        "candidate_id": 27,
+        "candidate_rank": 0,
+        "pass_count": 5,
+        "policy45_object_text_size_bytes": 12460,
+        "prefix_index": 4
+      },
+      "nvp_seed1": {
+        "action_ids": [
+          21,
+          121,
+          97,
+          38,
+          31,
+          52,
+          70,
+          53,
+          71,
+          97,
+          56,
+          111,
+          40,
+          39,
+          65,
+          10,
+          53
+        ],
+        "candidate_id": 31,
+        "candidate_rank": 1,
+        "pass_count": 17,
+        "policy45_object_text_size_bytes": 13313,
+        "prefix_index": 16
+      },
+      "nvp_seed2": {
+        "action_ids": [
+          71,
+          29,
+          111,
+          102,
+          53,
+          120,
+          38,
+          47,
+          21,
+          10
+        ],
+        "candidate_id": 22,
+        "candidate_rank": 0,
+        "pass_count": 10,
+        "policy45_object_text_size_bytes": 13405,
+        "prefix_index": 9
+      },
+      "nvp_seed3": {
+        "action_ids": [
+          27,
+          36,
+          103,
+          24,
+          53
+        ],
+        "candidate_id": 27,
+        "candidate_rank": 0,
+        "pass_count": 5,
+        "policy45_object_text_size_bytes": 12460,
+        "prefix_index": 4
+      }
+    },
+    "benchmark://cbench-v1/crc32": {
+      "gatedcalibratedmambanvp_seed1": {
+        "action_ids": [
+          102
+        ],
+        "candidate_id": 5,
+        "candidate_rank": 3,
+        "pass_count": 1,
+        "policy45_object_text_size_bytes": 1183,
+        "prefix_index": 0
+      },
+      "gatedcalibratedmambanvp_seed2": {
+        "action_ids": [
+          102
+        ],
+        "candidate_id": 5,
+        "candidate_rank": 3,
+        "pass_count": 1,
+        "policy45_object_text_size_bytes": 1183,
+        "prefix_index": 0
+      },
+      "gatedcalibratedmambanvp_seed3": {
+        "action_ids": [
+          102
+        ],
+        "candidate_id": 5,
+        "candidate_rank": 3,
+        "pass_count": 1,
+        "policy45_object_text_size_bytes": 1183,
+        "prefix_index": 0
+      },
+      "mambanvp_seed1": {
+        "action_ids": [
+          102
+        ],
+        "candidate_id": 5,
+        "candidate_rank": 3,
+        "pass_count": 1,
+        "policy45_object_text_size_bytes": 1183,
+        "prefix_index": 0
+      },
+      "mambanvp_seed2": {
+        "action_ids": [
+          102
+        ],
+        "candidate_id": 5,
+        "candidate_rank": 3,
+        "pass_count": 1,
+        "policy45_object_text_size_bytes": 1183,
+        "prefix_index": 0
+      },
+      "mambanvp_seed3": {
+        "action_ids": [
+          102
+        ],
+        "candidate_id": 5,
+        "candidate_rank": 3,
+        "pass_count": 1,
+        "policy45_object_text_size_bytes": 1183,
+        "prefix_index": 0
+      },
+      "nvp_seed1": {
+        "action_ids": [
+          102
+        ],
+        "candidate_id": 5,
+        "candidate_rank": 3,
+        "pass_count": 1,
+        "policy45_object_text_size_bytes": 1183,
+        "prefix_index": 0
+      },
+      "nvp_seed2": {
+        "action_ids": [
+          102
+        ],
+        "candidate_id": 5,
+        "candidate_rank": 3,
+        "pass_count": 1,
+        "policy45_object_text_size_bytes": 1183,
+        "prefix_index": 0
+      },
+      "nvp_seed3": {
+        "action_ids": [
+          102
+        ],
+        "candidate_id": 5,
+        "candidate_rank": 3,
+        "pass_count": 1,
+        "policy45_object_text_size_bytes": 1183,
+        "prefix_index": 0
+      }
+    },
+    "benchmark://cbench-v1/dijkstra": {
+      "gatedcalibratedmambanvp_seed1": {
+        "action_ids": [
+          10
+        ],
+        "candidate_id": 49,
+        "candidate_rank": 0,
+        "pass_count": 1,
+        "policy45_object_text_size_bytes": 2460,
+        "prefix_index": 0
+      },
+      "gatedcalibratedmambanvp_seed2": {
+        "action_ids": [
+          10
+        ],
+        "candidate_id": 49,
+        "candidate_rank": 0,
+        "pass_count": 1,
+        "policy45_object_text_size_bytes": 2460,
+        "prefix_index": 0
+      },
+      "gatedcalibratedmambanvp_seed3": {
+        "action_ids": [
+          10
+        ],
+        "candidate_id": 49,
+        "candidate_rank": 0,
+        "pass_count": 1,
+        "policy45_object_text_size_bytes": 2460,
+        "prefix_index": 0
+      },
+      "mambanvp_seed1": {
+        "action_ids": [
+          10
+        ],
+        "candidate_id": 49,
+        "candidate_rank": 0,
+        "pass_count": 1,
+        "policy45_object_text_size_bytes": 2460,
+        "prefix_index": 0
+      },
+      "mambanvp_seed2": {
+        "action_ids": [
+          10
+        ],
+        "candidate_id": 49,
+        "candidate_rank": 0,
+        "pass_count": 1,
+        "policy45_object_text_size_bytes": 2460,
+        "prefix_index": 0
+      },
+      "mambanvp_seed3": {
+        "action_ids": [
+          10
+        ],
+        "candidate_id": 49,
+        "candidate_rank": 0,
+        "pass_count": 1,
+        "policy45_object_text_size_bytes": 2460,
+        "prefix_index": 0
+      },
+      "nvp_seed1": {
+        "action_ids": [
+          10
+        ],
+        "candidate_id": 49,
+        "candidate_rank": 0,
+        "pass_count": 1,
+        "policy45_object_text_size_bytes": 2460,
+        "prefix_index": 0
+      },
+      "nvp_seed2": {
+        "action_ids": [
+          10
+        ],
+        "candidate_id": 49,
+        "candidate_rank": 0,
+        "pass_count": 1,
+        "policy45_object_text_size_bytes": 2460,
+        "prefix_index": 0
+      },
+      "nvp_seed3": {
+        "action_ids": [
+          10
+        ],
+        "candidate_id": 49,
+        "candidate_rank": 0,
+        "pass_count": 1,
+        "policy45_object_text_size_bytes": 2460,
+        "prefix_index": 0
+      }
+    },
+    "benchmark://cbench-v1/patricia": {
+      "gatedcalibratedmambanvp_seed1": {
+        "action_ids": [
+          10,
+          53,
+          122,
+          31,
+          36,
+          111,
+          10,
+          97
+        ],
+        "candidate_id": 49,
+        "candidate_rank": 0,
+        "pass_count": 8,
+        "policy45_object_text_size_bytes": 4035,
+        "prefix_index": 7
+      },
+      "gatedcalibratedmambanvp_seed2": {
+        "action_ids": [
+          10,
+          53,
+          122,
+          31,
+          36,
+          111,
+          10,
+          97
+        ],
+        "candidate_id": 49,
+        "candidate_rank": 0,
+        "pass_count": 8,
+        "policy45_object_text_size_bytes": 4035,
+        "prefix_index": 7
+      },
+      "gatedcalibratedmambanvp_seed3": {
+        "action_ids": [
+          10,
+          53,
+          122,
+          31,
+          36,
+          111,
+          10,
+          97
+        ],
+        "candidate_id": 49,
+        "candidate_rank": 0,
+        "pass_count": 8,
+        "policy45_object_text_size_bytes": 4035,
+        "prefix_index": 7
+      },
+      "mambanvp_seed1": {
+        "action_ids": [
+          10,
+          53,
+          122,
+          31,
+          36,
+          111,
+          10,
+          97
+        ],
+        "candidate_id": 49,
+        "candidate_rank": 0,
+        "pass_count": 8,
+        "policy45_object_text_size_bytes": 4035,
+        "prefix_index": 7
+      },
+      "mambanvp_seed2": {
+        "action_ids": [
+          10,
+          53,
+          122,
+          31,
+          36,
+          111,
+          10,
+          97
+        ],
+        "candidate_id": 49,
+        "candidate_rank": 0,
+        "pass_count": 8,
+        "policy45_object_text_size_bytes": 4035,
+        "prefix_index": 7
+      },
+      "mambanvp_seed3": {
+        "action_ids": [
+          10,
+          53,
+          122,
+          31,
+          36,
+          111,
+          10,
+          97
+        ],
+        "candidate_id": 49,
+        "candidate_rank": 0,
+        "pass_count": 8,
+        "policy45_object_text_size_bytes": 4035,
+        "prefix_index": 7
+      },
+      "nvp_seed1": {
+        "action_ids": [
+          10,
+          53,
+          122,
+          31,
+          36,
+          111,
+          10,
+          97
+        ],
+        "candidate_id": 49,
+        "candidate_rank": 0,
+        "pass_count": 8,
+        "policy45_object_text_size_bytes": 4035,
+        "prefix_index": 7
+      },
+      "nvp_seed2": {
+        "action_ids": [
+          10,
+          53,
+          122,
+          31,
+          36,
+          111,
+          10,
+          97
+        ],
+        "candidate_id": 49,
+        "candidate_rank": 0,
+        "pass_count": 8,
+        "policy45_object_text_size_bytes": 4035,
+        "prefix_index": 7
+      },
+      "nvp_seed3": {
+        "action_ids": [
+          10,
+          53,
+          122,
+          31,
+          36,
+          111,
+          10,
+          97
+        ],
+        "candidate_id": 49,
+        "candidate_rank": 0,
+        "pass_count": 8,
+        "policy45_object_text_size_bytes": 4035,
+        "prefix_index": 7
+      }
+    },
+    "benchmark://cbench-v1/qsort": {
+      "gatedcalibratedmambanvp_seed1": {
+        "action_ids": [
+          10,
+          53
+        ],
+        "candidate_id": 49,
+        "candidate_rank": 0,
+        "pass_count": 2,
+        "policy45_object_text_size_bytes": 3023,
+        "prefix_index": 1
+      },
+      "gatedcalibratedmambanvp_seed2": {
+        "action_ids": [
+          21,
+          121,
+          97,
+          38,
+          31,
+          52,
+          70,
+          53
+        ],
+        "candidate_id": 31,
+        "candidate_rank": 2,
+        "pass_count": 8,
+        "policy45_object_text_size_bytes": 2969,
+        "prefix_index": 7
+      },
+      "gatedcalibratedmambanvp_seed3": {
+        "action_ids": [
+          21,
+          121,
+          97,
+          38,
+          31,
+          52,
+          70,
+          53
+        ],
+        "candidate_id": 31,
+        "candidate_rank": 2,
+        "pass_count": 8,
+        "policy45_object_text_size_bytes": 2969,
+        "prefix_index": 7
+      },
+      "mambanvp_seed1": {
+        "action_ids": [
+          10,
+          53
+        ],
+        "candidate_id": 49,
+        "candidate_rank": 0,
+        "pass_count": 2,
+        "policy45_object_text_size_bytes": 3023,
+        "prefix_index": 1
+      },
+      "mambanvp_seed2": {
+        "action_ids": [
+          21,
+          121,
+          97,
+          38,
+          31,
+          52,
+          70,
+          53
+        ],
+        "candidate_id": 31,
+        "candidate_rank": 2,
+        "pass_count": 8,
+        "policy45_object_text_size_bytes": 2969,
+        "prefix_index": 7
+      },
+      "mambanvp_seed3": {
+        "action_ids": [
+          10,
+          53
+        ],
+        "candidate_id": 49,
+        "candidate_rank": 0,
+        "pass_count": 2,
+        "policy45_object_text_size_bytes": 3023,
+        "prefix_index": 1
+      },
+      "nvp_seed1": {
+        "action_ids": [
+          10,
+          53
+        ],
+        "candidate_id": 49,
+        "candidate_rank": 0,
+        "pass_count": 2,
+        "policy45_object_text_size_bytes": 3023,
+        "prefix_index": 1
+      },
+      "nvp_seed2": {
+        "action_ids": [
+          21,
+          121,
+          97,
+          38,
+          31,
+          52,
+          70,
+          53
+        ],
+        "candidate_id": 31,
+        "candidate_rank": 2,
+        "pass_count": 8,
+        "policy45_object_text_size_bytes": 2969,
+        "prefix_index": 7
+      },
+      "nvp_seed3": {
+        "action_ids": [
+          21,
+          121,
+          97,
+          38,
+          31,
+          52,
+          70,
+          53
+        ],
+        "candidate_id": 31,
+        "candidate_rank": 2,
+        "pass_count": 8,
+        "policy45_object_text_size_bytes": 2969,
+        "prefix_index": 7
+      }
+    },
+    "benchmark://cbench-v1/sha": {
+      "gatedcalibratedmambanvp_seed1": {
+        "action_ids": [
+          21,
+          121,
+          97,
+          38,
+          31,
+          52,
+          70,
+          53
+        ],
+        "candidate_id": 31,
+        "candidate_rank": 1,
+        "pass_count": 8,
+        "policy45_object_text_size_bytes": 3204,
+        "prefix_index": 7
+      },
+      "gatedcalibratedmambanvp_seed2": {
+        "action_ids": [
+          21,
+          121,
+          97,
+          38,
+          31,
+          52,
+          70,
+          53
+        ],
+        "candidate_id": 31,
+        "candidate_rank": 0,
+        "pass_count": 8,
+        "policy45_object_text_size_bytes": 3204,
+        "prefix_index": 7
+      },
+      "gatedcalibratedmambanvp_seed3": {
+        "action_ids": [
+          21,
+          121,
+          97,
+          38,
+          31,
+          52,
+          70,
+          53
+        ],
+        "candidate_id": 31,
+        "candidate_rank": 0,
+        "pass_count": 8,
+        "policy45_object_text_size_bytes": 3204,
+        "prefix_index": 7
+      },
+      "mambanvp_seed1": {
+        "action_ids": [
+          21,
+          121,
+          97,
+          38,
+          31,
+          52,
+          70,
+          53
+        ],
+        "candidate_id": 31,
+        "candidate_rank": 1,
+        "pass_count": 8,
+        "policy45_object_text_size_bytes": 3204,
+        "prefix_index": 7
+      },
+      "mambanvp_seed2": {
+        "action_ids": [
+          21,
+          121,
+          97,
+          38,
+          31,
+          52,
+          70,
+          53
+        ],
+        "candidate_id": 31,
+        "candidate_rank": 0,
+        "pass_count": 8,
+        "policy45_object_text_size_bytes": 3204,
+        "prefix_index": 7
+      },
+      "mambanvp_seed3": {
+        "action_ids": [
+          21,
+          121,
+          97,
+          38,
+          31,
+          52,
+          70,
+          53
+        ],
+        "candidate_id": 31,
+        "candidate_rank": 0,
+        "pass_count": 8,
+        "policy45_object_text_size_bytes": 3204,
+        "prefix_index": 7
+      },
+      "nvp_seed1": {
+        "action_ids": [
+          21,
+          121,
+          97,
+          38,
+          31,
+          52,
+          70,
+          53
+        ],
+        "candidate_id": 31,
+        "candidate_rank": 1,
+        "pass_count": 8,
+        "policy45_object_text_size_bytes": 3204,
+        "prefix_index": 7
+      },
+      "nvp_seed2": {
+        "action_ids": [
+          21,
+          121,
+          97,
+          38,
+          31,
+          52,
+          70,
+          53
+        ],
+        "candidate_id": 31,
+        "candidate_rank": 0,
+        "pass_count": 8,
+        "policy45_object_text_size_bytes": 3204,
+        "prefix_index": 7
+      },
+      "nvp_seed3": {
+        "action_ids": [
+          21,
+          121,
+          97,
+          38,
+          31,
+          52,
+          70,
+          53
+        ],
+        "candidate_id": 31,
+        "candidate_rank": 0,
+        "pass_count": 8,
+        "policy45_object_text_size_bytes": 3204,
+        "prefix_index": 7
+      }
+    },
+    "benchmark://cbench-v1/stringsearch": {
+      "gatedcalibratedmambanvp_seed1": {
+        "action_ids": [
+          10
+        ],
+        "candidate_id": 49,
+        "candidate_rank": 0,
+        "pass_count": 1,
+        "policy45_object_text_size_bytes": 5618,
+        "prefix_index": 0
+      },
+      "gatedcalibratedmambanvp_seed2": {
+        "action_ids": [
+          10
+        ],
+        "candidate_id": 49,
+        "candidate_rank": 0,
+        "pass_count": 1,
+        "policy45_object_text_size_bytes": 5618,
+        "prefix_index": 0
+      },
+      "gatedcalibratedmambanvp_seed3": {
+        "action_ids": [
+          10
+        ],
+        "candidate_id": 49,
+        "candidate_rank": 0,
+        "pass_count": 1,
+        "policy45_object_text_size_bytes": 5618,
+        "prefix_index": 0
+      },
+      "mambanvp_seed1": {
+        "action_ids": [
+          10
+        ],
+        "candidate_id": 49,
+        "candidate_rank": 0,
+        "pass_count": 1,
+        "policy45_object_text_size_bytes": 5618,
+        "prefix_index": 0
+      },
+      "mambanvp_seed2": {
+        "action_ids": [
+          10
+        ],
+        "candidate_id": 49,
+        "candidate_rank": 0,
+        "pass_count": 1,
+        "policy45_object_text_size_bytes": 5618,
+        "prefix_index": 0
+      },
+      "mambanvp_seed3": {
+        "action_ids": [
+          10
+        ],
+        "candidate_id": 49,
+        "candidate_rank": 0,
+        "pass_count": 1,
+        "policy45_object_text_size_bytes": 5618,
+        "prefix_index": 0
+      },
+      "nvp_seed1": {
+        "action_ids": [
+          10
+        ],
+        "candidate_id": 49,
+        "candidate_rank": 0,
+        "pass_count": 1,
+        "policy45_object_text_size_bytes": 5618,
+        "prefix_index": 0
+      },
+      "nvp_seed2": {
+        "action_ids": [
+          10
+        ],
+        "candidate_id": 49,
+        "candidate_rank": 0,
+        "pass_count": 1,
+        "policy45_object_text_size_bytes": 5618,
+        "prefix_index": 0
+      },
+      "nvp_seed3": {
+        "action_ids": [
+          10
+        ],
+        "candidate_id": 49,
+        "candidate_rank": 0,
+        "pass_count": 1,
+        "policy45_object_text_size_bytes": 5618,
+        "prefix_index": 0
+      }
+    },
+    "benchmark://cbench-v1/stringsearch2": {
+      "gatedcalibratedmambanvp_seed1": {
+        "action_ids": [
+          10
+        ],
+        "candidate_id": 49,
+        "candidate_rank": 0,
+        "pass_count": 1,
+        "policy45_object_text_size_bytes": 2573,
+        "prefix_index": 0
+      },
+      "gatedcalibratedmambanvp_seed2": {
+        "action_ids": [
+          10
+        ],
+        "candidate_id": 49,
+        "candidate_rank": 0,
+        "pass_count": 1,
+        "policy45_object_text_size_bytes": 2573,
+        "prefix_index": 0
+      },
+      "gatedcalibratedmambanvp_seed3": {
+        "action_ids": [
+          10
+        ],
+        "candidate_id": 49,
+        "candidate_rank": 0,
+        "pass_count": 1,
+        "policy45_object_text_size_bytes": 2573,
+        "prefix_index": 0
+      },
+      "mambanvp_seed1": {
+        "action_ids": [
+          10
+        ],
+        "candidate_id": 49,
+        "candidate_rank": 0,
+        "pass_count": 1,
+        "policy45_object_text_size_bytes": 2573,
+        "prefix_index": 0
+      },
+      "mambanvp_seed2": {
+        "action_ids": [
+          10
+        ],
+        "candidate_id": 49,
+        "candidate_rank": 0,
+        "pass_count": 1,
+        "policy45_object_text_size_bytes": 2573,
+        "prefix_index": 0
+      },
+      "mambanvp_seed3": {
+        "action_ids": [
+          10
+        ],
+        "candidate_id": 49,
+        "candidate_rank": 0,
+        "pass_count": 1,
+        "policy45_object_text_size_bytes": 2573,
+        "prefix_index": 0
+      },
+      "nvp_seed1": {
+        "action_ids": [
+          10
+        ],
+        "candidate_id": 49,
+        "candidate_rank": 0,
+        "pass_count": 1,
+        "policy45_object_text_size_bytes": 2573,
+        "prefix_index": 0
+      },
+      "nvp_seed2": {
+        "action_ids": [
+          10
+        ],
+        "candidate_id": 49,
+        "candidate_rank": 0,
+        "pass_count": 1,
+        "policy45_object_text_size_bytes": 2573,
+        "prefix_index": 0
+      },
+      "nvp_seed3": {
+        "action_ids": [
+          10
+        ],
+        "candidate_id": 49,
+        "candidate_rank": 0,
+        "pass_count": 1,
+        "policy45_object_text_size_bytes": 2573,
+        "prefix_index": 0
+      }
+    }
+  },
+  "sampling": false
+}

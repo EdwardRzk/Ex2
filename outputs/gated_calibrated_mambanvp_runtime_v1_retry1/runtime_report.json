@@ -1,0 +1,550 @@
+{
+  "completed_programs": 9,
+  "correctness": {
+    "N_binaries": 90,
+    "N_execution_failed": 0,
+    "N_execution_only_unverified": 10,
+    "N_primary_common_programs": 8,
+    "N_runtime_programs": 9,
+    "N_secondary_execution_common_programs": 9,
+    "N_semantic_validated_fail": 0,
+    "N_semantic_validated_pass": 80,
+    "N_timeout": 0,
+    "config_sha256": "5f926b635a0e4ad121c7011e43a5a996f5469addf9935ea45030e48af9fbc5d5",
+    "programs": {
+      "benchmark://cbench-v1/bitcount": {
+        "exclusion_reason": null,
+        "execution_runtime_common_valid": true,
+        "primary_runtime_common_valid": true
+      },
+      "benchmark://cbench-v1/blowfish": {
+        "exclusion_reason": null,
+        "execution_runtime_common_valid": true,
+        "primary_runtime_common_valid": true
+      },
+      "benchmark://cbench-v1/crc32": {
+        "exclusion_reason": null,
+        "execution_runtime_common_valid": true,
+        "primary_runtime_common_valid": true
+      },
+      "benchmark://cbench-v1/dijkstra": {
+        "exclusion_reason": null,
+        "execution_runtime_common_valid": true,
+        "primary_runtime_common_valid": true
+      },
+      "benchmark://cbench-v1/patricia": {
+        "exclusion_reason": null,
+        "execution_runtime_common_valid": true,
+        "primary_runtime_common_valid": true
+      },
+      "benchmark://cbench-v1/qsort": {
+        "exclusion_reason": null,
+        "execution_runtime_common_valid": true,
+        "primary_runtime_common_valid": true
+      },
+      "benchmark://cbench-v1/sha": {
+        "exclusion_reason": "execution_only_unverified",
+        "execution_runtime_common_valid": true,
+        "primary_runtime_common_valid": false
+      },
+      "benchmark://cbench-v1/stringsearch": {
+        "exclusion_reason": null,
+        "execution_runtime_common_valid": true,
+        "primary_runtime_common_valid": true
+      },
+      "benchmark://cbench-v1/stringsearch2": {
+        "exclusion_reason": null,
+        "execution_runtime_common_valid": true,
+        "primary_runtime_common_valid": true
+      }
+    }
+  },
+  "input_integrity_after_run": {
+    "GatedCalibratedMambaNVP": {
+      "1": {
+        "path": "/root/Ex2/outputs/gated_calibrated_mambanvp_v2/checkpoints/seed1/model.pt",
+        "sha256": "ed9b120565f3b57741817d76e1e9e21ba803b3110dd6ca37db23eff050ad6b60"
+      },
+      "2": {
+        "path": "/root/Ex2/outputs/gated_calibrated_mambanvp_v2/checkpoints/seed2/model.pt",
+        "sha256": "804bb65d0c9589a58b329c5c0dc0d673530d42ca0195c038570ff6fa384ed594"
+      },
+      "3": {
+        "path": "/root/Ex2/outputs/gated_calibrated_mambanvp_v2/checkpoints/seed3/model.pt",
+        "sha256": "63b10e5adb5fadf622e8f1800b6ddf079d76f420010ab2c3c73864b3d6e0eedb"
+      }
+    },
+    "checkpoints": {
+      "MambaNVP": {
+        "1": {
+          "path": "/root/Ex2/outputs/mamba_nvp_objecttext_v6/seed1/model.pt",
+          "sha256": "bd8bbed4dbece6af47a760333b3b6670712cfbe52f03f9dc32c020898e392c33"
+        },
+        "2": {
+          "path": "/root/Ex2/outputs/mamba_nvp_objecttext_v6/seed2/model.pt",
+          "sha256": "326702c0d7892ab891373d7740edd03975ac15f99ee1d9fde509d3417a47b05e"
+        },
+        "3": {
+          "path": "/root/Ex2/outputs/mamba_nvp_objecttext_v6/seed3/model.pt",
+          "sha256": "2a6f0957b87bbc5195629735ae81da57f0d9e44d48f768a7f6a9e2967d4cb6fd"
+        }
+      },
+      "NVP": {
+        "1": {
+          "path": "/root/Ex2/outputs/route_a_stage_b_v6/nvp/seed1/model.pt",
+          "sha256": "7590e756d5f4c9b5f4488ea63eeee02df88e1b48873e5515cdef9e71ab85f424"
+        },
+        "2": {
+          "path": "/root/Ex2/outputs/route_a_stage_b_v6/nvp/seed2/model.pt",
+          "sha256": "54bedb6f04ddd9079211a39d4b4c37eb320711f453fcda8c4d4e345c162ae9ca"
+        },
+        "3": {
+          "path": "/root/Ex2/outputs/route_a_stage_b_v6/nvp/seed3/model.pt",
+          "sha256": "461d27c8b38d86f3218f8322a4239ebb43dc341cadb28ed7b1c37b51f49fa92d"
+        }
+      }
+    },
+    "controlled_config": {
+      "path": "/root/Ex2/configs/controlled_nvp_stage_a_v6.json",
+      "sha256": "345aded6d24cc53465b5589bd7b013cd241947b88087678d7c77f7201ee3d1ed"
+    },
+    "final_autophase_cache": {
+      "path": "/root/Ex2/outputs/autophase_feature_cache_v6/final_autophase.jsonl.gz",
+      "sha256": "3b4861d50653b4333b77f7db108aec133408a33cda6b21391d11701d4be157c3"
+    },
+    "final_label_shards": "/root/Ex2/outputs/route_a_final_objecttext_v6/shards/final",
+    "frozen_oz_amplification": {
+      "path": "/root/Ex2/outputs/route_a_posthoc_runtime_v6/amplification_manifest.json",
+      "sha256": "38bb3fc4a5bdfc4ea7d9dd75cf7617e8878e2a4ca0842a74d6fce2b71938cfe1"
+    },
+    "gated_final_config": {
+      "path": "/root/Ex2/configs/gated_calibrated_mambanvp_final_objecttext_v2.json",
+      "sha256": "836b5cff59f6ebfc189714e36908057ef55a0f17104df4e373b4f7a1d11ef410"
+    },
+    "gated_training_config": {
+      "path": "/root/Ex2/configs/gated_calibrated_mambanvp_v2.json",
+      "sha256": "79069bdbb2cd8a5a6ecbc35c4dc57b43be7c3cdbea045130bfe35ad6f35c21e9"
+    },
+    "gated_validation_report": {
+      "path": "/root/Ex2/outputs/gated_calibrated_mambanvp_v2/comparison_report.json",
+      "sha256": "f8bc7a8b04140247daea877cfeb80d9635f3649bb30d73b9feed3f96a13ddb4f"
+    },
+    "legacy_build_manifest": {
+      "path": "/root/Ex2/outputs/route_a_posthoc_runtime_v6/build_manifest.json",
+      "sha256": "ad155e12b1d4c169712a89f45cc754589e7e94c2ade8cd37d4276601706e7e2c"
+    },
+    "legacy_policy_prefixes": {
+      "path": "/root/Ex2/outputs/route_a_posthoc_runtime_v6/policy_prefixes.json",
+      "sha256": "713706fbab61cf185cf8af05848070e97884c46bb639c5a58572253aa76b2ab4"
+    },
+    "mambanvp_final_config": {
+      "path": "/root/Ex2/configs/mamba_nvp_final_objecttext_v6.json",
+      "sha256": "e8c6c3ee5e2bf8965974b4a04623a469123ef89717a82a7a69b0e24c5ca2c901"
+    },
+    "mambanvp_training_config": {
+      "path": "/root/Ex2/configs/mamba_nvp_objecttext_v6.json",
+      "sha256": "7582f8f572a6564512363460b51c692d983a217b62243200ac90398440384ef1"
+    },
+    "route_a_posthoc_runtime_config": {
+      "path": "/root/Ex2/configs/route_a_posthoc_runtime_v6.json",
+      "sha256": "75cbb07faf077774d103fd7c5c434a558bbefa9a207c3a9e33aaf94a52bc9f5f"
+    }
+  },
+  "invalid_or_failure_programs": 0,
+  "primary_semantic_cohort": {
+    "N_programs": 8,
+    "gated_over_mambanvp_speedup_ratio": 0.9918688316338538,
+    "gated_over_nvp_speedup_ratio": 1.0022740805121764,
+    "per_seed": {
+      "1": {
+        "GatedCalibratedMambaNVP": {
+          "geomean_speedup_vs_Oz": 0.8093159745534823,
+          "improvement_count": 2,
+          "median_speedup_vs_Oz": 0.9701004172090537,
+          "per_program_speedup_vs_Oz": {
+            "benchmark://cbench-v1/bitcount": 0.363726836490304,
+            "benchmark://cbench-v1/blowfish": 1.0139984961605004,
+            "benchmark://cbench-v1/crc32": 1.1738225441573695,
+            "benchmark://cbench-v1/dijkstra": 0.9926243359581015,
+            "benchmark://cbench-v1/patricia": 0.9960160142032063,
+            "benchmark://cbench-v1/qsort": 0.7046343363518489,
+            "benchmark://cbench-v1/stringsearch": 0.9475764984600058,
+            "benchmark://cbench-v1/stringsearch2": 0.6440216637820108
+          },
+          "regression_count": 6
+        },
+        "MambaNVP": {
+          "geomean_speedup_vs_Oz": 0.810548958049201,
+          "improvement_count": 2,
+          "median_speedup_vs_Oz": 0.9602360421956626,
+          "per_program_speedup_vs_Oz": {
+            "benchmark://cbench-v1/bitcount": 0.3616545527678175,
+            "benchmark://cbench-v1/blowfish": 1.0213871923873872,
+            "benchmark://cbench-v1/crc32": 1.185518116186016,
+            "benchmark://cbench-v1/dijkstra": 0.9966929091588195,
+            "benchmark://cbench-v1/patricia": 0.9921267195153318,
+            "benchmark://cbench-v1/qsort": 0.7113908295724279,
+            "benchmark://cbench-v1/stringsearch": 0.9283453648759935,
+            "benchmark://cbench-v1/stringsearch2": 0.6514710554657619
+          },
+          "regression_count": 6
+        },
+        "NVP": {
+          "geomean_speedup_vs_Oz": 0.8111865002569839,
+          "improvement_count": 3,
+          "median_speedup_vs_Oz": 0.9652602390939766,
+          "per_program_speedup_vs_Oz": {
+            "benchmark://cbench-v1/bitcount": 0.3628421552826433,
+            "benchmark://cbench-v1/blowfish": 1.0186617026222122,
+            "benchmark://cbench-v1/crc32": 1.174253103305427,
+            "benchmark://cbench-v1/dijkstra": 1.022970357012477,
+            "benchmark://cbench-v1/patricia": 0.9964164344679795,
+            "benchmark://cbench-v1/qsort": 0.7066429205410014,
+            "benchmark://cbench-v1/stringsearch": 0.9341040437199738,
+            "benchmark://cbench-v1/stringsearch2": 0.6420326098997756
+          },
+          "regression_count": 5
+        }
+      },
+      "2": {
+        "GatedCalibratedMambaNVP": {
+          "geomean_speedup_vs_Oz": 0.8126581992020999,
+          "improvement_count": 1,
+          "median_speedup_vs_Oz": 0.9748432767912306,
+          "per_program_speedup_vs_Oz": {
+            "benchmark://cbench-v1/bitcount": 0.36952811355764276,
+            "benchmark://cbench-v1/blowfish": 0.9980525667644259,
+            "benchmark://cbench-v1/crc32": 1.1723254429892955,
+            "benchmark://cbench-v1/dijkstra": 0.9906691042229985,
+            "benchmark://cbench-v1/patricia": 0.986080554901047,
+            "benchmark://cbench-v1/qsort": 0.7344797247080634,
+            "benchmark://cbench-v1/stringsearch": 0.9636059986814143,
+            "benchmark://cbench-v1/stringsearch2": 0.6363469400132501
+          },
+          "regression_count": 7
+        },
+        "MambaNVP": {
+          "geomean_speedup_vs_Oz": 0.8155086316270048,
+          "improvement_count": 4,
+          "median_speedup_vs_Oz": 0.9737867150270834,
+          "per_program_speedup_vs_Oz": {
+            "benchmark://cbench-v1/bitcount": 0.3584253487035251,
+            "benchmark://cbench-v1/blowfish": 1.026415879300244,
+            "benchmark://cbench-v1/crc32": 1.188934537092679,
+            "benchmark://cbench-v1/dijkstra": 1.0064278369769355,
+            "benchmark://cbench-v1/patricia": 1.0099430441055564,
+            "benchmark://cbench-v1/qsort": 0.736333920646411,
+            "benchmark://cbench-v1/stringsearch": 0.9411455930772312,
+            "benchmark://cbench-v1/stringsearch2": 0.6349467900388549
+          },
+          "regression_count": 4
+        },
+        "NVP": {
+          "geomean_speedup_vs_Oz": 0.8109320571028269,
+          "improvement_count": 2,
+          "median_speedup_vs_Oz": 0.9587070269677945,
+          "per_program_speedup_vs_Oz": {
+            "benchmark://cbench-v1/bitcount": 0.35973093038266357,
+            "benchmark://cbench-v1/blowfish": 1.0155561567827678,
+            "benchmark://cbench-v1/crc32": 1.1574082028883295,
+            "benchmark://cbench-v1/dijkstra": 0.9977253264095002,
+            "benchmark://cbench-v1/patricia": 0.9845801718853154,
+            "benchmark://cbench-v1/qsort": 0.7380152684429314,
+            "benchmark://cbench-v1/stringsearch": 0.9328338820502736,
+            "benchmark://cbench-v1/stringsearch2": 0.6539969611208678
+          },
+          "regression_count": 6
+        }
+      },
+      "3": {
+        "GatedCalibratedMambaNVP": {
+          "geomean_speedup_vs_Oz": 0.7991264759136341,
+          "improvement_count": 3,
+          "median_speedup_vs_Oz": 0.9641907022404796,
+          "per_program_speedup_vs_Oz": {
+            "benchmark://cbench-v1/bitcount": 0.31503466828980115,
+            "benchmark://cbench-v1/blowfish": 1.009931754959766,
+            "benchmark://cbench-v1/crc32": 1.174301238317704,
+            "benchmark://cbench-v1/dijkstra": 0.9835183178188639,
+            "benchmark://cbench-v1/patricia": 1.0330607221618244,
+            "benchmark://cbench-v1/qsort": 0.7318312217993773,
+            "benchmark://cbench-v1/stringsearch": 0.9448630866620954,
+            "benchmark://cbench-v1/stringsearch2": 0.6335868312718167
+          },
+          "regression_count": 5
+        },
+        "MambaNVP": {
+          "geomean_speedup_vs_Oz": 0.8148375044146041,
+          "improvement_count": 4,
+          "median_speedup_vs_Oz": 0.9710324964788999,
+          "per_program_speedup_vs_Oz": {
+            "benchmark://cbench-v1/bitcount": 0.36169344017855726,
+            "benchmark://cbench-v1/blowfish": 1.0206239046947316,
+            "benchmark://cbench-v1/crc32": 1.194202987176129,
+            "benchmark://cbench-v1/dijkstra": 1.0057596233468473,
+            "benchmark://cbench-v1/patricia": 1.0004964103671565,
+            "benchmark://cbench-v1/qsort": 0.7167224052361797,
+            "benchmark://cbench-v1/stringsearch": 0.9415685825906431,
+            "benchmark://cbench-v1/stringsearch2": 0.6491886033363145
+          },
+          "regression_count": 4
+        },
+        "NVP": {
+          "geomean_speedup_vs_Oz": 0.7935547073605399,
+          "improvement_count": 2,
+          "median_speedup_vs_Oz": 0.953500458355079,
+          "per_program_speedup_vs_Oz": {
+            "benchmark://cbench-v1/bitcount": 0.3111049055573862,
+            "benchmark://cbench-v1/blowfish": 1.0110428314319784,
+            "benchmark://cbench-v1/crc32": 1.184492413487159,
+            "benchmark://cbench-v1/dijkstra": 0.968914714889044,
+            "benchmark://cbench-v1/patricia": 0.9714181691894749,
+            "benchmark://cbench-v1/qsort": 0.7347729701023746,
+            "benchmark://cbench-v1/stringsearch": 0.9380862018211141,
+            "benchmark://cbench-v1/stringsearch2": 0.6506067839447515
+          },
+          "regression_count": 6
+        }
+      }
+    },
+    "program_ids": [
+      "benchmark://cbench-v1/bitcount",
+      "benchmark://cbench-v1/blowfish",
+      "benchmark://cbench-v1/crc32",
+      "benchmark://cbench-v1/dijkstra",
+      "benchmark://cbench-v1/patricia",
+      "benchmark://cbench-v1/qsort",
+      "benchmark://cbench-v1/stringsearch",
+      "benchmark://cbench-v1/stringsearch2"
+    ],
+    "three_seed": {
+      "GatedCalibratedMambaNVP": {
+        "geomean_speedup_vs_Oz": 0.8070129761760076,
+        "improvement_count_median_across_seeds": 2,
+        "median_speedup_vs_Oz": 0.9701004172090537,
+        "regression_count_median_across_seeds": 6
+      },
+      "MambaNVP": {
+        "geomean_speedup_vs_Oz": 0.8136287283537857,
+        "improvement_count_median_across_seeds": 4,
+        "median_speedup_vs_Oz": 0.9710324964788999,
+        "regression_count_median_across_seeds": 4
+      },
+      "NVP": {
+        "geomean_speedup_vs_Oz": 0.8051819276455923,
+        "improvement_count_median_across_seeds": 2,
+        "median_speedup_vs_Oz": 0.9587070269677945,
+        "regression_count_median_across_seeds": 6
+      }
+    }
+  },
+  "prohibitions_observed": {
+    "compiler_gym_candidate_rollouts": 0,
+    "compiler_gym_initialized": false,
+    "label_regeneration": 0,
+    "llvm_phase_application": 0,
+    "llvm_phase_search": 0,
+    "model_training": 0,
+    "objecttext_measurements": 0,
+    "sampling": false
+  },
+  "protocol": "route_a_posthoc_runtime_v6 reused unchanged for benchmark set, binary provenance, LLVM toolchain, CPU binding, warmups, timed repetitions, and correctness",
+  "secondary_execution_cohort": {
+    "N_programs": 9,
+    "gated_over_mambanvp_speedup_ratio": 0.9942481219761712,
+    "gated_over_nvp_speedup_ratio": 1.0047403945503952,
+    "per_seed": {
+      "1": {
+        "GatedCalibratedMambaNVP": {
+          "geomean_speedup_vs_Oz": 0.8333260437905453,
+          "improvement_count": 3,
+          "median_speedup_vs_Oz": 0.9926243359581015,
+          "per_program_speedup_vs_Oz": {
+            "benchmark://cbench-v1/bitcount": 0.363726836490304,
+            "benchmark://cbench-v1/blowfish": 1.0139984961605004,
+            "benchmark://cbench-v1/crc32": 1.1738225441573695,
+            "benchmark://cbench-v1/dijkstra": 0.9926243359581015,
+            "benchmark://cbench-v1/patricia": 0.9960160142032063,
+            "benchmark://cbench-v1/qsort": 0.7046343363518489,
+            "benchmark://cbench-v1/sha": 1.0529062238541957,
+            "benchmark://cbench-v1/stringsearch": 0.9475764984600058,
+            "benchmark://cbench-v1/stringsearch2": 0.6440216637820108
+          },
+          "regression_count": 6
+        },
+        "MambaNVP": {
+          "geomean_speedup_vs_Oz": 0.832630447252117,
+          "improvement_count": 3,
+          "median_speedup_vs_Oz": 0.9921267195153318,
+          "per_program_speedup_vs_Oz": {
+            "benchmark://cbench-v1/bitcount": 0.3616545527678175,
+            "benchmark://cbench-v1/blowfish": 1.0213871923873872,
+            "benchmark://cbench-v1/crc32": 1.185518116186016,
+            "benchmark://cbench-v1/dijkstra": 0.9966929091588195,
+            "benchmark://cbench-v1/patricia": 0.9921267195153318,
+            "benchmark://cbench-v1/qsort": 0.7113908295724279,
+            "benchmark://cbench-v1/sha": 1.0323728545648323,
+            "benchmark://cbench-v1/stringsearch": 0.9283453648759935,
+            "benchmark://cbench-v1/stringsearch2": 0.6514710554657619
+          },
+          "regression_count": 6
+        },
+        "NVP": {
+          "geomean_speedup_vs_Oz": 0.833519663170156,
+          "improvement_count": 4,
+          "median_speedup_vs_Oz": 0.9964164344679795,
+          "per_program_speedup_vs_Oz": {
+            "benchmark://cbench-v1/bitcount": 0.3628421552826433,
+            "benchmark://cbench-v1/blowfish": 1.0186617026222122,
+            "benchmark://cbench-v1/crc32": 1.174253103305427,
+            "benchmark://cbench-v1/dijkstra": 1.022970357012477,
+            "benchmark://cbench-v1/patricia": 0.9964164344679795,
+            "benchmark://cbench-v1/qsort": 0.7066429205410014,
+            "benchmark://cbench-v1/sha": 1.0358024392807494,
+            "benchmark://cbench-v1/stringsearch": 0.9341040437199738,
+            "benchmark://cbench-v1/stringsearch2": 0.6420326098997756
+          },
+          "regression_count": 5
+        }
+      },
+      "2": {
+        "GatedCalibratedMambaNVP": {
+          "geomean_speedup_vs_Oz": 0.8356644046503617,
+          "improvement_count": 2,
+          "median_speedup_vs_Oz": 0.986080554901047,
+          "per_program_speedup_vs_Oz": {
+            "benchmark://cbench-v1/bitcount": 0.36952811355764276,
+            "benchmark://cbench-v1/blowfish": 0.9980525667644259,
+            "benchmark://cbench-v1/crc32": 1.1723254429892955,
+            "benchmark://cbench-v1/dijkstra": 0.9906691042229985,
+            "benchmark://cbench-v1/patricia": 0.986080554901047,
+            "benchmark://cbench-v1/qsort": 0.7344797247080634,
+            "benchmark://cbench-v1/sha": 1.0447773799096403,
+            "benchmark://cbench-v1/stringsearch": 0.9636059986814143,
+            "benchmark://cbench-v1/stringsearch2": 0.6363469400132501
+          },
+          "regression_count": 7
+        },
+        "MambaNVP": {
+          "geomean_speedup_vs_Oz": 0.8375851668403805,
+          "improvement_count": 5,
+          "median_speedup_vs_Oz": 1.0064278369769355,
+          "per_program_speedup_vs_Oz": {
+            "benchmark://cbench-v1/bitcount": 0.3584253487035251,
+            "benchmark://cbench-v1/blowfish": 1.026415879300244,
+            "benchmark://cbench-v1/crc32": 1.188934537092679,
+            "benchmark://cbench-v1/dijkstra": 1.0064278369769355,
+            "benchmark://cbench-v1/patricia": 1.0099430441055564,
+            "benchmark://cbench-v1/qsort": 0.736333920646411,
+            "benchmark://cbench-v1/sha": 1.0371278622661058,
+            "benchmark://cbench-v1/stringsearch": 0.9411455930772312,
+            "benchmark://cbench-v1/stringsearch2": 0.6349467900388549
+          },
+          "regression_count": 4
+        },
+        "NVP": {
+          "geomean_speedup_vs_Oz": 0.8313719110669128,
+          "improvement_count": 3,
+          "median_speedup_vs_Oz": 0.9845801718853154,
+          "per_program_speedup_vs_Oz": {
+            "benchmark://cbench-v1/bitcount": 0.35973093038266357,
+            "benchmark://cbench-v1/blowfish": 1.0155561567827678,
+            "benchmark://cbench-v1/crc32": 1.1574082028883295,
+            "benchmark://cbench-v1/dijkstra": 0.9977253264095002,
+            "benchmark://cbench-v1/patricia": 0.9845801718853154,
+            "benchmark://cbench-v1/qsort": 0.7380152684429314,
+            "benchmark://cbench-v1/sha": 1.0145708346012223,
+            "benchmark://cbench-v1/stringsearch": 0.9328338820502736,
+            "benchmark://cbench-v1/stringsearch2": 0.6539969611208678
+          },
+          "regression_count": 6
+        }
+      },
+      "3": {
+        "GatedCalibratedMambaNVP": {
+          "geomean_speedup_vs_Oz": 0.8227027971842396,
+          "improvement_count": 4,
+          "median_speedup_vs_Oz": 0.9835183178188639,
+          "per_program_speedup_vs_Oz": {
+            "benchmark://cbench-v1/bitcount": 0.31503466828980115,
+            "benchmark://cbench-v1/blowfish": 1.009931754959766,
+            "benchmark://cbench-v1/crc32": 1.174301238317704,
+            "benchmark://cbench-v1/dijkstra": 0.9835183178188639,
+            "benchmark://cbench-v1/patricia": 1.0330607221618244,
+            "benchmark://cbench-v1/qsort": 0.7318312217993773,
+            "benchmark://cbench-v1/sha": 1.0381559773049798,
+            "benchmark://cbench-v1/stringsearch": 0.9448630866620954,
+            "benchmark://cbench-v1/stringsearch2": 0.6335868312718167
+          },
+          "regression_count": 5
+        },
+        "MambaNVP": {
+          "geomean_speedup_vs_Oz": 0.8358420748918072,
+          "improvement_count": 5,
+          "median_speedup_vs_Oz": 1.0004964103671565,
+          "per_program_speedup_vs_Oz": {
+            "benchmark://cbench-v1/bitcount": 0.36169344017855726,
+            "benchmark://cbench-v1/blowfish": 1.0206239046947316,
+            "benchmark://cbench-v1/crc32": 1.194202987176129,
+            "benchmark://cbench-v1/dijkstra": 1.0057596233468473,
+            "benchmark://cbench-v1/patricia": 1.0004964103671565,
+            "benchmark://cbench-v1/qsort": 0.7167224052361797,
+            "benchmark://cbench-v1/sha": 1.0245896892594448,
+            "benchmark://cbench-v1/stringsearch": 0.9415685825906431,
+            "benchmark://cbench-v1/stringsearch2": 0.6491886033363145
+          },
+          "regression_count": 4
+        },
+        "NVP": {
+          "geomean_speedup_vs_Oz": 0.8151115496307888,
+          "improvement_count": 3,
+          "median_speedup_vs_Oz": 0.968914714889044,
+          "per_program_speedup_vs_Oz": {
+            "benchmark://cbench-v1/bitcount": 0.3111049055573862,
+            "benchmark://cbench-v1/blowfish": 1.0110428314319784,
+            "benchmark://cbench-v1/crc32": 1.184492413487159,
+            "benchmark://cbench-v1/dijkstra": 0.968914714889044,
+            "benchmark://cbench-v1/patricia": 0.9714181691894749,
+            "benchmark://cbench-v1/qsort": 0.7347729701023746,
+            "benchmark://cbench-v1/sha": 1.0100396995812797,
+            "benchmark://cbench-v1/stringsearch": 0.9380862018211141,
+            "benchmark://cbench-v1/stringsearch2": 0.6506067839447515
+          },
+          "regression_count": 6
+        }
+      }
+    },
+    "program_ids": [
+      "benchmark://cbench-v1/bitcount",
+      "benchmark://cbench-v1/blowfish",
+      "benchmark://cbench-v1/crc32",
+      "benchmark://cbench-v1/dijkstra",
+      "benchmark://cbench-v1/patricia",
+      "benchmark://cbench-v1/qsort",
+      "benchmark://cbench-v1/sha",
+      "benchmark://cbench-v1/stringsearch",
+      "benchmark://cbench-v1/stringsearch2"
+    ],
+    "three_seed": {
+      "GatedCalibratedMambaNVP": {
+        "geomean_speedup_vs_Oz": 0.8305452093204893,
+        "improvement_count_median_across_seeds": 3,
+        "median_speedup_vs_Oz": 0.986080554901047,
+        "regression_count_median_across_seeds": 6
+      },
+      "MambaNVP": {
+        "geomean_speedup_vs_Oz": 0.8353500408627321,
+        "improvement_count_median_across_seeds": 5,
+        "median_speedup_vs_Oz": 1.0004964103671565,
+        "regression_count_median_across_seeds": 4
+      },
+      "NVP": {
+        "geomean_speedup_vs_Oz": 0.8266266727457937,
+        "improvement_count_median_across_seeds": 3,
+        "median_speedup_vs_Oz": 0.9845801718853154,
+        "regression_count_median_across_seeds": 6
+      }
+    }
+  },
+  "step_execution": "COMPLETE"
+}

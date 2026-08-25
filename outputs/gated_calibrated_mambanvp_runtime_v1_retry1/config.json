@@ -1,0 +1,421 @@
+{
+  "aggregation": {
+    "dataset_speedup": "geometric mean of common-cohort program speedups",
+    "direct_comparison": "GMeanSpeedup_GatedCalibratedMambaNVP / GMeanSpeedup_NVP",
+    "overall": "geometric mean of per-dataset speedups with equal dataset log weight; undefined for empty cohort",
+    "pooled_program_summary": "secondary only",
+    "primary_cohort": "semantic validation passes for Oz and every listed learned seed",
+    "program_speedup": "T_Oz / T_method using per-binary median",
+    "secondary_cohort": "all listed methods execute successfully",
+    "seed_aggregate": "geometric mean across seeds 1/2/3"
+  },
+  "binary_provenance": "Exact action-id-matched, hash-verified copies of existing Route-A binaries only; no CompilerGym rollout or LLVM phase application.",
+  "correctness": {
+    "failure_policy": "Record fail/execution_only; exclude failed methods from the appropriate cohort without substitution or rerun.",
+    "no_retry": true,
+    "official_source": "compiler_gym.envs.llvm.datasets.cbench validator declarations",
+    "reference": "original bitcode compiled with the same fixed clang at -O2; compare stdout and declared output files exactly",
+    "sha_execution_only": "The installed CBench SHA validator sets compare_output=false and discards its format-validator return; it is execution_only."
+  },
+  "experiment_name": "gated_calibrated_mambanvp_runtime_v1",
+  "forbidden": [
+    "CompilerGym candidate rollout",
+    "LLVM phase search",
+    "LLVM phase application",
+    "ObjectText measurement",
+    "label regeneration",
+    "retraining",
+    "checkpoint selection",
+    "sampling",
+    "final/OOD re-evaluation"
+  ],
+  "frozen_inputs": {
+    "GatedCalibratedMambaNVP": {
+      "1": {
+        "path": "/root/Ex2/outputs/gated_calibrated_mambanvp_v2/checkpoints/seed1/model.pt",
+        "sha256": "ed9b120565f3b57741817d76e1e9e21ba803b3110dd6ca37db23eff050ad6b60"
+      },
+      "2": {
+        "path": "/root/Ex2/outputs/gated_calibrated_mambanvp_v2/checkpoints/seed2/model.pt",
+        "sha256": "804bb65d0c9589a58b329c5c0dc0d673530d42ca0195c038570ff6fa384ed594"
+      },
+      "3": {
+        "path": "/root/Ex2/outputs/gated_calibrated_mambanvp_v2/checkpoints/seed3/model.pt",
+        "sha256": "63b10e5adb5fadf622e8f1800b6ddf079d76f420010ab2c3c73864b3d6e0eedb"
+      }
+    },
+    "checkpoints": {
+      "MambaNVP": {
+        "1": {
+          "path": "/root/Ex2/outputs/mamba_nvp_objecttext_v6/seed1/model.pt",
+          "sha256": "bd8bbed4dbece6af47a760333b3b6670712cfbe52f03f9dc32c020898e392c33"
+        },
+        "2": {
+          "path": "/root/Ex2/outputs/mamba_nvp_objecttext_v6/seed2/model.pt",
+          "sha256": "326702c0d7892ab891373d7740edd03975ac15f99ee1d9fde509d3417a47b05e"
+        },
+        "3": {
+          "path": "/root/Ex2/outputs/mamba_nvp_objecttext_v6/seed3/model.pt",
+          "sha256": "2a6f0957b87bbc5195629735ae81da57f0d9e44d48f768a7f6a9e2967d4cb6fd"
+        }
+      },
+      "NVP": {
+        "1": {
+          "path": "/root/Ex2/outputs/route_a_stage_b_v6/nvp/seed1/model.pt",
+          "sha256": "7590e756d5f4c9b5f4488ea63eeee02df88e1b48873e5515cdef9e71ab85f424"
+        },
+        "2": {
+          "path": "/root/Ex2/outputs/route_a_stage_b_v6/nvp/seed2/model.pt",
+          "sha256": "54bedb6f04ddd9079211a39d4b4c37eb320711f453fcda8c4d4e345c162ae9ca"
+        },
+        "3": {
+          "path": "/root/Ex2/outputs/route_a_stage_b_v6/nvp/seed3/model.pt",
+          "sha256": "461d27c8b38d86f3218f8322a4239ebb43dc341cadb28ed7b1c37b51f49fa92d"
+        }
+      }
+    },
+    "controlled_config": {
+      "path": "/root/Ex2/configs/controlled_nvp_stage_a_v6.json",
+      "sha256": "345aded6d24cc53465b5589bd7b013cd241947b88087678d7c77f7201ee3d1ed"
+    },
+    "final_autophase_cache": {
+      "path": "/root/Ex2/outputs/autophase_feature_cache_v6/final_autophase.jsonl.gz",
+      "sha256": "3b4861d50653b4333b77f7db108aec133408a33cda6b21391d11701d4be157c3"
+    },
+    "final_label_shards": "/root/Ex2/outputs/route_a_final_objecttext_v6/shards/final",
+    "frozen_oz_amplification": {
+      "path": "/root/Ex2/outputs/route_a_posthoc_runtime_v6/amplification_manifest.json",
+      "sha256": "38bb3fc4a5bdfc4ea7d9dd75cf7617e8878e2a4ca0842a74d6fce2b71938cfe1"
+    },
+    "gated_final_config": {
+      "path": "/root/Ex2/configs/gated_calibrated_mambanvp_final_objecttext_v2.json",
+      "sha256": "836b5cff59f6ebfc189714e36908057ef55a0f17104df4e373b4f7a1d11ef410"
+    },
+    "gated_training_config": {
+      "path": "/root/Ex2/configs/gated_calibrated_mambanvp_v2.json",
+      "sha256": "79069bdbb2cd8a5a6ecbc35c4dc57b43be7c3cdbea045130bfe35ad6f35c21e9"
+    },
+    "gated_validation_report": {
+      "path": "/root/Ex2/outputs/gated_calibrated_mambanvp_v2/comparison_report.json",
+      "sha256": "f8bc7a8b04140247daea877cfeb80d9635f3649bb30d73b9feed3f96a13ddb4f"
+    },
+    "legacy_build_manifest": {
+      "path": "/root/Ex2/outputs/route_a_posthoc_runtime_v6/build_manifest.json",
+      "sha256": "ad155e12b1d4c169712a89f45cc754589e7e94c2ade8cd37d4276601706e7e2c"
+    },
+    "legacy_policy_prefixes": {
+      "path": "/root/Ex2/outputs/route_a_posthoc_runtime_v6/policy_prefixes.json",
+      "sha256": "713706fbab61cf185cf8af05848070e97884c46bb639c5a58572253aa76b2ab4"
+    },
+    "mambanvp_final_config": {
+      "path": "/root/Ex2/configs/mamba_nvp_final_objecttext_v6.json",
+      "sha256": "e8c6c3ee5e2bf8965974b4a04623a469123ef89717a82a7a69b0e24c5ca2c901"
+    },
+    "mambanvp_training_config": {
+      "path": "/root/Ex2/configs/mamba_nvp_objecttext_v6.json",
+      "sha256": "7582f8f572a6564512363460b51c692d983a217b62243200ac90398440384ef1"
+    },
+    "route_a_posthoc_runtime_config": {
+      "path": "/root/Ex2/configs/route_a_posthoc_runtime_v6.json",
+      "sha256": "75cbb07faf077774d103fd7c5c434a558bbefa9a207c3a9e33aaf94a52bc9f5f"
+    }
+  },
+  "gated_selected_steps": {
+    "1": 3400,
+    "2": 500,
+    "3": 3500
+  },
+  "inference": {
+    "policy": {
+      "candidate_order": "descending checkpoint logits; candidate_id ascending ties",
+      "name": "frozen_policy45",
+      "prefix_source": "final K=50 labels only",
+      "scored_pass_budget": 45,
+      "winning_prefix": "first minimum observed prefix by candidate rank then prefix position"
+    },
+    "ranking": "descending frozen logits; candidate_id ascending ties",
+    "sampling": false
+  },
+  "measurement": {
+    "calibration": "Pre-formal -Oz-only neutral run determines one integer amplification factor per program targeting at least 1.0 elapsed second; factors are written and committed in the run manifest before warmups or timed samples.",
+    "initial_timed_samples": 5,
+    "maximum_timed_samples": 20,
+    "per_sample_timeout_seconds": 300,
+    "rse_target": 0.01,
+    "statistic": "median elapsed seconds; also record arithmetic mean, sample standard deviation, and RSE",
+    "timing_order": "deterministic round-robin by program then method; no concurrent timed processes",
+    "warmup_runs_excluded": 3
+  },
+  "methods": {
+    "baseline": "Oz",
+    "learned": [
+      {
+        "model": "NVP",
+        "seed": 1
+      },
+      {
+        "model": "NVP",
+        "seed": 2
+      },
+      {
+        "model": "NVP",
+        "seed": 3
+      },
+      {
+        "model": "MambaNVP",
+        "seed": 1
+      },
+      {
+        "model": "MambaNVP",
+        "seed": 2
+      },
+      {
+        "model": "MambaNVP",
+        "seed": 3
+      },
+      {
+        "model": "GatedCalibratedMambaNVP",
+        "seed": 1
+      },
+      {
+        "model": "GatedCalibratedMambaNVP",
+        "seed": 2
+      },
+      {
+        "model": "GatedCalibratedMambaNVP",
+        "seed": 3
+      }
+    ]
+  },
+  "parent_protocol": {
+    "path": "/root/Ex2/configs/route_a_posthoc_runtime_v6.json",
+    "sha256": "75cbb07faf077774d103fd7c5c434a558bbefa9a207c3a9e33aaf94a52bc9f5f"
+  },
+  "population": {
+    "included_program_count": 9,
+    "program_ids": [
+      "benchmark://cbench-v1/bitcount",
+      "benchmark://cbench-v1/blowfish",
+      "benchmark://cbench-v1/crc32",
+      "benchmark://cbench-v1/dijkstra",
+      "benchmark://cbench-v1/patricia",
+      "benchmark://cbench-v1/qsort",
+      "benchmark://cbench-v1/sha",
+      "benchmark://cbench-v1/stringsearch",
+      "benchmark://cbench-v1/stringsearch2"
+    ]
+  },
+  "programs": [
+    {
+      "amplification": "pending_calibration",
+      "argv": [
+        "./a.out",
+        "1125000"
+      ],
+      "correctness": "semantic_stdout",
+      "env": {},
+      "input_files": [],
+      "linkopts": [],
+      "program_id": "benchmark://cbench-v1/bitcount",
+      "source_bitcode": "/root/.local/share/compiler_gym/llvm-v0/benchmark/cbench-v1/contents/cBench-v1/bitcount.bc",
+      "source_sha256": "d527be711ab8b8b54f4eec8a49fae9897d5854dfb0ab80f28586a12744445006",
+      "timeout_seconds": 300,
+      "workdir": "outputs/gated_calibrated_mambanvp_runtime_v1_retry1/work/bitcount"
+    },
+    {
+      "amplification": "pending_calibration",
+      "argv": [
+        "./a.out",
+        "d",
+        "/root/.local/share/compiler_gym/llvm-v0/cbench-v1-runtime-data/runtime_data/office_data/1.benc",
+        "output.txt",
+        "1234567890abcdeffedcba0987654321"
+      ],
+      "correctness": "semantic_stdout_and_output.txt",
+      "env": {},
+      "input_files": [
+        {
+          "path": "/root/.local/share/compiler_gym/llvm-v0/cbench-v1-runtime-data/runtime_data/office_data/1.benc",
+          "sha256": "f3d749084b8444d32e8f18dbbf84384b343118449251f0a6600f293fa365953c"
+        }
+      ],
+      "linkopts": [],
+      "program_id": "benchmark://cbench-v1/blowfish",
+      "source_bitcode": "/root/.local/share/compiler_gym/llvm-v0/benchmark/cbench-v1/contents/cBench-v1/blowfish.bc",
+      "source_sha256": "67e0b6bf85b321f7552598b25f2df7c017979034d1a57b2c29705783aa854716",
+      "timeout_seconds": 300,
+      "workdir": "outputs/gated_calibrated_mambanvp_runtime_v1_retry1/work/blowfish"
+    },
+    {
+      "amplification": "pending_calibration",
+      "argv": [
+        "./a.out",
+        "/root/.local/share/compiler_gym/llvm-v0/cbench-v1-runtime-data/runtime_data/telecom_data/1.pcm"
+      ],
+      "correctness": "semantic_stdout",
+      "env": {},
+      "input_files": [
+        {
+          "path": "/root/.local/share/compiler_gym/llvm-v0/cbench-v1-runtime-data/runtime_data/telecom_data/1.pcm",
+          "sha256": "f25ac9239ff906aeffb7715e2b0b258ba4f479909856a4edd95661d576ef6742"
+        }
+      ],
+      "linkopts": [],
+      "program_id": "benchmark://cbench-v1/crc32",
+      "source_bitcode": "/root/.local/share/compiler_gym/llvm-v0/benchmark/cbench-v1/contents/cBench-v1/crc32.bc",
+      "source_sha256": "1ef3fe0dbd104ad4cb2e22fe7fad471f590ea0461609986cc092356ba509f6b4",
+      "timeout_seconds": 300,
+      "workdir": "outputs/gated_calibrated_mambanvp_runtime_v1_retry1/work/crc32"
+    },
+    {
+      "amplification": "pending_calibration",
+      "argv": [
+        "./a.out",
+        "/root/.local/share/compiler_gym/llvm-v0/cbench-v1-runtime-data/runtime_data/network_dijkstra_data/1.dat"
+      ],
+      "correctness": "semantic_stdout",
+      "env": {},
+      "input_files": [
+        {
+          "path": "/root/.local/share/compiler_gym/llvm-v0/cbench-v1-runtime-data/runtime_data/network_dijkstra_data/1.dat",
+          "sha256": "0946fe706dc9367764f11d3437823b0b14008389eb4e322f98a2fe66848e45a1"
+        }
+      ],
+      "linkopts": [],
+      "program_id": "benchmark://cbench-v1/dijkstra",
+      "source_bitcode": "/root/.local/share/compiler_gym/llvm-v0/benchmark/cbench-v1/contents/cBench-v1/dijkstra.bc",
+      "source_sha256": "bb5e3ba542f913d8cf2cd44c43e5a9a7f130865b58907df299666aff16312adc",
+      "timeout_seconds": 300,
+      "workdir": "outputs/gated_calibrated_mambanvp_runtime_v1_retry1/work/dijkstra"
+    },
+    {
+      "amplification": "pending_calibration",
+      "argv": [
+        "./a.out",
+        "/root/.local/share/compiler_gym/llvm-v0/cbench-v1-runtime-data/runtime_data/network_patricia_data/1.udp"
+      ],
+      "correctness": "semantic_stdout",
+      "env": {
+        "ASAN_OPTIONS": "detect_leaks=0"
+      },
+      "input_files": [
+        {
+          "path": "/root/.local/share/compiler_gym/llvm-v0/cbench-v1-runtime-data/runtime_data/network_patricia_data/1.udp",
+          "sha256": "ec223d31e4a864613867d5dc799914f58cedc76df51fea6bc971971d95d3b641"
+        }
+      ],
+      "linkopts": [],
+      "program_id": "benchmark://cbench-v1/patricia",
+      "source_bitcode": "/root/.local/share/compiler_gym/llvm-v0/benchmark/cbench-v1/contents/cBench-v1/patricia.bc",
+      "source_sha256": "55b0f02b0d00c4350b6fa38664f25cb19359c759587865aa8637aedd7ed53e45",
+      "timeout_seconds": 300,
+      "workdir": "outputs/gated_calibrated_mambanvp_runtime_v1_retry1/work/patricia"
+    },
+    {
+      "amplification": "pending_calibration",
+      "argv": [
+        "./a.out",
+        "/root/.local/share/compiler_gym/llvm-v0/cbench-v1-runtime-data/runtime_data/automotive_qsort_data/1.dat"
+      ],
+      "correctness": "semantic_stdout_and_sorted_output.dat",
+      "env": {},
+      "input_files": [
+        {
+          "path": "/root/.local/share/compiler_gym/llvm-v0/cbench-v1-runtime-data/runtime_data/automotive_qsort_data/1.dat",
+          "sha256": "3e9babc6b7a9152a1b5ff1cc3c78c60a05fc676e03e63b5941ac84eed2a94b79"
+        }
+      ],
+      "linkopts": [
+        "-lm"
+      ],
+      "program_id": "benchmark://cbench-v1/qsort",
+      "source_bitcode": "/root/.local/share/compiler_gym/llvm-v0/benchmark/cbench-v1/contents/cBench-v1/qsort.bc",
+      "source_sha256": "d205025726f2ef82de3451199650780166a9bc32c528f4ea6ad1f688e10ac56d",
+      "timeout_seconds": 300,
+      "workdir": "outputs/gated_calibrated_mambanvp_runtime_v1_retry1/work/qsort"
+    },
+    {
+      "amplification": "pending_calibration",
+      "argv": [
+        "./a.out",
+        "/root/.local/share/compiler_gym/llvm-v0/cbench-v1-runtime-data/runtime_data/office_data/1.txt"
+      ],
+      "correctness": "execution_only",
+      "env": {},
+      "input_files": [
+        {
+          "path": "/root/.local/share/compiler_gym/llvm-v0/cbench-v1-runtime-data/runtime_data/office_data/1.txt",
+          "sha256": "604ff2928bf47da1cb0a8eb921b96dde052dd4a865eff5c8086f283be5c03be9"
+        }
+      ],
+      "linkopts": [],
+      "program_id": "benchmark://cbench-v1/sha",
+      "source_bitcode": "/root/.local/share/compiler_gym/llvm-v0/benchmark/cbench-v1/contents/cBench-v1/sha.bc",
+      "source_sha256": "c47686e9823c10c66e5f01c04831893ccd3413cf24580073a6456d5af64a31c1",
+      "timeout_seconds": 300,
+      "workdir": "outputs/gated_calibrated_mambanvp_runtime_v1_retry1/work/sha"
+    },
+    {
+      "amplification": "pending_calibration",
+      "argv": [
+        "./a.out",
+        "/root/.local/share/compiler_gym/llvm-v0/cbench-v1-runtime-data/runtime_data/office_data/1.txt",
+        "/root/.local/share/compiler_gym/llvm-v0/cbench-v1-runtime-data/runtime_data/office_data/1.s.txt",
+        "output.txt"
+      ],
+      "correctness": "semantic_stdout_and_output.txt",
+      "env": {
+        "ASAN_OPTIONS": "detect_leaks=0"
+      },
+      "input_files": [
+        {
+          "path": "/root/.local/share/compiler_gym/llvm-v0/cbench-v1-runtime-data/runtime_data/office_data/1.txt",
+          "sha256": "604ff2928bf47da1cb0a8eb921b96dde052dd4a865eff5c8086f283be5c03be9"
+        },
+        {
+          "path": "/root/.local/share/compiler_gym/llvm-v0/cbench-v1-runtime-data/runtime_data/office_data/1.s.txt",
+          "sha256": "899df8bf7588b0c4eaadf678c42fb6b12163e180258d58b5ba808f529c947dbd"
+        }
+      ],
+      "linkopts": [
+        "-lm"
+      ],
+      "program_id": "benchmark://cbench-v1/stringsearch",
+      "source_bitcode": "/root/.local/share/compiler_gym/llvm-v0/benchmark/cbench-v1/contents/cBench-v1/stringsearch.bc",
+      "source_sha256": "1cc5940263765514550e751ea7c3435d24c56b8c6d54c35c230bb7df1eb8dcee",
+      "timeout_seconds": 300,
+      "workdir": "outputs/gated_calibrated_mambanvp_runtime_v1_retry1/work/stringsearch"
+    },
+    {
+      "amplification": "pending_calibration",
+      "argv": [
+        "./a.out",
+        "/root/.local/share/compiler_gym/llvm-v0/cbench-v1-runtime-data/runtime_data/office_data/1.txt",
+        "/root/.local/share/compiler_gym/llvm-v0/cbench-v1-runtime-data/runtime_data/office_data/1.s.txt",
+        "output.txt"
+      ],
+      "correctness": "semantic_stdout_and_output.txt",
+      "env": {
+        "ASAN_OPTIONS": "detect_leaks=0"
+      },
+      "input_files": [
+        {
+          "path": "/root/.local/share/compiler_gym/llvm-v0/cbench-v1-runtime-data/runtime_data/office_data/1.txt",
+          "sha256": "604ff2928bf47da1cb0a8eb921b96dde052dd4a865eff5c8086f283be5c03be9"
+        },
+        {
+          "path": "/root/.local/share/compiler_gym/llvm-v0/cbench-v1-runtime-data/runtime_data/office_data/1.s.txt",
+          "sha256": "899df8bf7588b0c4eaadf678c42fb6b12163e180258d58b5ba808f529c947dbd"
+        }
+      ],
+      "linkopts": [],
+      "program_id": "benchmark://cbench-v1/stringsearch2",
+      "source_bitcode": "/root/.local/share/compiler_gym/llvm-v0/benchmark/cbench-v1/contents/cBench-v1/stringsearch2.bc",
+      "source_sha256": "d4672d92796b63e8e5a53044de40f7e1040dcba4f924c98752c851e4759942ad",
+      "timeout_seconds": 300,
+      "workdir": "outputs/gated_calibrated_mambanvp_runtime_v1_retry1/work/stringsearch2"
+    }
+  ],
+  "protocol_class": "post_hoc_exploratory_runtime",
+  "purpose": "Frozen Gated-Calibrated MambaNVP runtime evaluation only"
+}
