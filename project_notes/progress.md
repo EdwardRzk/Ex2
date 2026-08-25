@@ -928,3 +928,32 @@ PASS on this frozen common final/OOD cohort: it is the highest MeanOverOz among 
 
 ### Git
 Evaluation implementation commit `f09dc3e84c4b8ca449308829c85086e675edd810`; results commit `b170f5d998ed2d97aa83f3cab3c23d85f93a3cfc`.
+
+
+## 2026-08-25 — Gated-Calibrated MambaNVP v2 runtime and Gate/KL validation ablation
+
+### Goal
+Measure the frozen final Gated-Calibrated MambaNVP v2 under the existing Route-A post-hoc runtime protocol, and isolate the validation contribution of the residual gate and NVP-distribution KL constraint with four fixed ablations.
+
+### Frozen protocol
+Runtime used only the validation-selected final Gated checkpoints (seed1 step `3400`, seed2 step `500`, seed3 step `3500`), frozen final Autophase/K=50 labels, deterministic policy45 prefixes, and exact action-ID-matched copies of already-built Route-A binaries. The benchmark set, LLVM 10 toolchain, CPU-0 affinity, frozen amplification factors, 3 warmups, 5–20 formal samples, correctness policy, and aggregation were unchanged. The first runtime directory was retained as an incomplete implementation attempt after a read-path defect; no file was deleted or overwritten. The completed isolated retry is `gated_calibrated_mambanvp_runtime_v1_retry1`.
+
+The ablation used exactly the frozen 28,159/4,488 train/validation cohorts, K=50 candidate order, `softmax(raw_candidate_value / 0.05)` target, Adam/batch-256/lr-5e-4/warmup-cosine schedule, 10,000 steps per seed, deterministic policy45 validation selection, and no early stop. Variants were fixed before training: full gate+KL, no-KL, no-gate+KL, and no-gate/no-KL. No final/OOD, runtime, CompilerGym, LLVM, candidate rollout, ObjectText measurement, label regeneration, tuning, or checkpoint reselection occurred in the ablation. The interrupted original full seed1 checkpoint was retained. Because it lacked Adam/RNG/batch-cursor state, a same-seed reconstruction was used rather than an invalid optimizer-reset pseudo-resume. Each parallel task then persisted full model/optimizer/RNG/cursor state.
+
+### Changes
+Added a Gated runtime runner, a fixed-ablation trainer, a resumable single-task runner, an ablation collector, and focused tests. Runtime ran only after exact prefix-to-legacy-binary provenance passed for all 27 Gated program/seed prefixes. Ablation ran at most four GPU-0 processes concurrently, with independent CPU core binding, checkpoint attempt directory, state file, and log per task.
+
+### Result
+Runtime completed with 90 binaries, 0 semantic failures, 0 timeouts, 8-program primary semantic cohort, and 9-program secondary execution cohort. Primary three-seed GMean speedup versus Oz is NVP `0.8051819276455923`, MambaNVP(v1) `0.8136287283537857`, and Gated `0.8070129761760076`; Gated/NVP is `1.0022740805121764`, while Gated/MambaNVP is `0.9918688316338538`. Secondary execution-cohort GMeans are `0.8266266727457937`, `0.8353500408627321`, and `0.8305452093204893`, respectively.
+
+All twelve ablation tasks completed validation-only. Three-seed MeanOverOz is full `0.06211432721617675`, no-KL `0.0621328547523932`, no-gate `0.06260039502820396`, and no-gate/no-KL `0.06260238916621794`. Frozen validation references are NVP `0.06277100953471096`, MambaNVP(v1) `0.06260238916621794`, Mamba `0.06355291510205446`, and Cross-Candidate `0.06202097991289138`.
+
+### Decision
+Runtime is descriptive and does not select a sequence or model. On validation, removing the gate improves over the full gated ablation and removing KL has only a small additional effect; this is an ablation result only. No final/OOD ablation evaluation, hyperparameter change, model selection change, or follow-up model experiment is authorized by these results.
+
+### Artifacts
+- `outputs/gated_calibrated_mambanvp_runtime_v1_retry1/{config.json,policy_prefixes.json,build_manifest.json,binary_metadata.json,correctness_results.jsonl,runtime_cohort_manifest.json,raw_timing_samples.jsonl,timing_summary.json,runtime_report.json,comparison_report.json}`
+- `outputs/gated_calibration_ablation_v1/{config.json,comparison_report.json,gated_full,no_kl,no_gate,no_gate_no_kl}`
+
+### Git
+Implementation commits `26b9faf5144d2ae64d3a861cc797466ccf09fda9`, `8d3ed566d5154a4decf51f45a4b7af83aa017bcb`, and `ebd468c820a63c9eb470539cd864d6b75c3ab746`; results commit `52bc856606b82ee498338a4229839c01ac74f7e6`.
