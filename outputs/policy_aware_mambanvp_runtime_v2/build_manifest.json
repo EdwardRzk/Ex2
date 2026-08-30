@@ -1,0 +1,645 @@
+{
+  "config_sha256": "a28a40c3a7a44168e90a2f0718701e7b5cad6030ab7ade3e0e3bb7a4d6a6ed4f",
+  "execution": "PA_ONLY_DIRECT_FROZEN_PREFIX_BUILD_NO_SEARCH_NO_BASELINE_BUILD",
+  "programs": {
+    "benchmark://cbench-v1/bitcount": {
+      "methods": {
+        "pa_mambanvp_seed1": {
+          "action_ids": [
+            10,
+            53,
+            122
+          ],
+          "binary": "outputs/policy_aware_mambanvp_runtime_v2/work/bitcount/binaries/pa_mambanvp_seed1",
+          "bitcode": "outputs/policy_aware_mambanvp_runtime_v2/work/bitcount/binaries/pa_mambanvp_seed1.bc",
+          "bitcode_sha256": "eea4f73f2701d6c2256c4204dd8d0dc7e9034c08e8814f786e1a9865d6aac39e",
+          "build_source": "direct_frozen_compilergym_prefix",
+          "candidate_id": 49,
+          "candidate_rank": 2,
+          "compiler_actions_executed": 3,
+          "legacy_prefix_key": null,
+          "pass_count": 3,
+          "pass_sequence_id": 49,
+          "policy45_object_text_size_bytes": 3481,
+          "prefix_index": 2,
+          "sha256": "6809f5327b846750a8ea1475db35cb8d2a8b2d0c550bad34453981462a2e49d4"
+        },
+        "pa_mambanvp_seed2": {
+          "action_ids": [
+            10,
+            53,
+            122
+          ],
+          "binary": "outputs/policy_aware_mambanvp_runtime_v2/work/bitcount/binaries/pa_mambanvp_seed2",
+          "bitcode": "outputs/policy_aware_mambanvp_runtime_v2/work/bitcount/binaries/pa_mambanvp_seed2.bc",
+          "bitcode_sha256": "eea4f73f2701d6c2256c4204dd8d0dc7e9034c08e8814f786e1a9865d6aac39e",
+          "build_source": "direct_frozen_compilergym_prefix",
+          "candidate_id": 49,
+          "candidate_rank": 2,
+          "compiler_actions_executed": 3,
+          "legacy_prefix_key": null,
+          "pass_count": 3,
+          "pass_sequence_id": 49,
+          "policy45_object_text_size_bytes": 3481,
+          "prefix_index": 2,
+          "sha256": "6809f5327b846750a8ea1475db35cb8d2a8b2d0c550bad34453981462a2e49d4"
+        },
+        "pa_mambanvp_seed3": {
+          "action_ids": [
+            10,
+            53,
+            122
+          ],
+          "binary": "outputs/policy_aware_mambanvp_runtime_v2/work/bitcount/binaries/pa_mambanvp_seed3",
+          "bitcode": "outputs/policy_aware_mambanvp_runtime_v2/work/bitcount/binaries/pa_mambanvp_seed3.bc",
+          "bitcode_sha256": "eea4f73f2701d6c2256c4204dd8d0dc7e9034c08e8814f786e1a9865d6aac39e",
+          "build_source": "direct_frozen_compilergym_prefix",
+          "candidate_id": 49,
+          "candidate_rank": 1,
+          "compiler_actions_executed": 3,
+          "legacy_prefix_key": null,
+          "pass_count": 3,
+          "pass_sequence_id": 49,
+          "policy45_object_text_size_bytes": 3481,
+          "prefix_index": 2,
+          "sha256": "6809f5327b846750a8ea1475db35cb8d2a8b2d0c550bad34453981462a2e49d4"
+        }
+      },
+      "pa_only": true
+    },
+    "benchmark://cbench-v1/blowfish": {
+      "methods": {
+        "pa_mambanvp_seed1": {
+          "action_ids": [
+            10,
+            53,
+            122,
+            31,
+            36,
+            111,
+            10
+          ],
+          "binary": "outputs/policy_aware_mambanvp_runtime_v2/work/blowfish/binaries/pa_mambanvp_seed1",
+          "bitcode": "outputs/policy_aware_mambanvp_runtime_v2/work/blowfish/binaries/pa_mambanvp_seed1.bc",
+          "bitcode_sha256": "6c57ef9287048e0228627f6849dc4e40aebd2c7facd9dbeff70333f438e650ce",
+          "build_source": "direct_frozen_compilergym_prefix",
+          "candidate_id": 49,
+          "candidate_rank": 0,
+          "compiler_actions_executed": 7,
+          "legacy_prefix_key": null,
+          "pass_count": 7,
+          "pass_sequence_id": 49,
+          "policy45_object_text_size_bytes": 11584,
+          "prefix_index": 6,
+          "sha256": "4870842ab2645bcdcfcb70812f7dd93afcbeaab661cf77cf8de1c3499e29aacd"
+        },
+        "pa_mambanvp_seed2": {
+          "action_ids": [
+            21,
+            121,
+            97,
+            38,
+            31,
+            52,
+            70,
+            53,
+            71,
+            97,
+            56,
+            111,
+            40,
+            39,
+            65,
+            10,
+            53
+          ],
+          "binary": "outputs/policy_aware_mambanvp_runtime_v2/work/blowfish/binaries/pa_mambanvp_seed2",
+          "bitcode": "outputs/policy_aware_mambanvp_runtime_v2/work/blowfish/binaries/pa_mambanvp_seed2.bc",
+          "bitcode_sha256": "274381b4965e61f620193a0bf856837f322ac78e112239db962852a40201b291",
+          "build_source": "direct_frozen_compilergym_prefix",
+          "candidate_id": 31,
+          "candidate_rank": 1,
+          "compiler_actions_executed": 17,
+          "legacy_prefix_key": null,
+          "pass_count": 17,
+          "pass_sequence_id": 31,
+          "policy45_object_text_size_bytes": 13313,
+          "prefix_index": 16,
+          "sha256": "bd4c81372e864d67b835a84ed751b431bb19c0f29eebdcf5de9c58dfd91beebe"
+        },
+        "pa_mambanvp_seed3": {
+          "action_ids": [
+            10,
+            53,
+            122,
+            31,
+            36,
+            111,
+            10
+          ],
+          "binary": "outputs/policy_aware_mambanvp_runtime_v2/work/blowfish/binaries/pa_mambanvp_seed3",
+          "bitcode": "outputs/policy_aware_mambanvp_runtime_v2/work/blowfish/binaries/pa_mambanvp_seed3.bc",
+          "bitcode_sha256": "6c57ef9287048e0228627f6849dc4e40aebd2c7facd9dbeff70333f438e650ce",
+          "build_source": "direct_frozen_compilergym_prefix",
+          "candidate_id": 49,
+          "candidate_rank": 0,
+          "compiler_actions_executed": 7,
+          "legacy_prefix_key": null,
+          "pass_count": 7,
+          "pass_sequence_id": 49,
+          "policy45_object_text_size_bytes": 11584,
+          "prefix_index": 6,
+          "sha256": "4870842ab2645bcdcfcb70812f7dd93afcbeaab661cf77cf8de1c3499e29aacd"
+        }
+      },
+      "pa_only": true
+    },
+    "benchmark://cbench-v1/crc32": {
+      "methods": {
+        "pa_mambanvp_seed1": {
+          "action_ids": [
+            10,
+            53
+          ],
+          "binary": "outputs/policy_aware_mambanvp_runtime_v2/work/crc32/binaries/pa_mambanvp_seed1",
+          "bitcode": "outputs/policy_aware_mambanvp_runtime_v2/work/crc32/binaries/pa_mambanvp_seed1.bc",
+          "bitcode_sha256": "65f54f5e9cf2a84e0e70c6ef26ae945bf0cb3f73340efd66dc5777170d39f9aa",
+          "build_source": "direct_frozen_compilergym_prefix",
+          "candidate_id": 49,
+          "candidate_rank": 2,
+          "compiler_actions_executed": 2,
+          "legacy_prefix_key": null,
+          "pass_count": 2,
+          "pass_sequence_id": 49,
+          "policy45_object_text_size_bytes": 1164,
+          "prefix_index": 1,
+          "sha256": "c53656ed84a50c4be93e91011410f2bd896db9441bd67f267daeb5af704906e8"
+        },
+        "pa_mambanvp_seed2": {
+          "action_ids": [
+            10
+          ],
+          "binary": "outputs/policy_aware_mambanvp_runtime_v2/work/crc32/binaries/pa_mambanvp_seed2",
+          "bitcode": "outputs/policy_aware_mambanvp_runtime_v2/work/crc32/binaries/pa_mambanvp_seed2.bc",
+          "bitcode_sha256": "387d09c2b11cebd2d0865db81818aacb9bf73c5c01b636f6f36f01b502e826ae",
+          "build_source": "direct_frozen_compilergym_prefix",
+          "candidate_id": 49,
+          "candidate_rank": 3,
+          "compiler_actions_executed": 1,
+          "legacy_prefix_key": null,
+          "pass_count": 1,
+          "pass_sequence_id": 49,
+          "policy45_object_text_size_bytes": 1168,
+          "prefix_index": 0,
+          "sha256": "f3a484857b261d937c9fa38b76db9a931f86db9b5a3a1de73497f29540c65701"
+        },
+        "pa_mambanvp_seed3": {
+          "action_ids": [
+            21
+          ],
+          "binary": "outputs/policy_aware_mambanvp_runtime_v2/work/crc32/binaries/pa_mambanvp_seed3",
+          "bitcode": "outputs/policy_aware_mambanvp_runtime_v2/work/crc32/binaries/pa_mambanvp_seed3.bc",
+          "bitcode_sha256": "a05b4d5aa51775c639da20e4a05699d2c364616158502fed80f8137b5e277729",
+          "build_source": "direct_frozen_compilergym_prefix",
+          "candidate_id": 31,
+          "candidate_rank": 0,
+          "compiler_actions_executed": 1,
+          "legacy_prefix_key": null,
+          "pass_count": 1,
+          "pass_sequence_id": 31,
+          "policy45_object_text_size_bytes": 1183,
+          "prefix_index": 0,
+          "sha256": "5c9650343b7263ec03734ddf83d908dda4a673ea7be1c764c2749acc984b8220"
+        }
+      },
+      "pa_only": true
+    },
+    "benchmark://cbench-v1/dijkstra": {
+      "methods": {
+        "pa_mambanvp_seed1": {
+          "action_ids": [
+            10
+          ],
+          "binary": "outputs/policy_aware_mambanvp_runtime_v2/work/dijkstra/binaries/pa_mambanvp_seed1",
+          "bitcode": "outputs/policy_aware_mambanvp_runtime_v2/work/dijkstra/binaries/pa_mambanvp_seed1.bc",
+          "bitcode_sha256": "d59cdafc0549a482ceff508b495adf469ec3a917aefce4efe7d5e50435e394c7",
+          "build_source": "direct_frozen_compilergym_prefix",
+          "candidate_id": 49,
+          "candidate_rank": 0,
+          "compiler_actions_executed": 1,
+          "legacy_prefix_key": null,
+          "pass_count": 1,
+          "pass_sequence_id": 49,
+          "policy45_object_text_size_bytes": 2460,
+          "prefix_index": 0,
+          "sha256": "874209d1e8657f253abdce528d144b84be9417eccfba0714d189836415a351bb"
+        },
+        "pa_mambanvp_seed2": {
+          "action_ids": [
+            10
+          ],
+          "binary": "outputs/policy_aware_mambanvp_runtime_v2/work/dijkstra/binaries/pa_mambanvp_seed2",
+          "bitcode": "outputs/policy_aware_mambanvp_runtime_v2/work/dijkstra/binaries/pa_mambanvp_seed2.bc",
+          "bitcode_sha256": "d59cdafc0549a482ceff508b495adf469ec3a917aefce4efe7d5e50435e394c7",
+          "build_source": "direct_frozen_compilergym_prefix",
+          "candidate_id": 49,
+          "candidate_rank": 0,
+          "compiler_actions_executed": 1,
+          "legacy_prefix_key": null,
+          "pass_count": 1,
+          "pass_sequence_id": 49,
+          "policy45_object_text_size_bytes": 2460,
+          "prefix_index": 0,
+          "sha256": "874209d1e8657f253abdce528d144b84be9417eccfba0714d189836415a351bb"
+        },
+        "pa_mambanvp_seed3": {
+          "action_ids": [
+            10
+          ],
+          "binary": "outputs/policy_aware_mambanvp_runtime_v2/work/dijkstra/binaries/pa_mambanvp_seed3",
+          "bitcode": "outputs/policy_aware_mambanvp_runtime_v2/work/dijkstra/binaries/pa_mambanvp_seed3.bc",
+          "bitcode_sha256": "d59cdafc0549a482ceff508b495adf469ec3a917aefce4efe7d5e50435e394c7",
+          "build_source": "direct_frozen_compilergym_prefix",
+          "candidate_id": 49,
+          "candidate_rank": 1,
+          "compiler_actions_executed": 1,
+          "legacy_prefix_key": null,
+          "pass_count": 1,
+          "pass_sequence_id": 49,
+          "policy45_object_text_size_bytes": 2460,
+          "prefix_index": 0,
+          "sha256": "874209d1e8657f253abdce528d144b84be9417eccfba0714d189836415a351bb"
+        }
+      },
+      "pa_only": true
+    },
+    "benchmark://cbench-v1/patricia": {
+      "methods": {
+        "pa_mambanvp_seed1": {
+          "action_ids": [
+            10,
+            53,
+            122,
+            31,
+            36,
+            111,
+            10,
+            97
+          ],
+          "binary": "outputs/policy_aware_mambanvp_runtime_v2/work/patricia/binaries/pa_mambanvp_seed1",
+          "bitcode": "outputs/policy_aware_mambanvp_runtime_v2/work/patricia/binaries/pa_mambanvp_seed1.bc",
+          "bitcode_sha256": "e6287e50ab53725b662dd8a84ccbfe239a172c1ae992e0d2b265449b47fcf255",
+          "build_source": "direct_frozen_compilergym_prefix",
+          "candidate_id": 49,
+          "candidate_rank": 0,
+          "compiler_actions_executed": 8,
+          "legacy_prefix_key": null,
+          "pass_count": 8,
+          "pass_sequence_id": 49,
+          "policy45_object_text_size_bytes": 4035,
+          "prefix_index": 7,
+          "sha256": "dd9c385dcbe27b32ce66c8bdc264d8d068cf54066f1a438b6ecb0b79ff665090"
+        },
+        "pa_mambanvp_seed2": {
+          "action_ids": [
+            10,
+            53,
+            122,
+            31,
+            36,
+            111,
+            10,
+            97
+          ],
+          "binary": "outputs/policy_aware_mambanvp_runtime_v2/work/patricia/binaries/pa_mambanvp_seed2",
+          "bitcode": "outputs/policy_aware_mambanvp_runtime_v2/work/patricia/binaries/pa_mambanvp_seed2.bc",
+          "bitcode_sha256": "e6287e50ab53725b662dd8a84ccbfe239a172c1ae992e0d2b265449b47fcf255",
+          "build_source": "direct_frozen_compilergym_prefix",
+          "candidate_id": 49,
+          "candidate_rank": 0,
+          "compiler_actions_executed": 8,
+          "legacy_prefix_key": null,
+          "pass_count": 8,
+          "pass_sequence_id": 49,
+          "policy45_object_text_size_bytes": 4035,
+          "prefix_index": 7,
+          "sha256": "dd9c385dcbe27b32ce66c8bdc264d8d068cf54066f1a438b6ecb0b79ff665090"
+        },
+        "pa_mambanvp_seed3": {
+          "action_ids": [
+            10,
+            53,
+            122,
+            31,
+            36,
+            111,
+            10,
+            97
+          ],
+          "binary": "outputs/policy_aware_mambanvp_runtime_v2/work/patricia/binaries/pa_mambanvp_seed3",
+          "bitcode": "outputs/policy_aware_mambanvp_runtime_v2/work/patricia/binaries/pa_mambanvp_seed3.bc",
+          "bitcode_sha256": "e6287e50ab53725b662dd8a84ccbfe239a172c1ae992e0d2b265449b47fcf255",
+          "build_source": "direct_frozen_compilergym_prefix",
+          "candidate_id": 49,
+          "candidate_rank": 0,
+          "compiler_actions_executed": 8,
+          "legacy_prefix_key": null,
+          "pass_count": 8,
+          "pass_sequence_id": 49,
+          "policy45_object_text_size_bytes": 4035,
+          "prefix_index": 7,
+          "sha256": "dd9c385dcbe27b32ce66c8bdc264d8d068cf54066f1a438b6ecb0b79ff665090"
+        }
+      },
+      "pa_only": true
+    },
+    "benchmark://cbench-v1/qsort": {
+      "methods": {
+        "pa_mambanvp_seed1": {
+          "action_ids": [
+            21,
+            121,
+            97,
+            38,
+            31,
+            52,
+            70,
+            53
+          ],
+          "binary": "outputs/policy_aware_mambanvp_runtime_v2/work/qsort/binaries/pa_mambanvp_seed1",
+          "bitcode": "outputs/policy_aware_mambanvp_runtime_v2/work/qsort/binaries/pa_mambanvp_seed1.bc",
+          "bitcode_sha256": "5455de72ac22ef62462dd75dca6a7471dc2cb1027f06964749236eae5531d2f4",
+          "build_source": "direct_frozen_compilergym_prefix",
+          "candidate_id": 31,
+          "candidate_rank": 1,
+          "compiler_actions_executed": 8,
+          "legacy_prefix_key": null,
+          "pass_count": 8,
+          "pass_sequence_id": 31,
+          "policy45_object_text_size_bytes": 2969,
+          "prefix_index": 7,
+          "sha256": "b276c7c51e4443acffdc02a336189838a9c7b6702ad8cd913cb57b790f64b646"
+        },
+        "pa_mambanvp_seed2": {
+          "action_ids": [
+            21,
+            121,
+            97,
+            38,
+            31,
+            52,
+            70,
+            53
+          ],
+          "binary": "outputs/policy_aware_mambanvp_runtime_v2/work/qsort/binaries/pa_mambanvp_seed2",
+          "bitcode": "outputs/policy_aware_mambanvp_runtime_v2/work/qsort/binaries/pa_mambanvp_seed2.bc",
+          "bitcode_sha256": "5455de72ac22ef62462dd75dca6a7471dc2cb1027f06964749236eae5531d2f4",
+          "build_source": "direct_frozen_compilergym_prefix",
+          "candidate_id": 31,
+          "candidate_rank": 1,
+          "compiler_actions_executed": 8,
+          "legacy_prefix_key": null,
+          "pass_count": 8,
+          "pass_sequence_id": 31,
+          "policy45_object_text_size_bytes": 2969,
+          "prefix_index": 7,
+          "sha256": "b276c7c51e4443acffdc02a336189838a9c7b6702ad8cd913cb57b790f64b646"
+        },
+        "pa_mambanvp_seed3": {
+          "action_ids": [
+            21,
+            121,
+            97,
+            38,
+            31,
+            52,
+            70,
+            53
+          ],
+          "binary": "outputs/policy_aware_mambanvp_runtime_v2/work/qsort/binaries/pa_mambanvp_seed3",
+          "bitcode": "outputs/policy_aware_mambanvp_runtime_v2/work/qsort/binaries/pa_mambanvp_seed3.bc",
+          "bitcode_sha256": "5455de72ac22ef62462dd75dca6a7471dc2cb1027f06964749236eae5531d2f4",
+          "build_source": "direct_frozen_compilergym_prefix",
+          "candidate_id": 31,
+          "candidate_rank": 0,
+          "compiler_actions_executed": 8,
+          "legacy_prefix_key": null,
+          "pass_count": 8,
+          "pass_sequence_id": 31,
+          "policy45_object_text_size_bytes": 2969,
+          "prefix_index": 7,
+          "sha256": "b276c7c51e4443acffdc02a336189838a9c7b6702ad8cd913cb57b790f64b646"
+        }
+      },
+      "pa_only": true
+    },
+    "benchmark://cbench-v1/sha": {
+      "methods": {
+        "pa_mambanvp_seed1": {
+          "action_ids": [
+            59,
+            9,
+            10,
+            121,
+            114,
+            110,
+            120,
+            97,
+            10,
+            1,
+            21,
+            47,
+            53,
+            10
+          ],
+          "binary": "outputs/policy_aware_mambanvp_runtime_v2/work/sha/binaries/pa_mambanvp_seed1",
+          "bitcode": "outputs/policy_aware_mambanvp_runtime_v2/work/sha/binaries/pa_mambanvp_seed1.bc",
+          "bitcode_sha256": "b7ed83b5ae1af39b0dcbd71c8bbb89bc5def733d0b8ace55a2f3259274672ccc",
+          "build_source": "direct_frozen_compilergym_prefix",
+          "candidate_id": 12,
+          "candidate_rank": 2,
+          "compiler_actions_executed": 14,
+          "legacy_prefix_key": null,
+          "pass_count": 14,
+          "pass_sequence_id": 12,
+          "policy45_object_text_size_bytes": 3122,
+          "prefix_index": 13,
+          "sha256": "9a6a777239f67b7f50a20f12206174f129e462d08300d537025f85223fe083e1"
+        },
+        "pa_mambanvp_seed2": {
+          "action_ids": [
+            71,
+            29,
+            111,
+            102,
+            53,
+            120,
+            38,
+            47,
+            21,
+            10
+          ],
+          "binary": "outputs/policy_aware_mambanvp_runtime_v2/work/sha/binaries/pa_mambanvp_seed2",
+          "bitcode": "outputs/policy_aware_mambanvp_runtime_v2/work/sha/binaries/pa_mambanvp_seed2.bc",
+          "bitcode_sha256": "8af79eff7149858ddb6f42db8ecfd5cda85f5f4e6bc5b1c72d19682d31df95ee",
+          "build_source": "direct_frozen_compilergym_prefix",
+          "candidate_id": 22,
+          "candidate_rank": 2,
+          "compiler_actions_executed": 10,
+          "legacy_prefix_key": null,
+          "pass_count": 10,
+          "pass_sequence_id": 22,
+          "policy45_object_text_size_bytes": 3158,
+          "prefix_index": 9,
+          "sha256": "ef73b40d7c296de607e1cd97a793fc5a82208ccd7f28c6950eb22820f932b831"
+        },
+        "pa_mambanvp_seed3": {
+          "action_ids": [
+            71,
+            29,
+            111,
+            102,
+            53,
+            120,
+            38,
+            47,
+            21,
+            10
+          ],
+          "binary": "outputs/policy_aware_mambanvp_runtime_v2/work/sha/binaries/pa_mambanvp_seed3",
+          "bitcode": "outputs/policy_aware_mambanvp_runtime_v2/work/sha/binaries/pa_mambanvp_seed3.bc",
+          "bitcode_sha256": "8af79eff7149858ddb6f42db8ecfd5cda85f5f4e6bc5b1c72d19682d31df95ee",
+          "build_source": "direct_frozen_compilergym_prefix",
+          "candidate_id": 22,
+          "candidate_rank": 3,
+          "compiler_actions_executed": 10,
+          "legacy_prefix_key": null,
+          "pass_count": 10,
+          "pass_sequence_id": 22,
+          "policy45_object_text_size_bytes": 3158,
+          "prefix_index": 9,
+          "sha256": "ef73b40d7c296de607e1cd97a793fc5a82208ccd7f28c6950eb22820f932b831"
+        }
+      },
+      "pa_only": true
+    },
+    "benchmark://cbench-v1/stringsearch": {
+      "methods": {
+        "pa_mambanvp_seed1": {
+          "action_ids": [
+            10
+          ],
+          "binary": "outputs/policy_aware_mambanvp_runtime_v2/work/stringsearch/binaries/pa_mambanvp_seed1",
+          "bitcode": "outputs/policy_aware_mambanvp_runtime_v2/work/stringsearch/binaries/pa_mambanvp_seed1.bc",
+          "bitcode_sha256": "4ee6e4bdb7d45a7011ea8990deeb1d74624a6cab8267658c6659e291de3a89c4",
+          "build_source": "direct_frozen_compilergym_prefix",
+          "candidate_id": 49,
+          "candidate_rank": 0,
+          "compiler_actions_executed": 1,
+          "legacy_prefix_key": null,
+          "pass_count": 1,
+          "pass_sequence_id": 49,
+          "policy45_object_text_size_bytes": 5618,
+          "prefix_index": 0,
+          "sha256": "b72f1eda4c36fc950325d2c4d9b07e396e205900d6cf29fd760a7ddf4e4e08a9"
+        },
+        "pa_mambanvp_seed2": {
+          "action_ids": [
+            10
+          ],
+          "binary": "outputs/policy_aware_mambanvp_runtime_v2/work/stringsearch/binaries/pa_mambanvp_seed2",
+          "bitcode": "outputs/policy_aware_mambanvp_runtime_v2/work/stringsearch/binaries/pa_mambanvp_seed2.bc",
+          "bitcode_sha256": "4ee6e4bdb7d45a7011ea8990deeb1d74624a6cab8267658c6659e291de3a89c4",
+          "build_source": "direct_frozen_compilergym_prefix",
+          "candidate_id": 49,
+          "candidate_rank": 0,
+          "compiler_actions_executed": 1,
+          "legacy_prefix_key": null,
+          "pass_count": 1,
+          "pass_sequence_id": 49,
+          "policy45_object_text_size_bytes": 5618,
+          "prefix_index": 0,
+          "sha256": "b72f1eda4c36fc950325d2c4d9b07e396e205900d6cf29fd760a7ddf4e4e08a9"
+        },
+        "pa_mambanvp_seed3": {
+          "action_ids": [
+            10
+          ],
+          "binary": "outputs/policy_aware_mambanvp_runtime_v2/work/stringsearch/binaries/pa_mambanvp_seed3",
+          "bitcode": "outputs/policy_aware_mambanvp_runtime_v2/work/stringsearch/binaries/pa_mambanvp_seed3.bc",
+          "bitcode_sha256": "4ee6e4bdb7d45a7011ea8990deeb1d74624a6cab8267658c6659e291de3a89c4",
+          "build_source": "direct_frozen_compilergym_prefix",
+          "candidate_id": 49,
+          "candidate_rank": 1,
+          "compiler_actions_executed": 1,
+          "legacy_prefix_key": null,
+          "pass_count": 1,
+          "pass_sequence_id": 49,
+          "policy45_object_text_size_bytes": 5618,
+          "prefix_index": 0,
+          "sha256": "b72f1eda4c36fc950325d2c4d9b07e396e205900d6cf29fd760a7ddf4e4e08a9"
+        }
+      },
+      "pa_only": true
+    },
+    "benchmark://cbench-v1/stringsearch2": {
+      "methods": {
+        "pa_mambanvp_seed1": {
+          "action_ids": [
+            10
+          ],
+          "binary": "outputs/policy_aware_mambanvp_runtime_v2/work/stringsearch2/binaries/pa_mambanvp_seed1",
+          "bitcode": "outputs/policy_aware_mambanvp_runtime_v2/work/stringsearch2/binaries/pa_mambanvp_seed1.bc",
+          "bitcode_sha256": "c0fedcb65394110f7528c9d113fb9e4af7f886bc9321b4a551784e6ffc2263a2",
+          "build_source": "direct_frozen_compilergym_prefix",
+          "candidate_id": 49,
+          "candidate_rank": 0,
+          "compiler_actions_executed": 1,
+          "legacy_prefix_key": null,
+          "pass_count": 1,
+          "pass_sequence_id": 49,
+          "policy45_object_text_size_bytes": 2573,
+          "prefix_index": 0,
+          "sha256": "b57aa0cf6480772086ee8fe8cf85c5093910f921a9034c852ada5d17eca0ed22"
+        },
+        "pa_mambanvp_seed2": {
+          "action_ids": [
+            10
+          ],
+          "binary": "outputs/policy_aware_mambanvp_runtime_v2/work/stringsearch2/binaries/pa_mambanvp_seed2",
+          "bitcode": "outputs/policy_aware_mambanvp_runtime_v2/work/stringsearch2/binaries/pa_mambanvp_seed2.bc",
+          "bitcode_sha256": "c0fedcb65394110f7528c9d113fb9e4af7f886bc9321b4a551784e6ffc2263a2",
+          "build_source": "direct_frozen_compilergym_prefix",
+          "candidate_id": 49,
+          "candidate_rank": 0,
+          "compiler_actions_executed": 1,
+          "legacy_prefix_key": null,
+          "pass_count": 1,
+          "pass_sequence_id": 49,
+          "policy45_object_text_size_bytes": 2573,
+          "prefix_index": 0,
+          "sha256": "b57aa0cf6480772086ee8fe8cf85c5093910f921a9034c852ada5d17eca0ed22"
+        },
+        "pa_mambanvp_seed3": {
+          "action_ids": [
+            10
+          ],
+          "binary": "outputs/policy_aware_mambanvp_runtime_v2/work/stringsearch2/binaries/pa_mambanvp_seed3",
+          "bitcode": "outputs/policy_aware_mambanvp_runtime_v2/work/stringsearch2/binaries/pa_mambanvp_seed3.bc",
+          "bitcode_sha256": "c0fedcb65394110f7528c9d113fb9e4af7f886bc9321b4a551784e6ffc2263a2",
+          "build_source": "direct_frozen_compilergym_prefix",
+          "candidate_id": 49,
+          "candidate_rank": 1,
+          "compiler_actions_executed": 1,
+          "legacy_prefix_key": null,
+          "pass_count": 1,
+          "pass_sequence_id": 49,
+          "policy45_object_text_size_bytes": 2573,
+          "prefix_index": 0,
+          "sha256": "b57aa0cf6480772086ee8fe8cf85c5093910f921a9034c852ada5d17eca0ed22"
+        }
+      },
+      "pa_only": true
+    }
+  }
+}

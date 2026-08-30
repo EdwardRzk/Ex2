@@ -1,0 +1,68 @@
+{
+  "N_execution_failed": 0,
+  "N_execution_only_unverified": 3,
+  "N_pa_binaries": 27,
+  "N_primary_common_programs": 8,
+  "N_runtime_programs": 9,
+  "N_secondary_common_programs": 9,
+  "N_semantic_validated_fail": 0,
+  "N_semantic_validated_pass": 24,
+  "N_timeout": 0,
+  "config_sha256": "a28a40c3a7a44168e90a2f0718701e7b5cad6030ab7ade3e0e3bb7a4d6a6ed4f",
+  "programs": {
+    "benchmark://cbench-v1/bitcount": {
+      "baseline_primary_valid": true,
+      "baseline_secondary_valid": true,
+      "pa_execution_valid": true,
+      "pa_semantic_valid": true
+    },
+    "benchmark://cbench-v1/blowfish": {
+      "baseline_primary_valid": true,
+      "baseline_secondary_valid": true,
+      "pa_execution_valid": true,
+      "pa_semantic_valid": true
+    },
+    "benchmark://cbench-v1/crc32": {
+      "baseline_primary_valid": true,
+      "baseline_secondary_valid": true,
+      "pa_execution_valid": true,
+      "pa_semantic_valid": true
+    },
+    "benchmark://cbench-v1/dijkstra": {
+      "baseline_primary_valid": true,
+      "baseline_secondary_valid": true,
+      "pa_execution_valid": true,
+      "pa_semantic_valid": true
+    },
+    "benchmark://cbench-v1/patricia": {
+      "baseline_primary_valid": true,
+      "baseline_secondary_valid": true,
+      "pa_execution_valid": true,
+      "pa_semantic_valid": true
+    },
+    "benchmark://cbench-v1/qsort": {
+      "baseline_primary_valid": true,
+      "baseline_secondary_valid": true,
+      "pa_execution_valid": true,
+      "pa_semantic_valid": true
+    },
+    "benchmark://cbench-v1/sha": {
+      "baseline_primary_valid": false,
+      "baseline_secondary_valid": true,
+      "pa_execution_valid": true,
+      "pa_semantic_valid": false
+    },
+    "benchmark://cbench-v1/stringsearch": {
+      "baseline_primary_valid": true,
+      "baseline_secondary_valid": true,
+      "pa_execution_valid": true,
+      "pa_semantic_valid": true
+    },
+    "benchmark://cbench-v1/stringsearch2": {
+      "baseline_primary_valid": true,
+      "baseline_secondary_valid": true,
+      "pa_execution_valid": true,
+      "pa_semantic_valid": true
+    }
+  }
+}

@@ -1055,3 +1055,25 @@ PASS: all predeclared primary and robustness conditions pass. PA-MambaNVP enters
 
 ### Git
 Implementation commit `68083d44`; results are committed in the following formal-result commit.
+
+
+## 2026-08-30 — PA-MambaNVP supplementary runtime v2
+
+### Goal
+Measure only frozen PA-MambaNVP policy45-selected binaries on the existing post-hoc runtime cohort, while reusing all saved baseline timings.
+
+### Frozen protocol
+Used the unchanged nine-program CBench cohort, CPU-0 single-thread environment, frozen amplification factors, three warmups, five-to-twenty formal samples with RSE target 1%, 300-second timeout, and inherited semantic correctness mechanism. PA checkpoint ranking and policy45 selection remained frozen. Oz/NVP/Direct/Anchored binaries were not executed; their matching saved timing summaries were read by reference. Twenty-one PA prefixes reused exact legacy binaries; six unavailable PA prefixes were compiled only through the original deterministic `CompilerGym reset -> frozen action IDs -> write_bitcode -> fixed clang` path, with zero candidate search.
+
+### Result
+All 27 PA binaries executed: 24 semantic correctness passes, three inherited execution-only-unverified SHA cases, zero semantic failures, execution failures, and timeouts. The eight-program primary semantic cohort has PA geometric-mean speedup versus Oz `0.76409259`; PA speed relative to NVP is `0.94896887`, so PA is about 5.4% slower than NVP. Direct/PA is `0.93911702`; Anchored/PA is `0.94681574`. O3 is unavailable because no matching saved O3 timing result exists. Twenty-one of 27 measurements reached RSE <=1%; six reached the 20-run cap.
+
+### Decision
+Supplementary runtime result only: PA has a meaningful runtime regression relative to NVP on this frozen cohort. The primary PA code-size result remains frozen and unchanged. No follow-up runtime experiment is authorized.
+
+### Artifacts
+- `outputs/policy_aware_mambanvp_runtime_v2/{config.json,policy_prefixes.json,build_manifest.json,binary_metadata.json,correctness_results.jsonl,runtime_cohort_manifest.json,raw_timing_samples.jsonl,timing_summary.json,per_benchmark_summary.json,comparison_report.json}`
+- `outputs/policy_aware_mambanvp_runtime/` is preserved as an invalid pre-build attempt; no timing or correctness outputs were produced there.
+
+### Git
+Runtime implementation and result commits recorded in Git history.

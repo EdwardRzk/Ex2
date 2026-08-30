@@ -1,0 +1,406 @@
+{
+  "candidate_rollouts": 0,
+  "compiler_gym_initialized": false,
+  "config_sha256": "a28a40c3a7a44168e90a2f0718701e7b5cad6030ab7ade3e0e3bb7a4d6a6ed4f",
+  "llvm_phase_application": 0,
+  "objecttext_measurements": 0,
+  "programs": {
+    "benchmark://cbench-v1/bitcount": {
+      "pa_mambanvp_seed1": {
+        "action_ids": [
+          10,
+          53,
+          122
+        ],
+        "candidate_id": 49,
+        "candidate_rank": 2,
+        "pass_count": 3,
+        "policy45_object_text_size_bytes": 3481,
+        "prefix_index": 2
+      },
+      "pa_mambanvp_seed2": {
+        "action_ids": [
+          10,
+          53,
+          122
+        ],
+        "candidate_id": 49,
+        "candidate_rank": 2,
+        "pass_count": 3,
+        "policy45_object_text_size_bytes": 3481,
+        "prefix_index": 2
+      },
+      "pa_mambanvp_seed3": {
+        "action_ids": [
+          10,
+          53,
+          122
+        ],
+        "candidate_id": 49,
+        "candidate_rank": 1,
+        "pass_count": 3,
+        "policy45_object_text_size_bytes": 3481,
+        "prefix_index": 2
+      }
+    },
+    "benchmark://cbench-v1/blowfish": {
+      "pa_mambanvp_seed1": {
+        "action_ids": [
+          10,
+          53,
+          122,
+          31,
+          36,
+          111,
+          10
+        ],
+        "candidate_id": 49,
+        "candidate_rank": 0,
+        "pass_count": 7,
+        "policy45_object_text_size_bytes": 11584,
+        "prefix_index": 6
+      },
+      "pa_mambanvp_seed2": {
+        "action_ids": [
+          21,
+          121,
+          97,
+          38,
+          31,
+          52,
+          70,
+          53,
+          71,
+          97,
+          56,
+          111,
+          40,
+          39,
+          65,
+          10,
+          53
+        ],
+        "candidate_id": 31,
+        "candidate_rank": 1,
+        "pass_count": 17,
+        "policy45_object_text_size_bytes": 13313,
+        "prefix_index": 16
+      },
+      "pa_mambanvp_seed3": {
+        "action_ids": [
+          10,
+          53,
+          122,
+          31,
+          36,
+          111,
+          10
+        ],
+        "candidate_id": 49,
+        "candidate_rank": 0,
+        "pass_count": 7,
+        "policy45_object_text_size_bytes": 11584,
+        "prefix_index": 6
+      }
+    },
+    "benchmark://cbench-v1/crc32": {
+      "pa_mambanvp_seed1": {
+        "action_ids": [
+          10,
+          53
+        ],
+        "candidate_id": 49,
+        "candidate_rank": 2,
+        "pass_count": 2,
+        "policy45_object_text_size_bytes": 1164,
+        "prefix_index": 1
+      },
+      "pa_mambanvp_seed2": {
+        "action_ids": [
+          10
+        ],
+        "candidate_id": 49,
+        "candidate_rank": 3,
+        "pass_count": 1,
+        "policy45_object_text_size_bytes": 1168,
+        "prefix_index": 0
+      },
+      "pa_mambanvp_seed3": {
+        "action_ids": [
+          21
+        ],
+        "candidate_id": 31,
+        "candidate_rank": 0,
+        "pass_count": 1,
+        "policy45_object_text_size_bytes": 1183,
+        "prefix_index": 0
+      }
+    },
+    "benchmark://cbench-v1/dijkstra": {
+      "pa_mambanvp_seed1": {
+        "action_ids": [
+          10
+        ],
+        "candidate_id": 49,
+        "candidate_rank": 0,
+        "pass_count": 1,
+        "policy45_object_text_size_bytes": 2460,
+        "prefix_index": 0
+      },
+      "pa_mambanvp_seed2": {
+        "action_ids": [
+          10
+        ],
+        "candidate_id": 49,
+        "candidate_rank": 0,
+        "pass_count": 1,
+        "policy45_object_text_size_bytes": 2460,
+        "prefix_index": 0
+      },
+      "pa_mambanvp_seed3": {
+        "action_ids": [
+          10
+        ],
+        "candidate_id": 49,
+        "candidate_rank": 1,
+        "pass_count": 1,
+        "policy45_object_text_size_bytes": 2460,
+        "prefix_index": 0
+      }
+    },
+    "benchmark://cbench-v1/patricia": {
+      "pa_mambanvp_seed1": {
+        "action_ids": [
+          10,
+          53,
+          122,
+          31,
+          36,
+          111,
+          10,
+          97
+        ],
+        "candidate_id": 49,
+        "candidate_rank": 0,
+        "pass_count": 8,
+        "policy45_object_text_size_bytes": 4035,
+        "prefix_index": 7
+      },
+      "pa_mambanvp_seed2": {
+        "action_ids": [
+          10,
+          53,
+          122,
+          31,
+          36,
+          111,
+          10,
+          97
+        ],
+        "candidate_id": 49,
+        "candidate_rank": 0,
+        "pass_count": 8,
+        "policy45_object_text_size_bytes": 4035,
+        "prefix_index": 7
+      },
+      "pa_mambanvp_seed3": {
+        "action_ids": [
+          10,
+          53,
+          122,
+          31,
+          36,
+          111,
+          10,
+          97
+        ],
+        "candidate_id": 49,
+        "candidate_rank": 0,
+        "pass_count": 8,
+        "policy45_object_text_size_bytes": 4035,
+        "prefix_index": 7
+      }
+    },
+    "benchmark://cbench-v1/qsort": {
+      "pa_mambanvp_seed1": {
+        "action_ids": [
+          21,
+          121,
+          97,
+          38,
+          31,
+          52,
+          70,
+          53
+        ],
+        "candidate_id": 31,
+        "candidate_rank": 1,
+        "pass_count": 8,
+        "policy45_object_text_size_bytes": 2969,
+        "prefix_index": 7
+      },
+      "pa_mambanvp_seed2": {
+        "action_ids": [
+          21,
+          121,
+          97,
+          38,
+          31,
+          52,
+          70,
+          53
+        ],
+        "candidate_id": 31,
+        "candidate_rank": 1,
+        "pass_count": 8,
+        "policy45_object_text_size_bytes": 2969,
+        "prefix_index": 7
+      },
+      "pa_mambanvp_seed3": {
+        "action_ids": [
+          21,
+          121,
+          97,
+          38,
+          31,
+          52,
+          70,
+          53
+        ],
+        "candidate_id": 31,
+        "candidate_rank": 0,
+        "pass_count": 8,
+        "policy45_object_text_size_bytes": 2969,
+        "prefix_index": 7
+      }
+    },
+    "benchmark://cbench-v1/sha": {
+      "pa_mambanvp_seed1": {
+        "action_ids": [
+          59,
+          9,
+          10,
+          121,
+          114,
+          110,
+          120,
+          97,
+          10,
+          1,
+          21,
+          47,
+          53,
+          10
+        ],
+        "candidate_id": 12,
+        "candidate_rank": 2,
+        "pass_count": 14,
+        "policy45_object_text_size_bytes": 3122,
+        "prefix_index": 13
+      },
+      "pa_mambanvp_seed2": {
+        "action_ids": [
+          71,
+          29,
+          111,
+          102,
+          53,
+          120,
+          38,
+          47,
+          21,
+          10
+        ],
+        "candidate_id": 22,
+        "candidate_rank": 2,
+        "pass_count": 10,
+        "policy45_object_text_size_bytes": 3158,
+        "prefix_index": 9
+      },
+      "pa_mambanvp_seed3": {
+        "action_ids": [
+          71,
+          29,
+          111,
+          102,
+          53,
+          120,
+          38,
+          47,
+          21,
+          10
+        ],
+        "candidate_id": 22,
+        "candidate_rank": 3,
+        "pass_count": 10,
+        "policy45_object_text_size_bytes": 3158,
+        "prefix_index": 9
+      }
+    },
+    "benchmark://cbench-v1/stringsearch": {
+      "pa_mambanvp_seed1": {
+        "action_ids": [
+          10
+        ],
+        "candidate_id": 49,
+        "candidate_rank": 0,
+        "pass_count": 1,
+        "policy45_object_text_size_bytes": 5618,
+        "prefix_index": 0
+      },
+      "pa_mambanvp_seed2": {
+        "action_ids": [
+          10
+        ],
+        "candidate_id": 49,
+        "candidate_rank": 0,
+        "pass_count": 1,
+        "policy45_object_text_size_bytes": 5618,
+        "prefix_index": 0
+      },
+      "pa_mambanvp_seed3": {
+        "action_ids": [
+          10
+        ],
+        "candidate_id": 49,
+        "candidate_rank": 1,
+        "pass_count": 1,
+        "policy45_object_text_size_bytes": 5618,
+        "prefix_index": 0
+      }
+    },
+    "benchmark://cbench-v1/stringsearch2": {
+      "pa_mambanvp_seed1": {
+        "action_ids": [
+          10
+        ],
+        "candidate_id": 49,
+        "candidate_rank": 0,
+        "pass_count": 1,
+        "policy45_object_text_size_bytes": 2573,
+        "prefix_index": 0
+      },
+      "pa_mambanvp_seed2": {
+        "action_ids": [
+          10
+        ],
+        "candidate_id": 49,
+        "candidate_rank": 0,
+        "pass_count": 1,
+        "policy45_object_text_size_bytes": 2573,
+        "prefix_index": 0
+      },
+      "pa_mambanvp_seed3": {
+        "action_ids": [
+          10
+        ],
+        "candidate_id": 49,
+        "candidate_rank": 1,
+        "pass_count": 1,
+        "policy45_object_text_size_bytes": 2573,
+        "prefix_index": 0
+      }
+    }
+  },
+  "sampling": false
+}

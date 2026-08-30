@@ -1,0 +1,1220 @@
+{
+  "pa_only": true,
+  "programs": {
+    "benchmark://cbench-v1/bitcount": {
+      "pa_mambanvp_seed1": {
+        "RSE": 0.007386107012901753,
+        "benchmark_id": "benchmark://cbench-v1/bitcount",
+        "cache_policy": "inherited_route_a_posthoc_runtime_v6_no_page_cache_flush",
+        "correctness_result": "semantic_validated_pass",
+        "cpu_core": 0,
+        "input_id": [
+          "./a.out",
+          "1125000"
+        ],
+        "mean_runtime": 2.2973383881151674,
+        "median_runtime": 2.2858615033328533,
+        "sample_std": 0.03794246720182156,
+        "seed": 1,
+        "selected_action_ids": [
+          10,
+          53,
+          122
+        ],
+        "selected_candidate_id": 49,
+        "stopping_reason": "rse_target",
+        "thread_count": 1,
+        "timed_run_count": 5,
+        "timed_runs_raw": [
+          2.2747717453166842,
+          2.312264299020171,
+          2.2858615033328533,
+          2.355435977689922,
+          2.2583584152162075
+        ],
+        "warmup_runs": [
+          2.223387509584427,
+          2.2425933284685016,
+          2.2440869761630893
+        ]
+      },
+      "pa_mambanvp_seed2": {
+        "RSE": 0.0026584779892117735,
+        "benchmark_id": "benchmark://cbench-v1/bitcount",
+        "cache_policy": "inherited_route_a_posthoc_runtime_v6_no_page_cache_flush",
+        "correctness_result": "semantic_validated_pass",
+        "cpu_core": 0,
+        "input_id": [
+          "./a.out",
+          "1125000"
+        ],
+        "mean_runtime": 2.2389652758836744,
+        "median_runtime": 2.2371285734698176,
+        "sample_std": 0.013309613044952196,
+        "seed": 2,
+        "selected_action_ids": [
+          10,
+          53,
+          122
+        ],
+        "selected_candidate_id": 49,
+        "stopping_reason": "rse_target",
+        "thread_count": 1,
+        "timed_run_count": 5,
+        "timed_runs_raw": [
+          2.223576852120459,
+          2.2491910038515925,
+          2.2554908115416765,
+          2.2294391384348273,
+          2.2371285734698176
+        ],
+        "warmup_runs": [
+          2.2309239516034722,
+          2.2380641950294375,
+          2.2604906018823385
+        ]
+      },
+      "pa_mambanvp_seed3": {
+        "RSE": 0.0031622055289692486,
+        "benchmark_id": "benchmark://cbench-v1/bitcount",
+        "cache_policy": "inherited_route_a_posthoc_runtime_v6_no_page_cache_flush",
+        "correctness_result": "semantic_validated_pass",
+        "cpu_core": 0,
+        "input_id": [
+          "./a.out",
+          "1125000"
+        ],
+        "mean_runtime": 2.2339935157448054,
+        "median_runtime": 2.233155269175768,
+        "sample_std": 0.015796359319694114,
+        "seed": 3,
+        "selected_action_ids": [
+          10,
+          53,
+          122
+        ],
+        "selected_candidate_id": 49,
+        "stopping_reason": "rse_target",
+        "thread_count": 1,
+        "timed_run_count": 5,
+        "timed_runs_raw": [
+          2.233155269175768,
+          2.226627627387643,
+          2.247288901358843,
+          2.212038959376514,
+          2.250856821425259
+        ],
+        "warmup_runs": [
+          2.2728793248534203,
+          2.2853160118684173,
+          2.2312389509752393
+        ]
+      }
+    },
+    "benchmark://cbench-v1/blowfish": {
+      "pa_mambanvp_seed1": {
+        "RSE": 0.02042375425078418,
+        "benchmark_id": "benchmark://cbench-v1/blowfish",
+        "cache_policy": "inherited_route_a_posthoc_runtime_v6_no_page_cache_flush",
+        "correctness_result": "semantic_validated_pass",
+        "cpu_core": 0,
+        "input_id": [
+          "./a.out",
+          "d",
+          "/root/.local/share/compiler_gym/llvm-v0/cbench-v1-runtime-data/runtime_data/office_data/1.benc",
+          "output.txt",
+          "1234567890abcdeffedcba0987654321"
+        ],
+        "mean_runtime": 0.6689867774490267,
+        "median_runtime": 0.6779169510118663,
+        "sample_std": 0.06110378430856203,
+        "seed": 1,
+        "selected_action_ids": [
+          10,
+          53,
+          122,
+          31,
+          36,
+          111,
+          10
+        ],
+        "selected_candidate_id": 49,
+        "stopping_reason": "maximum_20_runs_noisy",
+        "thread_count": 1,
+        "timed_run_count": 20,
+        "timed_runs_raw": [
+          0.534546360373497,
+          0.5490723252296448,
+          0.6469195820391178,
+          0.7367139207199216,
+          0.6834123972803354,
+          0.6596308220177889,
+          0.7012594100087881,
+          0.6456545433029532,
+          0.6621054941788316,
+          0.6856501381844282,
+          0.7395359063521028,
+          0.7063669338822365,
+          0.6724215047433972,
+          0.6723937224596739,
+          0.6658119391649961,
+          0.6992088370025158,
+          0.7248158035799861,
+          0.7371646370738745,
+          0.7086660079658031,
+          0.5483852634206414
+        ],
+        "warmup_runs": [
+          0.658817888237536,
+          0.6463021086528897,
+          0.6480566104874015
+        ]
+      },
+      "pa_mambanvp_seed2": {
+        "RSE": 0.00932250837398219,
+        "benchmark_id": "benchmark://cbench-v1/blowfish",
+        "cache_policy": "inherited_route_a_posthoc_runtime_v6_no_page_cache_flush",
+        "correctness_result": "semantic_validated_pass",
+        "cpu_core": 0,
+        "input_id": [
+          "./a.out",
+          "d",
+          "/root/.local/share/compiler_gym/llvm-v0/cbench-v1-runtime-data/runtime_data/office_data/1.benc",
+          "output.txt",
+          "1234567890abcdeffedcba0987654321"
+        ],
+        "mean_runtime": 0.6656773408564428,
+        "median_runtime": 0.6621713181957603,
+        "sample_std": 0.015201000786685969,
+        "seed": 2,
+        "selected_action_ids": [
+          21,
+          121,
+          97,
+          38,
+          31,
+          52,
+          70,
+          53,
+          71,
+          97,
+          56,
+          111,
+          40,
+          39,
+          65,
+          10,
+          53
+        ],
+        "selected_candidate_id": 31,
+        "stopping_reason": "rse_target",
+        "thread_count": 1,
+        "timed_run_count": 6,
+        "timed_runs_raw": [
+          0.6892971312627196,
+          0.6777678346261382,
+          0.6491212239488959,
+          0.6605655374005437,
+          0.6637770989909768,
+          0.6535352189093828
+        ],
+        "warmup_runs": [
+          0.6209419406950474,
+          0.5636269776150584,
+          0.5647549349814653
+        ]
+      },
+      "pa_mambanvp_seed3": {
+        "RSE": 0.00947447639875667,
+        "benchmark_id": "benchmark://cbench-v1/blowfish",
+        "cache_policy": "inherited_route_a_posthoc_runtime_v6_no_page_cache_flush",
+        "correctness_result": "semantic_validated_pass",
+        "cpu_core": 0,
+        "input_id": [
+          "./a.out",
+          "d",
+          "/root/.local/share/compiler_gym/llvm-v0/cbench-v1-runtime-data/runtime_data/office_data/1.benc",
+          "output.txt",
+          "1234567890abcdeffedcba0987654321"
+        ],
+        "mean_runtime": 0.6747356008272618,
+        "median_runtime": 0.6750172674655914,
+        "sample_std": 0.025571066101755174,
+        "seed": 3,
+        "selected_action_ids": [
+          10,
+          53,
+          122,
+          31,
+          36,
+          111,
+          10
+        ],
+        "selected_candidate_id": 49,
+        "stopping_reason": "rse_target",
+        "thread_count": 1,
+        "timed_run_count": 16,
+        "timed_runs_raw": [
+          0.723415152169764,
+          0.7232226654887199,
+          0.6897429656237364,
+          0.6344145471230149,
+          0.6952998908236623,
+          0.661328892223537,
+          0.6614175848662853,
+          0.6776738399639726,
+          0.6751159047707915,
+          0.6711890092119575,
+          0.6487820604816079,
+          0.6454984815791249,
+          0.6478588515892625,
+          0.6749186301603913,
+          0.6779687469825149,
+          0.687922390177846
+        ],
+        "warmup_runs": [
+          0.6033472819253802,
+          0.559744393453002,
+          0.6876824302598834
+        ]
+      }
+    },
+    "benchmark://cbench-v1/crc32": {
+      "pa_mambanvp_seed1": {
+        "RSE": 0.0053342221815631825,
+        "benchmark_id": "benchmark://cbench-v1/crc32",
+        "cache_policy": "inherited_route_a_posthoc_runtime_v6_no_page_cache_flush",
+        "correctness_result": "semantic_validated_pass",
+        "cpu_core": 0,
+        "input_id": [
+          "./a.out",
+          "/root/.local/share/compiler_gym/llvm-v0/cbench-v1-runtime-data/runtime_data/telecom_data/1.pcm"
+        ],
+        "mean_runtime": 0.7921845788136125,
+        "median_runtime": 0.7973867654800415,
+        "sample_std": 0.009448926854461553,
+        "seed": 1,
+        "selected_action_ids": [
+          10,
+          53
+        ],
+        "selected_candidate_id": 49,
+        "stopping_reason": "rse_target",
+        "thread_count": 1,
+        "timed_run_count": 5,
+        "timed_runs_raw": [
+          0.7973867654800415,
+          0.7975876601412892,
+          0.7788698635995388,
+          0.8012827076017857,
+          0.7857958972454071
+        ],
+        "warmup_runs": [
+          0.7971464786678553,
+          0.7875089645385742,
+          0.7421057019382715
+        ]
+      },
+      "pa_mambanvp_seed2": {
+        "RSE": 0.009726734321461681,
+        "benchmark_id": "benchmark://cbench-v1/crc32",
+        "cache_policy": "inherited_route_a_posthoc_runtime_v6_no_page_cache_flush",
+        "correctness_result": "semantic_validated_pass",
+        "cpu_core": 0,
+        "input_id": [
+          "./a.out",
+          "/root/.local/share/compiler_gym/llvm-v0/cbench-v1-runtime-data/runtime_data/telecom_data/1.pcm"
+        ],
+        "mean_runtime": 0.7852463382296264,
+        "median_runtime": 0.780912930611521,
+        "sample_std": 0.01870891486203614,
+        "seed": 2,
+        "selected_action_ids": [
+          10
+        ],
+        "selected_candidate_id": 49,
+        "stopping_reason": "rse_target",
+        "thread_count": 1,
+        "timed_run_count": 6,
+        "timed_runs_raw": [
+          0.7801760211586952,
+          0.8154602544382215,
+          0.7816498400643468,
+          0.767381208948791,
+          0.7987782591953874,
+          0.7680324455723166
+        ],
+        "warmup_runs": [
+          0.793009745888412,
+          0.7911533424630761,
+          0.7793182097375393
+        ]
+      },
+      "pa_mambanvp_seed3": {
+        "RSE": 0.009170327172527318,
+        "benchmark_id": "benchmark://cbench-v1/crc32",
+        "cache_policy": "inherited_route_a_posthoc_runtime_v6_no_page_cache_flush",
+        "correctness_result": "semantic_validated_pass",
+        "cpu_core": 0,
+        "input_id": [
+          "./a.out",
+          "/root/.local/share/compiler_gym/llvm-v0/cbench-v1-runtime-data/runtime_data/telecom_data/1.pcm"
+        ],
+        "mean_runtime": 0.8219063328579068,
+        "median_runtime": 0.8142376644536853,
+        "sample_std": 0.01685357970625438,
+        "seed": 3,
+        "selected_action_ids": [
+          21
+        ],
+        "selected_candidate_id": 31,
+        "stopping_reason": "rse_target",
+        "thread_count": 1,
+        "timed_run_count": 5,
+        "timed_runs_raw": [
+          0.8206110093742609,
+          0.8512718044221401,
+          0.813325029797852,
+          0.8100861562415957,
+          0.8142376644536853
+        ],
+        "warmup_runs": [
+          0.7874637162312865,
+          0.802752535790205,
+          0.8143669171258807
+        ]
+      }
+    },
+    "benchmark://cbench-v1/dijkstra": {
+      "pa_mambanvp_seed1": {
+        "RSE": 0.00937963591540226,
+        "benchmark_id": "benchmark://cbench-v1/dijkstra",
+        "cache_policy": "inherited_route_a_posthoc_runtime_v6_no_page_cache_flush",
+        "correctness_result": "semantic_validated_pass",
+        "cpu_core": 0,
+        "input_id": [
+          "./a.out",
+          "/root/.local/share/compiler_gym/llvm-v0/cbench-v1-runtime-data/runtime_data/network_dijkstra_data/1.dat"
+        ],
+        "mean_runtime": 1.256498503365687,
+        "median_runtime": 1.250396684743464,
+        "sample_std": 0.031181498080985685,
+        "seed": 1,
+        "selected_action_ids": [
+          10
+        ],
+        "selected_candidate_id": 49,
+        "stopping_reason": "rse_target",
+        "thread_count": 1,
+        "timed_run_count": 7,
+        "timed_runs_raw": [
+          1.2325131427496672,
+          1.2198440749198198,
+          1.250396684743464,
+          1.252143227495253,
+          1.2982193836942315,
+          1.3002258148044348,
+          1.2421471951529384
+        ],
+        "warmup_runs": [
+          1.2924403175711632,
+          1.2554484652355313,
+          1.3171721333637834
+        ]
+      },
+      "pa_mambanvp_seed2": {
+        "RSE": 0.00921976001950135,
+        "benchmark_id": "benchmark://cbench-v1/dijkstra",
+        "cache_policy": "inherited_route_a_posthoc_runtime_v6_no_page_cache_flush",
+        "correctness_result": "semantic_validated_pass",
+        "cpu_core": 0,
+        "input_id": [
+          "./a.out",
+          "/root/.local/share/compiler_gym/llvm-v0/cbench-v1-runtime-data/runtime_data/network_dijkstra_data/1.dat"
+        ],
+        "mean_runtime": 1.2093046382069588,
+        "median_runtime": 1.215025031939149,
+        "sample_std": 0.027310582347006753,
+        "seed": 2,
+        "selected_action_ids": [
+          10
+        ],
+        "selected_candidate_id": 49,
+        "stopping_reason": "rse_target",
+        "thread_count": 1,
+        "timed_run_count": 6,
+        "timed_runs_raw": [
+          1.2237970232963562,
+          1.2062530405819416,
+          1.2380854580551386,
+          1.1618533795699477,
+          1.1987084364518523,
+          1.2271304912865162
+        ],
+        "warmup_runs": [
+          1.2450963193550706,
+          1.2411465486511588,
+          1.2034096894785762
+        ]
+      },
+      "pa_mambanvp_seed3": {
+        "RSE": 0.00866438845500575,
+        "benchmark_id": "benchmark://cbench-v1/dijkstra",
+        "cache_policy": "inherited_route_a_posthoc_runtime_v6_no_page_cache_flush",
+        "correctness_result": "semantic_validated_pass",
+        "cpu_core": 0,
+        "input_id": [
+          "./a.out",
+          "/root/.local/share/compiler_gym/llvm-v0/cbench-v1-runtime-data/runtime_data/network_dijkstra_data/1.dat"
+        ],
+        "mean_runtime": 1.2227758700028062,
+        "median_runtime": 1.218577608000487,
+        "sample_std": 0.025951376597496686,
+        "seed": 3,
+        "selected_action_ids": [
+          10
+        ],
+        "selected_candidate_id": 49,
+        "stopping_reason": "rse_target",
+        "thread_count": 1,
+        "timed_run_count": 6,
+        "timed_runs_raw": [
+          1.2294278936460614,
+          1.267359054647386,
+          1.1950071062892675,
+          1.2062692297622561,
+          1.2077273223549128,
+          1.2308646133169532
+        ],
+        "warmup_runs": [
+          1.2125742360949516,
+          1.2274058712646365,
+          1.2073790710419416
+        ]
+      }
+    },
+    "benchmark://cbench-v1/patricia": {
+      "pa_mambanvp_seed1": {
+        "RSE": 0.00991665941617423,
+        "benchmark_id": "benchmark://cbench-v1/patricia",
+        "cache_policy": "inherited_route_a_posthoc_runtime_v6_no_page_cache_flush",
+        "correctness_result": "semantic_validated_pass",
+        "cpu_core": 0,
+        "input_id": [
+          "./a.out",
+          "/root/.local/share/compiler_gym/llvm-v0/cbench-v1-runtime-data/runtime_data/network_patricia_data/1.udp"
+        ],
+        "mean_runtime": 0.7842513359307001,
+        "median_runtime": 0.7853991133160889,
+        "sample_std": 0.02694084963715521,
+        "seed": 1,
+        "selected_action_ids": [
+          10,
+          53,
+          122,
+          31,
+          36,
+          111,
+          10,
+          97
+        ],
+        "selected_candidate_id": 49,
+        "stopping_reason": "rse_target",
+        "thread_count": 1,
+        "timed_run_count": 12,
+        "timed_runs_raw": [
+          0.8161272779107094,
+          0.7436910755932331,
+          0.7617428507655859,
+          0.816313331015408,
+          0.7737614223733544,
+          0.8106126766651869,
+          0.7970368042588234,
+          0.7545391293242574,
+          0.7733589448034763,
+          0.8112381370738149,
+          0.798244615085423,
+          0.7543497662991285
+        ],
+        "warmup_runs": [
+          0.7857547421008348,
+          0.791228462010622,
+          0.7929398072883487
+        ]
+      },
+      "pa_mambanvp_seed2": {
+        "RSE": 0.00996663237609975,
+        "benchmark_id": "benchmark://cbench-v1/patricia",
+        "cache_policy": "inherited_route_a_posthoc_runtime_v6_no_page_cache_flush",
+        "correctness_result": "semantic_validated_pass",
+        "cpu_core": 0,
+        "input_id": [
+          "./a.out",
+          "/root/.local/share/compiler_gym/llvm-v0/cbench-v1-runtime-data/runtime_data/network_patricia_data/1.udp"
+        ],
+        "mean_runtime": 0.7976429458050167,
+        "median_runtime": 0.7968424269929528,
+        "sample_std": 0.03277792285993836,
+        "seed": 2,
+        "selected_action_ids": [
+          10,
+          53,
+          122,
+          31,
+          36,
+          111,
+          10,
+          97
+        ],
+        "selected_candidate_id": 49,
+        "stopping_reason": "rse_target",
+        "thread_count": 1,
+        "timed_run_count": 17,
+        "timed_runs_raw": [
+          0.768767767585814,
+          0.729787202551961,
+          0.7968424269929528,
+          0.8002325817942619,
+          0.7757518012076616,
+          0.7929524919018149,
+          0.8285720702260733,
+          0.8324057376012206,
+          0.805328163318336,
+          0.8246007887646556,
+          0.7681476017460227,
+          0.8267922019585967,
+          0.7604605937376618,
+          0.8505896702408791,
+          0.8388854023069143,
+          0.7745655458420515,
+          0.7852480309084058
+        ],
+        "warmup_runs": [
+          0.7932289345189929,
+          0.8240986205637455,
+          0.8135759169235826
+        ]
+      },
+      "pa_mambanvp_seed3": {
+        "RSE": 0.009604264728004807,
+        "benchmark_id": "benchmark://cbench-v1/patricia",
+        "cache_policy": "inherited_route_a_posthoc_runtime_v6_no_page_cache_flush",
+        "correctness_result": "semantic_validated_pass",
+        "cpu_core": 0,
+        "input_id": [
+          "./a.out",
+          "/root/.local/share/compiler_gym/llvm-v0/cbench-v1-runtime-data/runtime_data/network_patricia_data/1.udp"
+        ],
+        "mean_runtime": 0.7991954352085789,
+        "median_runtime": 0.7946657668799162,
+        "sample_std": 0.029727798352163902,
+        "seed": 3,
+        "selected_action_ids": [
+          10,
+          53,
+          122,
+          31,
+          36,
+          111,
+          10,
+          97
+        ],
+        "selected_candidate_id": 49,
+        "stopping_reason": "rse_target",
+        "thread_count": 1,
+        "timed_run_count": 15,
+        "timed_runs_raw": [
+          0.8321612570434809,
+          0.8389259558171034,
+          0.8388161323964596,
+          0.851821699179709,
+          0.7658029142767191,
+          0.7688557673245668,
+          0.8108716476708651,
+          0.8032249035313725,
+          0.7795745367184281,
+          0.8055703844875097,
+          0.7772362614050508,
+          0.7602322129532695,
+          0.7812829799950123,
+          0.7946657668799162,
+          0.7788891084492207
+        ],
+        "warmup_runs": [
+          0.8403920130804181,
+          0.817843715660274,
+          0.7975770803168416
+        ]
+      }
+    },
+    "benchmark://cbench-v1/qsort": {
+      "pa_mambanvp_seed1": {
+        "RSE": 0.007512942582543857,
+        "benchmark_id": "benchmark://cbench-v1/qsort",
+        "cache_policy": "inherited_route_a_posthoc_runtime_v6_no_page_cache_flush",
+        "correctness_result": "semantic_validated_pass",
+        "cpu_core": 0,
+        "input_id": [
+          "./a.out",
+          "/root/.local/share/compiler_gym/llvm-v0/cbench-v1-runtime-data/runtime_data/automotive_qsort_data/1.dat"
+        ],
+        "mean_runtime": 1.3227757878601551,
+        "median_runtime": 1.3234924040734768,
+        "sample_std": 0.022221906140090713,
+        "seed": 1,
+        "selected_action_ids": [
+          21,
+          121,
+          97,
+          38,
+          31,
+          52,
+          70,
+          53
+        ],
+        "selected_candidate_id": 31,
+        "stopping_reason": "rse_target",
+        "thread_count": 1,
+        "timed_run_count": 5,
+        "timed_runs_raw": [
+          1.358058275654912,
+          1.3025532262399793,
+          1.3247992098331451,
+          1.3049758234992623,
+          1.3234924040734768
+        ],
+        "warmup_runs": [
+          1.346145711839199,
+          1.360764958895743,
+          1.4424231192097068
+        ]
+      },
+      "pa_mambanvp_seed2": {
+        "RSE": 0.008685124276267737,
+        "benchmark_id": "benchmark://cbench-v1/qsort",
+        "cache_policy": "inherited_route_a_posthoc_runtime_v6_no_page_cache_flush",
+        "correctness_result": "semantic_validated_pass",
+        "cpu_core": 0,
+        "input_id": [
+          "./a.out",
+          "/root/.local/share/compiler_gym/llvm-v0/cbench-v1-runtime-data/runtime_data/automotive_qsort_data/1.dat"
+        ],
+        "mean_runtime": 1.351783734347139,
+        "median_runtime": 1.3490417897701263,
+        "sample_std": 0.03106220442881566,
+        "seed": 2,
+        "selected_action_ids": [
+          21,
+          121,
+          97,
+          38,
+          31,
+          52,
+          70,
+          53
+        ],
+        "selected_candidate_id": 31,
+        "stopping_reason": "rse_target",
+        "thread_count": 1,
+        "timed_run_count": 7,
+        "timed_runs_raw": [
+          1.2990963021293283,
+          1.3490417897701263,
+          1.3326616901904345,
+          1.3918591337278485,
+          1.3828810062259436,
+          1.3479395303875208,
+          1.3590066879987717
+        ],
+        "warmup_runs": [
+          1.2958545675501227,
+          1.3049480440095067,
+          1.3190176906064153
+        ]
+      },
+      "pa_mambanvp_seed3": {
+        "RSE": 0.003956263034387795,
+        "benchmark_id": "benchmark://cbench-v1/qsort",
+        "cache_policy": "inherited_route_a_posthoc_runtime_v6_no_page_cache_flush",
+        "correctness_result": "semantic_validated_pass",
+        "cpu_core": 0,
+        "input_id": [
+          "./a.out",
+          "/root/.local/share/compiler_gym/llvm-v0/cbench-v1-runtime-data/runtime_data/automotive_qsort_data/1.dat"
+        ],
+        "mean_runtime": 1.3571833975613117,
+        "median_runtime": 1.3627417897805572,
+        "sample_std": 0.012006286393538672,
+        "seed": 3,
+        "selected_action_ids": [
+          21,
+          121,
+          97,
+          38,
+          31,
+          52,
+          70,
+          53
+        ],
+        "selected_candidate_id": 31,
+        "stopping_reason": "rse_target",
+        "thread_count": 1,
+        "timed_run_count": 5,
+        "timed_runs_raw": [
+          1.3627417897805572,
+          1.3390823574736714,
+          1.3635614085942507,
+          1.3691645888611674,
+          1.351366843096912
+        ],
+        "warmup_runs": [
+          1.341339842416346,
+          1.34359051566571,
+          1.3383432487025857
+        ]
+      }
+    },
+    "benchmark://cbench-v1/sha": {
+      "pa_mambanvp_seed1": {
+        "RSE": 0.009951632861410178,
+        "benchmark_id": "benchmark://cbench-v1/sha",
+        "cache_policy": "inherited_route_a_posthoc_runtime_v6_no_page_cache_flush",
+        "correctness_result": "execution_only_unverified",
+        "cpu_core": 0,
+        "input_id": [
+          "./a.out",
+          "/root/.local/share/compiler_gym/llvm-v0/cbench-v1-runtime-data/runtime_data/office_data/1.txt"
+        ],
+        "mean_runtime": 1.1363075414242654,
+        "median_runtime": 1.1405677422881126,
+        "sample_std": 0.04077199015561338,
+        "seed": 1,
+        "selected_action_ids": [
+          59,
+          9,
+          10,
+          121,
+          114,
+          110,
+          120,
+          97,
+          10,
+          1,
+          21,
+          47,
+          53,
+          10
+        ],
+        "selected_candidate_id": 12,
+        "stopping_reason": "rse_target",
+        "thread_count": 1,
+        "timed_run_count": 13,
+        "timed_runs_raw": [
+          1.1453825905919075,
+          1.0804992774501443,
+          1.1649394799023867,
+          1.1370771983638406,
+          1.0753348218277097,
+          1.1949945650994778,
+          1.1777540864422917,
+          1.1386789232492447,
+          1.1405677422881126,
+          1.067691876552999,
+          1.1701963851228356,
+          1.1634336728602648,
+          1.1154474187642336
+        ],
+        "warmup_runs": [
+          1.1169990012422204,
+          1.1558216474950314,
+          1.1876178290694952
+        ]
+      },
+      "pa_mambanvp_seed2": {
+        "RSE": 0.00994827019963123,
+        "benchmark_id": "benchmark://cbench-v1/sha",
+        "cache_policy": "inherited_route_a_posthoc_runtime_v6_no_page_cache_flush",
+        "correctness_result": "execution_only_unverified",
+        "cpu_core": 0,
+        "input_id": [
+          "./a.out",
+          "/root/.local/share/compiler_gym/llvm-v0/cbench-v1-runtime-data/runtime_data/office_data/1.txt"
+        ],
+        "mean_runtime": 1.1322740325704217,
+        "median_runtime": 1.1514023784548044,
+        "sample_std": 0.03379250404810982,
+        "seed": 2,
+        "selected_action_ids": [
+          71,
+          29,
+          111,
+          102,
+          53,
+          120,
+          38,
+          47,
+          21,
+          10
+        ],
+        "selected_candidate_id": 22,
+        "stopping_reason": "rse_target",
+        "thread_count": 1,
+        "timed_run_count": 9,
+        "timed_runs_raw": [
+          1.1514023784548044,
+          1.1345032146200538,
+          1.1087898388504982,
+          1.1517836712300777,
+          1.0650088787078857,
+          1.1531451269984245,
+          1.1653582081198692,
+          1.1004935037344694,
+          1.1599814724177122
+        ],
+        "warmup_runs": [
+          1.1098644779995084,
+          1.1270766807720065,
+          1.126072564162314
+        ]
+      },
+      "pa_mambanvp_seed3": {
+        "RSE": 0.01603179220718226,
+        "benchmark_id": "benchmark://cbench-v1/sha",
+        "cache_policy": "inherited_route_a_posthoc_runtime_v6_no_page_cache_flush",
+        "correctness_result": "execution_only_unverified",
+        "cpu_core": 0,
+        "input_id": [
+          "./a.out",
+          "/root/.local/share/compiler_gym/llvm-v0/cbench-v1-runtime-data/runtime_data/office_data/1.txt"
+        ],
+        "mean_runtime": 1.1631840821355581,
+        "median_runtime": 1.152007773052901,
+        "sample_std": 0.08339605813035281,
+        "seed": 3,
+        "selected_action_ids": [
+          71,
+          29,
+          111,
+          102,
+          53,
+          120,
+          38,
+          47,
+          21,
+          10
+        ],
+        "selected_candidate_id": 22,
+        "stopping_reason": "maximum_20_runs_noisy",
+        "thread_count": 1,
+        "timed_run_count": 20,
+        "timed_runs_raw": [
+          1.1837179213762283,
+          1.1612561298534274,
+          1.2695987224578857,
+          1.3921110527589917,
+          1.2549773938953876,
+          1.0250034052878618,
+          1.1323743779212236,
+          1.197737105190754,
+          1.1262398287653923,
+          1.097680239006877,
+          1.0662183463573456,
+          1.1164831519126892,
+          1.1440034173429012,
+          1.1114540342241526,
+          1.0822947155684233,
+          1.10710737016052,
+          1.227808689698577,
+          1.1829865174368024,
+          1.1600121287629008,
+          1.224617094732821
+        ],
+        "warmup_runs": [
+          1.061347657814622,
+          1.1289600683376193,
+          1.1771057210862637
+        ]
+      }
+    },
+    "benchmark://cbench-v1/stringsearch": {
+      "pa_mambanvp_seed1": {
+        "RSE": 0.022435389248685104,
+        "benchmark_id": "benchmark://cbench-v1/stringsearch",
+        "cache_policy": "inherited_route_a_posthoc_runtime_v6_no_page_cache_flush",
+        "correctness_result": "semantic_validated_pass",
+        "cpu_core": 0,
+        "input_id": [
+          "./a.out",
+          "/root/.local/share/compiler_gym/llvm-v0/cbench-v1-runtime-data/runtime_data/office_data/1.txt",
+          "/root/.local/share/compiler_gym/llvm-v0/cbench-v1-runtime-data/runtime_data/office_data/1.s.txt",
+          "output.txt"
+        ],
+        "mean_runtime": 1.3951363272499293,
+        "median_runtime": 1.3548028077930212,
+        "sample_std": 0.13997976301163692,
+        "seed": 1,
+        "selected_action_ids": [
+          10
+        ],
+        "selected_candidate_id": 49,
+        "stopping_reason": "maximum_20_runs_noisy",
+        "thread_count": 1,
+        "timed_run_count": 20,
+        "timed_runs_raw": [
+          1.4301986899226904,
+          1.3546202052384615,
+          1.5067694736644626,
+          1.457788403145969,
+          1.4320060834288597,
+          1.4969216184690595,
+          1.3435681900009513,
+          1.354985410347581,
+          1.2587585486471653,
+          1.250616299919784,
+          1.3195398654788733,
+          1.323191930539906,
+          1.2839804766699672,
+          1.286120818927884,
+          1.5616406882181764,
+          1.5218058191239834,
+          1.8104929206892848,
+          1.417590655386448,
+          1.221684112213552,
+          1.270446334965527
+        ],
+        "warmup_runs": [
+          1.4316891832277179,
+          1.7336766766384244,
+          1.563184417784214
+        ]
+      },
+      "pa_mambanvp_seed2": {
+        "RSE": 0.028994114751306085,
+        "benchmark_id": "benchmark://cbench-v1/stringsearch",
+        "cache_policy": "inherited_route_a_posthoc_runtime_v6_no_page_cache_flush",
+        "correctness_result": "semantic_validated_pass",
+        "cpu_core": 0,
+        "input_id": [
+          "./a.out",
+          "/root/.local/share/compiler_gym/llvm-v0/cbench-v1-runtime-data/runtime_data/office_data/1.txt",
+          "/root/.local/share/compiler_gym/llvm-v0/cbench-v1-runtime-data/runtime_data/office_data/1.s.txt",
+          "output.txt"
+        ],
+        "mean_runtime": 1.369511113781482,
+        "median_runtime": 1.304148695897311,
+        "sample_std": 0.17757851185976758,
+        "seed": 2,
+        "selected_action_ids": [
+          10
+        ],
+        "selected_candidate_id": 49,
+        "stopping_reason": "maximum_20_runs_noisy",
+        "thread_count": 1,
+        "timed_run_count": 20,
+        "timed_runs_raw": [
+          1.4618662921711802,
+          1.6390002379193902,
+          1.3514231787994504,
+          1.2324118288233876,
+          1.08651418145746,
+          1.2361547695472836,
+          1.386415216140449,
+          1.23963588103652,
+          1.2541034407913685,
+          1.2518026055768132,
+          1.304729730822146,
+          1.4233881942927837,
+          1.547576380893588,
+          1.8481610901653767,
+          1.6029841490089893,
+          1.2552438909187913,
+          1.2981366096064448,
+          1.4012462375685573,
+          1.2658606991171837,
+          1.303567660972476
+        ],
+        "warmup_runs": [
+          1.2009218046441674,
+          1.2141249440610409,
+          1.265329991467297
+        ]
+      },
+      "pa_mambanvp_seed3": {
+        "RSE": 0.027378997572185922,
+        "benchmark_id": "benchmark://cbench-v1/stringsearch",
+        "cache_policy": "inherited_route_a_posthoc_runtime_v6_no_page_cache_flush",
+        "correctness_result": "semantic_validated_pass",
+        "cpu_core": 0,
+        "input_id": [
+          "./a.out",
+          "/root/.local/share/compiler_gym/llvm-v0/cbench-v1-runtime-data/runtime_data/office_data/1.txt",
+          "/root/.local/share/compiler_gym/llvm-v0/cbench-v1-runtime-data/runtime_data/office_data/1.s.txt",
+          "output.txt"
+        ],
+        "mean_runtime": 1.3577055915724485,
+        "median_runtime": 1.298020074609667,
+        "sample_std": 0.16624100192593014,
+        "seed": 3,
+        "selected_action_ids": [
+          10
+        ],
+        "selected_candidate_id": 49,
+        "stopping_reason": "maximum_20_runs_noisy",
+        "thread_count": 1,
+        "timed_run_count": 20,
+        "timed_runs_raw": [
+          1.240630365908146,
+          1.4433752512559295,
+          1.4038046710193157,
+          1.5107761919498444,
+          1.7708036415278912,
+          1.6900362223386765,
+          1.189955212175846,
+          1.3354334440082312,
+          1.2466988889500499,
+          1.2892890572547913,
+          1.287707133218646,
+          1.2505967672914267,
+          1.58658585883677,
+          1.29831104259938,
+          1.297729106619954,
+          1.3110602917149663,
+          1.3765401504933834,
+          1.2632024697959423,
+          1.21084092464298,
+          1.1507351398468018
+        ],
+        "warmup_runs": [
+          1.345034459605813,
+          1.3304316401481628,
+          1.1654703198000789
+        ]
+      }
+    },
+    "benchmark://cbench-v1/stringsearch2": {
+      "pa_mambanvp_seed1": {
+        "RSE": 0.04591321306734987,
+        "benchmark_id": "benchmark://cbench-v1/stringsearch2",
+        "cache_policy": "inherited_route_a_posthoc_runtime_v6_no_page_cache_flush",
+        "correctness_result": "semantic_validated_pass",
+        "cpu_core": 0,
+        "input_id": [
+          "./a.out",
+          "/root/.local/share/compiler_gym/llvm-v0/cbench-v1-runtime-data/runtime_data/office_data/1.txt",
+          "/root/.local/share/compiler_gym/llvm-v0/cbench-v1-runtime-data/runtime_data/office_data/1.s.txt",
+          "output.txt"
+        ],
+        "mean_runtime": 1.9916527634952217,
+        "median_runtime": 1.7571870130486786,
+        "sample_std": 0.40894632277135634,
+        "seed": 1,
+        "selected_action_ids": [
+          10
+        ],
+        "selected_candidate_id": 49,
+        "stopping_reason": "maximum_20_runs_noisy",
+        "thread_count": 1,
+        "timed_run_count": 20,
+        "timed_runs_raw": [
+          2.900478578172624,
+          2.0551842730492353,
+          1.6920385099947453,
+          1.734042010270059,
+          1.7577298125252128,
+          1.7566442135721445,
+          2.492785884067416,
+          2.301988359540701,
+          2.49624667968601,
+          2.866073382087052,
+          1.7404236290603876,
+          1.7655386058613658,
+          1.7400035578757524,
+          1.8061922891065478,
+          2.2390647316351533,
+          1.7396799568086863,
+          1.751752020791173,
+          1.7008034875616431,
+          1.6503426050767303,
+          1.6460426831617951
+        ],
+        "warmup_runs": [
+          1.6531019937247038,
+          2.17460866086185,
+          2.282892433926463
+        ]
+      },
+      "pa_mambanvp_seed2": {
+        "RSE": 0.009415683029376013,
+        "benchmark_id": "benchmark://cbench-v1/stringsearch2",
+        "cache_policy": "inherited_route_a_posthoc_runtime_v6_no_page_cache_flush",
+        "correctness_result": "semantic_validated_pass",
+        "cpu_core": 0,
+        "input_id": [
+          "./a.out",
+          "/root/.local/share/compiler_gym/llvm-v0/cbench-v1-runtime-data/runtime_data/office_data/1.txt",
+          "/root/.local/share/compiler_gym/llvm-v0/cbench-v1-runtime-data/runtime_data/office_data/1.s.txt",
+          "output.txt"
+        ],
+        "mean_runtime": 1.664783253893256,
+        "median_runtime": 1.6717367768287659,
+        "sample_std": 0.03505052527248936,
+        "seed": 2,
+        "selected_action_ids": [
+          10
+        ],
+        "selected_candidate_id": 49,
+        "stopping_reason": "rse_target",
+        "thread_count": 1,
+        "timed_run_count": 5,
+        "timed_runs_raw": [
+          1.6271616946905851,
+          1.6293055191636086,
+          1.6992919174954295,
+          1.6717367768287659,
+          1.6964203612878919
+        ],
+        "warmup_runs": [
+          1.6486650556325912,
+          1.6451834589242935,
+          1.665181084536016
+        ]
+      },
+      "pa_mambanvp_seed3": {
+        "RSE": 0.0028742876626749883,
+        "benchmark_id": "benchmark://cbench-v1/stringsearch2",
+        "cache_policy": "inherited_route_a_posthoc_runtime_v6_no_page_cache_flush",
+        "correctness_result": "semantic_validated_pass",
+        "cpu_core": 0,
+        "input_id": [
+          "./a.out",
+          "/root/.local/share/compiler_gym/llvm-v0/cbench-v1-runtime-data/runtime_data/office_data/1.txt",
+          "/root/.local/share/compiler_gym/llvm-v0/cbench-v1-runtime-data/runtime_data/office_data/1.s.txt",
+          "output.txt"
+        ],
+        "mean_runtime": 1.7060653444379568,
+        "median_runtime": 1.7040156638249755,
+        "sample_std": 0.010965057012082351,
+        "seed": 3,
+        "selected_action_ids": [
+          10
+        ],
+        "selected_candidate_id": 49,
+        "stopping_reason": "rse_target",
+        "thread_count": 1,
+        "timed_run_count": 5,
+        "timed_runs_raw": [
+          1.7178382892161608,
+          1.6945935059338808,
+          1.6968155354261398,
+          1.7170637277886271,
+          1.7040156638249755
+        ],
+        "warmup_runs": [
+          1.718505128286779,
+          1.7033082386478782,
+          1.7204889627173543
+        ]
+      }
+    }
+  }
+}
