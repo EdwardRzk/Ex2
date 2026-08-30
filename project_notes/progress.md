@@ -1009,3 +1009,27 @@ TRANSITION SIGNAL NOT SUPPORTED. TRANSITION PREDICTABILITY NOT SUPPORTED because
 
 ### Git
 Implementation commit `a18960cb`; results commit `e1b11185`.
+
+
+## 2026-08-30 — Candidate ranking error decomposition v1
+
+### Goal
+Explain the validation/final behavior of frozen NVP, standalone Mamba, Direct MambaNVP, and Anchored MambaNVP using only existing K=50 labels, checkpoints, Autophase caches, and the exact policy45 evaluator.
+
+### Frozen protocol
+Recovered scores only with frozen `eval()` checkpoints for seeds 1/2/3. The analysis imported the existing policy45 function: descending score with candidate-ID tie break, sequential prefix use to exactly 45 passes, then minimum observed prefix size. Validation `4488/4490` and final `4679/4683` cohorts remained intact. No CompilerGym, LLVM, rollout, ObjectText observation/measurement, label generation, training, tuning, runtime, checkpoint selection, or artifact modification occurred.
+
+### Result
+The diagnostic exactly reproduces frozen final dataset-macro MeanOverOz: NVP `0.08715469`, Mamba `0.08462666`, Direct `0.08765961`, Anchored `0.08778865`; validation is NVP `0.06277101` and Mamba `0.06355292`. Mamba final has lower top1/top5 oracle coverage (`0.6183/0.8282` versus `0.6424/0.8490`), lower Spearman/Kendall (`0.382/0.301` versus `0.424/0.338`), and higher policy45 regret (`13.446` versus `12.023` bytes). NVP chooses a strictly better top candidate on `1,613` final program-seed pairs versus Mamba on `1,022`. CSmith and BLAS are clear ranking failures; LLVM-Stress and OpenCV show policy45-admission ordering effects beyond oracle coverage. Candidate length is not dominant: Mamba is only `0.142` pass longer at top1 and its length direction reverses on the largest failures. CE-vs-regret Spearman is only `0.058` (NVP) / `0.088` (Mamba).
+
+Direct and Anchored preserve NVP top1 on `85.78%` / `89.21%` of final program-seed pairs; beneficial corrections slightly exceed harmful corrections, but effects remain source-specific. Anchored improves LLVM-Stress without a top1 change, through admission/order changes, while it loses CHStone and NPB despite locally favorable rank or byte-regret indicators.
+
+### Decision
+Supported failure modes: top-of-list ranking error, dataset-specific ranking/policy interaction, and residual correction instability. The evidence does not support generic representation expansion or a candidate-length fix as the next direction. If a future method is separately authorized, prioritize a policy-aware ranking/loss objective with explicit robustness constraints on top-list and 45-pass admission behavior.
+
+### Artifacts
+- `configs/candidate_ranking_error_decomposition_v1.json`
+- `outputs/candidate_ranking_error_decomposition_v1/{config.json,comparison_report.json,per_dataset.csv,per_program.csv,analysis.md}`
+
+### Git
+Implementation commits `74c90704`, `93a7c02e`, `845f3d15`; results commit `fc306571`.
