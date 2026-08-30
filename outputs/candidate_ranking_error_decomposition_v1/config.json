@@ -1,0 +1,74 @@
+{
+  "analysis": {
+    "core_methods_only": true,
+    "cross_candidate": "excluded: its stored final rows do not retain 50-way scores",
+    "final_used_for_selection_or_tuning": false,
+    "margin_bins": "q33 and q67 of frozen validation oracle_margin; apply unchanged to final",
+    "top_regions": [
+      3,
+      5,
+      10
+    ]
+  },
+  "candidate_space": {
+    "K": 50,
+    "candidate_length_range": [
+      4,
+      20
+    ],
+    "policy45_pass_budget": 45,
+    "tie_break": "descending score, candidate ID ascending"
+  },
+  "experiment_name": "candidate_ranking_error_decomposition_v1",
+  "forbidden": [
+    "CompilerGym",
+    "LLVM",
+    "rollout",
+    "ObjectText observation or measurement",
+    "label generation",
+    "training",
+    "checkpoint selection",
+    "runtime",
+    "candidate-set change",
+    "policy45 change",
+    "new model"
+  ],
+  "models": [
+    "NVP",
+    "Mamba",
+    "DirectMambaNVP",
+    "AnchoredMambaNVP"
+  ],
+  "purpose": "Frozen offline diagnostic only; recover ranking scores from existing eval-mode checkpoints and explain validation/final policy45 differences.",
+  "score_sources": {
+    "anchored_final_config": "configs/gated_calibrated_mambanvp_final_objecttext_v2.json",
+    "anchored_training_config": "configs/gated_calibrated_mambanvp_v2.json",
+    "controlled_config": "configs/controlled_nvp_stage_a_v6.json",
+    "direct_final_config": "configs/mamba_nvp_final_objecttext_v6.json",
+    "direct_training_config": "configs/mamba_nvp_objecttext_v6.json",
+    "mamba_checkpoint_root": "outputs/route_a_stage_b_v6/mamba",
+    "nvp_checkpoint_root": "outputs/route_a_stage_b_v6/nvp"
+  },
+  "seeds": [
+    1,
+    2,
+    3
+  ],
+  "splits": {
+    "final": {
+      "complete_k50": 4679,
+      "features": "outputs/autophase_feature_cache_v6/final_autophase.jsonl.gz",
+      "invalid": 4,
+      "label_shards": "outputs/route_a_final_objecttext_v6/shards/final",
+      "total_programs": 4683
+    },
+    "validation": {
+      "complete_k50": 4488,
+      "features": "outputs/autophase_feature_cache_v6/validation_autophase.jsonl.gz",
+      "invalid": 2,
+      "label_shards": "outputs/rlcompopt_route_a_objecttext_v6_parallel12/shards/validation",
+      "targets": "outputs/rlcompopt_route_a_nvp_targets_v6/validation_targets.jsonl.gz",
+      "total_programs": 4490
+    }
+  }
+}
