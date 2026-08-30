@@ -125,6 +125,8 @@ def load_validation(cfg: Mapping[str, Any]) -> tuple[list[dict[str, Any]], dict[
     targets = read_jsonl(Path(settings["targets"]))
     if len(targets) != settings["complete_k50"] or any(row.get("training_target_validity") != "valid_complete_K50" for row in targets):
         raise ValueError("frozen validation target cohort mismatch")
+    for row in targets:
+        row["best_object_text"] = list(row["best_object_text_size"])
     programs = [str(row["program_id"]) for row in targets]
     matrix = read_label_matrix(Path(settings["label_shards"]))
     if set(matrix) != set(programs):
