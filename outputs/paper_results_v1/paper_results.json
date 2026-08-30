@@ -35,7 +35,25 @@
     }
   },
   "llvm_execution": false,
-  "methods_fully_recoverable": [
+  "methods_partial_metrics": {
+    "Anchored MambaNVP": "top5 unavailable in formal reports",
+    "Direct MambaNVP": "top1/top5 unavailable in formal reports",
+    "LSTM": "top1/top5 unavailable; final policy45 regret unavailable in aggregate",
+    "MLP": "top1/top5 unavailable; final policy45 regret unavailable in aggregate",
+    "Mamba": "top1/top5 unavailable; final policy45 regret unavailable in aggregate",
+    "NVP": "top1/top5 unavailable; final policy45 regret unavailable in aggregate",
+    "Transformer": "top1/top5 unavailable; final policy45 regret unavailable in aggregate"
+  },
+  "methods_with_complete_secondary_metrics": [
+    "PA-MambaNVP"
+  ],
+  "objecttext_observation": false,
+  "offline_evaluator_rerun_required": false,
+  "optional_cross_candidate": {
+    "reason": "target main table is restricted to the eight requested methods",
+    "status": "not exported to main canonical table"
+  },
+  "primary_reports_fully_recoverable": [
     "NVP",
     "MLP",
     "LSTM",
@@ -45,17 +63,6 @@
     "Anchored MambaNVP",
     "PA-MambaNVP"
   ],
-  "methods_partial_metrics": {
-    "LSTM": "final secondary metrics unavailable in formal aggregate",
-    "MLP": "final secondary metrics unavailable in formal aggregate",
-    "Transformer": "final secondary metrics unavailable in formal aggregate"
-  },
-  "objecttext_observation": false,
-  "offline_evaluator_rerun_required": false,
-  "optional_cross_candidate": {
-    "reason": "target main table is restricted to the eight requested methods",
-    "status": "not exported to main canonical table"
-  },
   "records": [
     {
       "MeanOverOz": 0.06277100953471096,
