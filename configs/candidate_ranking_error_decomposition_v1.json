@@ -1,0 +1,41 @@
+{
+  "experiment_name": "candidate_ranking_error_decomposition_v1",
+  "purpose": "Frozen offline diagnostic only; recover ranking scores from existing eval-mode checkpoints and explain validation/final policy45 differences.",
+  "splits": {
+    "validation": {
+      "targets": "outputs/rlcompopt_route_a_nvp_targets_v6/validation_targets.jsonl.gz",
+      "features": "outputs/autophase_feature_cache_v6/validation_autophase.jsonl.gz",
+      "label_shards": "outputs/rlcompopt_route_a_objecttext_v6_parallel12/shards/validation",
+      "total_programs": 4490,
+      "complete_k50": 4488,
+      "invalid": 2
+    },
+    "final": {
+      "features": "outputs/autophase_feature_cache_v6/final_autophase.jsonl.gz",
+      "label_shards": "outputs/route_a_final_objecttext_v6/shards/final",
+      "total_programs": 4683,
+      "complete_k50": 4679,
+      "invalid": 4
+    }
+  },
+  "models": ["NVP", "Mamba", "DirectMambaNVP", "AnchoredMambaNVP"],
+  "seeds": [1, 2, 3],
+  "candidate_space": {"K": 50, "candidate_length_range": [4, 20], "tie_break": "descending score, candidate ID ascending", "policy45_pass_budget": 45},
+  "score_sources": {
+    "nvp_checkpoint_root": "outputs/route_a_stage_b_v6/nvp",
+    "mamba_checkpoint_root": "outputs/route_a_stage_b_v6/mamba",
+    "controlled_config": "configs/controlled_nvp_stage_a_v6.json",
+    "direct_final_config": "configs/mamba_nvp_final_objecttext_v6.json",
+    "direct_training_config": "configs/mamba_nvp_objecttext_v6.json",
+    "anchored_final_config": "configs/gated_calibrated_mambanvp_final_objecttext_v2.json",
+    "anchored_training_config": "configs/gated_calibrated_mambanvp_v2.json"
+  },
+  "analysis": {
+    "margin_bins": "q33 and q67 of frozen validation oracle_margin; apply unchanged to final",
+    "top_regions": [3, 5, 10],
+    "core_methods_only": true,
+    "cross_candidate": "excluded: its stored final rows do not retain 50-way scores",
+    "final_used_for_selection_or_tuning": false
+  },
+  "forbidden": ["CompilerGym", "LLVM", "rollout", "ObjectText observation or measurement", "label generation", "training", "checkpoint selection", "runtime", "candidate-set change", "policy45 change", "new model"]
+}
