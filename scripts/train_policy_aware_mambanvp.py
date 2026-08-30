@@ -201,6 +201,27 @@ def checkpoint_payload(model: PolicyAwareMambaNVP, cfg: Mapping[str, Any], seed:
     return {"stage": "Counterfactual Policy-Aware MambaNVP v1", "architecture": METHOD, "seed": seed, "step": step, "metrics": dict(metrics), "residual_state_dict": model.residual.state_dict(), "residual_trainable_parameters": model.residual_parameter_count(), "nvp_checkpoint": str(Path(cfg["nvp_checkpoint_root"]) / f"seed{seed}" / "model.pt"), "nvp_frozen": True, "fusion": cfg["architecture"]["fusion"], "config": copy.deepcopy(dict(cfg))}
 
 
+def strict_no_policy_recipe_check(cfg: Mapping[str, Any], reports: Sequence[Mapping[str, Any]] | None = None) -> dict[str, Any]:
+    if float(cfg["target_and_objective"]["lambda_policy"]) != 0.0:
+        return {"strict_no_policy_ablation": False}
+    reference = load_json(Path("configs/policy_aware_mambanvp_v1.json"))
+    shared_fields = ("target_files", "autophase_feature_cache", "train_label_shards", "validation_label_shards", "final_label_shards", "candidate_representation_source", "nvp_checkpoint_root", "final_seed_set", "frozen_data_population", "architecture", "training", "validation", "frozen_reference_reports")
+    changed = [field for field in shared_fields if cfg[field] != reference[field]]
+    reference_target = {key: value for key, value in reference["target_and_objective"].items() if key not in {"lambda_policy", "loss"}}
+    current_target = {key: value for key, value in cfg["target_and_objective"].items() if key not in {"lambda_policy", "loss"}}
+    if changed or reference_target != current_target:
+        raise ValueError("strict no-policy ablation changed a frozen recipe field")
+    result = {"strict_no_policy_ablation": True, "semantic_config_difference_paths": ["target_and_objective.lambda_policy"], "descriptive_config_difference_paths": ["experiment_name", "target_and_objective.loss"], "architecture_identical": True, "initialization_convention_identical": True, "seed_mapping_identical": True, "training_budget_identical": True, "data_order_and_source_balanced_sampling_identical": True, "checkpoint_selection_metric_identical": True, "final_ood_access_before_checkpoint_freeze": False}
+    if reports is not None:
+        reference_reports = load_json(Path("outputs/policy_aware_mambanvp_v1/experiment_report.json"))["seed_reports"]
+        reference_counts = [int(item["residual_trainable_parameters"]) for item in reference_reports]
+        current_counts = [int(item["residual_trainable_parameters"]) for item in reports]
+        if reference_counts != current_counts:
+            raise ValueError("strict no-policy ablation parameter count mismatch")
+        result.update({"reference_residual_trainable_parameters_per_seed": reference_counts, "ablation_residual_trainable_parameters_per_seed": current_counts, "parameter_count_identical": True})
+    return result
+
+
 def train_seed(cfg: Mapping[str, Any], controlled: Mapping[str, Any], seed: int, tokens: torch.Tensor, lengths: torch.Tensor, train_x: torch.Tensor, train_y: torch.Tensor, val_x: torch.Tensor, val_y: torch.Tensor, train: list[dict[str, Any]], validation: list[dict[str, Any]], train_matrix: Mapping[str, Sequence[Mapping[str, Any]]], val_matrix: Mapping[str, Sequence[Mapping[str, Any]]], output: Path) -> tuple[dict[str, Any], list[dict[str, Any]], dict[str, Any]]:
     seed_everything(seed)
     nvp = load_frozen_nvp(Path(cfg["nvp_checkpoint_root"]) / f"seed{seed}" / "model.pt", seed).cuda()
@@ -213,12 +234,15 @@ def train_seed(cfg: Mapping[str, Any], controlled: Mapping[str, Any], seed: int,
     if any(parameter.requires_grad for parameter in model.nvp.parameters()) or model.nvp.training: raise RuntimeError("NVP must be frozen eval")
     optimizer = torch.optim.Adam(model.residual.parameters(), lr=float(cfg["training"]["learning_rate"]), weight_decay=float(cfg["training"]["weight_decay"]))
     sampler = SourceBalancedSampler([row["dataset_id"] for row in train], seed)
+    policy_scale = float(cfg["target_and_objective"]["lambda_policy"])
+    ce_scale = float(cfg["target_and_objective"]["lambda_ce"])
+    residual_scale = float(cfg["target_and_objective"]["lambda_residual"])
     output.mkdir(parents=True); curve: list[dict[str, Any]] = []; best: dict[str, Any] | None = None
     for step in range(1, int(cfg["training"]["total_steps"]) + 1):
         index = sampler.sample(int(cfg["training"]["batch_size"]), torch.device("cuda"))
         lr = learning_rate(cfg["training"], step)
         for group in optimizer.param_groups: group["lr"] = lr
-        model.train(); anchor, centered, scores = model.components(train_x[index]); policy_loss = pairwise_policy_loss(scores, pair_sets, index); ce_loss = soft_cross_entropy(scores, train_y[index]); residual_loss = centered.square().mean(); loss = policy_loss + .25 * ce_loss + .001 * residual_loss
+        model.train(); anchor, centered, scores = model.components(train_x[index]); policy_loss = pairwise_policy_loss(scores, pair_sets, index); ce_loss = soft_cross_entropy(scores, train_y[index]); residual_loss = centered.square().mean(); loss = policy_scale * policy_loss + ce_scale * ce_loss + residual_scale * residual_loss
         optimizer.zero_grad(set_to_none=True); loss.backward()
         if any(parameter.grad is not None for parameter in model.nvp.parameters()): raise RuntimeError("frozen NVP received gradients")
         optimizer.step()
@@ -283,6 +307,8 @@ def main() -> int:
     if not torch.cuda.is_available(): raise RuntimeError("formal PA-MambaNVP requires CUDA")
     cfg, controlled = load_json(args.config), load_json(Path(load_json(args.config)["candidate_representation_source"]))
     if cfg["final_seed_set"] != [1, 2, 3] or cfg["training"]["total_steps"] != 10000 or cfg["target_and_objective"]["target_temperature"] != .05: raise ValueError("frozen protocol configuration mismatch")
+    if float(cfg["target_and_objective"]["lambda_ce"]) != .25 or float(cfg["target_and_objective"]["lambda_residual"]) != .001: raise ValueError("frozen PA objective mismatch")
+    strict_recipe = strict_no_policy_recipe_check(cfg)
     train, validation = read_jsonl(Path(cfg["target_files"]["train"])), read_jsonl(Path(cfg["target_files"]["validation"]))
     if len(train) != 28159 or len(validation) != 4488 or set(row["program_id"] for row in train) & set(row["program_id"] for row in validation): raise ValueError("frozen train/validation population mismatch")
     if any(len(row["normalized_target"]) != K or len(row["raw_candidate_value"]) != K for row in train + validation): raise ValueError("frozen K50 targets missing")
@@ -300,7 +326,16 @@ def main() -> int:
         report, curve, stats = train_seed(cfg, controlled, seed, tokens.cuda(), lengths.cuda(), train_x, train_y, val_x, val_y, train, validation, train_matrix, val_matrix, args.output_dir / "checkpoints" / f"seed{seed}")
         reports.append(report); curves[str(seed)] = curve; pair_statistics.append(stats)
     validation_summary = aggregate_validation(reports, references)
+    pa_reference = load_json(Path("outputs/policy_aware_mambanvp_v1/comparison_report.json"))
+    direct_validation = load_json(Path("outputs/mamba_nvp_objecttext_v6/comparison_report.json"))["comparison"]["ValidationFinalMeanOverOz_3seed"]
+    validation_summary["delta_vs_pa"] = validation_summary["three_seed_mean_over_oz"] - float(pa_reference["validation"]["three_seed_mean_over_oz"])
+    validation_summary["delta_vs_direct"] = validation_summary["three_seed_mean_over_oz"] - float(direct_validation)
+    validation_summary["seed_paired_delta_vs_pa"] = {str(seed): validation_summary["per_seed_mean_over_oz"][str(seed)] - float(pa_reference["validation"]["per_seed_mean_over_oz"][str(seed)]) for seed in cfg["final_seed_set"]}
+    validation_summary["policy45_regret_delta_vs_pa"] = validation_summary["policy45_regret_mean_bytes"] - float(pa_reference["validation"]["policy45_regret_mean_bytes"])
     (args.output_dir / "learning_curve.json").write_text(json.dumps(curves, indent=2, sort_keys=True) + "\n", encoding="utf-8"); (args.output_dir / "policy_pair_statistics.json").write_text(json.dumps({"per_seed": pair_statistics}, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    strict_recipe = strict_no_policy_recipe_check(cfg, reports)
+    (args.output_dir / "validation_results.json").write_text(json.dumps({"validation": validation_summary, "strict_ablation_verification": strict_recipe}, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    if len(reports) != len(cfg["final_seed_set"]) or not all((args.output_dir / "checkpoints" / f"seed{seed}" / "model.pt").is_file() for seed in cfg["final_seed_set"]): raise RuntimeError("final/OOD access before all validation checkpoints froze")
     # Final artifacts are intentionally inaccessible until all validation checkpoints above have frozen.
     programs, final_matrix, summaries = read_final_artifacts(Path(cfg["final_label_shards"])); eligible = [program for program in programs if program in final_matrix and summaries[program]["ratio_metric_validity"] == "valid_for_ObjectText_ratio_metric"]
     if len(programs) != 4683 or len(eligible) != 4679: raise ValueError("frozen final cohort mismatch")
@@ -313,9 +348,15 @@ def main() -> int:
     final_summary = aggregate_final(final_rows, nvp_final["per_dataset"], oracle)
     direct = load_json(Path(cfg["frozen_reference_reports"]["direct_final"]))["combined_comparison"]["dataset_macro"]["MambaNVP"]["three_seed_mean"]
     anchored = load_json(Path(cfg["frozen_reference_reports"]["anchored_final"]))["combined_comparison"]["dataset_macro"]["GatedCalibratedMambaNVP"]["three_seed_mean"]
-    final_summary["delta_vs_nvp"] = final_summary["three_seed_mean_over_oz"] - .08715469; final_summary["delta_vs_mamba"] = final_summary["three_seed_mean_over_oz"] - .08462666; final_summary["delta_vs_direct"] = final_summary["three_seed_mean_over_oz"] - direct; final_summary["delta_vs_anchored"] = final_summary["three_seed_mean_over_oz"] - anchored
+    nvp_macro = float(nvp_final["dataset_macro"]["NVP"]["three_seed_mean"])
+    mamba_macro = float(nvp_final["dataset_macro"]["Mamba"]["three_seed_mean"])
+    final_summary["delta_vs_nvp"] = final_summary["three_seed_mean_over_oz"] - nvp_macro; final_summary["delta_vs_mamba"] = final_summary["three_seed_mean_over_oz"] - mamba_macro; final_summary["delta_vs_direct"] = final_summary["three_seed_mean_over_oz"] - direct; final_summary["delta_vs_anchored"] = final_summary["three_seed_mean_over_oz"] - anchored
+    final_summary["delta_vs_pa"] = final_summary["three_seed_mean_over_oz"] - float(pa_reference["final"]["three_seed_mean_over_oz"])
+    final_summary["seed_paired_delta_vs_pa"] = {str(seed): final_summary["per_seed_mean_over_oz"][str(seed)] - float(pa_reference["final"]["per_seed_mean_over_oz"][str(seed)]) for seed in cfg["final_seed_set"]}
+    final_summary["policy45_regret_delta_vs_pa"] = final_summary["policy45_regret_mean_bytes"] - float(pa_reference["final"]["policy45_regret_mean_bytes"])
     high_bar = {"validation_exceeds_mamba": validation_summary["three_seed_mean_over_oz"] > .06355292, "final_exceeds_anchored": final_summary["three_seed_mean_over_oz"] > .08778865, "leave_llvm_positive": final_summary["leave_llvm_stress_out_13dataset_delta_vs_nvp"] > 0, "median_delta_positive": final_summary["median_dataset_delta_vs_nvp"] > 0, "majority_datasets_positive": final_summary["positive_dataset_count_vs_nvp"] > final_summary["negative_dataset_count_vs_nvp"]}
-    report = {"step_execution": "COMPLETE", "protocol": "frozen offline labels/features/checkpoints only", "compiler_gym_initialized": False, "llvm_execution": False, "candidate_rollouts": 0, "objecttext_measurements": 0, "label_regeneration": False, "runtime_accessed": False, "final_population": {"N_total": 4683, "N_complete_K50_valid": 4679, "N_invalid": 4}, "validation": validation_summary, "final": final_summary, "final_checkpoints_frozen_before_final": True, "high_bar": high_bar, "decision": "PASS" if all(high_bar.values()) else "FAIL"}
+    (args.output_dir / "final_results.json").write_text(json.dumps({"final": final_summary, "final_checkpoints_frozen_before_final": True}, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    report = {"step_execution": "COMPLETE", "protocol": "frozen offline labels/features/checkpoints only", "compiler_gym_initialized": False, "llvm_execution": False, "candidate_rollouts": 0, "objecttext_measurements": 0, "label_regeneration": False, "runtime_accessed": False, "final_population": {"N_total": 4683, "N_complete_K50_valid": 4679, "N_invalid": 4}, "validation": validation_summary, "final": final_summary, "final_checkpoints_frozen_before_final": True, "strict_ablation_verification": strict_recipe, "high_bar": high_bar, "decision": "PASS" if all(high_bar.values()) else "FAIL"}
     (args.output_dir / "comparison_report.json").write_text(json.dumps(report, indent=2, sort_keys=True) + "\n", encoding="utf-8"); (args.output_dir / "experiment_report.json").write_text(json.dumps({"seed_reports": reports, "final_checkpoint_freeze": True, "final_inference_only": True}, indent=2, sort_keys=True) + "\n", encoding="utf-8")
     print(json.dumps(report, indent=2, sort_keys=True)); return 0
 

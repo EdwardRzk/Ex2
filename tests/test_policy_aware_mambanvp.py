@@ -1,12 +1,14 @@
 """Focused unit tests for Counterfactual Policy-Aware MambaNVP supervision."""
 import inspect
+import json
+from pathlib import Path
 import unittest
 
 import numpy as np
 import torch
 
 import scripts.train_policy_aware_mambanvp as implementation
-from scripts.train_policy_aware_mambanvp import K, PairSet, build_policy_pairs, pairwise_policy_loss, policy45_utility, swap_order, validate_candidate_alignment
+from scripts.train_policy_aware_mambanvp import K, PairSet, build_policy_pairs, pairwise_policy_loss, policy45_utility, strict_no_policy_recipe_check, swap_order, validate_candidate_alignment
 
 
 def synthetic_records():
@@ -48,6 +50,14 @@ class PolicyAwareObjectiveTest(unittest.TestCase):
         tokens=torch.zeros(K,20,dtype=torch.long); lengths=torch.full((K,),20,dtype=torch.long)
         validate_candidate_alignment(synthetic_records(),tokens,lengths)
         self.assertNotIn("final", {"train", "validation"})
+
+    def test_strict_no_policy_config_differs_only_in_policy_weight(self):
+        config=json.loads(Path("configs/policy_aware_mambanvp_no_policy_ablation_v1.json").read_text())
+        proof=strict_no_policy_recipe_check(config)
+        self.assertTrue(proof["strict_no_policy_ablation"])
+        self.assertEqual(proof["semantic_config_difference_paths"],["target_and_objective.lambda_policy"])
+        self.assertEqual(config["target_and_objective"]["lambda_policy"],0.0)
+        self.assertIn("policy_scale * policy_loss + ce_scale * ce_loss + residual_scale * residual_loss",inspect.getsource(implementation))
 
     def test_no_compilergym_llvm_or_objecttext_execution(self):
         source=inspect.getsource(implementation)

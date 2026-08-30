@@ -1,0 +1,17 @@
+{
+  "experiment_name": "policy_aware_mambanvp_no_policy_ablation_v1",
+  "target_files": {"train": "outputs/rlcompopt_route_a_nvp_targets_v6/train_targets.jsonl.gz", "validation": "outputs/rlcompopt_route_a_nvp_targets_v6/validation_targets.jsonl.gz"},
+  "autophase_feature_cache": {"train": "outputs/autophase_feature_cache_v6/train_autophase.jsonl.gz", "validation": "outputs/autophase_feature_cache_v6/validation_autophase.jsonl.gz", "final": "outputs/autophase_feature_cache_v6/final_autophase.jsonl.gz", "preprocessing": "raw_autophase / raw_autophase[51]", "dimension": 56},
+  "train_label_shards": "outputs/rlcompopt_route_a_objecttext_v6_parallel12/shards/train",
+  "validation_label_shards": "outputs/rlcompopt_route_a_objecttext_v6_parallel12/shards/validation",
+  "final_label_shards": "outputs/route_a_final_objecttext_v6/shards/final",
+  "candidate_representation_source": "configs/controlled_nvp_stage_a_v6.json",
+  "nvp_checkpoint_root": "outputs/route_a_stage_b_v6/nvp",
+  "final_seed_set": [1, 2, 3],
+  "frozen_data_population": {"train_complete_k50": 28159, "validation_complete_k50": 4488, "final_total": 4683, "final_complete_k50": 4679, "final_invalid": 4},
+  "architecture": {"name": "Counterfactual Policy-Aware MambaNVP", "short_name": "PA-MambaNVP", "fusion": "final_logits = frozen_nvp_logits + centered_mamba_residual_logits", "nvp_frozen": true, "residual_centering": "residual - mean(residual, candidates=50)", "residual_initialization": "zero final residual scoring head weight and bias"},
+  "target_and_objective": {"soft_target": "frozen normalized_target = softmax(raw_candidate_value / 0.05)", "target_temperature": 0.05, "policy_utility": "(S_Oz - exact_policy45_object_text_size_bytes) / S_Oz", "pair_regions": ["top1_10_internal", "top10_vs_11_20_crossing", "policy45_admission_frontier"], "policy_loss": "per-program normalized weighted softplus LambdaRank", "loss": "0.0 * L_policy + 0.25 * L_CE + 0.001 * L_res", "lambda_policy": 0.0, "lambda_ce": 0.25, "lambda_residual": 0.001, "delta_tolerance": 1e-12},
+  "training": {"optimizer": "Adam", "learning_rate": 0.0005, "weight_decay": 0.00001, "batch_size": 256, "evaluation_batch_size": 64, "total_steps": 10000, "warmup_steps": 500, "lr_schedule": "500-step linear warmup then cosine to lr*0.01", "checkpoint_evaluation_cadence_steps": 100, "source_balanced_sampling": true, "early_stopping": false},
+  "validation": {"selection_metric": "ValidationFinalMeanOverOz policy-45 dataset macro mean", "sampling": false, "scored_pass_budget": 45, "final_test_accessed_before_checkpoint_freeze": false},
+  "frozen_reference_reports": {"stage_b": "outputs/route_a_stage_b_v6/comparison_report.json", "direct_final": "outputs/mamba_nvp_final_objecttext_v6/comparison_report.json", "anchored_final": "outputs/gated_calibrated_mambanvp_final_objecttext_v2/comparison_report.json", "final_baseline": "outputs/route_a_final_objecttext_v6/comparison_report.json"}
+}
