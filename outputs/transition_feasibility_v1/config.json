@@ -1,0 +1,603 @@
+{
+  "audit": {
+    "audited_artifacts": [
+      "outputs/rlcompopt_route_a_nvp_targets_v6/train_targets.jsonl.gz",
+      "outputs/rlcompopt_route_a_nvp_targets_v6/validation_targets.jsonl.gz",
+      "outputs/autophase_feature_cache_v6",
+      "outputs/rlcompopt_route_a_objecttext_v6_parallel12/shards",
+      "scripts/generate_rlcompopt_objecttext_labels.py",
+      "scripts/export_autophase_feature_cache.py",
+      "project_notes/progress.md"
+    ],
+    "existing_intermediate_autophase_states": false,
+    "finding": "existing target and ObjectText shards do not contain state_0..state_L Autophase; feature cache contains initial Autophase only"
+  },
+  "collection": {
+    "environment_id": "llvm-v0",
+    "label_regeneration": false,
+    "objecttext_observations": 0,
+    "operations": [
+      "env.reset(benchmark=program_id)",
+      "env.observation['Autophase']",
+      "env.step(existing_frozen_action_id)"
+    ],
+    "retry_count": 0,
+    "reward_space": null,
+    "workers": 12
+  },
+  "controlled_probes": {
+    "batch_size": 16,
+    "checkpoint_selection": "none; evaluate exactly at the frozen final step",
+    "d_model": 64,
+    "learning_rate": 0.001,
+    "objective": "same soft-label candidate cross entropy over K=50 normalized_target",
+    "optimizer": "Adam",
+    "seeds": [
+      1,
+      2,
+      3
+    ],
+    "sequence_encoder": "single-layer GRU over ordered frozen pass tokens",
+    "total_steps": 1500,
+    "transition_summary": [
+      "final_minus_initial",
+      "mean_delta",
+      "max_abs_delta",
+      "cumulative_abs_delta"
+    ],
+    "weight_decay": 1e-05
+  },
+  "experiment_name": "transition_feasibility_v1",
+  "forbidden": [
+    "final/OOD",
+    "runtime",
+    "new candidates",
+    "K change",
+    "policy change",
+    "ObjectText observation",
+    "ObjectText measurement",
+    "label regeneration",
+    "headroom experiment",
+    "full TS-MambaNVP training",
+    "checkpoint tuning"
+  ],
+  "frozen_inputs": {
+    "autophase_dimension": 56,
+    "autophase_normalization": "raw_autophase / raw_autophase[51]",
+    "candidate_count": 50,
+    "candidate_sequences": "configs/rlcompopt_action_seq_50.txt",
+    "compiler_gym_version": "0.2.5",
+    "llvm_version": "10.0.0",
+    "policy": "frozen deterministic descending score, candidate ID ascending tie break, policy45",
+    "target_formula": "softmax(raw_candidate_value / 0.05)",
+    "train_targets": "outputs/rlcompopt_route_a_nvp_targets_v6/train_targets.jsonl.gz",
+    "validation_label_shards": "outputs/rlcompopt_route_a_objecttext_v6_parallel12/shards/validation",
+    "validation_targets": "outputs/rlcompopt_route_a_nvp_targets_v6/validation_targets.jsonl.gz"
+  },
+  "population": {
+    "final_or_ood_access": false,
+    "max_train_programs_per_source": 8,
+    "max_validation_programs_per_source": 4,
+    "selection": "within each explicit dataset_id, program_id ascending; first max_per_source programs only",
+    "train_complete_k50": 28159,
+    "validation_complete_k50": 4488
+  },
+  "predictor_if_signal_supported": {
+    "architecture": "initial Autophase conditioning plus token embedding, positional embedding, two residual Mamba blocks (d_model=64), final-token 56-D delta head",
+    "baselines": [
+      "zero delta",
+      "global train mean delta",
+      "per-pass train mean delta"
+    ],
+    "batch_size": 256,
+    "d_model": 64,
+    "learning_rate": 0.001,
+    "mamba_d_conv": 4,
+    "mamba_d_state": 16,
+    "mamba_expand": 2,
+    "normalization": "per-feature train delta RMS, clamped at 1e-6",
+    "optimizer": "Adam",
+    "predictability_gate": "three-seed learned normalized MSE beats every baseline globally and beats per-pass mean on a strict majority of validation sources",
+    "seeds": [
+      1,
+      2,
+      3
+    ],
+    "total_steps": 1500,
+    "weight_decay": 1e-05
+  },
+  "purpose": "One train/validation-only feasibility study for transition-supervised MambaNVP; never a full model training run.",
+  "selected_population": {
+    "train": [
+      {
+        "dataset_id": "anghabench-v1",
+        "program_id": "benchmark://anghabench-v1/8cc/extr_gen.c_emit_comma"
+      },
+      {
+        "dataset_id": "anghabench-v1",
+        "program_id": "benchmark://anghabench-v1/AppImageKit/src/extr_runtime.c_rm_recursive_callback"
+      },
+      {
+        "dataset_id": "anghabench-v1",
+        "program_id": "benchmark://anghabench-v1/Arduino/tools/sdk/lwip/src/core/extr_sys.c_sys_msleep"
+      },
+      {
+        "dataset_id": "anghabench-v1",
+        "program_id": "benchmark://anghabench-v1/Atlas/lib/extr_lpeg.c_unm_l"
+      },
+      {
+        "dataset_id": "anghabench-v1",
+        "program_id": "benchmark://anghabench-v1/Atlas/src/extr_chassis-event-thread.c_chassis_event_threads_init_thread"
+      },
+      {
+        "dataset_id": "anghabench-v1",
+        "program_id": "benchmark://anghabench-v1/Atlas/src/extr_mysql-myisam-dump.c_network_mysqld_column_def_free"
+      },
+      {
+        "dataset_id": "anghabench-v1",
+        "program_id": "benchmark://anghabench-v1/Atlas/src/extr_network-mysqld-packet.c_network_mysqld_com_query_result_is_local_infile"
+      },
+      {
+        "dataset_id": "anghabench-v1",
+        "program_id": "benchmark://anghabench-v1/Atlas/src/extr_network-mysqld-proto.c_network_mysqld_proto_get_gstring"
+      },
+      {
+        "dataset_id": "blas-v0",
+        "program_id": "benchmark://blas-v0/10"
+      },
+      {
+        "dataset_id": "blas-v0",
+        "program_id": "benchmark://blas-v0/103"
+      },
+      {
+        "dataset_id": "blas-v0",
+        "program_id": "benchmark://blas-v0/104"
+      },
+      {
+        "dataset_id": "blas-v0",
+        "program_id": "benchmark://blas-v0/105"
+      },
+      {
+        "dataset_id": "blas-v0",
+        "program_id": "benchmark://blas-v0/106"
+      },
+      {
+        "dataset_id": "blas-v0",
+        "program_id": "benchmark://blas-v0/108"
+      },
+      {
+        "dataset_id": "blas-v0",
+        "program_id": "benchmark://blas-v0/109"
+      },
+      {
+        "dataset_id": "blas-v0",
+        "program_id": "benchmark://blas-v0/11"
+      },
+      {
+        "dataset_id": "clgen-v0",
+        "program_id": "benchmark://clgen-v0/005ef03ac277e7418bb806ad623f5066de5031da"
+      },
+      {
+        "dataset_id": "clgen-v0",
+        "program_id": "benchmark://clgen-v0/00b2cd9176f8fd8ff41df5853ccc8ba77620d81f"
+      },
+      {
+        "dataset_id": "clgen-v0",
+        "program_id": "benchmark://clgen-v0/0101fc457f7bea5c550493f1c84afc5ca59c0db8"
+      },
+      {
+        "dataset_id": "clgen-v0",
+        "program_id": "benchmark://clgen-v0/011cb6eaff0d8431d380597d216780676df68344"
+      },
+      {
+        "dataset_id": "clgen-v0",
+        "program_id": "benchmark://clgen-v0/013bbfdef9395b6f598f54a7f699fec3c66a4ef1"
+      },
+      {
+        "dataset_id": "clgen-v0",
+        "program_id": "benchmark://clgen-v0/0145badf5ab7f25067ff7dfd29a5fe9500e6d084"
+      },
+      {
+        "dataset_id": "clgen-v0",
+        "program_id": "benchmark://clgen-v0/016850a54105db85a861274ce636cb826e85fd18"
+      },
+      {
+        "dataset_id": "clgen-v0",
+        "program_id": "benchmark://clgen-v0/016f294a014fc8fc8043fe264c36ebcf0e419309"
+      },
+      {
+        "dataset_id": "csmith-v0",
+        "program_id": "generator://csmith-v0/101"
+      },
+      {
+        "dataset_id": "csmith-v0",
+        "program_id": "generator://csmith-v0/102"
+      },
+      {
+        "dataset_id": "csmith-v0",
+        "program_id": "generator://csmith-v0/107"
+      },
+      {
+        "dataset_id": "csmith-v0",
+        "program_id": "generator://csmith-v0/109"
+      },
+      {
+        "dataset_id": "csmith-v0",
+        "program_id": "generator://csmith-v0/113"
+      },
+      {
+        "dataset_id": "csmith-v0",
+        "program_id": "generator://csmith-v0/116"
+      },
+      {
+        "dataset_id": "csmith-v0",
+        "program_id": "generator://csmith-v0/119"
+      },
+      {
+        "dataset_id": "csmith-v0",
+        "program_id": "generator://csmith-v0/12"
+      },
+      {
+        "dataset_id": "github-v0",
+        "program_id": "benchmark://github-v0/10037"
+      },
+      {
+        "dataset_id": "github-v0",
+        "program_id": "benchmark://github-v0/10041"
+      },
+      {
+        "dataset_id": "github-v0",
+        "program_id": "benchmark://github-v0/10043"
+      },
+      {
+        "dataset_id": "github-v0",
+        "program_id": "benchmark://github-v0/10048"
+      },
+      {
+        "dataset_id": "github-v0",
+        "program_id": "benchmark://github-v0/10063"
+      },
+      {
+        "dataset_id": "github-v0",
+        "program_id": "benchmark://github-v0/10067"
+      },
+      {
+        "dataset_id": "github-v0",
+        "program_id": "benchmark://github-v0/10072"
+      },
+      {
+        "dataset_id": "github-v0",
+        "program_id": "benchmark://github-v0/10079"
+      },
+      {
+        "dataset_id": "linux-v0",
+        "program_id": "benchmark://linux-v0/10"
+      },
+      {
+        "dataset_id": "linux-v0",
+        "program_id": "benchmark://linux-v0/100"
+      },
+      {
+        "dataset_id": "linux-v0",
+        "program_id": "benchmark://linux-v0/1000"
+      },
+      {
+        "dataset_id": "linux-v0",
+        "program_id": "benchmark://linux-v0/10000"
+      },
+      {
+        "dataset_id": "linux-v0",
+        "program_id": "benchmark://linux-v0/10004"
+      },
+      {
+        "dataset_id": "linux-v0",
+        "program_id": "benchmark://linux-v0/10006"
+      },
+      {
+        "dataset_id": "linux-v0",
+        "program_id": "benchmark://linux-v0/10008"
+      },
+      {
+        "dataset_id": "linux-v0",
+        "program_id": "benchmark://linux-v0/10009"
+      },
+      {
+        "dataset_id": "llvm-stress-v0",
+        "program_id": "generator://llvm-stress-v0/0"
+      },
+      {
+        "dataset_id": "llvm-stress-v0",
+        "program_id": "generator://llvm-stress-v0/1"
+      },
+      {
+        "dataset_id": "llvm-stress-v0",
+        "program_id": "generator://llvm-stress-v0/10"
+      },
+      {
+        "dataset_id": "llvm-stress-v0",
+        "program_id": "generator://llvm-stress-v0/100"
+      },
+      {
+        "dataset_id": "llvm-stress-v0",
+        "program_id": "generator://llvm-stress-v0/101"
+      },
+      {
+        "dataset_id": "llvm-stress-v0",
+        "program_id": "generator://llvm-stress-v0/102"
+      },
+      {
+        "dataset_id": "llvm-stress-v0",
+        "program_id": "generator://llvm-stress-v0/103"
+      },
+      {
+        "dataset_id": "llvm-stress-v0",
+        "program_id": "generator://llvm-stress-v0/104"
+      },
+      {
+        "dataset_id": "opencv-v0",
+        "program_id": "benchmark://opencv-v0/1"
+      },
+      {
+        "dataset_id": "opencv-v0",
+        "program_id": "benchmark://opencv-v0/103"
+      },
+      {
+        "dataset_id": "opencv-v0",
+        "program_id": "benchmark://opencv-v0/104"
+      },
+      {
+        "dataset_id": "opencv-v0",
+        "program_id": "benchmark://opencv-v0/106"
+      },
+      {
+        "dataset_id": "opencv-v0",
+        "program_id": "benchmark://opencv-v0/108"
+      },
+      {
+        "dataset_id": "opencv-v0",
+        "program_id": "benchmark://opencv-v0/110"
+      },
+      {
+        "dataset_id": "opencv-v0",
+        "program_id": "benchmark://opencv-v0/111"
+      },
+      {
+        "dataset_id": "opencv-v0",
+        "program_id": "benchmark://opencv-v0/112"
+      },
+      {
+        "dataset_id": "poj104-v1",
+        "program_id": "benchmark://poj104-v1/1/1027"
+      },
+      {
+        "dataset_id": "poj104-v1",
+        "program_id": "benchmark://poj104-v1/1/108"
+      },
+      {
+        "dataset_id": "poj104-v1",
+        "program_id": "benchmark://poj104-v1/1/1094"
+      },
+      {
+        "dataset_id": "poj104-v1",
+        "program_id": "benchmark://poj104-v1/1/1107"
+      },
+      {
+        "dataset_id": "poj104-v1",
+        "program_id": "benchmark://poj104-v1/1/1127"
+      },
+      {
+        "dataset_id": "poj104-v1",
+        "program_id": "benchmark://poj104-v1/1/1144"
+      },
+      {
+        "dataset_id": "poj104-v1",
+        "program_id": "benchmark://poj104-v1/1/1145"
+      },
+      {
+        "dataset_id": "poj104-v1",
+        "program_id": "benchmark://poj104-v1/1/1253"
+      },
+      {
+        "dataset_id": "tensorflow-v0",
+        "program_id": "benchmark://tensorflow-v0/1"
+      },
+      {
+        "dataset_id": "tensorflow-v0",
+        "program_id": "benchmark://tensorflow-v0/10"
+      },
+      {
+        "dataset_id": "tensorflow-v0",
+        "program_id": "benchmark://tensorflow-v0/1002"
+      },
+      {
+        "dataset_id": "tensorflow-v0",
+        "program_id": "benchmark://tensorflow-v0/1006"
+      },
+      {
+        "dataset_id": "tensorflow-v0",
+        "program_id": "benchmark://tensorflow-v0/1010"
+      },
+      {
+        "dataset_id": "tensorflow-v0",
+        "program_id": "benchmark://tensorflow-v0/1013"
+      },
+      {
+        "dataset_id": "tensorflow-v0",
+        "program_id": "benchmark://tensorflow-v0/1015"
+      },
+      {
+        "dataset_id": "tensorflow-v0",
+        "program_id": "benchmark://tensorflow-v0/1016"
+      }
+    ],
+    "validation": [
+      {
+        "dataset_id": "anghabench-v1",
+        "program_id": "benchmark://anghabench-v1/8cc/extr_set.c_set_add"
+      },
+      {
+        "dataset_id": "anghabench-v1",
+        "program_id": "benchmark://anghabench-v1/Cinder/src/cinder/app/android/extr_android_native_app_glue.c_android_app_set_window"
+      },
+      {
+        "dataset_id": "anghabench-v1",
+        "program_id": "benchmark://anghabench-v1/Cinder/src/glload/extr_gl_load.c_LoadExt_ARB_clear_buffer_object"
+      },
+      {
+        "dataset_id": "anghabench-v1",
+        "program_id": "benchmark://anghabench-v1/Craft/deps/glfw/deps/extr_tinycthread.c_mtx_unlock"
+      },
+      {
+        "dataset_id": "blas-v0",
+        "program_id": "benchmark://blas-v0/100"
+      },
+      {
+        "dataset_id": "blas-v0",
+        "program_id": "benchmark://blas-v0/120"
+      },
+      {
+        "dataset_id": "blas-v0",
+        "program_id": "benchmark://blas-v0/14"
+      },
+      {
+        "dataset_id": "blas-v0",
+        "program_id": "benchmark://blas-v0/142"
+      },
+      {
+        "dataset_id": "clgen-v0",
+        "program_id": "benchmark://clgen-v0/026bd8a2758e37c22d6dd654b8fc29bd6343e16b"
+      },
+      {
+        "dataset_id": "clgen-v0",
+        "program_id": "benchmark://clgen-v0/046615f0b47a769e4ca7384b859d0713dceeddce"
+      },
+      {
+        "dataset_id": "clgen-v0",
+        "program_id": "benchmark://clgen-v0/051aab6a4b7097b4ffa5b95123a8c642f03bbd96"
+      },
+      {
+        "dataset_id": "clgen-v0",
+        "program_id": "benchmark://clgen-v0/053880507eb6fc2ed40d8979225ea74ea8ad71e8"
+      },
+      {
+        "dataset_id": "csmith-v0",
+        "program_id": "generator://csmith-v0/100"
+      },
+      {
+        "dataset_id": "csmith-v0",
+        "program_id": "generator://csmith-v0/17"
+      },
+      {
+        "dataset_id": "csmith-v0",
+        "program_id": "generator://csmith-v0/204"
+      },
+      {
+        "dataset_id": "csmith-v0",
+        "program_id": "generator://csmith-v0/217"
+      },
+      {
+        "dataset_id": "github-v0",
+        "program_id": "benchmark://github-v0/10038"
+      },
+      {
+        "dataset_id": "github-v0",
+        "program_id": "benchmark://github-v0/10093"
+      },
+      {
+        "dataset_id": "github-v0",
+        "program_id": "benchmark://github-v0/1015"
+      },
+      {
+        "dataset_id": "github-v0",
+        "program_id": "benchmark://github-v0/10217"
+      },
+      {
+        "dataset_id": "linux-v0",
+        "program_id": "benchmark://linux-v0/10034"
+      },
+      {
+        "dataset_id": "linux-v0",
+        "program_id": "benchmark://linux-v0/10064"
+      },
+      {
+        "dataset_id": "linux-v0",
+        "program_id": "benchmark://linux-v0/10075"
+      },
+      {
+        "dataset_id": "linux-v0",
+        "program_id": "benchmark://linux-v0/10088"
+      },
+      {
+        "dataset_id": "llvm-stress-v0",
+        "program_id": "generator://llvm-stress-v0/108"
+      },
+      {
+        "dataset_id": "llvm-stress-v0",
+        "program_id": "generator://llvm-stress-v0/115"
+      },
+      {
+        "dataset_id": "llvm-stress-v0",
+        "program_id": "generator://llvm-stress-v0/12"
+      },
+      {
+        "dataset_id": "llvm-stress-v0",
+        "program_id": "generator://llvm-stress-v0/120"
+      },
+      {
+        "dataset_id": "opencv-v0",
+        "program_id": "benchmark://opencv-v0/10"
+      },
+      {
+        "dataset_id": "opencv-v0",
+        "program_id": "benchmark://opencv-v0/130"
+      },
+      {
+        "dataset_id": "opencv-v0",
+        "program_id": "benchmark://opencv-v0/16"
+      },
+      {
+        "dataset_id": "opencv-v0",
+        "program_id": "benchmark://opencv-v0/160"
+      },
+      {
+        "dataset_id": "poj104-v1",
+        "program_id": "benchmark://poj104-v1/1/1076"
+      },
+      {
+        "dataset_id": "poj104-v1",
+        "program_id": "benchmark://poj104-v1/1/1450"
+      },
+      {
+        "dataset_id": "poj104-v1",
+        "program_id": "benchmark://poj104-v1/1/1693"
+      },
+      {
+        "dataset_id": "poj104-v1",
+        "program_id": "benchmark://poj104-v1/1/1978"
+      },
+      {
+        "dataset_id": "tensorflow-v0",
+        "program_id": "benchmark://tensorflow-v0/1003"
+      },
+      {
+        "dataset_id": "tensorflow-v0",
+        "program_id": "benchmark://tensorflow-v0/1029"
+      },
+      {
+        "dataset_id": "tensorflow-v0",
+        "program_id": "benchmark://tensorflow-v0/1032"
+      },
+      {
+        "dataset_id": "tensorflow-v0",
+        "program_id": "benchmark://tensorflow-v0/104"
+      }
+    ]
+  },
+  "transition_signal_gate": {
+    "all_conditions_required": true,
+    "breadth": "oracle policy delta has positive median across explicit validation sources and positive sources outnumber negative sources",
+    "candidate_loss": "three-seed mean held-out CE is strictly lower for oracle than BASE",
+    "on_failure": "stop; do not train a transition predictor or full TS-MambaNVP",
+    "policy_metric": "three-seed mean held-out policy45 dataset-macro MeanOverOz is strictly higher for oracle than BASE in at least two of three paired seeds"
+  }
+}
