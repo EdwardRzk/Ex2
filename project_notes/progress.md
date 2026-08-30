@@ -1033,3 +1033,25 @@ Supported failure modes: top-of-list ranking error, dataset-specific ranking/pol
 
 ### Git
 Implementation commits `74c90704`, `93a7c02e`, `845f3d15`; results commit `fc306571`.
+
+
+## 2026-08-30 — Counterfactual Policy-Aware MambaNVP v1
+
+### Goal
+Test whether counterfactual policy45-sensitive LambdaRank supervision improves frozen NVP-anchored Mamba residual ranking.
+
+### Frozen protocol
+Used only frozen K=50 ObjectText labels, cached normalized 56-D Autophase, frozen Stage-B NVP checkpoints, and the exact offline 45-pass evaluator. Train/validation/final cohorts were 28,159/4,488/4,683 total, with 4,679 final valid and 4 frozen invalid. The centered residual used fixed L_policy + 0.25 L_CE + 0.001 L_res, source-balanced batches, Direct 10,000-step training for seeds 1/2/3, validation-only checkpoint selection, then one final inference pass. No CompilerGym, LLVM, rollout, ObjectText measurement, label generation, runtime, tuning, or invalid retry occurred.
+
+### Result
+Policy-sensitive pairs average 7.92 per train program; 46.28% of programs have at least one and mean absolute utility delta is 0.02606. Validation MeanOverOz is 0.06771171 (+0.00494070 vs NVP; +0.00415879 vs Mamba). Final/OOD is 0.08914712 (+0.00199243 vs NVP; +0.00148751 vs Direct; +0.00135847 vs Anchored), with 9 positive / 5 negative datasets, median delta +0.00136553, and leave-LLVM-Stress-out delta +0.00204137. Oracle recovery is 0.84753; policy45 regret is 9.31054 bytes; top1/top5 oracle coverage is 0.64544/0.86692.
+
+### Decision
+PASS: all predeclared primary and robustness conditions pass. PA-MambaNVP enters the final method set. No automatic follow-up variant is authorized.
+
+### Artifacts
+- `outputs/policy_aware_mambanvp_v1/{config.json,policy_pair_statistics.json,checkpoints,learning_curve.json,final_results,comparison_report.json,experiment_report.json}`
+- SHA256: comparison `0242bf357cc637c06c6af6c661b99f2b8776a9c7b20a2b6a407774eeae246bd2`; pair statistics `5461caee5be7c5f85d9014cbddfb3cacb59bba59f6ab5b55dba3b29c9084275c`.
+
+### Git
+Implementation commit `68083d44`; results are committed in the following formal-result commit.
