@@ -957,3 +957,28 @@ Runtime is descriptive and does not select a sequence or model. On validation, r
 
 ### Git
 Implementation commits `26b9faf5144d2ae64d3a861cc797466ccf09fda9`, `8d3ed566d5154a4decf51f45a4b7af83aa017bcb`, and `ebd468c820a63c9eb470539cd864d6b75c3ab746`; results commit `52bc856606b82ee498338a4229839c01ac74f7e6`.
+
+
+## 2026-08-30 — Program-Adaptive Mamba–NVP Expert Router v1
+
+### Goal
+Test one frozen-expert, program-adaptive probability router (AMR) that chooses program-specific Mamba/NVP reliance without dataset identity in the router input.
+
+### Frozen protocol
+Used only the existing complete-K50 train/validation targets, cached normalized 56-D Autophase features, prefix-label policy45 simulator, and seed-matched frozen Stage-B Mamba/NVP checkpoints. Both experts remained eval-only. The router input was Autophase plus the two 50-way expert probabilities, absolute disagreement, and fixed probability-disagreement summaries; it trained a 128/64 GELU router with dropout 0.1. Source identity came from existing `dataset_id` and was used only for uniform-source sampling. The objective was soft-target mixture cross entropy plus fixed `0.25 * BCE(alpha, sigmoid((U_N-U_M)/median_abs_advantage))`. Training ran 10,000 steps for seeds 1/2/3 with the existing Adam/batch/lr schedule. Validation selected checkpoints before evaluating the frozen tau set `{0.5,0.6,0.7,0.8,0.9,1.0}`; `tau=1` exactly reproduced frozen standalone Mamba. Only after tau was frozen did one offline final/OOD inference run use existing final labels/features. No CompilerGym, LLVM, rollout, ObjectText measurement, label generation, runtime, candidate search, checkpoint reselection, final-driven tuning, or invalid retry occurred.
+
+### Changes
+Added the isolated AMR trainer/evaluator, frozen config, six focused tests, and `outputs/adaptive_mamba_nvp_router_v1/` containing the three frozen router checkpoints, learning curves, validation report, final per-seed results, and comparison report.
+
+### Result
+Validation passed the predeclared high bar at selected `tau=0.6`: three-seed MeanOverOz `0.06396987469088049`, `+0.001198865156169529` versus NVP and `+0.00041695958882602413` versus Mamba; six validation datasets were positive versus NVP and four negative. One final/OOD run on `4683` total / `4679` complete-K50 valid / `4` frozen incomplete-K50 invalid programs produced AMR MeanOverOz `0.0851061222392309`: `-0.0020485698305943156` versus NVP and `-0.002682527269137064` versus Anchored MambaNVP. The median 14-dataset delta versus NVP is `-0.0005039531789996141`, with `6` positive and `8` negative datasets; leave-LLVM-Stress-out delta is `-0.0010639779901191208`. Diagnostic deltas versus NVP are CHStone `+0.003952996791174418`, NPB `+0.0028731420548344377`, LLVM-Stress `-0.014848263756771882`, CSmith `-0.009061480932651383`, BLAS `-0.006030183176497018`, and OpenCV `-0.004985224317046288`. Oracle recovery is `0.8091115665989135`, policy45 regret is `12.982617368383558` bytes, and top1/oracle-tie accuracy is `0.6183657476668803`.
+
+### Decision
+FAIL on final/OOD: AMR clears the validation high bar but fails the primary OOD target, both robustness targets, and the majority-dataset criterion. It does not enter the final method set. Stop; do not tune, retrain, add another router variant, or run another final/OOD evaluation.
+
+### Artifacts
+- `configs/adaptive_mamba_nvp_router_v1.json`
+- `outputs/adaptive_mamba_nvp_router_v1/{config.json,checkpoints,validation_report.json,final_results,comparison_report.json}`
+
+### Git
+Implementation commit `b74bf9cd28bf48a467b4a9c1dcd07c81f3492dcb`; top1-reporting commit `0b2541df5428ab2a7a1f83fdcb5d547a28c46190`; result commit `a2ccb003cc77b5670f38b1f6fa8b6dc600e0f824`.
