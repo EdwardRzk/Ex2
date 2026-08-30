@@ -1,0 +1,1499 @@
+{
+  "amr": {
+    "delta_vs_Anchored": -0.002682527269137064,
+    "delta_vs_CrossCandidate": -0.00261496925958285,
+    "delta_vs_DirectMambaNVP": -0.002553491068483238,
+    "delta_vs_Mamba": 0.0004794592044116974,
+    "delta_vs_NVP": -0.0020485698305943156,
+    "leave_llvm_stress_out_delta_vs_NVP": -0.0010639779901191208,
+    "median_dataset_delta_vs_NVP": -0.0005039531789996141,
+    "negative_dataset_count": 8,
+    "oracle_recovery": 0.8091115665989135,
+    "per_dataset_delta_vs_NVP": {
+      "anghabench-v1": -0.0013337863680236012,
+      "blas-v0": -0.006030183176497018,
+      "cbench-v1": 0.0004942599234838141,
+      "chstone-v0": 0.003952996791174418,
+      "clgen-v0": 0.001546796580038312,
+      "csmith-v0": -0.009061480932651383,
+      "github-v0": -0.0007091449507174545,
+      "linux-v0": -0.0006095567314224246,
+      "llvm-stress-v0": -0.014848263756771882,
+      "mibench-v1": 1.1523037768051969e-05,
+      "npb-v0": 0.0028731420548344377,
+      "opencv-v0": -0.004985224317046288,
+      "poj104-v1": 0.0004172938440873686,
+      "tensorflow-v0": -0.00039834962657680356
+    },
+    "policy45_regret": {
+      "mean_3seed": 12.982617368383558,
+      "median_per_seed": [
+        0,
+        0,
+        0
+      ],
+      "per_seed": {
+        "1": {
+          "mean": 13.210728788202607,
+          "median": 0
+        },
+        "2": {
+          "mean": 12.9871767471682,
+          "median": 0
+        },
+        "3": {
+          "mean": 12.749946569779867,
+          "median": 0
+        }
+      }
+    },
+    "positive_dataset_count": 6,
+    "three_seed_mean_over_oz": 0.0851061222392309,
+    "three_seed_paired_delta_vs_NVP": {
+      "1": -0.0027397131330597485,
+      "2": -0.004305213023034826,
+      "3": 0.0008992166643116278
+    },
+    "top1_oracle_tie_accuracy": {
+      "per_seed": {
+        "1": 0.6232100876255611,
+        "2": 0.6161572985680701,
+        "3": 0.6157298568070101
+      },
+      "three_seed_mean": 0.6183657476668803
+    }
+  },
+  "candidate_rollouts": 0,
+  "combined_comparison": {
+    "dataset_macro": {
+      "AMR": {
+        "per_seed": {
+          "1": 0.08507212223501158,
+          "2": 0.08322174626027697,
+          "3": 0.08702449822240417
+        },
+        "three_seed_mean": 0.0851061222392309
+      },
+      "Mamba": {
+        "per_seed": {
+          "1": 0.08493805013175956,
+          "2": 0.08210069016603284,
+          "3": 0.08684124880666519
+        },
+        "three_seed_mean": 0.08462666303481921
+      },
+      "NVP": {
+        "per_seed": {
+          "1": 0.08781183536807133,
+          "2": 0.08752695928331179,
+          "3": 0.08612528155809254
+        },
+        "three_seed_mean": 0.08715469206982522
+      }
+    },
+    "methods": [
+      "NVP",
+      "Mamba",
+      "AMR"
+    ],
+    "per_dataset": {
+      "anghabench-v1": {
+        "AMR": {
+          "per_seed": {
+            "1": 0.03544686201624967,
+            "2": 0.03562701792065806,
+            "3": 0.03569689679646873
+          },
+          "three_seed_mean": 0.03559025891112549
+        },
+        "Mamba": {
+          "per_seed": {
+            "1": 0.03544686201624967,
+            "2": 0.03562701792065806,
+            "3": 0.03569689679646873
+          },
+          "three_seed_mean": 0.03559025891112549
+        },
+        "NVP": {
+          "per_seed": {
+            "1": 0.037368368454469725,
+            "2": 0.0365463896071298,
+            "3": 0.036857377775847744
+          },
+          "three_seed_mean": 0.03692404527914909
+        },
+        "N_failed_or_invalid": 1,
+        "N_primary_valid": 999,
+        "N_total": 1000
+      },
+      "blas-v0": {
+        "AMR": {
+          "per_seed": {
+            "1": 0.0052356944633225235,
+            "2": 0.004911310149376269,
+            "3": 0.00580365871565817
+          },
+          "three_seed_mean": 0.005316887776118988
+        },
+        "Mamba": {
+          "per_seed": {
+            "1": 0.0052356944633225235,
+            "2": 0.004911310149376269,
+            "3": 0.006040589089369727
+          },
+          "three_seed_mean": 0.005395864567356173
+        },
+        "NVP": {
+          "per_seed": {
+            "1": 0.011785674559219016,
+            "2": 0.01156478911908813,
+            "3": 0.010690749179540864
+          },
+          "three_seed_mean": 0.011347070952616006
+        },
+        "N_failed_or_invalid": 0,
+        "N_primary_valid": 29,
+        "N_total": 29
+      },
+      "cbench-v1": {
+        "AMR": {
+          "per_seed": {
+            "1": 0.18976339465496378,
+            "2": 0.18388282673620282,
+            "3": 0.19180510519859703
+          },
+          "three_seed_mean": 0.1884837755299212
+        },
+        "Mamba": {
+          "per_seed": {
+            "1": 0.18976339465496378,
+            "2": 0.18269424191465203,
+            "3": 0.19180510519859703
+          },
+          "three_seed_mean": 0.1880875805894043
+        },
+        "NVP": {
+          "per_seed": {
+            "1": 0.18684478235738472,
+            "2": 0.1877542905988104,
+            "3": 0.18936947386311706
+          },
+          "three_seed_mean": 0.1879895156064374
+        },
+        "N_failed_or_invalid": 0,
+        "N_primary_valid": 11,
+        "N_total": 11
+      },
+      "chstone-v0": {
+        "AMR": {
+          "per_seed": {
+            "1": 0.09848881643414566,
+            "2": 0.09451068200346917,
+            "3": 0.09527936698534249
+          },
+          "three_seed_mean": 0.09609295514098577
+        },
+        "Mamba": {
+          "per_seed": {
+            "1": 0.09848881643414566,
+            "2": 0.09376992949640091,
+            "3": 0.09527936698534249
+          },
+          "three_seed_mean": 0.09584603763862969
+        },
+        "NVP": {
+          "per_seed": {
+            "1": 0.0920298150608993,
+            "2": 0.09343588132846309,
+            "3": 0.09095417866007165
+          },
+          "three_seed_mean": 0.09213995834981135
+        },
+        "N_failed_or_invalid": 0,
+        "N_primary_valid": 12,
+        "N_total": 12
+      },
+      "clgen-v0": {
+        "AMR": {
+          "per_seed": {
+            "1": 0.1012444538610906,
+            "2": 0.10594798967034735,
+            "3": 0.1007368833751995
+          },
+          "three_seed_mean": 0.10264310896887914
+        },
+        "Mamba": {
+          "per_seed": {
+            "1": 0.1012444538610906,
+            "2": 0.10623222739644556,
+            "3": 0.1007368833751995
+          },
+          "three_seed_mean": 0.10273785487757854
+        },
+        "NVP": {
+          "per_seed": {
+            "1": 0.10230352590889684,
+            "2": 0.10019405624265679,
+            "3": 0.10079135501496886
+          },
+          "three_seed_mean": 0.10109631238884083
+        },
+        "N_failed_or_invalid": 0,
+        "N_primary_valid": 150,
+        "N_total": 150
+      },
+      "csmith-v0": {
+        "AMR": {
+          "per_seed": {
+            "1": 0.25450151610252053,
+            "2": 0.24404700454447756,
+            "3": 0.24946109136415998
+          },
+          "three_seed_mean": 0.24933653733705266
+        },
+        "Mamba": {
+          "per_seed": {
+            "1": 0.2526332174583861,
+            "2": 0.2301242533242731,
+            "3": 0.24946109136415998
+          },
+          "three_seed_mean": 0.24407285404893972
+        },
+        "NVP": {
+          "per_seed": {
+            "1": 0.2563563798417077,
+            "2": 0.2599396697767654,
+            "3": 0.25889800519063894
+          },
+          "three_seed_mean": 0.25839801826970404
+        },
+        "N_failed_or_invalid": 0,
+        "N_primary_valid": 48,
+        "N_total": 48
+      },
+      "github-v0": {
+        "AMR": {
+          "per_seed": {
+            "1": 0.006598444561876316,
+            "2": 0.0064313141543196175,
+            "3": 0.006454647846153423
+          },
+          "three_seed_mean": 0.006494802187449786
+        },
+        "Mamba": {
+          "per_seed": {
+            "1": 0.006598444561876316,
+            "2": 0.0064313141543196175,
+            "3": 0.006454647846153423
+          },
+          "three_seed_mean": 0.006494802187449786
+        },
+        "NVP": {
+          "per_seed": {
+            "1": 0.007203116983137434,
+            "2": 0.007264812345715513,
+            "3": 0.007143912085648773
+          },
+          "three_seed_mean": 0.00720394713816724
+        },
+        "N_failed_or_invalid": 0,
+        "N_primary_valid": 1000,
+        "N_total": 1000
+      },
+      "linux-v0": {
+        "AMR": {
+          "per_seed": {
+            "1": 0.0023047421784219515,
+            "2": 0.002042547044892555,
+            "3": 0.002949847075580986
+          },
+          "three_seed_mean": 0.0024323787662984975
+        },
+        "Mamba": {
+          "per_seed": {
+            "1": 0.0023047421784219515,
+            "2": 0.002042547044892555,
+            "3": 0.002949847075580986
+          },
+          "three_seed_mean": 0.0024323787662984975
+        },
+        "NVP": {
+          "per_seed": {
+            "1": 0.003125644341293801,
+            "2": 0.003232658981482769,
+            "3": 0.0027675031703861958
+          },
+          "three_seed_mean": 0.003041935497720922
+        },
+        "N_failed_or_invalid": 0,
+        "N_primary_valid": 1000,
+        "N_total": 1000
+      },
+      "llvm-stress-v0": {
+        "AMR": {
+          "per_seed": {
+            "1": -0.06438045763143753,
+            "2": -0.07960328606849082,
+            "3": -0.03515970232222277
+          },
+          "three_seed_mean": -0.0597144820073837
+        },
+        "Mamba": {
+          "per_seed": {
+            "1": -0.06438045763143753,
+            "2": -0.07960328606849082,
+            "3": -0.03515970232222277
+          },
+          "three_seed_mean": -0.0597144820073837
+        },
+        "NVP": {
+          "per_seed": {
+            "1": -0.03675510684104636,
+            "2": -0.03753671096109148,
+            "3": -0.060306836949697594
+          },
+          "three_seed_mean": -0.044866218250611815
+        },
+        "N_failed_or_invalid": 3,
+        "N_primary_valid": 147,
+        "N_total": 150
+      },
+      "mibench-v1": {
+        "AMR": {
+          "per_seed": {
+            "1": 0.06237675782959218,
+            "2": 0.06068026917933954,
+            "3": 0.06739944978012764
+          },
+          "three_seed_mean": 0.06348549226301979
+        },
+        "Mamba": {
+          "per_seed": {
+            "1": 0.06237675782959218,
+            "2": 0.06068026917933954,
+            "3": 0.06739944978012764
+          },
+          "three_seed_mean": 0.06348549226301979
+        },
+        "NVP": {
+          "per_seed": {
+            "1": 0.06258077769641021,
+            "2": 0.06451999757799806,
+            "3": 0.06332113240134694
+          },
+          "three_seed_mean": 0.06347396922525174
+        },
+        "N_failed_or_invalid": 0,
+        "N_primary_valid": 40,
+        "N_total": 40
+      },
+      "npb-v0": {
+        "AMR": {
+          "per_seed": {
+            "1": 0.2214126480031863,
+            "2": 0.22772582959737842,
+            "3": 0.2205410374028785
+          },
+          "three_seed_mean": 0.2232265050011477
+        },
+        "Mamba": {
+          "per_seed": {
+            "1": 0.2214126480031863,
+            "2": 0.22772582959737842,
+            "3": 0.2205410374028785
+          },
+          "three_seed_mean": 0.2232265050011477
+        },
+        "NVP": {
+          "per_seed": {
+            "1": 0.22262036763499096,
+            "2": 0.21704912368447937,
+            "3": 0.22139059751946952
+          },
+          "three_seed_mean": 0.22035336294631327
+        },
+        "N_failed_or_invalid": 0,
+        "N_primary_valid": 121,
+        "N_total": 121
+      },
+      "opencv-v0": {
+        "AMR": {
+          "per_seed": {
+            "1": 0.03580136733694417,
+            "2": 0.03627790296014795,
+            "3": 0.036120268890955085
+          },
+          "three_seed_mean": 0.0360665130626824
+        },
+        "Mamba": {
+          "per_seed": {
+            "1": 0.03580136733694417,
+            "2": 0.03627790296014795,
+            "3": 0.036120268890955085
+          },
+          "three_seed_mean": 0.0360665130626824
+        },
+        "NVP": {
+          "per_seed": {
+            "1": 0.04134041737954165,
+            "2": 0.0403556632358812,
+            "3": 0.04145913152376321
+          },
+          "three_seed_mean": 0.04105173737972869
+        },
+        "N_failed_or_invalid": 0,
+        "N_primary_valid": 32,
+        "N_total": 32
+      },
+      "poj104-v1": {
+        "AMR": {
+          "per_seed": {
+            "1": 0.18696913320343372,
+            "2": 0.1878773886467526,
+            "3": 0.18698233325678687
+          },
+          "three_seed_mean": 0.18727628503565774
+        },
+        "Mamba": {
+          "per_seed": {
+            "1": 0.18696042240204,
+            "2": 0.18775045415006028,
+            "3": 0.18698233325678687
+          },
+          "three_seed_mean": 0.1872310699362957
+        },
+        "NVP": {
+          "per_seed": {
+            "1": 0.18717739108928683,
+            "2": 0.18659397380816267,
+            "3": 0.18680560867726168
+          },
+          "three_seed_mean": 0.18685899119157037
+        },
+        "N_failed_or_invalid": 0,
+        "N_primary_valid": 1000,
+        "N_total": 1000
+      },
+      "tensorflow-v0": {
+        "AMR": {
+          "per_seed": {
+            "1": 0.055246338275852444,
+            "2": 0.054745651105006204,
+            "3": 0.05427209074797253
+          },
+          "three_seed_mean": 0.05475469337627706
+        },
+        "Mamba": {
+          "per_seed": {
+            "1": 0.055246338275852444,
+            "2": 0.054745651105006204,
+            "3": 0.051469668553915354
+          },
+          "three_seed_mean": 0.05382055264492467
+        },
+        "NVP": {
+          "per_seed": {
+            "1": 0.05538454068680663,
+            "2": 0.054462834620823256,
+            "3": 0.0556117537009317
+          },
+          "three_seed_mean": 0.05515304300285386
+        },
+        "N_failed_or_invalid": 0,
+        "N_primary_valid": 90,
+        "N_total": 90
+      }
+    }
+  },
+  "compiler_gym_initialized": false,
+  "decision": "COMPLETE",
+  "final_population": {
+    "N_complete_K50_valid": 4679,
+    "N_invalid": 4,
+    "N_total": 4683
+  },
+  "final_seed_results": [
+    {
+      "average_alpha": 0.5191472172737122,
+      "average_alpha_eff": 0.0026804290246218443,
+      "failure_count_by_reason": {
+        "incomplete_K50": 4
+      },
+      "per_dataset_method_validity": {
+        "anghabench-v1": {
+          "N_failed_or_invalid": 1,
+          "N_primary_valid": 999
+        },
+        "blas-v0": {
+          "N_primary_valid": 29
+        },
+        "cbench-v1": {
+          "N_primary_valid": 11
+        },
+        "chstone-v0": {
+          "N_primary_valid": 12
+        },
+        "clgen-v0": {
+          "N_primary_valid": 150
+        },
+        "csmith-v0": {
+          "N_primary_valid": 48
+        },
+        "github-v0": {
+          "N_primary_valid": 1000
+        },
+        "linux-v0": {
+          "N_primary_valid": 1000
+        },
+        "llvm-stress-v0": {
+          "N_failed_or_invalid": 3,
+          "N_primary_valid": 147
+        },
+        "mibench-v1": {
+          "N_primary_valid": 40
+        },
+        "npb-v0": {
+          "N_primary_valid": 121
+        },
+        "opencv-v0": {
+          "N_primary_valid": 32
+        },
+        "poj104-v1": {
+          "N_primary_valid": 1000
+        },
+        "tensorflow-v0": {
+          "N_primary_valid": 90
+        }
+      },
+      "result_file": "outputs/adaptive_mamba_nvp_router_v1/final_results/seed1.jsonl.gz",
+      "seed": 1
+    },
+    {
+      "average_alpha": 0.5286420583724976,
+      "average_alpha_eff": 0.007428873796015978,
+      "failure_count_by_reason": {
+        "incomplete_K50": 4
+      },
+      "per_dataset_method_validity": {
+        "anghabench-v1": {
+          "N_failed_or_invalid": 1,
+          "N_primary_valid": 999
+        },
+        "blas-v0": {
+          "N_primary_valid": 29
+        },
+        "cbench-v1": {
+          "N_primary_valid": 11
+        },
+        "chstone-v0": {
+          "N_primary_valid": 12
+        },
+        "clgen-v0": {
+          "N_primary_valid": 150
+        },
+        "csmith-v0": {
+          "N_primary_valid": 48
+        },
+        "github-v0": {
+          "N_primary_valid": 1000
+        },
+        "linux-v0": {
+          "N_primary_valid": 1000
+        },
+        "llvm-stress-v0": {
+          "N_failed_or_invalid": 3,
+          "N_primary_valid": 147
+        },
+        "mibench-v1": {
+          "N_primary_valid": 40
+        },
+        "npb-v0": {
+          "N_primary_valid": 121
+        },
+        "opencv-v0": {
+          "N_primary_valid": 32
+        },
+        "poj104-v1": {
+          "N_primary_valid": 1000
+        },
+        "tensorflow-v0": {
+          "N_primary_valid": 90
+        }
+      },
+      "result_file": "outputs/adaptive_mamba_nvp_router_v1/final_results/seed2.jsonl.gz",
+      "seed": 2
+    },
+    {
+      "average_alpha": 0.5249172449111938,
+      "average_alpha_eff": 0.004300035070627928,
+      "failure_count_by_reason": {
+        "incomplete_K50": 4
+      },
+      "per_dataset_method_validity": {
+        "anghabench-v1": {
+          "N_failed_or_invalid": 1,
+          "N_primary_valid": 999
+        },
+        "blas-v0": {
+          "N_primary_valid": 29
+        },
+        "cbench-v1": {
+          "N_primary_valid": 11
+        },
+        "chstone-v0": {
+          "N_primary_valid": 12
+        },
+        "clgen-v0": {
+          "N_primary_valid": 150
+        },
+        "csmith-v0": {
+          "N_primary_valid": 48
+        },
+        "github-v0": {
+          "N_primary_valid": 1000
+        },
+        "linux-v0": {
+          "N_primary_valid": 1000
+        },
+        "llvm-stress-v0": {
+          "N_failed_or_invalid": 3,
+          "N_primary_valid": 147
+        },
+        "mibench-v1": {
+          "N_primary_valid": 40
+        },
+        "npb-v0": {
+          "N_primary_valid": 121
+        },
+        "opencv-v0": {
+          "N_primary_valid": 32
+        },
+        "poj104-v1": {
+          "N_primary_valid": 1000
+        },
+        "tensorflow-v0": {
+          "N_primary_valid": 90
+        }
+      },
+      "result_file": "outputs/adaptive_mamba_nvp_router_v1/final_results/seed3.jsonl.gz",
+      "seed": 3
+    }
+  ],
+  "label_regeneration": false,
+  "llvm_execution": false,
+  "objecttext_measurements": 0,
+  "offline_only": true,
+  "runtime": false,
+  "selected_tau": 0.6,
+  "step_execution": "COMPLETE",
+  "validation": {
+    "candidate_rollouts": 0,
+    "compiler_gym_initialized": false,
+    "decision": "PASS_VALIDATION_HIGH_BAR",
+    "final_test_accessed": false,
+    "frozen_expert_validation_checks": {
+      "1": {
+        "advantage_scale": 0.014629049226641655,
+        "mamba_policy45": 0.063095014307107,
+        "nvp_policy45": 0.06284381550402421
+      },
+      "2": {
+        "advantage_scale": 0.014285714365541935,
+        "mamba_policy45": 0.0628207157907167,
+        "nvp_policy45": 0.062365030568491374
+      },
+      "3": {
+        "advantage_scale": 0.014760147780179977,
+        "mamba_policy45": 0.0647430152083397,
+        "nvp_policy45": 0.06310418253161729
+      }
+    },
+    "high_bar": 0.06355292,
+    "label_regeneration": false,
+    "llvm_execution": false,
+    "objecttext_measurements": 0,
+    "seed_reports": [
+      {
+        "architecture": "AMR",
+        "seed": 1,
+        "selected": {
+          "N_failed_or_invalid": 0,
+          "N_primary_valid": 4488,
+          "N_total": 4488,
+          "ValidationFinalMeanOverOz": 0.06341226860620051,
+          "average_alpha": 0.5184093117713928,
+          "lr": 0.0004966244225921738,
+          "per_dataset": {
+            "anghabench-v1": 0.04200092641919568,
+            "blas-v0": 0.0259306282516077,
+            "clgen-v0": 0.08811752310725299,
+            "csmith-v0": 0.24386305388678234,
+            "github-v0": 0.009538685341291469,
+            "linux-v0": 0.0007709804305126144,
+            "llvm-stress-v0": -0.05235256649902582,
+            "opencv-v0": 0.052116693589256025,
+            "poj104-v1": 0.1928488106268302,
+            "tensorflow-v0": 0.03128795090830192
+          },
+          "policy45_regret_mean_bytes": 8.194741532976828,
+          "policy45_regret_median_bytes": 0.0,
+          "positive_program_count_vs_Oz": 2272,
+          "step": 1000,
+          "top1_oracle_tie_accuracy": 0.6539661319073083,
+          "train_route_bce": 0.7008782625198364,
+          "train_task_loss": 3.5451464653015137,
+          "train_total_loss": 3.7203660011291504,
+          "validation_route_bce": 0.694307267665863,
+          "validation_task_loss": 3.707242250442505
+        },
+        "selection_metric": "unthresholded P_mix validation policy45 dataset-macro MeanOverOz",
+        "source_counts": {
+          "anghabench-v1": 6990,
+          "blas-v0": 133,
+          "clgen-v0": 695,
+          "csmith-v0": 222,
+          "github-v0": 7000,
+          "linux-v0": 4906,
+          "llvm-stress-v0": 689,
+          "opencv-v0": 149,
+          "poj104-v1": 6960,
+          "tensorflow-v0": 415
+        },
+        "step_execution": "COMPLETE",
+        "trainable_parameters": 35969
+      },
+      {
+        "architecture": "AMR",
+        "seed": 2,
+        "selected": {
+          "N_failed_or_invalid": 0,
+          "N_primary_valid": 4488,
+          "N_total": 4488,
+          "ValidationFinalMeanOverOz": 0.06202847187776832,
+          "average_alpha": 0.526972234249115,
+          "lr": 0.0004987830183798903,
+          "per_dataset": {
+            "anghabench-v1": 0.04150862334730198,
+            "blas-v0": 0.0260340340554488,
+            "clgen-v0": 0.08732752675738592,
+            "csmith-v0": 0.2427144007137639,
+            "github-v0": 0.009902319095410207,
+            "linux-v0": 0.0008241850294062076,
+            "llvm-stress-v0": -0.06523270247261838,
+            "opencv-v0": 0.05255724241717575,
+            "poj104-v1": 0.19287132658761963,
+            "tensorflow-v0": 0.03177776324678914
+          },
+          "policy45_regret_mean_bytes": 7.884581105169341,
+          "policy45_regret_median_bytes": 0.0,
+          "positive_program_count_vs_Oz": 2273,
+          "step": 800,
+          "top1_oracle_tie_accuracy": 0.6512923351158645,
+          "train_route_bce": 0.7049241065979004,
+          "train_task_loss": 3.5385658740997314,
+          "train_total_loss": 3.714797019958496,
+          "validation_route_bce": 0.6968164443969727,
+          "validation_task_loss": 3.707119941711426
+        },
+        "selection_metric": "unthresholded P_mix validation policy45 dataset-macro MeanOverOz",
+        "source_counts": {
+          "anghabench-v1": 6990,
+          "blas-v0": 133,
+          "clgen-v0": 695,
+          "csmith-v0": 222,
+          "github-v0": 7000,
+          "linux-v0": 4906,
+          "llvm-stress-v0": 689,
+          "opencv-v0": 149,
+          "poj104-v1": 6960,
+          "tensorflow-v0": 415
+        },
+        "step_execution": "COMPLETE",
+        "trainable_parameters": 35969
+      },
+      {
+        "architecture": "AMR",
+        "seed": 3,
+        "selected": {
+          "N_failed_or_invalid": 0,
+          "N_primary_valid": 4488,
+          "N_total": 4488,
+          "ValidationFinalMeanOverOz": 0.06656656792179058,
+          "average_alpha": 0.5244265794754028,
+          "lr": 0.0004807667143569027,
+          "per_dataset": {
+            "anghabench-v1": 0.0395986656231543,
+            "blas-v0": 0.02466827883194695,
+            "clgen-v0": 0.0864655356603441,
+            "csmith-v0": 0.24266468408251748,
+            "github-v0": 0.009918897228675127,
+            "linux-v0": 0.0008861776850506929,
+            "llvm-stress-v0": -0.014834037145668125,
+            "opencv-v0": 0.0529129028508144,
+            "poj104-v1": 0.192226060463786,
+            "tensorflow-v0": 0.031158513937284974
+          },
+          "policy45_regret_mean_bytes": 8.241978609625669,
+          "policy45_regret_median_bytes": 0.0,
+          "positive_program_count_vs_Oz": 2277,
+          "step": 1700,
+          "top1_oracle_tie_accuracy": 0.6463903743315508,
+          "train_route_bce": 0.6965793371200562,
+          "train_task_loss": 3.552610158920288,
+          "train_total_loss": 3.726754903793335,
+          "validation_route_bce": 0.6958499550819397,
+          "validation_task_loss": 3.7075250148773193
+        },
+        "selection_metric": "unthresholded P_mix validation policy45 dataset-macro MeanOverOz",
+        "source_counts": {
+          "anghabench-v1": 6990,
+          "blas-v0": 133,
+          "clgen-v0": 695,
+          "csmith-v0": 222,
+          "github-v0": 7000,
+          "linux-v0": 4906,
+          "llvm-stress-v0": 689,
+          "opencv-v0": 149,
+          "poj104-v1": 6960,
+          "tensorflow-v0": 415
+        },
+        "step_execution": "COMPLETE",
+        "trainable_parameters": 35969
+      }
+    ],
+    "selected_tau": 0.6,
+    "step_execution": "COMPLETE",
+    "tau_results": {
+      "0.5": {
+        "S_val": 0.0009230085616077155,
+        "delta_vs_nvp_per_dataset": {
+          "anghabench-v1": 0.002403514231677166,
+          "blas-v0": -0.00465499669995878,
+          "clgen-v0": 0.002372727374743283,
+          "csmith-v0": -0.003315596672282317,
+          "github-v0": -0.0009563057315087505,
+          "linux-v0": -0.004031673029592793,
+          "llvm-stress-v0": 0.01323092852548037,
+          "opencv-v0": 0.0011746092592333154,
+          "poj104-v1": 0.000444385881719328,
+          "tensorflow-v0": 0.00041472222064798184
+        },
+        "macro_delta_vs_nvp": 0.0007082315360158881,
+        "median_dataset_delta_vs_nvp": 0.00042955405118365493,
+        "negative_dataset_count": 4,
+        "per_dataset": {
+          "anghabench-v1": 0.04057355750143667,
+          "blas-v0": 0.019975742064796024,
+          "clgen-v0": 0.08744588126968626,
+          "csmith-v0": 0.241196913005293,
+          "github-v0": 0.009062969955600077,
+          "linux-v0": -0.002011564627824881,
+          "llvm-stress-v0": -0.03861359056088313,
+          "opencv-v0": 0.05333860736598112,
+          "poj104-v1": 0.19275105224205524,
+          "tensorflow-v0": 0.03107284249112802
+        },
+        "per_seed": {
+          "1": 0.06368155299595454,
+          "2": 0.061419725112364286,
+          "3": 0.06533644510386169
+        },
+        "positive_dataset_count": 6,
+        "seed_metrics": [
+          {
+            "N_failed_or_invalid": 0,
+            "N_primary_valid": 4488,
+            "N_total": 4488,
+            "ValidationFinalMeanOverOz": 0.06368155299595454,
+            "per_dataset": {
+              "anghabench-v1": 0.04071836946528695,
+              "blas-v0": 0.017002012395942113,
+              "clgen-v0": 0.08789134718737877,
+              "csmith-v0": 0.24381952243808702,
+              "github-v0": 0.008931569592078815,
+              "linux-v0": -0.003768613019640392,
+              "llvm-stress-v0": -0.035345763777937377,
+              "opencv-v0": 0.0532539505130594,
+              "poj104-v1": 0.19256227594730768,
+              "tensorflow-v0": 0.03175085921798254
+            },
+            "policy45_regret_mean_bytes": 9.442513368983958,
+            "policy45_regret_median_bytes": 0.0,
+            "positive_program_count_vs_Oz": 2243,
+            "top1_oracle_tie_accuracy": 0.6336898395721925
+          },
+          {
+            "N_failed_or_invalid": 0,
+            "N_primary_valid": 4488,
+            "N_total": 4488,
+            "ValidationFinalMeanOverOz": 0.061419725112364286,
+            "per_dataset": {
+              "anghabench-v1": 0.041105943551811866,
+              "blas-v0": 0.02205231481244923,
+              "clgen-v0": 0.08822157389090751,
+              "csmith-v0": 0.23938450487121918,
+              "github-v0": 0.00901209129750527,
+              "linux-v0": 0.00039789111474452285,
+              "llvm-stress-v0": -0.06459112569989148,
+              "opencv-v0": 0.05402398764697286,
+              "poj104-v1": 0.1930732401975823,
+              "tensorflow-v0": 0.031516829440341565
+            },
+            "policy45_regret_mean_bytes": 9.202094474153297,
+            "policy45_regret_median_bytes": 0.0,
+            "positive_program_count_vs_Oz": 2231,
+            "top1_oracle_tie_accuracy": 0.6305704099821747
+          },
+          {
+            "N_failed_or_invalid": 0,
+            "N_primary_valid": 4488,
+            "N_total": 4488,
+            "ValidationFinalMeanOverOz": 0.06533644510386169,
+            "per_dataset": {
+              "anghabench-v1": 0.03989635948721121,
+              "blas-v0": 0.020872898985996726,
+              "clgen-v0": 0.0862247227307725,
+              "csmith-v0": 0.2403867117065728,
+              "github-v0": 0.009245248977216144,
+              "linux-v0": -0.0026639719785787742,
+              "llvm-stress-v0": -0.015903882204820523,
+              "opencv-v0": 0.05273788393791111,
+              "poj104-v1": 0.19261764058127573,
+              "tensorflow-v0": 0.029950838815059954
+            },
+            "policy45_regret_mean_bytes": 8.960338680926917,
+            "policy45_regret_median_bytes": 0.0,
+            "positive_program_count_vs_Oz": 2247,
+            "top1_oracle_tie_accuracy": 0.6332442067736186
+          }
+        ],
+        "three_seed_validation_mean_over_oz": 0.06347924107072685
+      },
+      "0.6": {
+        "S_val": 0.0015905371323897532,
+        "delta_vs_nvp_per_dataset": {
+          "anghabench-v1": 0.0022558656707236044,
+          "blas-v0": -0.004701366865422801,
+          "clgen-v0": 0.0021675616013780985,
+          "csmith-v0": -0.004077691791402022,
+          "github-v0": -0.0011558362014572159,
+          "linux-v0": -0.0041770892226608,
+          "llvm-stress-v0": 0.018899862765843184,
+          "opencv-v0": 0.0011746092592333154,
+          "poj104-v1": 0.0003920786456475811,
+          "tensorflow-v0": 0.0012106576998122745
+        },
+        "macro_delta_vs_nvp": 0.001198865156169529,
+        "median_dataset_delta_vs_nvp": 0.0007833439524404483,
+        "negative_dataset_count": 4,
+        "per_dataset": {
+          "anghabench-v1": 0.04042590894048311,
+          "blas-v0": 0.019929371899332003,
+          "clgen-v0": 0.08724071549632108,
+          "csmith-v0": 0.2404348178861733,
+          "github-v0": 0.008863439485651612,
+          "linux-v0": -0.002156980820892888,
+          "llvm-stress-v0": -0.032944656320520314,
+          "opencv-v0": 0.05333860736598112,
+          "poj104-v1": 0.1926987450059835,
+          "tensorflow-v0": 0.03186877797029231
+        },
+        "per_seed": {
+          "1": 0.06397561232458067,
+          "2": 0.06305881344118275,
+          "3": 0.06487519830687805
+        },
+        "positive_dataset_count": 6,
+        "seed_metrics": [
+          {
+            "N_failed_or_invalid": 0,
+            "N_primary_valid": 4488,
+            "N_total": 4488,
+            "ValidationFinalMeanOverOz": 0.06397561232458067,
+            "per_dataset": {
+              "anghabench-v1": 0.04042523099109182,
+              "blas-v0": 0.020679062972950763,
+              "clgen-v0": 0.08727584986728323,
+              "csmith-v0": 0.24203830586833544,
+              "github-v0": 0.008601924393568825,
+              "linux-v0": -0.003985360975859378,
+              "llvm-stress-v0": -0.035345763777937377,
+              "opencv-v0": 0.0532539505130594,
+              "poj104-v1": 0.19250046796431713,
+              "tensorflow-v0": 0.0343124554289968
+            },
+            "policy45_regret_mean_bytes": 9.514483065953653,
+            "policy45_regret_median_bytes": 0.0,
+            "positive_program_count_vs_Oz": 2241,
+            "top1_oracle_tie_accuracy": 0.6310160427807486
+          },
+          {
+            "N_failed_or_invalid": 0,
+            "N_primary_valid": 4488,
+            "N_total": 4488,
+            "ValidationFinalMeanOverOz": 0.06305881344118275,
+            "per_dataset": {
+              "anghabench-v1": 0.04114736187308057,
+              "blas-v0": 0.021915543971992413,
+              "clgen-v0": 0.08822157389090751,
+              "csmith-v0": 0.23897863015115653,
+              "github-v0": 0.0090208970685739,
+              "linux-v0": 0.0002919569128944468,
+              "llvm-stress-v0": -0.04758432297880304,
+              "opencv-v0": 0.05402398764697286,
+              "poj104-v1": 0.193111507267288,
+              "tensorflow-v0": 0.03146099860776427
+            },
+            "policy45_regret_mean_bytes": 9.241978609625669,
+            "policy45_regret_median_bytes": 0.0,
+            "positive_program_count_vs_Oz": 2229,
+            "top1_oracle_tie_accuracy": 0.6272281639928698
+          },
+          {
+            "N_failed_or_invalid": 0,
+            "N_primary_valid": 4488,
+            "N_total": 4488,
+            "ValidationFinalMeanOverOz": 0.06487519830687805,
+            "per_dataset": {
+              "anghabench-v1": 0.039705133957276935,
+              "blas-v0": 0.01719350875305283,
+              "clgen-v0": 0.0862247227307725,
+              "csmith-v0": 0.24028751763902798,
+              "github-v0": 0.008967496994812115,
+              "linux-v0": -0.0027775383997137343,
+              "llvm-stress-v0": -0.015903882204820523,
+              "opencv-v0": 0.05273788393791111,
+              "poj104-v1": 0.1924842597863453,
+              "tensorflow-v0": 0.029832879874115863
+            },
+            "policy45_regret_mean_bytes": 9.178475935828876,
+            "policy45_regret_median_bytes": 0.0,
+            "positive_program_count_vs_Oz": 2241,
+            "top1_oracle_tie_accuracy": 0.6321301247771836
+          }
+        ],
+        "three_seed_validation_mean_over_oz": 0.06396987469088049
+      },
+      "0.7": {
+        "S_val": 0.0011963039939136676,
+        "delta_vs_nvp_per_dataset": {
+          "anghabench-v1": 0.0022558656707236044,
+          "blas-v0": -0.005369767761441303,
+          "clgen-v0": 0.0021675616013780985,
+          "csmith-v0": -0.00686012504825087,
+          "github-v0": -0.001298529815713446,
+          "linux-v0": -0.0041770892226608,
+          "llvm-stress-v0": 0.018899862765843184,
+          "opencv-v0": 0.0011746092592333154,
+          "poj104-v1": 0.00039906025912250787,
+          "tensorflow-v0": 0.0010782690237417444
+        },
+        "macro_delta_vs_nvp": 0.0008269716731976046,
+        "median_dataset_delta_vs_nvp": 0.0007386646414321262,
+        "negative_dataset_count": 4,
+        "per_dataset": {
+          "anghabench-v1": 0.04042590894048311,
+          "blas-v0": 0.0192609710033135,
+          "clgen-v0": 0.08724071549632108,
+          "csmith-v0": 0.23765238462932445,
+          "github-v0": 0.008720745871395381,
+          "linux-v0": -0.002156980820892888,
+          "llvm-stress-v0": -0.032944656320520314,
+          "opencv-v0": 0.05333860736598112,
+          "poj104-v1": 0.19270572661945842,
+          "tensorflow-v0": 0.03173638929422178
+        },
+        "per_seed": {
+          "1": 0.063095014307107,
+          "2": 0.06295591410827903,
+          "3": 0.0647430152083397
+        },
+        "positive_dataset_count": 6,
+        "seed_metrics": [
+          {
+            "N_failed_or_invalid": 0,
+            "N_primary_valid": 4488,
+            "N_total": 4488,
+            "ValidationFinalMeanOverOz": 0.063095014307107,
+            "per_dataset": {
+              "anghabench-v1": 0.04042523099109182,
+              "blas-v0": 0.018673860284895264,
+              "clgen-v0": 0.08727584986728323,
+              "csmith-v0": 0.23536275858423242,
+              "github-v0": 0.008476694190990557,
+              "linux-v0": -0.003985360975859378,
+              "llvm-stress-v0": -0.035345763777937377,
+              "opencv-v0": 0.0532539505130594,
+              "poj104-v1": 0.19250046796431713,
+              "tensorflow-v0": 0.0343124554289968
+            },
+            "policy45_regret_mean_bytes": 9.68783422459893,
+            "policy45_regret_median_bytes": 0.0,
+            "positive_program_count_vs_Oz": 2239,
+            "top1_oracle_tie_accuracy": 0.6314616755793226
+          },
+          {
+            "N_failed_or_invalid": 0,
+            "N_primary_valid": 4488,
+            "N_total": 4488,
+            "ValidationFinalMeanOverOz": 0.06295591410827903,
+            "per_dataset": {
+              "anghabench-v1": 0.04114736187308057,
+              "blas-v0": 0.021915543971992413,
+              "clgen-v0": 0.08822157389090751,
+              "csmith-v0": 0.238112567501908,
+              "github-v0": 0.008868550938165612,
+              "linux-v0": 0.0002919569128944468,
+              "llvm-stress-v0": -0.04758432297880304,
+              "opencv-v0": 0.05402398764697286,
+              "poj104-v1": 0.19310092271790752,
+              "tensorflow-v0": 0.03146099860776427
+            },
+            "policy45_regret_mean_bytes": 9.334893048128341,
+            "policy45_regret_median_bytes": 0.0,
+            "positive_program_count_vs_Oz": 2228,
+            "top1_oracle_tie_accuracy": 0.6267825311942959
+          },
+          {
+            "N_failed_or_invalid": 0,
+            "N_primary_valid": 4488,
+            "N_total": 4488,
+            "ValidationFinalMeanOverOz": 0.0647430152083397,
+            "per_dataset": {
+              "anghabench-v1": 0.039705133957276935,
+              "blas-v0": 0.01719350875305283,
+              "clgen-v0": 0.0862247227307725,
+              "csmith-v0": 0.23948182780183289,
+              "github-v0": 0.008816992485029975,
+              "linux-v0": -0.0027775383997137343,
+              "llvm-stress-v0": -0.015903882204820523,
+              "opencv-v0": 0.05273788393791111,
+              "poj104-v1": 0.1925157891761507,
+              "tensorflow-v0": 0.02943571384590426
+            },
+            "policy45_regret_mean_bytes": 9.322638146167558,
+            "policy45_regret_median_bytes": 0.0,
+            "positive_program_count_vs_Oz": 2241,
+            "top1_oracle_tie_accuracy": 0.6316844919786097
+          }
+        ],
+        "three_seed_validation_mean_over_oz": 0.06359798120790856
+      },
+      "0.8": {
+        "S_val": 0.001147668408132808,
+        "delta_vs_nvp_per_dataset": {
+          "anghabench-v1": 0.0022558656707236044,
+          "blas-v0": -0.005369767761441303,
+          "clgen-v0": 0.0021675616013780985,
+          "csmith-v0": -0.007230839931660321,
+          "github-v0": -0.001364198071137964,
+          "linux-v0": -0.0041770892226608,
+          "llvm-stress-v0": 0.018899862765843184,
+          "opencv-v0": 0.0011746092592333154,
+          "poj104-v1": 0.00038478233941546813,
+          "tensorflow-v0": 0.0010782690237417444
+        },
+        "macro_delta_vs_nvp": 0.0007819055673435049,
+        "median_dataset_delta_vs_nvp": 0.0007315256815786063,
+        "negative_dataset_count": 4,
+        "per_dataset": {
+          "anghabench-v1": 0.04042590894048311,
+          "blas-v0": 0.0192609710033135,
+          "clgen-v0": 0.08724071549632108,
+          "csmith-v0": 0.237281669745915,
+          "github-v0": 0.008655077615970863,
+          "linux-v0": -0.002156980820892888,
+          "llvm-stress-v0": -0.032944656320520314,
+          "opencv-v0": 0.05333860736598112,
+          "poj104-v1": 0.19269144869975138,
+          "tensorflow-v0": 0.03173638929422178
+        },
+        "per_seed": {
+          "1": 0.063095014307107,
+          "2": 0.0628207157907167,
+          "3": 0.0647430152083397
+        },
+        "positive_dataset_count": 6,
+        "seed_metrics": [
+          {
+            "N_failed_or_invalid": 0,
+            "N_primary_valid": 4488,
+            "N_total": 4488,
+            "ValidationFinalMeanOverOz": 0.063095014307107,
+            "per_dataset": {
+              "anghabench-v1": 0.04042523099109182,
+              "blas-v0": 0.018673860284895264,
+              "clgen-v0": 0.08727584986728323,
+              "csmith-v0": 0.23536275858423242,
+              "github-v0": 0.008476694190990557,
+              "linux-v0": -0.003985360975859378,
+              "llvm-stress-v0": -0.035345763777937377,
+              "opencv-v0": 0.0532539505130594,
+              "poj104-v1": 0.19250046796431713,
+              "tensorflow-v0": 0.0343124554289968
+            },
+            "policy45_regret_mean_bytes": 9.68783422459893,
+            "policy45_regret_median_bytes": 0.0,
+            "positive_program_count_vs_Oz": 2239,
+            "top1_oracle_tie_accuracy": 0.6314616755793226
+          },
+          {
+            "N_failed_or_invalid": 0,
+            "N_primary_valid": 4488,
+            "N_total": 4488,
+            "ValidationFinalMeanOverOz": 0.0628207157907167,
+            "per_dataset": {
+              "anghabench-v1": 0.04114736187308057,
+              "blas-v0": 0.021915543971992413,
+              "clgen-v0": 0.08822157389090751,
+              "csmith-v0": 0.23700042285167966,
+              "github-v0": 0.008671546171892057,
+              "linux-v0": 0.0002919569128944468,
+              "llvm-stress-v0": -0.04758432297880304,
+              "opencv-v0": 0.05402398764697286,
+              "poj104-v1": 0.19305808895878623,
+              "tensorflow-v0": 0.03146099860776427
+            },
+            "policy45_regret_mean_bytes": 9.497994652406417,
+            "policy45_regret_median_bytes": 0.0,
+            "positive_program_count_vs_Oz": 2227,
+            "top1_oracle_tie_accuracy": 0.6267825311942959
+          },
+          {
+            "N_failed_or_invalid": 0,
+            "N_primary_valid": 4488,
+            "N_total": 4488,
+            "ValidationFinalMeanOverOz": 0.0647430152083397,
+            "per_dataset": {
+              "anghabench-v1": 0.039705133957276935,
+              "blas-v0": 0.01719350875305283,
+              "clgen-v0": 0.0862247227307725,
+              "csmith-v0": 0.23948182780183289,
+              "github-v0": 0.008816992485029975,
+              "linux-v0": -0.0027775383997137343,
+              "llvm-stress-v0": -0.015903882204820523,
+              "opencv-v0": 0.05273788393791111,
+              "poj104-v1": 0.1925157891761507,
+              "tensorflow-v0": 0.02943571384590426
+            },
+            "policy45_regret_mean_bytes": 9.322638146167558,
+            "policy45_regret_median_bytes": 0.0,
+            "positive_program_count_vs_Oz": 2241,
+            "top1_oracle_tie_accuracy": 0.6314616755793226
+          }
+        ],
+        "three_seed_validation_mean_over_oz": 0.06355291510205446
+      },
+      "0.9": {
+        "S_val": 0.001147668408132808,
+        "delta_vs_nvp_per_dataset": {
+          "anghabench-v1": 0.0022558656707236044,
+          "blas-v0": -0.005369767761441303,
+          "clgen-v0": 0.0021675616013780985,
+          "csmith-v0": -0.007230839931660321,
+          "github-v0": -0.001364198071137964,
+          "linux-v0": -0.0041770892226608,
+          "llvm-stress-v0": 0.018899862765843184,
+          "opencv-v0": 0.0011746092592333154,
+          "poj104-v1": 0.00038478233941546813,
+          "tensorflow-v0": 0.0010782690237417444
+        },
+        "macro_delta_vs_nvp": 0.0007819055673435049,
+        "median_dataset_delta_vs_nvp": 0.0007315256815786063,
+        "negative_dataset_count": 4,
+        "per_dataset": {
+          "anghabench-v1": 0.04042590894048311,
+          "blas-v0": 0.0192609710033135,
+          "clgen-v0": 0.08724071549632108,
+          "csmith-v0": 0.237281669745915,
+          "github-v0": 0.008655077615970863,
+          "linux-v0": -0.002156980820892888,
+          "llvm-stress-v0": -0.032944656320520314,
+          "opencv-v0": 0.05333860736598112,
+          "poj104-v1": 0.19269144869975138,
+          "tensorflow-v0": 0.03173638929422178
+        },
+        "per_seed": {
+          "1": 0.063095014307107,
+          "2": 0.0628207157907167,
+          "3": 0.0647430152083397
+        },
+        "positive_dataset_count": 6,
+        "seed_metrics": [
+          {
+            "N_failed_or_invalid": 0,
+            "N_primary_valid": 4488,
+            "N_total": 4488,
+            "ValidationFinalMeanOverOz": 0.063095014307107,
+            "per_dataset": {
+              "anghabench-v1": 0.04042523099109182,
+              "blas-v0": 0.018673860284895264,
+              "clgen-v0": 0.08727584986728323,
+              "csmith-v0": 0.23536275858423242,
+              "github-v0": 0.008476694190990557,
+              "linux-v0": -0.003985360975859378,
+              "llvm-stress-v0": -0.035345763777937377,
+              "opencv-v0": 0.0532539505130594,
+              "poj104-v1": 0.19250046796431713,
+              "tensorflow-v0": 0.0343124554289968
+            },
+            "policy45_regret_mean_bytes": 9.68783422459893,
+            "policy45_regret_median_bytes": 0.0,
+            "positive_program_count_vs_Oz": 2239,
+            "top1_oracle_tie_accuracy": 0.6314616755793226
+          },
+          {
+            "N_failed_or_invalid": 0,
+            "N_primary_valid": 4488,
+            "N_total": 4488,
+            "ValidationFinalMeanOverOz": 0.0628207157907167,
+            "per_dataset": {
+              "anghabench-v1": 0.04114736187308057,
+              "blas-v0": 0.021915543971992413,
+              "clgen-v0": 0.08822157389090751,
+              "csmith-v0": 0.23700042285167966,
+              "github-v0": 0.008671546171892057,
+              "linux-v0": 0.0002919569128944468,
+              "llvm-stress-v0": -0.04758432297880304,
+              "opencv-v0": 0.05402398764697286,
+              "poj104-v1": 0.19305808895878623,
+              "tensorflow-v0": 0.03146099860776427
+            },
+            "policy45_regret_mean_bytes": 9.497994652406417,
+            "policy45_regret_median_bytes": 0.0,
+            "positive_program_count_vs_Oz": 2227,
+            "top1_oracle_tie_accuracy": 0.6267825311942959
+          },
+          {
+            "N_failed_or_invalid": 0,
+            "N_primary_valid": 4488,
+            "N_total": 4488,
+            "ValidationFinalMeanOverOz": 0.0647430152083397,
+            "per_dataset": {
+              "anghabench-v1": 0.039705133957276935,
+              "blas-v0": 0.01719350875305283,
+              "clgen-v0": 0.0862247227307725,
+              "csmith-v0": 0.23948182780183289,
+              "github-v0": 0.008816992485029975,
+              "linux-v0": -0.0027775383997137343,
+              "llvm-stress-v0": -0.015903882204820523,
+              "opencv-v0": 0.05273788393791111,
+              "poj104-v1": 0.1925157891761507,
+              "tensorflow-v0": 0.02943571384590426
+            },
+            "policy45_regret_mean_bytes": 9.322638146167558,
+            "policy45_regret_median_bytes": 0.0,
+            "positive_program_count_vs_Oz": 2241,
+            "top1_oracle_tie_accuracy": 0.6314616755793226
+          }
+        ],
+        "three_seed_validation_mean_over_oz": 0.06355291510205446
+      },
+      "1.0": {
+        "S_val": 0.001147668408132808,
+        "delta_vs_nvp_per_dataset": {
+          "anghabench-v1": 0.0022558656707236044,
+          "blas-v0": -0.005369767761441303,
+          "clgen-v0": 0.0021675616013780985,
+          "csmith-v0": -0.007230839931660321,
+          "github-v0": -0.001364198071137964,
+          "linux-v0": -0.0041770892226608,
+          "llvm-stress-v0": 0.018899862765843184,
+          "opencv-v0": 0.0011746092592333154,
+          "poj104-v1": 0.00038478233941546813,
+          "tensorflow-v0": 0.0010782690237417444
+        },
+        "macro_delta_vs_nvp": 0.0007819055673435049,
+        "median_dataset_delta_vs_nvp": 0.0007315256815786063,
+        "negative_dataset_count": 4,
+        "per_dataset": {
+          "anghabench-v1": 0.04042590894048311,
+          "blas-v0": 0.0192609710033135,
+          "clgen-v0": 0.08724071549632108,
+          "csmith-v0": 0.237281669745915,
+          "github-v0": 0.008655077615970863,
+          "linux-v0": -0.002156980820892888,
+          "llvm-stress-v0": -0.032944656320520314,
+          "opencv-v0": 0.05333860736598112,
+          "poj104-v1": 0.19269144869975138,
+          "tensorflow-v0": 0.03173638929422178
+        },
+        "per_seed": {
+          "1": 0.063095014307107,
+          "2": 0.0628207157907167,
+          "3": 0.0647430152083397
+        },
+        "positive_dataset_count": 6,
+        "seed_metrics": [
+          {
+            "N_failed_or_invalid": 0,
+            "N_primary_valid": 4488,
+            "N_total": 4488,
+            "ValidationFinalMeanOverOz": 0.063095014307107,
+            "per_dataset": {
+              "anghabench-v1": 0.04042523099109182,
+              "blas-v0": 0.018673860284895264,
+              "clgen-v0": 0.08727584986728323,
+              "csmith-v0": 0.23536275858423242,
+              "github-v0": 0.008476694190990557,
+              "linux-v0": -0.003985360975859378,
+              "llvm-stress-v0": -0.035345763777937377,
+              "opencv-v0": 0.0532539505130594,
+              "poj104-v1": 0.19250046796431713,
+              "tensorflow-v0": 0.0343124554289968
+            },
+            "policy45_regret_mean_bytes": 9.68783422459893,
+            "policy45_regret_median_bytes": 0.0,
+            "positive_program_count_vs_Oz": 2239,
+            "top1_oracle_tie_accuracy": 0.6314616755793226
+          },
+          {
+            "N_failed_or_invalid": 0,
+            "N_primary_valid": 4488,
+            "N_total": 4488,
+            "ValidationFinalMeanOverOz": 0.0628207157907167,
+            "per_dataset": {
+              "anghabench-v1": 0.04114736187308057,
+              "blas-v0": 0.021915543971992413,
+              "clgen-v0": 0.08822157389090751,
+              "csmith-v0": 0.23700042285167966,
+              "github-v0": 0.008671546171892057,
+              "linux-v0": 0.0002919569128944468,
+              "llvm-stress-v0": -0.04758432297880304,
+              "opencv-v0": 0.05402398764697286,
+              "poj104-v1": 0.19305808895878623,
+              "tensorflow-v0": 0.03146099860776427
+            },
+            "policy45_regret_mean_bytes": 9.497994652406417,
+            "policy45_regret_median_bytes": 0.0,
+            "positive_program_count_vs_Oz": 2227,
+            "top1_oracle_tie_accuracy": 0.6267825311942959
+          },
+          {
+            "N_failed_or_invalid": 0,
+            "N_primary_valid": 4488,
+            "N_total": 4488,
+            "ValidationFinalMeanOverOz": 0.0647430152083397,
+            "per_dataset": {
+              "anghabench-v1": 0.039705133957276935,
+              "blas-v0": 0.01719350875305283,
+              "clgen-v0": 0.0862247227307725,
+              "csmith-v0": 0.23948182780183289,
+              "github-v0": 0.008816992485029975,
+              "linux-v0": -0.0027775383997137343,
+              "llvm-stress-v0": -0.015903882204820523,
+              "opencv-v0": 0.05273788393791111,
+              "poj104-v1": 0.1925157891761507,
+              "tensorflow-v0": 0.02943571384590426
+            },
+            "policy45_regret_mean_bytes": 9.322638146167558,
+            "policy45_regret_median_bytes": 0.0,
+            "positive_program_count_vs_Oz": 2241,
+            "top1_oracle_tie_accuracy": 0.6314616755793226
+          }
+        ],
+        "three_seed_validation_mean_over_oz": 0.06355291510205446
+      }
+    }
+  }
+}

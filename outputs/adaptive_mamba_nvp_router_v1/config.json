@@ -1,0 +1,134 @@
+{
+  "autophase_feature_cache": {
+    "dimension": 56,
+    "final": "outputs/autophase_feature_cache_v6/final_autophase.jsonl.gz",
+    "preprocessing": "raw_autophase / raw_autophase[51]",
+    "train": "outputs/autophase_feature_cache_v6/train_autophase.jsonl.gz",
+    "validation": "outputs/autophase_feature_cache_v6/validation_autophase.jsonl.gz"
+  },
+  "candidate_representation": {
+    "K": 50,
+    "candidate_sequences": "configs/rlcompopt_action_seq_50.txt",
+    "pad_token_id": 124,
+    "padded_length": 20
+  },
+  "existing_final_references": {
+    "AnchoredMambaNVP": 0.08778864950836797,
+    "CrossCandidateMambaNVP": 0.08772109149881376,
+    "Mamba": 0.08462666303481921,
+    "MambaNVP": 0.08765961330771414,
+    "NVP": 0.08715469206982522,
+    "mamba_result_root": "outputs/route_a_final_objecttext_v6/model_results/mamba",
+    "nvp_result_root": "outputs/route_a_final_objecttext_v6/model_results/nvp"
+  },
+  "experiment_name": "adaptive_mamba_nvp_router_v1",
+  "forbidden": [
+    "CompilerGym",
+    "LLVM",
+    "candidate rollout",
+    "ObjectText measurement",
+    "label regeneration",
+    "candidate search",
+    "runtime",
+    "final/OOD threshold selection",
+    "dataset ID router input",
+    "additional model variants"
+  ],
+  "frozen_experts": {
+    "controlled_config": "configs/controlled_nvp_stage_a_v6.json",
+    "mamba_checkpoint_root": "outputs/route_a_stage_b_v6/mamba",
+    "mode": "eval",
+    "nvp_checkpoint_root": "outputs/route_a_stage_b_v6/nvp",
+    "seed_matched": true,
+    "trainable": false
+  },
+  "frozen_populations": {
+    "final": {
+      "complete_k50": 4679,
+      "invalid": 4,
+      "total": 4683
+    },
+    "train": {
+      "complete_k50": 28159,
+      "invalid": 8,
+      "total": 28167
+    },
+    "validation": {
+      "complete_k50": 4488,
+      "invalid": 2,
+      "total": 4490
+    }
+  },
+  "label_shards": {
+    "final": "outputs/route_a_final_objecttext_v6/shards/final",
+    "train": "outputs/rlcompopt_route_a_objecttext_v6_parallel12/shards/train",
+    "validation": "outputs/rlcompopt_route_a_objecttext_v6_parallel12/shards/validation"
+  },
+  "purpose": "One frozen-expert, program-adaptive Mamba/NVP probability router; validation selects checkpoints and tau before one final/OOD evaluation.",
+  "router": {
+    "activation": "GELU",
+    "alpha_semantics": "0=Mamba, 1=NVP",
+    "dropout": 0.1,
+    "input": "normalized Autophase(56), P_M(50), P_N(50), abs(P_M-P_N)(50), entropy_M, entropy_N, top1_M, top1_N, margin_M, margin_N, JS, L1, top1_agreement",
+    "input_dimension": 215,
+    "layers": [
+      128,
+      64,
+      1
+    ],
+    "mixing": "P_mix=(1-alpha)*P_M+alpha*P_N; probabilities only, no raw-logit mixing"
+  },
+  "routing_supervision": {
+    "advantage": "A=U_N-U_M",
+    "lambda_route": 0.25,
+    "route_loss": "BCE(alpha,y_route)",
+    "scale": "median(abs(A)) over train programs with exact-zero values excluded; fail if no nonzero advantage exists",
+    "target": "sigmoid(A/s)",
+    "task_loss": "soft-target cross entropy over P_mix and existing normalized_target",
+    "total_loss": "L_task + 0.25 * L_route",
+    "utility": "policy45 reduction_vs_Oz=(S_Oz-policy45_object_text_size_bytes)/S_Oz from existing frozen prefix labels"
+  },
+  "target_files": {
+    "train": "outputs/rlcompopt_route_a_nvp_targets_v6/train_targets.jsonl.gz",
+    "validation": "outputs/rlcompopt_route_a_nvp_targets_v6/validation_targets.jsonl.gz"
+  },
+  "threshold_selection": {
+    "effective_weight": "alpha_eff=0 if alpha<=tau else (alpha-tau)/(1-tau); tau=1 gives alpha_eff=0 exactly",
+    "high_bar_validation_mean_over_oz": 0.06355292,
+    "ood_access": "only after selected checkpoints and tau are frozen",
+    "selection": "among tau whose final three-seed validation macro strictly exceeds high_bar, maximize S_val=macro_delta_vs_NVP+0.5*median_dataset_delta_vs_NVP; ties: positive dataset count, then raw macro MeanOverOz",
+    "tau_values": [
+      0.5,
+      0.6,
+      0.7,
+      0.8,
+      0.9,
+      1.0
+    ]
+  },
+  "training": {
+    "batch_size": 256,
+    "checkpoint_evaluation_cadence_steps": 100,
+    "checkpoint_selection": "per seed, highest validation policy45 dataset-macro MeanOverOz of the unthresholded P_mix; deterministic first checkpoint on ties",
+    "early_stopping": false,
+    "evaluation_batch_size": 64,
+    "final_seed_set": [
+      1,
+      2,
+      3
+    ],
+    "learning_rate": 0.0005,
+    "lr_schedule": "500-step linear warmup then cosine to lr*0.01 over remaining 9500 steps",
+    "optimizer": "Adam",
+    "sampler": "source-balanced: uniformly choose an explicit target dataset_id, then uniformly choose a program within it; dataset_id is never a router input",
+    "total_steps": 10000,
+    "warmup_steps": 500,
+    "weight_decay": 1e-05
+  },
+  "validation": {
+    "final_test_accessed_before_tau_selection": false,
+    "ranking": "descending probabilities; candidate ID ascending tie break",
+    "sampling": false,
+    "scored_pass_budget": 45
+  }
+}
