@@ -3,7 +3,7 @@ from pathlib import Path
 
 import torch
 
-from scripts.train_adaptive_mamba_nvp_router import ProgramAdaptiveRouter, SourceBalancedSampler, distribution_features, load_frozen_mamba, policy45, policy45_utility, thresholded_mixture
+from scripts.train_adaptive_mamba_nvp_router import ProgramAdaptiveRouter, SourceBalancedSampler, distribution_features, final_top1_oracle_tie_accuracy, load_frozen_mamba, policy45, policy45_utility, thresholded_mixture
 from scripts.train_controlled_nvp_stage_a import load_candidates
 from scripts.train_mamba_nvp_objecttext import load_frozen_nvp
 
@@ -52,3 +52,10 @@ def test_frozen_seed_matched_expert_loaders_are_eval_only():
     assert not nvp.training and not mamba.training
     assert not any(parameter.requires_grad for parameter in nvp.parameters())
     assert not any(parameter.requires_grad for parameter in mamba.parameters())
+
+
+
+def test_final_top1_metric_is_derived_only_from_existing_selected_ids_and_labels():
+    matrix = {"p": [{"best_object_text_size_bytes": value} for value in [2] + [3] * 49]}
+    maps = {("AMR", seed): {"p": {"program_id": "p", "valid": True, "selected_candidate_id": 0}} for seed in (1, 2, 3)}
+    assert final_top1_oracle_tie_accuracy(maps, matrix)["three_seed_mean"] == 1.0
