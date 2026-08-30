@@ -1,0 +1,247 @@
+method,split,record_type,seed,dataset_id,N_total,N_valid,MeanOverOz,delta_vs_NVP,policy45_regret_bytes,oracle_recovery,top1_oracle_hit,top5_oracle_hit,median_dataset_delta_vs_NVP,positive_dataset_count,negative_dataset_count,leave_LLVM_Stress_out_macro_delta_vs_NVP,source_artifact_path
+NVP,validation,dataset_macro_3seed,,,4488,4488,0.06277100953471096,0.0,7.785130718954249,0.81061147610882,,,,,,,outputs/route_a_stage_b_v6/comparison_report.json
+NVP,validation,dataset_macro_seed,1,,4488,4488,0.06284381550402421,7.28059693132499e-05,7.61319073083779,,,,,,,,outputs/route_a_stage_b_v6/comparison_report.json
+NVP,validation,dataset_macro_seed,2,,4488,4488,0.062365030568491374,-0.0004059789662195848,7.521167557932264,,,,,,,,outputs/route_a_stage_b_v6/comparison_report.json
+NVP,validation,dataset_macro_seed,3,,4488,4488,0.06310418253161729,0.00033317299690632796,8.221033868092691,,,,,,,,outputs/route_a_stage_b_v6/comparison_report.json
+NVP,validation,dataset_3seed,,anghabench-v1,,,0.03817004326975951,,,,,,,,,,outputs/route_a_stage_b_v6/comparison_report.json
+NVP,validation,dataset_3seed,,blas-v0,,,0.024630738764754804,,,,,,,,,,outputs/route_a_stage_b_v6/comparison_report.json
+NVP,validation,dataset_3seed,,clgen-v0,,,0.08507315389494298,,,,,,,,,,outputs/route_a_stage_b_v6/comparison_report.json
+NVP,validation,dataset_3seed,,csmith-v0,,,0.24451250967757532,,,,,,,,,,outputs/route_a_stage_b_v6/comparison_report.json
+NVP,validation,dataset_3seed,,github-v0,,,0.010019275687108828,,,,,,,,,,outputs/route_a_stage_b_v6/comparison_report.json
+NVP,validation,dataset_3seed,,linux-v0,,,0.0020201084017679115,,,,,,,,,,outputs/route_a_stage_b_v6/comparison_report.json
+NVP,validation,dataset_3seed,,llvm-stress-v0,,,-0.0518445190863635,,,,,,,,,,outputs/route_a_stage_b_v6/comparison_report.json
+NVP,validation,dataset_3seed,,opencv-v0,,,0.0521639981067478,,,,,,,,,,outputs/route_a_stage_b_v6/comparison_report.json
+NVP,validation,dataset_3seed,,poj104-v1,,,0.19230666636033591,,,,,,,,,,outputs/route_a_stage_b_v6/comparison_report.json
+NVP,validation,dataset_3seed,,tensorflow-v0,,,0.030658120270480038,,,,,,,,,,outputs/route_a_stage_b_v6/comparison_report.json
+MLP,validation,dataset_macro_3seed,,,4488,4488,0.06224203633966229,-0.0005289731950486667,10.90121806298277,0.8037804286931609,,,,,,,outputs/route_a_stage_b_v6/comparison_report.json
+MLP,validation,dataset_macro_seed,1,,4488,4488,0.062238837856702735,-0.0005321716780082239,10.073752228163993,,,,,,,,outputs/route_a_stage_b_v6/comparison_report.json
+MLP,validation,dataset_macro_seed,2,,4488,4488,0.06152506722228346,-0.0012459423124275004,12.030303030303031,,,,,,,,outputs/route_a_stage_b_v6/comparison_report.json
+MLP,validation,dataset_macro_seed,3,,4488,4488,0.06296220394000068,0.0001911944052897241,10.599598930481283,,,,,,,,outputs/route_a_stage_b_v6/comparison_report.json
+MLP,validation,dataset_3seed,,anghabench-v1,,,0.03906799747775683,,,,,,,,,,outputs/route_a_stage_b_v6/comparison_report.json
+MLP,validation,dataset_3seed,,blas-v0,,,0.024549163481764526,,,,,,,,,,outputs/route_a_stage_b_v6/comparison_report.json
+MLP,validation,dataset_3seed,,clgen-v0,,,0.08614198491302771,,,,,,,,,,outputs/route_a_stage_b_v6/comparison_report.json
+MLP,validation,dataset_3seed,,csmith-v0,,,0.22905770562553787,,,,,,,,,,outputs/route_a_stage_b_v6/comparison_report.json
+MLP,validation,dataset_3seed,,github-v0,,,0.008500550039702695,,,,,,,,,,outputs/route_a_stage_b_v6/comparison_report.json
+MLP,validation,dataset_3seed,,linux-v0,,,-0.0041455987068362565,,,,,,,,,,outputs/route_a_stage_b_v6/comparison_report.json
+MLP,validation,dataset_3seed,,llvm-stress-v0,,,-0.035105339453309264,,,,,,,,,,outputs/route_a_stage_b_v6/comparison_report.json
+MLP,validation,dataset_3seed,,opencv-v0,,,0.05222973560941865,,,,,,,,,,outputs/route_a_stage_b_v6/comparison_report.json
+MLP,validation,dataset_3seed,,poj104-v1,,,0.19206934883542592,,,,,,,,,,outputs/route_a_stage_b_v6/comparison_report.json
+MLP,validation,dataset_3seed,,tensorflow-v0,,,0.030054815574134277,,,,,,,,,,outputs/route_a_stage_b_v6/comparison_report.json
+LSTM,validation,dataset_macro_3seed,,,4488,4488,0.06063541070748835,-0.0021355988272226054,10.662878787878787,0.7830328067430852,,,,,,,outputs/route_a_stage_b_v6/comparison_report.json
+LSTM,validation,dataset_macro_seed,1,,4488,4488,0.05742434922335341,-0.005346660311357547,10.880124777183601,,,,,,,,outputs/route_a_stage_b_v6/comparison_report.json
+LSTM,validation,dataset_macro_seed,2,,4488,4488,0.05917726290521683,-0.0035937466294941253,9.580659536541889,,,,,,,,outputs/route_a_stage_b_v6/comparison_report.json
+LSTM,validation,dataset_macro_seed,3,,4488,4488,0.06530461999389482,0.002533610459183863,11.527852049910873,,,,,,,,outputs/route_a_stage_b_v6/comparison_report.json
+LSTM,validation,dataset_3seed,,anghabench-v1,,,0.04084357142711145,,,,,,,,,,outputs/route_a_stage_b_v6/comparison_report.json
+LSTM,validation,dataset_3seed,,blas-v0,,,0.021652316383815318,,,,,,,,,,outputs/route_a_stage_b_v6/comparison_report.json
+LSTM,validation,dataset_3seed,,clgen-v0,,,0.08742419365658533,,,,,,,,,,outputs/route_a_stage_b_v6/comparison_report.json
+LSTM,validation,dataset_3seed,,csmith-v0,,,0.22857179556298982,,,,,,,,,,outputs/route_a_stage_b_v6/comparison_report.json
+LSTM,validation,dataset_3seed,,github-v0,,,0.0085055206541591,,,,,,,,,,outputs/route_a_stage_b_v6/comparison_report.json
+LSTM,validation,dataset_3seed,,linux-v0,,,-6.225167938901542e-05,,,,,,,,,,outputs/route_a_stage_b_v6/comparison_report.json
+LSTM,validation,dataset_3seed,,llvm-stress-v0,,,-0.05625769176546713,,,,,,,,,,outputs/route_a_stage_b_v6/comparison_report.json
+LSTM,validation,dataset_3seed,,opencv-v0,,,0.05219378318990983,,,,,,,,,,outputs/route_a_stage_b_v6/comparison_report.json
+LSTM,validation,dataset_3seed,,poj104-v1,,,0.19225478852297098,,,,,,,,,,outputs/route_a_stage_b_v6/comparison_report.json
+LSTM,validation,dataset_3seed,,tensorflow-v0,,,0.031228081122197836,,,,,,,,,,outputs/route_a_stage_b_v6/comparison_report.json
+Transformer,validation,dataset_macro_3seed,,,4488,4488,0.06297066721540395,0.00019965768069299394,10.384878193701724,0.8131898129630889,,,,,,,outputs/route_a_stage_b_v6/comparison_report.json
+Transformer,validation,dataset_macro_seed,1,,4488,4488,0.06394440755644565,0.0011733980217346895,10.440508021390375,,,,,,,,outputs/route_a_stage_b_v6/comparison_report.json
+Transformer,validation,dataset_macro_seed,2,,4488,4488,0.06447248758569549,0.0017014780509845284,10.418672014260249,,,,,,,,outputs/route_a_stage_b_v6/comparison_report.json
+Transformer,validation,dataset_macro_seed,3,,4488,4488,0.060495106504070736,-0.0022759030306402223,10.295454545454545,,,,,,,,outputs/route_a_stage_b_v6/comparison_report.json
+Transformer,validation,dataset_3seed,,anghabench-v1,,,0.040070596031976685,,,,,,,,,,outputs/route_a_stage_b_v6/comparison_report.json
+Transformer,validation,dataset_3seed,,blas-v0,,,0.02183076060115122,,,,,,,,,,outputs/route_a_stage_b_v6/comparison_report.json
+Transformer,validation,dataset_3seed,,clgen-v0,,,0.08662948262019987,,,,,,,,,,outputs/route_a_stage_b_v6/comparison_report.json
+Transformer,validation,dataset_3seed,,csmith-v0,,,0.24073798399358304,,,,,,,,,,outputs/route_a_stage_b_v6/comparison_report.json
+Transformer,validation,dataset_3seed,,github-v0,,,0.008655927453066946,,,,,,,,,,outputs/route_a_stage_b_v6/comparison_report.json
+Transformer,validation,dataset_3seed,,linux-v0,,,-0.0027925264596877653,,,,,,,,,,outputs/route_a_stage_b_v6/comparison_report.json
+Transformer,validation,dataset_3seed,,llvm-stress-v0,,,-0.038753639674100594,,,,,,,,,,outputs/route_a_stage_b_v6/comparison_report.json
+Transformer,validation,dataset_3seed,,opencv-v0,,,0.050226925550245966,,,,,,,,,,outputs/route_a_stage_b_v6/comparison_report.json
+Transformer,validation,dataset_3seed,,poj104-v1,,,0.19236352369513035,,,,,,,,,,outputs/route_a_stage_b_v6/comparison_report.json
+Transformer,validation,dataset_3seed,,tensorflow-v0,,,0.03073763834247384,,,,,,,,,,outputs/route_a_stage_b_v6/comparison_report.json
+Mamba,validation,dataset_macro_3seed,,,4488,4488,0.06355291510205446,0.0007819055673435049,9.502822341057636,0.8207088384233696,,,,,,,outputs/route_a_stage_b_v6/comparison_report.json
+Mamba,validation,dataset_macro_seed,1,,4488,4488,0.063095014307107,0.00032400477239603875,9.68783422459893,,,,,,,,outputs/route_a_stage_b_v6/comparison_report.json
+Mamba,validation,dataset_macro_seed,2,,4488,4488,0.0628207157907167,4.970625600574097e-05,9.497994652406417,,,,,,,,outputs/route_a_stage_b_v6/comparison_report.json
+Mamba,validation,dataset_macro_seed,3,,4488,4488,0.0647430152083397,0.001972005673628735,9.322638146167558,,,,,,,,outputs/route_a_stage_b_v6/comparison_report.json
+Mamba,validation,dataset_3seed,,anghabench-v1,,,0.04042590894048311,,,,,,,,,,outputs/route_a_stage_b_v6/comparison_report.json
+Mamba,validation,dataset_3seed,,blas-v0,,,0.0192609710033135,,,,,,,,,,outputs/route_a_stage_b_v6/comparison_report.json
+Mamba,validation,dataset_3seed,,clgen-v0,,,0.08724071549632108,,,,,,,,,,outputs/route_a_stage_b_v6/comparison_report.json
+Mamba,validation,dataset_3seed,,csmith-v0,,,0.237281669745915,,,,,,,,,,outputs/route_a_stage_b_v6/comparison_report.json
+Mamba,validation,dataset_3seed,,github-v0,,,0.008655077615970863,,,,,,,,,,outputs/route_a_stage_b_v6/comparison_report.json
+Mamba,validation,dataset_3seed,,linux-v0,,,-0.002156980820892888,,,,,,,,,,outputs/route_a_stage_b_v6/comparison_report.json
+Mamba,validation,dataset_3seed,,llvm-stress-v0,,,-0.032944656320520314,,,,,,,,,,outputs/route_a_stage_b_v6/comparison_report.json
+Mamba,validation,dataset_3seed,,opencv-v0,,,0.05333860736598112,,,,,,,,,,outputs/route_a_stage_b_v6/comparison_report.json
+Mamba,validation,dataset_3seed,,poj104-v1,,,0.19269144869975138,,,,,,,,,,outputs/route_a_stage_b_v6/comparison_report.json
+Mamba,validation,dataset_3seed,,tensorflow-v0,,,0.03173638929422178,,,,,,,,,,outputs/route_a_stage_b_v6/comparison_report.json
+Direct MambaNVP,validation,dataset_macro_3seed,,,4488,4488,0.06260238916621794,-0.0001686203684930221,7.7105614973262036,0.8084339485077934,,,,,,,outputs/mamba_nvp_objecttext_v6/comparison_report.json
+Direct MambaNVP,validation,dataset_macro_seed,1,,4488,4488,0.0631153533001637,0.0003443437654527398,7.50222816399287,,,,,,,,outputs/mamba_nvp_objecttext_v6/comparison_report.json
+Direct MambaNVP,validation,dataset_macro_seed,2,,4488,4488,0.062290650307568404,-0.0004803592271425544,7.467245989304812,,,,,,,,outputs/mamba_nvp_objecttext_v6/comparison_report.json
+Direct MambaNVP,validation,dataset_macro_seed,3,,4488,4488,0.06240116389092171,-0.00036984564378925167,8.162210338680927,,,,,,,,outputs/mamba_nvp_objecttext_v6/comparison_report.json
+Direct MambaNVP,validation,dataset_3seed,,anghabench-v1,,,0.040052006756403746,,,,,,,,,,outputs/mamba_nvp_objecttext_v6/comparison_report.json
+Direct MambaNVP,validation,dataset_3seed,,blas-v0,,,0.025231804718977763,,,,,,,,,,outputs/mamba_nvp_objecttext_v6/comparison_report.json
+Direct MambaNVP,validation,dataset_3seed,,clgen-v0,,,0.08487561613429469,,,,,,,,,,outputs/mamba_nvp_objecttext_v6/comparison_report.json
+Direct MambaNVP,validation,dataset_3seed,,csmith-v0,,,0.24460999285549453,,,,,,,,,,outputs/mamba_nvp_objecttext_v6/comparison_report.json
+Direct MambaNVP,validation,dataset_3seed,,github-v0,,,0.010032603498614295,,,,,,,,,,outputs/mamba_nvp_objecttext_v6/comparison_report.json
+Direct MambaNVP,validation,dataset_3seed,,linux-v0,,,0.00250869011310894,,,,,,,,,,outputs/mamba_nvp_objecttext_v6/comparison_report.json
+Direct MambaNVP,validation,dataset_3seed,,llvm-stress-v0,,,-0.05597128699029385,,,,,,,,,,outputs/mamba_nvp_objecttext_v6/comparison_report.json
+Direct MambaNVP,validation,dataset_3seed,,opencv-v0,,,0.05181622652448666,,,,,,,,,,outputs/mamba_nvp_objecttext_v6/comparison_report.json
+Direct MambaNVP,validation,dataset_3seed,,poj104-v1,,,0.19224105042545026,,,,,,,,,,outputs/mamba_nvp_objecttext_v6/comparison_report.json
+Direct MambaNVP,validation,dataset_3seed,,tensorflow-v0,,,0.03062718762564236,,,,,,,,,,outputs/mamba_nvp_objecttext_v6/comparison_report.json
+Anchored MambaNVP,validation,dataset_macro_3seed,,,4488,4488,0.06211450015684102,-0.0006565093778699363,7.702688651218064,0.802133453534081,0.6570112893642305,,,,,,outputs/gated_calibrated_mambanvp_v2/comparison_report.json
+Anchored MambaNVP,validation,dataset_macro_seed,1,,4488,4488,0.06313043252765024,0.0003594229929392845,7.494429590017825,,0.6579768270944741,,,,,,outputs/gated_calibrated_mambanvp_v2/comparison_report.json
+Anchored MambaNVP,validation,dataset_macro_seed,2,,4488,4488,0.06074945034704312,-0.0020215591876678388,7.492869875222817,,0.6590909090909091,,,,,,outputs/gated_calibrated_mambanvp_v2/comparison_report.json
+Anchored MambaNVP,validation,dataset_macro_seed,3,,4488,4488,0.062463617595829704,-0.0003073919388812546,8.120766488413548,,0.6539661319073083,,,,,,outputs/gated_calibrated_mambanvp_v2/comparison_report.json
+PA-MambaNVP,validation,dataset_macro_3seed,,,4488,4488,0.06771170961823382,0.0049407000835228615,6.9505347593582885,0.8744146269168498,0.6695632798573975,0.88732917409388,,,,,outputs/policy_aware_mambanvp_v1/comparison_report.json
+PA-MambaNVP,validation,dataset_macro_seed,1,,4488,4488,0.06764865274412538,0.004877643209414417,,,,,,,,,outputs/policy_aware_mambanvp_v1/comparison_report.json
+PA-MambaNVP,validation,dataset_macro_seed,2,,4488,4488,0.0668872372924749,0.004116227757763935,,,,,,,,,outputs/policy_aware_mambanvp_v1/comparison_report.json
+PA-MambaNVP,validation,dataset_macro_seed,3,,4488,4488,0.06859923881810118,0.005828229283390218,,,,,,,,,outputs/policy_aware_mambanvp_v1/comparison_report.json
+PA-MambaNVP,validation,dataset_3seed,,anghabench-v1,,,0.038522321061738814,,,,,,,,,,outputs/policy_aware_mambanvp_v1/comparison_report.json
+PA-MambaNVP,validation,dataset_3seed,,blas-v0,,,0.027181621384476776,,,,,,,,,,outputs/policy_aware_mambanvp_v1/comparison_report.json
+PA-MambaNVP,validation,dataset_3seed,,clgen-v0,,,0.08800857839028253,,,,,,,,,,outputs/policy_aware_mambanvp_v1/comparison_report.json
+PA-MambaNVP,validation,dataset_3seed,,csmith-v0,,,0.24332161309031375,,,,,,,,,,outputs/policy_aware_mambanvp_v1/comparison_report.json
+PA-MambaNVP,validation,dataset_3seed,,github-v0,,,0.010418146473052439,,,,,,,,,,outputs/policy_aware_mambanvp_v1/comparison_report.json
+PA-MambaNVP,validation,dataset_3seed,,linux-v0,,,-0.0020450149197475125,,,,,,,,,,outputs/policy_aware_mambanvp_v1/comparison_report.json
+PA-MambaNVP,validation,dataset_3seed,,llvm-stress-v0,,,-0.007422283685803045,,,,,,,,,,outputs/policy_aware_mambanvp_v1/comparison_report.json
+PA-MambaNVP,validation,dataset_3seed,,opencv-v0,,,0.05436890157876173,,,,,,,,,,outputs/policy_aware_mambanvp_v1/comparison_report.json
+PA-MambaNVP,validation,dataset_3seed,,poj104-v1,,,0.19194908476539854,,,,,,,,,,outputs/policy_aware_mambanvp_v1/comparison_report.json
+PA-MambaNVP,validation,dataset_3seed,,tensorflow-v0,,,0.03281412804386405,,,,,,,,,,outputs/policy_aware_mambanvp_v1/comparison_report.json
+NVP,final/OOD,dataset_macro_3seed,,,4683,4679,0.08715469206982522,0.0,,0.828587504419934,,,,,,,outputs/route_a_final_objecttext_v6/comparison_report.json
+NVP,final/OOD,dataset_macro_seed,1,,4683,4679,0.08781183536807133,0.0,,,,,,,,,outputs/route_a_final_objecttext_v6/comparison_report.json
+NVP,final/OOD,dataset_macro_seed,2,,4683,4679,0.08752695928331179,0.0,,,,,,,,,outputs/route_a_final_objecttext_v6/comparison_report.json
+NVP,final/OOD,dataset_macro_seed,3,,4683,4679,0.08612528155809254,0.0,,,,,,,,,outputs/route_a_final_objecttext_v6/comparison_report.json
+NVP,final/OOD,dataset_3seed,,anghabench-v1,1000,999,0.03692404527914909,0.0,,,,,,,,,outputs/route_a_final_objecttext_v6/comparison_report.json
+NVP,final/OOD,dataset_3seed,,blas-v0,29,29,0.011347070952616006,0.0,,,,,,,,,outputs/route_a_final_objecttext_v6/comparison_report.json
+NVP,final/OOD,dataset_3seed,,cbench-v1,11,11,0.1879895156064374,0.0,,,,,,,,,outputs/route_a_final_objecttext_v6/comparison_report.json
+NVP,final/OOD,dataset_3seed,,chstone-v0,12,12,0.09213995834981135,0.0,,,,,,,,,outputs/route_a_final_objecttext_v6/comparison_report.json
+NVP,final/OOD,dataset_3seed,,clgen-v0,150,150,0.10109631238884083,0.0,,,,,,,,,outputs/route_a_final_objecttext_v6/comparison_report.json
+NVP,final/OOD,dataset_3seed,,csmith-v0,48,48,0.25839801826970404,0.0,,,,,,,,,outputs/route_a_final_objecttext_v6/comparison_report.json
+NVP,final/OOD,dataset_3seed,,github-v0,1000,1000,0.00720394713816724,0.0,,,,,,,,,outputs/route_a_final_objecttext_v6/comparison_report.json
+NVP,final/OOD,dataset_3seed,,linux-v0,1000,1000,0.003041935497720922,0.0,,,,,,,,,outputs/route_a_final_objecttext_v6/comparison_report.json
+NVP,final/OOD,dataset_3seed,,llvm-stress-v0,150,147,-0.044866218250611815,0.0,,,,,,,,,outputs/route_a_final_objecttext_v6/comparison_report.json
+NVP,final/OOD,dataset_3seed,,mibench-v1,40,40,0.06347396922525174,0.0,,,,,,,,,outputs/route_a_final_objecttext_v6/comparison_report.json
+NVP,final/OOD,dataset_3seed,,npb-v0,121,121,0.22035336294631327,0.0,,,,,,,,,outputs/route_a_final_objecttext_v6/comparison_report.json
+NVP,final/OOD,dataset_3seed,,opencv-v0,32,32,0.04105173737972869,0.0,,,,,,,,,outputs/route_a_final_objecttext_v6/comparison_report.json
+NVP,final/OOD,dataset_3seed,,poj104-v1,1000,1000,0.18685899119157037,0.0,,,,,,,,,outputs/route_a_final_objecttext_v6/comparison_report.json
+NVP,final/OOD,dataset_3seed,,tensorflow-v0,90,90,0.05515304300285386,0.0,,,,,,,,,outputs/route_a_final_objecttext_v6/comparison_report.json
+Mamba,final/OOD,dataset_macro_3seed,,,4683,4679,0.08462666303481921,-0.002528029035006013,,0.8045533047747953,,,,,,,outputs/route_a_final_objecttext_v6/comparison_report.json
+Mamba,final/OOD,dataset_macro_seed,1,,4683,4679,0.08493805013175956,-0.0028737852363117655,,,,,,,,,outputs/route_a_final_objecttext_v6/comparison_report.json
+Mamba,final/OOD,dataset_macro_seed,2,,4683,4679,0.08210069016603284,-0.005426269117278948,,,,,,,,,outputs/route_a_final_objecttext_v6/comparison_report.json
+Mamba,final/OOD,dataset_macro_seed,3,,4683,4679,0.08684124880666519,0.0007159672485726465,,,,,,,,,outputs/route_a_final_objecttext_v6/comparison_report.json
+Mamba,final/OOD,dataset_3seed,,anghabench-v1,1000,999,0.03559025891112549,-0.0013337863680236012,,,,,,,,,outputs/route_a_final_objecttext_v6/comparison_report.json
+Mamba,final/OOD,dataset_3seed,,blas-v0,29,29,0.005395864567356173,-0.005951206385259833,,,,,,,,,outputs/route_a_final_objecttext_v6/comparison_report.json
+Mamba,final/OOD,dataset_3seed,,cbench-v1,11,11,0.1880875805894043,9.806498296691113e-05,,,,,,,,,outputs/route_a_final_objecttext_v6/comparison_report.json
+Mamba,final/OOD,dataset_3seed,,chstone-v0,12,12,0.09584603763862969,0.0037060792888183314,,,,,,,,,outputs/route_a_final_objecttext_v6/comparison_report.json
+Mamba,final/OOD,dataset_3seed,,clgen-v0,150,150,0.10273785487757854,0.0016415424887377128,,,,,,,,,outputs/route_a_final_objecttext_v6/comparison_report.json
+Mamba,final/OOD,dataset_3seed,,csmith-v0,48,48,0.24407285404893972,-0.014325164220764325,,,,,,,,,outputs/route_a_final_objecttext_v6/comparison_report.json
+Mamba,final/OOD,dataset_3seed,,github-v0,1000,1000,0.006494802187449786,-0.0007091449507174545,,,,,,,,,outputs/route_a_final_objecttext_v6/comparison_report.json
+Mamba,final/OOD,dataset_3seed,,linux-v0,1000,1000,0.0024323787662984975,-0.0006095567314224246,,,,,,,,,outputs/route_a_final_objecttext_v6/comparison_report.json
+Mamba,final/OOD,dataset_3seed,,llvm-stress-v0,150,147,-0.0597144820073837,-0.014848263756771882,,,,,,,,,outputs/route_a_final_objecttext_v6/comparison_report.json
+Mamba,final/OOD,dataset_3seed,,mibench-v1,40,40,0.06348549226301979,1.1523037768051969e-05,,,,,,,,,outputs/route_a_final_objecttext_v6/comparison_report.json
+Mamba,final/OOD,dataset_3seed,,npb-v0,121,121,0.2232265050011477,0.0028731420548344377,,,,,,,,,outputs/route_a_final_objecttext_v6/comparison_report.json
+Mamba,final/OOD,dataset_3seed,,opencv-v0,32,32,0.0360665130626824,-0.004985224317046288,,,,,,,,,outputs/route_a_final_objecttext_v6/comparison_report.json
+Mamba,final/OOD,dataset_3seed,,poj104-v1,1000,1000,0.1872310699362957,0.00037207874472533486,,,,,,,,,outputs/route_a_final_objecttext_v6/comparison_report.json
+Mamba,final/OOD,dataset_3seed,,tensorflow-v0,90,90,0.05382055264492467,-0.001332490357929192,,,,,,,,,outputs/route_a_final_objecttext_v6/comparison_report.json
+MLP,final/OOD,dataset_macro_3seed,,,4683,4679,0.08199445421951396,-0.005160237850311264,,0.7795286585785977,,,,,,,outputs/route_a_final_objecttext_v6/comparison_report.json
+MLP,final/OOD,dataset_macro_seed,1,,4683,4679,0.08834968217517572,0.0005378468071043918,,,,,,,,,outputs/route_a_final_objecttext_v6/comparison_report.json
+MLP,final/OOD,dataset_macro_seed,2,,4683,4679,0.07730599476772516,-0.010220964515586628,,,,,,,,,outputs/route_a_final_objecttext_v6/comparison_report.json
+MLP,final/OOD,dataset_macro_seed,3,,4683,4679,0.08032768571564097,-0.0057975958424515694,,,,,,,,,outputs/route_a_final_objecttext_v6/comparison_report.json
+MLP,final/OOD,dataset_3seed,,anghabench-v1,1000,999,0.03606330392580214,-0.0008607413533469471,,,,,,,,,outputs/route_a_final_objecttext_v6/comparison_report.json
+MLP,final/OOD,dataset_3seed,,blas-v0,29,29,0.006020300578368193,-0.005326770374247813,,,,,,,,,outputs/route_a_final_objecttext_v6/comparison_report.json
+MLP,final/OOD,dataset_3seed,,cbench-v1,11,11,0.18791116026176244,-7.835534467495742e-05,,,,,,,,,outputs/route_a_final_objecttext_v6/comparison_report.json
+MLP,final/OOD,dataset_3seed,,chstone-v0,12,12,0.09585451988533732,0.003714561535525962,,,,,,,,,outputs/route_a_final_objecttext_v6/comparison_report.json
+MLP,final/OOD,dataset_3seed,,clgen-v0,150,150,0.10051222439552414,-0.0005840879933166898,,,,,,,,,outputs/route_a_final_objecttext_v6/comparison_report.json
+MLP,final/OOD,dataset_3seed,,csmith-v0,48,48,0.18845776729085742,-0.06994025097884662,,,,,,,,,outputs/route_a_final_objecttext_v6/comparison_report.json
+MLP,final/OOD,dataset_3seed,,github-v0,1000,1000,0.006301702929638767,-0.0009022442085284731,,,,,,,,,outputs/route_a_final_objecttext_v6/comparison_report.json
+MLP,final/OOD,dataset_3seed,,linux-v0,1000,1000,0.0016434810756797635,-0.0013984544220411587,,,,,,,,,outputs/route_a_final_objecttext_v6/comparison_report.json
+MLP,final/OOD,dataset_3seed,,llvm-stress-v0,150,147,-0.031669469716052445,0.01319674853455937,,,,,,,,,outputs/route_a_final_objecttext_v6/comparison_report.json
+MLP,final/OOD,dataset_3seed,,mibench-v1,40,40,0.06303774521782744,-0.00043622400742429623,,,,,,,,,outputs/route_a_final_objecttext_v6/comparison_report.json
+MLP,final/OOD,dataset_3seed,,npb-v0,121,121,0.22375912210870916,0.0034057591623958827,,,,,,,,,outputs/route_a_final_objecttext_v6/comparison_report.json
+MLP,final/OOD,dataset_3seed,,opencv-v0,32,32,0.034034049341130544,-0.007017688038598147,,,,,,,,,outputs/route_a_final_objecttext_v6/comparison_report.json
+MLP,final/OOD,dataset_3seed,,poj104-v1,1000,1000,0.1864519006509998,-0.0004070905405705594,,,,,,,,,outputs/route_a_final_objecttext_v6/comparison_report.json
+MLP,final/OOD,dataset_3seed,,tensorflow-v0,90,90,0.049544551127610637,-0.005608491875243225,,,,,,,,,outputs/route_a_final_objecttext_v6/comparison_report.json
+LSTM,final/OOD,dataset_macro_3seed,,,4683,4679,0.08445278226557085,-0.0027019098042543738,,0.802900204646317,,,,,,,outputs/route_a_final_objecttext_v6/comparison_report.json
+LSTM,final/OOD,dataset_macro_seed,1,,4683,4679,0.08411411747955184,-0.0036977178885194834,,,,,,,,,outputs/route_a_final_objecttext_v6/comparison_report.json
+LSTM,final/OOD,dataset_macro_seed,2,,4683,4679,0.08420478577971216,-0.003322173503599632,,,,,,,,,outputs/route_a_final_objecttext_v6/comparison_report.json
+LSTM,final/OOD,dataset_macro_seed,3,,4683,4679,0.0850394435374485,-0.0010858380206440477,,,,,,,,,outputs/route_a_final_objecttext_v6/comparison_report.json
+LSTM,final/OOD,dataset_3seed,,anghabench-v1,1000,999,0.03480181830369904,-0.002122226975450045,,,,,,,,,outputs/route_a_final_objecttext_v6/comparison_report.json
+LSTM,final/OOD,dataset_3seed,,blas-v0,29,29,0.007491360507953408,-0.0038557104446625976,,,,,,,,,outputs/route_a_final_objecttext_v6/comparison_report.json
+LSTM,final/OOD,dataset_3seed,,cbench-v1,11,11,0.189530459851205,0.0015409442447676114,,,,,,,,,outputs/route_a_final_objecttext_v6/comparison_report.json
+LSTM,final/OOD,dataset_3seed,,chstone-v0,12,12,0.09232989387641387,0.00018993552660251378,,,,,,,,,outputs/route_a_final_objecttext_v6/comparison_report.json
+LSTM,final/OOD,dataset_3seed,,clgen-v0,150,150,0.1016847719320861,0.0005884595432452677,,,,,,,,,outputs/route_a_final_objecttext_v6/comparison_report.json
+LSTM,final/OOD,dataset_3seed,,csmith-v0,48,48,0.23578233138647633,-0.02261568688322771,,,,,,,,,outputs/route_a_final_objecttext_v6/comparison_report.json
+LSTM,final/OOD,dataset_3seed,,github-v0,1000,1000,0.006712668716575502,-0.0004912784215917385,,,,,,,,,outputs/route_a_final_objecttext_v6/comparison_report.json
+LSTM,final/OOD,dataset_3seed,,linux-v0,1000,1000,0.002039011101334238,-0.001002924396386684,,,,,,,,,outputs/route_a_final_objecttext_v6/comparison_report.json
+LSTM,final/OOD,dataset_3seed,,llvm-stress-v0,150,147,-0.03964207688096926,0.005224141369642554,,,,,,,,,outputs/route_a_final_objecttext_v6/comparison_report.json
+LSTM,final/OOD,dataset_3seed,,mibench-v1,40,40,0.06218405345948283,-0.0012899157657689092,,,,,,,,,outputs/route_a_final_objecttext_v6/comparison_report.json
+LSTM,final/OOD,dataset_3seed,,npb-v0,121,121,0.214228714035147,-0.006124648911166264,,,,,,,,,outputs/route_a_final_objecttext_v6/comparison_report.json
+LSTM,final/OOD,dataset_3seed,,opencv-v0,32,32,0.0355831894093974,-0.005468547970331292,,,,,,,,,outputs/route_a_final_objecttext_v6/comparison_report.json
+LSTM,final/OOD,dataset_3seed,,poj104-v1,1000,1000,0.18741418700968338,0.0005551958181130023,,,,,,,,,outputs/route_a_final_objecttext_v6/comparison_report.json
+LSTM,final/OOD,dataset_3seed,,tensorflow-v0,90,90,0.05219856900950686,-0.002954473993347001,,,,,,,,,outputs/route_a_final_objecttext_v6/comparison_report.json
+Transformer,final/OOD,dataset_macro_3seed,,,4683,4679,0.08439936883039871,-0.0027553232394265104,,0.8023923983090939,,,,,,,outputs/route_a_final_objecttext_v6/comparison_report.json
+Transformer,final/OOD,dataset_macro_seed,1,,4683,4679,0.08039856728796313,-0.0074132680801081985,,,,,,,,,outputs/route_a_final_objecttext_v6/comparison_report.json
+Transformer,final/OOD,dataset_macro_seed,2,,4683,4679,0.08715210933752324,-0.00037484994578855513,,,,,,,,,outputs/route_a_final_objecttext_v6/comparison_report.json
+Transformer,final/OOD,dataset_macro_seed,3,,4683,4679,0.08564742986570975,-0.00047785169238279135,,,,,,,,,outputs/route_a_final_objecttext_v6/comparison_report.json
+Transformer,final/OOD,dataset_3seed,,anghabench-v1,1000,999,0.0356190673945983,-0.0013049778845507856,,,,,,,,,outputs/route_a_final_objecttext_v6/comparison_report.json
+Transformer,final/OOD,dataset_3seed,,blas-v0,29,29,0.004871612820618535,-0.006475458131997471,,,,,,,,,outputs/route_a_final_objecttext_v6/comparison_report.json
+Transformer,final/OOD,dataset_3seed,,cbench-v1,11,11,0.18750328640261646,-0.00048622920382093704,,,,,,,,,outputs/route_a_final_objecttext_v6/comparison_report.json
+Transformer,final/OOD,dataset_3seed,,chstone-v0,12,12,0.09497269275966763,0.0028327344098562773,,,,,,,,,outputs/route_a_final_objecttext_v6/comparison_report.json
+Transformer,final/OOD,dataset_3seed,,clgen-v0,150,150,0.10184952935764358,0.0007532169688027474,,,,,,,,,outputs/route_a_final_objecttext_v6/comparison_report.json
+Transformer,final/OOD,dataset_3seed,,csmith-v0,48,48,0.23714725762281863,-0.021250760646885414,,,,,,,,,outputs/route_a_final_objecttext_v6/comparison_report.json
+Transformer,final/OOD,dataset_3seed,,github-v0,1000,1000,0.006165294161171126,-0.0010386529769961144,,,,,,,,,outputs/route_a_final_objecttext_v6/comparison_report.json
+Transformer,final/OOD,dataset_3seed,,linux-v0,1000,1000,0.0012415337809798482,-0.001800401716741074,,,,,,,,,outputs/route_a_final_objecttext_v6/comparison_report.json
+Transformer,final/OOD,dataset_3seed,,llvm-stress-v0,150,147,-0.055709801437633634,-0.010843583187021819,,,,,,,,,outputs/route_a_final_objecttext_v6/comparison_report.json
+Transformer,final/OOD,dataset_3seed,,mibench-v1,40,40,0.06631893466635738,0.002844965441105643,,,,,,,,,outputs/route_a_final_objecttext_v6/comparison_report.json
+Transformer,final/OOD,dataset_3seed,,npb-v0,121,121,0.21834375612241727,-0.002009606823896004,,,,,,,,,outputs/route_a_final_objecttext_v6/comparison_report.json
+Transformer,final/OOD,dataset_3seed,,opencv-v0,32,32,0.0432683389140116,0.002216601534282908,,,,,,,,,outputs/route_a_final_objecttext_v6/comparison_report.json
+Transformer,final/OOD,dataset_3seed,,poj104-v1,1000,1000,0.1866461435073098,-0.00021284768426058087,,,,,,,,,outputs/route_a_final_objecttext_v6/comparison_report.json
+Transformer,final/OOD,dataset_3seed,,tensorflow-v0,90,90,0.05335351755300551,-0.0017995254498483493,,,,,,,,,outputs/route_a_final_objecttext_v6/comparison_report.json
+Direct MambaNVP,final/OOD,dataset_macro_3seed,,,4683,4679,0.08765961330771414,0.0005049212378889223,11.9388045878749,0.8333878360887765,,,,,,,outputs/mamba_nvp_final_objecttext_v6/comparison_report.json
+Direct MambaNVP,final/OOD,dataset_macro_seed,1,,4683,4679,0.08805309505096436,0.00024125968289302746,,,,,,,,,outputs/mamba_nvp_final_objecttext_v6/comparison_report.json
+Direct MambaNVP,final/OOD,dataset_macro_seed,2,,4683,4679,0.08721274304242747,-0.00031421624088431854,,,,,,,,,outputs/mamba_nvp_final_objecttext_v6/comparison_report.json
+Direct MambaNVP,final/OOD,dataset_macro_seed,3,,4683,4679,0.08771300182975059,0.001587720271658044,,,,,,,,,outputs/mamba_nvp_final_objecttext_v6/comparison_report.json
+Direct MambaNVP,final/OOD,dataset_3seed,,anghabench-v1,1000,999,0.03664893801278802,-0.00027510726636106875,,,,,,,,,outputs/mamba_nvp_final_objecttext_v6/comparison_report.json
+Direct MambaNVP,final/OOD,dataset_3seed,,blas-v0,29,29,0.010579528810568084,-0.0007675421420479216,,,,,,,,,outputs/mamba_nvp_final_objecttext_v6/comparison_report.json
+Direct MambaNVP,final/OOD,dataset_3seed,,cbench-v1,11,11,0.18802187883602994,3.2363229592546894e-05,,,,,,,,,outputs/mamba_nvp_final_objecttext_v6/comparison_report.json
+Direct MambaNVP,final/OOD,dataset_3seed,,chstone-v0,12,12,0.09259422579514252,0.00045426744533116903,,,,,,,,,outputs/mamba_nvp_final_objecttext_v6/comparison_report.json
+Direct MambaNVP,final/OOD,dataset_3seed,,clgen-v0,150,150,0.1010939840572328,-2.3283316080285887e-06,,,,,,,,,outputs/mamba_nvp_final_objecttext_v6/comparison_report.json
+Direct MambaNVP,final/OOD,dataset_3seed,,csmith-v0,48,48,0.25863753738217604,0.00023951911247199753,,,,,,,,,outputs/mamba_nvp_final_objecttext_v6/comparison_report.json
+Direct MambaNVP,final/OOD,dataset_3seed,,github-v0,1000,1000,0.007244265855220279,4.03187170530386e-05,,,,,,,,,outputs/mamba_nvp_final_objecttext_v6/comparison_report.json
+Direct MambaNVP,final/OOD,dataset_3seed,,linux-v0,1000,1000,0.0031128064426609696,7.087094494004744e-05,,,,,,,,,outputs/mamba_nvp_final_objecttext_v6/comparison_report.json
+Direct MambaNVP,final/OOD,dataset_3seed,,llvm-stress-v0,150,147,-0.03837934297804151,0.006486875272570303,,,,,,,,,outputs/mamba_nvp_final_objecttext_v6/comparison_report.json
+Direct MambaNVP,final/OOD,dataset_3seed,,mibench-v1,40,40,0.06403418833360595,0.0005602191083542152,,,,,,,,,outputs/mamba_nvp_final_objecttext_v6/comparison_report.json
+Direct MambaNVP,final/OOD,dataset_3seed,,npb-v0,121,121,0.22006043291715127,-0.00029293002916200295,,,,,,,,,outputs/mamba_nvp_final_objecttext_v6/comparison_report.json
+Direct MambaNVP,final/OOD,dataset_3seed,,opencv-v0,32,32,0.04152345963957583,0.00047172225984713767,,,,,,,,,outputs/mamba_nvp_final_objecttext_v6/comparison_report.json
+Direct MambaNVP,final/OOD,dataset_3seed,,poj104-v1,1000,1000,0.18682057293601054,-3.841825555983558e-05,,,,,,,,,outputs/mamba_nvp_final_objecttext_v6/comparison_report.json
+Direct MambaNVP,final/OOD,dataset_3seed,,tensorflow-v0,90,90,0.055242110267877155,8.906726502329321e-05,,,,,,,,,outputs/mamba_nvp_final_objecttext_v6/comparison_report.json
+Anchored MambaNVP,final/OOD,dataset_macro_3seed,,,4683,4679,0.08778864950836797,0.0006339574385427482,11.93089691529529,0.8346145948660771,0.6453658189071739,,,,,,outputs/gated_calibrated_mambanvp_final_objecttext_v2/comparison_report.json
+Anchored MambaNVP,final/OOD,dataset_macro_seed,1,,4683,4679,0.0881268103519816,0.00031497498391026835,,,,,,,,,outputs/gated_calibrated_mambanvp_final_objecttext_v2/comparison_report.json
+Anchored MambaNVP,final/OOD,dataset_macro_seed,2,,4683,4679,0.08734139972723186,-0.0001855595560799339,,,,,,,,,outputs/gated_calibrated_mambanvp_final_objecttext_v2/comparison_report.json
+Anchored MambaNVP,final/OOD,dataset_macro_seed,3,,4683,4679,0.08789773844589048,0.001772456887797938,,,,,,,,,outputs/gated_calibrated_mambanvp_final_objecttext_v2/comparison_report.json
+Anchored MambaNVP,final/OOD,dataset_3seed,,anghabench-v1,1000,999,0.03668340861622433,-0.00024063666292475916,,,,,,,,,outputs/gated_calibrated_mambanvp_final_objecttext_v2/comparison_report.json
+Anchored MambaNVP,final/OOD,dataset_3seed,,blas-v0,29,29,0.011258671188894441,-8.839976372156458e-05,,,,,,,,,outputs/gated_calibrated_mambanvp_final_objecttext_v2/comparison_report.json
+Anchored MambaNVP,final/OOD,dataset_3seed,,cbench-v1,11,11,0.18818737494299756,0.0001978593365601633,,,,,,,,,outputs/gated_calibrated_mambanvp_final_objecttext_v2/comparison_report.json
+Anchored MambaNVP,final/OOD,dataset_3seed,,chstone-v0,12,12,0.09166135144948152,-0.000478606900329831,,,,,,,,,outputs/gated_calibrated_mambanvp_final_objecttext_v2/comparison_report.json
+Anchored MambaNVP,final/OOD,dataset_3seed,,clgen-v0,150,150,0.1012133322351525,0.0001170198463116695,,,,,,,,,outputs/gated_calibrated_mambanvp_final_objecttext_v2/comparison_report.json
+Anchored MambaNVP,final/OOD,dataset_3seed,,csmith-v0,48,48,0.25872477282392287,0.00032675455421882216,,,,,,,,,outputs/gated_calibrated_mambanvp_final_objecttext_v2/comparison_report.json
+Anchored MambaNVP,final/OOD,dataset_3seed,,github-v0,1000,1000,0.007233893364201378,2.99462260341379e-05,,,,,,,,,outputs/gated_calibrated_mambanvp_final_objecttext_v2/comparison_report.json
+Anchored MambaNVP,final/OOD,dataset_3seed,,linux-v0,1000,1000,0.0031009022213143076,5.896672359338544e-05,,,,,,,,,outputs/gated_calibrated_mambanvp_final_objecttext_v2/comparison_report.json
+Anchored MambaNVP,final/OOD,dataset_3seed,,llvm-stress-v0,150,147,-0.03588988817359847,0.008976330077013345,,,,,,,,,outputs/gated_calibrated_mambanvp_final_objecttext_v2/comparison_report.json
+Anchored MambaNVP,final/OOD,dataset_3seed,,mibench-v1,40,40,0.06448620212497806,0.001012232899726323,,,,,,,,,outputs/gated_calibrated_mambanvp_final_objecttext_v2/comparison_report.json
+Anchored MambaNVP,final/OOD,dataset_3seed,,npb-v0,121,121,0.21930900057472902,-0.0010443623715842565,,,,,,,,,outputs/gated_calibrated_mambanvp_final_objecttext_v2/comparison_report.json
+Anchored MambaNVP,final/OOD,dataset_3seed,,opencv-v0,32,32,0.04146910409269726,0.0004173667129685685,,,,,,,,,outputs/gated_calibrated_mambanvp_final_objecttext_v2/comparison_report.json
+Anchored MambaNVP,final/OOD,dataset_3seed,,poj104-v1,1000,1000,0.18684375008035622,-1.5241111214148173e-05,,,,,,,,,outputs/gated_calibrated_mambanvp_final_objecttext_v2/comparison_report.json
+Anchored MambaNVP,final/OOD,dataset_3seed,,tensorflow-v0,90,90,0.054759217575800656,-0.0003938254270532057,,,,,,,,,outputs/gated_calibrated_mambanvp_final_objecttext_v2/comparison_report.json
+PA-MambaNVP,final/OOD,dataset_macro_3seed,,,4683,4679,0.08914712188120406,0.001992429811378843,9.31053643941013,0.8475297140237454,0.645437059200684,0.8669231317233027,0.0013655311165030465,9,5,0.002041369037174942,outputs/policy_aware_mambanvp_v1/comparison_report.json
+PA-MambaNVP,final/OOD,dataset_macro_seed,1,,4683,4679,0.08771732863389425,-9.450673417707445e-05,,,,,,,,,outputs/policy_aware_mambanvp_v1/comparison_report.json
+PA-MambaNVP,final/OOD,dataset_macro_seed,2,,4683,4679,0.08944175047161283,0.0019147911883010404,,,,,,,,,outputs/policy_aware_mambanvp_v1/comparison_report.json
+PA-MambaNVP,final/OOD,dataset_macro_seed,3,,4683,4679,0.09028228653810512,0.004157004980012577,,,,,,,,,outputs/policy_aware_mambanvp_v1/comparison_report.json
+PA-MambaNVP,final/OOD,dataset_3seed,,anghabench-v1,,,0.03410623994307411,-0.00281780533607498,,,,,,,,,outputs/policy_aware_mambanvp_v1/comparison_report.json
+PA-MambaNVP,final/OOD,dataset_3seed,,blas-v0,,,0.01070217264922898,-0.0006448983033870252,,,,,,,,,outputs/policy_aware_mambanvp_v1/comparison_report.json
+PA-MambaNVP,final/OOD,dataset_3seed,,cbench-v1,,,0.19541494046865207,0.007425424862214675,,,,,,,,,outputs/policy_aware_mambanvp_v1/comparison_report.json
+PA-MambaNVP,final/OOD,dataset_3seed,,chstone-v0,,,0.0946516197263601,0.002511661376548749,,,,,,,,,outputs/policy_aware_mambanvp_v1/comparison_report.json
+PA-MambaNVP,final/OOD,dataset_3seed,,clgen-v0,,,0.10290792692496882,0.0018116145361279923,,,,,,,,,outputs/policy_aware_mambanvp_v1/comparison_report.json
+PA-MambaNVP,final/OOD,dataset_3seed,,csmith-v0,,,0.25723008478960213,-0.0011679334801019126,,,,,,,,,outputs/policy_aware_mambanvp_v1/comparison_report.json
+PA-MambaNVP,final/OOD,dataset_3seed,,github-v0,,,0.007685414225408818,0.00048146708724157786,,,,,,,,,outputs/policy_aware_mambanvp_v1/comparison_report.json
+PA-MambaNVP,final/OOD,dataset_3seed,,linux-v0,,,0.00034571333664393093,-0.002696222161076991,,,,,,,,,outputs/policy_aware_mambanvp_v1/comparison_report.json
+PA-MambaNVP,final/OOD,dataset_3seed,,llvm-stress-v0,,,-0.043509998374582116,0.001356219876029699,,,,,,,,,outputs/policy_aware_mambanvp_v1/comparison_report.json
+PA-MambaNVP,final/OOD,dataset_3seed,,mibench-v1,,,0.0718116630070736,0.008337693781821864,,,,,,,,,outputs/policy_aware_mambanvp_v1/comparison_report.json
+PA-MambaNVP,final/OOD,dataset_3seed,,npb-v0,,,0.22997928607958365,0.009625923133270375,,,,,,,,,outputs/policy_aware_mambanvp_v1/comparison_report.json
+PA-MambaNVP,final/OOD,dataset_3seed,,opencv-v0,,,0.04381346665013867,0.0027617292704099766,,,,,,,,,outputs/policy_aware_mambanvp_v1/comparison_report.json
+PA-MambaNVP,final/OOD,dataset_3seed,,poj104-v1,,,0.18639329155087392,-0.0004656996406964542,,,,,,,,,outputs/policy_aware_mambanvp_v1/comparison_report.json
+PA-MambaNVP,final/OOD,dataset_3seed,,tensorflow-v0,,,0.056527885359830256,0.001374842356976394,,,,,,,,,outputs/policy_aware_mambanvp_v1/comparison_report.json
