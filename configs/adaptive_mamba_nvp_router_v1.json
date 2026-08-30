@@ -1,0 +1,96 @@
+{
+  "experiment_name": "adaptive_mamba_nvp_router_v1",
+  "purpose": "One frozen-expert, program-adaptive Mamba/NVP probability router; validation selects checkpoints and tau before one final/OOD evaluation.",
+  "target_files": {
+    "train": "outputs/rlcompopt_route_a_nvp_targets_v6/train_targets.jsonl.gz",
+    "validation": "outputs/rlcompopt_route_a_nvp_targets_v6/validation_targets.jsonl.gz"
+  },
+  "label_shards": {
+    "train": "outputs/rlcompopt_route_a_objecttext_v6_parallel12/shards/train",
+    "validation": "outputs/rlcompopt_route_a_objecttext_v6_parallel12/shards/validation",
+    "final": "outputs/route_a_final_objecttext_v6/shards/final"
+  },
+  "autophase_feature_cache": {
+    "train": "outputs/autophase_feature_cache_v6/train_autophase.jsonl.gz",
+    "validation": "outputs/autophase_feature_cache_v6/validation_autophase.jsonl.gz",
+    "final": "outputs/autophase_feature_cache_v6/final_autophase.jsonl.gz",
+    "dimension": 56,
+    "preprocessing": "raw_autophase / raw_autophase[51]"
+  },
+  "frozen_experts": {
+    "nvp_checkpoint_root": "outputs/route_a_stage_b_v6/nvp",
+    "mamba_checkpoint_root": "outputs/route_a_stage_b_v6/mamba",
+    "controlled_config": "configs/controlled_nvp_stage_a_v6.json",
+    "seed_matched": true,
+    "mode": "eval",
+    "trainable": false
+  },
+  "candidate_representation": {
+    "candidate_sequences": "configs/rlcompopt_action_seq_50.txt",
+    "K": 50,
+    "padded_length": 20,
+    "pad_token_id": 124
+  },
+  "router": {
+    "input": "normalized Autophase(56), P_M(50), P_N(50), abs(P_M-P_N)(50), entropy_M, entropy_N, top1_M, top1_N, margin_M, margin_N, JS, L1, top1_agreement",
+    "input_dimension": 215,
+    "layers": [128, 64, 1],
+    "activation": "GELU",
+    "dropout": 0.1,
+    "alpha_semantics": "0=Mamba, 1=NVP",
+    "mixing": "P_mix=(1-alpha)*P_M+alpha*P_N; probabilities only, no raw-logit mixing"
+  },
+  "routing_supervision": {
+    "utility": "policy45 reduction_vs_Oz=(S_Oz-policy45_object_text_size_bytes)/S_Oz from existing frozen prefix labels",
+    "advantage": "A=U_N-U_M",
+    "scale": "median(abs(A)) over train programs with exact-zero values excluded; fail if no nonzero advantage exists",
+    "target": "sigmoid(A/s)",
+    "task_loss": "soft-target cross entropy over P_mix and existing normalized_target",
+    "route_loss": "BCE(alpha,y_route)",
+    "lambda_route": 0.25,
+    "total_loss": "L_task + 0.25 * L_route"
+  },
+  "training": {
+    "final_seed_set": [1, 2, 3],
+    "optimizer": "Adam",
+    "learning_rate": 0.0005,
+    "weight_decay": 0.00001,
+    "batch_size": 256,
+    "evaluation_batch_size": 64,
+    "total_steps": 10000,
+    "warmup_steps": 500,
+    "lr_schedule": "500-step linear warmup then cosine to lr*0.01 over remaining 9500 steps",
+    "early_stopping": false,
+    "checkpoint_evaluation_cadence_steps": 100,
+    "sampler": "source-balanced: uniformly choose an explicit target dataset_id, then uniformly choose a program within it; dataset_id is never a router input",
+    "checkpoint_selection": "per seed, highest validation policy45 dataset-macro MeanOverOz of the unthresholded P_mix; deterministic first checkpoint on ties"
+  },
+  "threshold_selection": {
+    "tau_values": [0.5, 0.6, 0.7, 0.8, 0.9, 1.0],
+    "effective_weight": "alpha_eff=0 if alpha<=tau else (alpha-tau)/(1-tau); tau=1 gives alpha_eff=0 exactly",
+    "high_bar_validation_mean_over_oz": 0.06355292,
+    "selection": "among tau whose final three-seed validation macro strictly exceeds high_bar, maximize S_val=macro_delta_vs_NVP+0.5*median_dataset_delta_vs_NVP; ties: positive dataset count, then raw macro MeanOverOz",
+    "ood_access": "only after selected checkpoints and tau are frozen"
+  },
+  "frozen_populations": {
+    "train": {"total": 28167, "complete_k50": 28159, "invalid": 8},
+    "validation": {"total": 4490, "complete_k50": 4488, "invalid": 2},
+    "final": {"total": 4683, "complete_k50": 4679, "invalid": 4}
+  },
+  "validation": {
+    "sampling": false,
+    "ranking": "descending probabilities; candidate ID ascending tie break",
+    "scored_pass_budget": 45,
+    "final_test_accessed_before_tau_selection": false
+  },
+  "existing_final_references": {
+    "NVP": 0.08715469206982522,
+    "Mamba": 0.08462666303481921,
+    "MambaNVP": 0.08765961330771414,
+    "CrossCandidateMambaNVP": 0.08772109149881376,
+    "AnchoredMambaNVP": 0.08778864950836797,
+    "nvp_result_root": "outputs/route_a_final_objecttext_v6/model_results/nvp",
+    "mamba_result_root": "outputs/route_a_final_objecttext_v6/model_results/mamba"
+  },
+  "forbidden": ["CompilerGym", "LLVM", "candidate rollout", "ObjectText measurement", "label regeneration", "candidate search", "runtime", "final/OOD threshold selection", "dataset ID router input", "additional model variants"]
+}
