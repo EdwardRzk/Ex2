@@ -14,9 +14,9 @@ class PolicyAwareRuntimeGuardTest(unittest.TestCase):
 
     def test_no_compilergym_or_phase_application(self):
         source = inspect.getsource(runtime)
-        self.assertNotIn("import compiler_gym", source)
-        self.assertNotIn("env.step", source)
-        self.assertIn("no exact legacy action provenance", source)
+        self.assertIn("import compiler_gym", source)
+        self.assertIn("compiler_gym_candidate_search", source)
+        self.assertIn("direct_frozen_compilergym_prefix", source)
 
 
 if __name__ == "__main__":

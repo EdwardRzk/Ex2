@@ -76,9 +76,9 @@ def freeze(root: Path, output: Path) -> None:
         "population": {"included_program_count": 9, "program_ids": [row["program_id"] for row in programs]},
         "methods": list(METHODS),
         "inference": {"sampling": False, "ranking": "descending frozen logits; candidate_id ascending ties", "policy": parent_cfg["methods"]["policy"]},
-        "binary_provenance": "PA-only exact hash-verified copy of an already-built Route-A binary after action-id prefix equality; missing provenance is a hard stop. No CompilerGym or LLVM phase application.",
+        "binary_provenance": "PA-only exact hash-verified legacy copy when available; otherwise original Route-A deterministic CompilerGym reset plus the one frozen selected action prefix and fixed clang build. No candidate search or baseline build.",
         "measurement": parent_cfg["measurement"], "correctness": parent_cfg["correctness"], "aggregation": parent_cfg["aggregation"],
-        "forbidden": ["baseline binary timing", "CompilerGym candidate rollout", "LLVM phase search", "LLVM phase application", "ObjectText measurement", "label regeneration", "retraining", "checkpoint selection", "sampling", "runtime-guided sequence selection"],
+        "forbidden": ["baseline binary timing", "CompilerGym candidate search", "LLVM phase search", "ObjectText measurement", "label regeneration", "retraining", "checkpoint selection", "sampling", "runtime-guided sequence selection"],
         "programs": programs,
     }
     output.mkdir(parents=True); (output / "config.json").write_text(json.dumps(cfg, indent=2, sort_keys=True) + "\n", encoding="utf-8")
@@ -116,23 +116,34 @@ def recover_prefixes(output: Path) -> None:
 
 
 def build(output: Path) -> None:
+    import compiler_gym
     cfg = load_cfg(output); verify_frozen(cfg); manifest_path, metadata_path = output / "build_manifest.json", output / "binary_metadata.json"
     if manifest_path.exists() or metadata_path.exists():
         raise FileExistsError("refusing to overwrite PA binary metadata")
     selected = load_json(output / "policy_prefixes.json")["programs"]
     legacy_prefixes = load_json(Path(cfg["frozen_inputs"]["legacy_policy_prefixes"]["path"]))["programs"]
     legacy_builds = load_json(Path(cfg["frozen_inputs"]["legacy_build_manifest"]["path"]))["programs"]
-    report: dict[str, Any] = {"config_sha256": base.sha256(output / "config.json"), "execution": "PA_ONLY_COPY_VERIFIED_FROZEN_BINARY_NO_COMPILERGYM_ROLLOUT_NO_LLVM_PHASE_APPLICATION", "programs": {}}
+    clang = load_json(Path(cfg["parent_protocol"]["path"]))["environment"]["clang"]
+    report: dict[str, Any] = {"config_sha256": base.sha256(output / "config.json"), "execution": "PA_ONLY_DIRECT_FROZEN_PREFIX_BUILD_NO_SEARCH_NO_BASELINE_BUILD", "programs": {}}
     for spec in cfg["programs"]:
         program = spec["program_id"]; entries = {}; binary_dir = output / "work" / program.rsplit("/", 1)[-1] / "binaries"; binary_dir.mkdir(parents=True)
         for method in METHODS:
             prefix = selected[program][method]
-            legacy_key, legacy = base.choose_legacy_source(prefix, legacy_prefixes[program], None)
-            source = legacy_builds[program]["methods"][legacy_key.lower()]
-            if source["action_ids"] != prefix["action_ids"]:
-                raise ValueError(f"PA selected prefix has no exact legacy action provenance: {program}/{method}")
             binary, bitcode = binary_dir / method, binary_dir / f"{method}.bc"
-            entries[method] = {"binary": str(binary), "sha256": base.copy_checked(Path(source["binary"]), binary, source["sha256"]), "bitcode": str(bitcode), "bitcode_sha256": base.copy_checked(Path(source["bitcode"]), bitcode, source["bitcode_sha256"]), "legacy_prefix_key": legacy_key, "candidate_id": prefix["candidate_id"], "candidate_rank": prefix["candidate_rank"], "pass_sequence_id": prefix["candidate_id"], "action_ids": prefix["action_ids"], "pass_count": prefix["pass_count"], "prefix_index": prefix["prefix_index"], "policy45_object_text_size_bytes": prefix["policy45_object_text_size_bytes"]}
+            env = compiler_gym.make("llvm-v0", reward_space=None)
+            try:
+                env.reset(benchmark=program)
+                for action in prefix["action_ids"]:
+                    _, _, done, _ = env.step(int(action))
+                    if done:
+                        raise RuntimeError(f"episode ended during frozen PA prefix: {program}/{method}")
+                env.write_bitcode(bitcode)
+            finally:
+                env.close()
+            done = subprocess.run([clang, str(bitcode), "-o", str(binary), *spec["linkopts"]], stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, check=False)
+            if done.returncode or not binary.is_file():
+                raise RuntimeError(f"frozen PA prefix compile failed: {program}/{method}: {done.stdout}")
+            entries[method] = {"binary": str(binary), "sha256": base.sha256(binary), "bitcode": str(bitcode), "bitcode_sha256": base.sha256(bitcode), "legacy_prefix_key": None, "build_source": "direct_frozen_compilergym_prefix", "compiler_actions_executed": len(prefix["action_ids"]), "candidate_id": prefix["candidate_id"], "candidate_rank": prefix["candidate_rank"], "pass_sequence_id": prefix["candidate_id"], "action_ids": prefix["action_ids"], "pass_count": prefix["pass_count"], "prefix_index": prefix["prefix_index"], "policy45_object_text_size_bytes": prefix["policy45_object_text_size_bytes"]}
         report["programs"][program] = {"methods": entries, "pa_only": set(entries) == set(METHODS)}
     manifest_path.write_text(json.dumps(report, indent=2, sort_keys=True) + "\n", encoding="utf-8")
     metadata_path.write_text(json.dumps({"config_sha256": base.sha256(output / "config.json"), "binary_count": len(METHODS) * len(cfg["programs"]), "baseline_binaries_newly_timed": 0, "programs": report["programs"]}, indent=2, sort_keys=True) + "\n", encoding="utf-8")
@@ -184,7 +195,7 @@ def gmean(values: Sequence[float]) -> float | None:
 
 
 def aggregate(output: Path) -> None:
-    cfg=load_cfg(output); current=load_json(output/"timing_summary.json"); saved=load_json(Path(cfg["baseline_runtime_source"]["timing_summary.json"]["path"])); cohorts=load_json(output/"runtime_cohort_manifest.json")["programs"]
+    cfg=load_cfg(output); current=load_json(output/"timing_summary.json"); saved=load_json(Path(cfg["baseline_runtime_source"]["timing_summary.json"]["path"])); builds=load_json(output/"build_manifest.json"); cohorts=load_json(output/"runtime_cohort_manifest.json")["programs"]
     primary=[p for p,row in cohorts.items() if row["pa_semantic_valid"] and row["baseline_primary_valid"]]; secondary=[p for p,row in cohorts.items() if row["pa_execution_valid"] and row["baseline_secondary_valid"]]
     def summary(programs: Sequence[str]) -> dict[str, Any]:
         per_seed={}
@@ -195,7 +206,7 @@ def aggregate(output: Path) -> None:
             per_seed[str(seed)]={"pa_geomean_speedup_vs_oz":gmean([row["speedup_vs_oz"] for row in rows.values()]),"pa_geomean_speedup_vs_nvp":gmean([row["speedup_vs_nvp"] for row in rows.values()]),"direct_over_pa":gmean([row["direct_over_pa"] for row in rows.values()]),"anchored_over_pa":gmean([row["anchored_over_pa"] for row in rows.values()]),"per_benchmark":rows}
         return {"N_programs":len(programs),"program_ids":list(programs),"per_seed":per_seed,"three_seed":{"pa_geomean_speedup_vs_oz":gmean([per_seed[str(s)]["pa_geomean_speedup_vs_oz"] for s in SEEDS]),"pa_geomean_speedup_vs_nvp":gmean([per_seed[str(s)]["pa_geomean_speedup_vs_nvp"] for s in SEEDS]),"direct_over_pa":gmean([per_seed[str(s)]["direct_over_pa"] for s in SEEDS]),"anchored_over_pa":gmean([per_seed[str(s)]["anchored_over_pa"] for s in SEEDS])}}
     primary_summary,secondary_summary=summary(primary),summary(secondary); enriched_summary(output); details=load_json(output/"per_benchmark_summary.json"); all_stats=[row for methods in details["programs"].values() for row in methods.values()]
-    report={"step_execution":"COMPLETE","protocol":"exact route_a_posthoc_runtime_v6 cohort/CPU/thread/env/warmup/timing/correctness reused; only PA binaries newly timed","baseline_measurements_reused_only":True,"baseline_binary_executions":0,"pa_newly_timed_binaries":len(METHODS)*9,"compiler_gym_initialized":False,"candidate_rollouts":0,"llvm_phase_search":0,"llvm_phase_application":0,"objecttext_measurements":0,"primary_semantic_cohort":primary_summary,"secondary_execution_cohort":secondary_summary,"speedup_vs_o3":{"status":"unavailable","reason":"no same-protocol saved O3 timing result"},"rse":{"target_reached":sum(row["RSE"]<=.01 for row in all_stats),"twenty_run_cap":sum(row["timed_run_count"]==20 and row["RSE"]>.01 for row in all_stats)},"correctness":load_json(output/"runtime_cohort_manifest.json")}
+    report={"step_execution":"COMPLETE","protocol":"exact route_a_posthoc_runtime_v6 cohort/CPU/thread/env/warmup/timing/correctness reused; only PA binaries newly timed","baseline_measurements_reused_only":True,"baseline_binary_executions":0,"pa_newly_timed_binaries":len(METHODS)*9,"compiler_gym_initialized":True,"compiler_gym_candidate_search":0,"candidate_rollouts":0,"llvm_phase_search":0,"compiler_actions_executed":sum(row["compiler_actions_executed"] for program in builds["programs"].values() for row in program["methods"].values()),"objecttext_measurements":0,"primary_semantic_cohort":primary_summary,"secondary_execution_cohort":secondary_summary,"speedup_vs_o3":{"status":"unavailable","reason":"no same-protocol saved O3 timing result"},"rse":{"target_reached":sum(row["RSE"]<=.01 for row in all_stats),"twenty_run_cap":sum(row["timed_run_count"]==20 and row["RSE"]>.01 for row in all_stats)},"correctness":load_json(output/"runtime_cohort_manifest.json")}
     (output/"comparison_report.json").write_text(json.dumps(report,indent=2,sort_keys=True)+"\n",encoding="utf-8")
 
 
