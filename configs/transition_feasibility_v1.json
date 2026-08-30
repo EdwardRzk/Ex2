@@ -1,0 +1,71 @@
+{
+  "experiment_name": "transition_feasibility_v1",
+  "purpose": "One train/validation-only feasibility study for transition-supervised MambaNVP; never a full model training run.",
+  "frozen_inputs": {
+    "train_targets": "outputs/rlcompopt_route_a_nvp_targets_v6/train_targets.jsonl.gz",
+    "validation_targets": "outputs/rlcompopt_route_a_nvp_targets_v6/validation_targets.jsonl.gz",
+    "validation_label_shards": "outputs/rlcompopt_route_a_objecttext_v6_parallel12/shards/validation",
+    "candidate_sequences": "configs/rlcompopt_action_seq_50.txt",
+    "llvm_version": "10.0.0",
+    "compiler_gym_version": "0.2.5",
+    "candidate_count": 50,
+    "autophase_dimension": 56,
+    "autophase_normalization": "raw_autophase / raw_autophase[51]",
+    "target_formula": "softmax(raw_candidate_value / 0.05)",
+    "policy": "frozen deterministic descending score, candidate ID ascending tie break, policy45"
+  },
+  "population": {
+    "train_complete_k50": 28159,
+    "validation_complete_k50": 4488,
+    "selection": "within each explicit dataset_id, program_id ascending; first max_per_source programs only",
+    "max_train_programs_per_source": 8,
+    "max_validation_programs_per_source": 4,
+    "final_or_ood_access": false
+  },
+  "collection": {
+    "environment_id": "llvm-v0",
+    "reward_space": null,
+    "operations": ["env.reset(benchmark=program_id)", "env.observation['Autophase']", "env.step(existing_frozen_action_id)"],
+    "objecttext_observations": 0,
+    "label_regeneration": false,
+    "workers": 12,
+    "retry_count": 0
+  },
+  "controlled_probes": {
+    "seeds": [1, 2, 3],
+    "d_model": 64,
+    "sequence_encoder": "single-layer GRU over ordered frozen pass tokens",
+    "transition_summary": ["final_minus_initial", "mean_delta", "max_abs_delta", "cumulative_abs_delta"],
+    "optimizer": "Adam",
+    "learning_rate": 0.001,
+    "weight_decay": 0.00001,
+    "batch_size": 16,
+    "total_steps": 1500,
+    "checkpoint_selection": "none; evaluate exactly at the frozen final step",
+    "objective": "same soft-label candidate cross entropy over K=50 normalized_target"
+  },
+  "transition_signal_gate": {
+    "all_conditions_required": true,
+    "candidate_loss": "three-seed mean held-out CE is strictly lower for oracle than BASE",
+    "policy_metric": "three-seed mean held-out policy45 dataset-macro MeanOverOz is strictly higher for oracle than BASE in at least two of three paired seeds",
+    "breadth": "oracle policy delta has positive median across explicit validation sources and positive sources outnumber negative sources",
+    "on_failure": "stop; do not train a transition predictor or full TS-MambaNVP"
+  },
+  "predictor_if_signal_supported": {
+    "architecture": "initial Autophase conditioning plus token embedding, positional embedding, two residual Mamba blocks (d_model=64), final-token 56-D delta head",
+    "d_model": 64,
+    "mamba_d_state": 16,
+    "mamba_d_conv": 4,
+    "mamba_expand": 2,
+    "seeds": [1, 2, 3],
+    "optimizer": "Adam",
+    "learning_rate": 0.001,
+    "weight_decay": 0.00001,
+    "batch_size": 256,
+    "total_steps": 1500,
+    "normalization": "per-feature train delta RMS, clamped at 1e-6",
+    "baselines": ["zero delta", "global train mean delta", "per-pass train mean delta"],
+    "predictability_gate": "three-seed learned normalized MSE beats every baseline globally and beats per-pass mean on a strict majority of validation sources"
+  },
+  "forbidden": ["final/OOD", "runtime", "new candidates", "K change", "policy change", "ObjectText observation", "ObjectText measurement", "label regeneration", "headroom experiment", "full TS-MambaNVP training", "checkpoint tuning"]
+}
