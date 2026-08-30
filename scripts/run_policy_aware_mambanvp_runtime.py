@@ -128,7 +128,7 @@ def build(output: Path) -> None:
         for method in METHODS:
             prefix = selected[program][method]
             legacy_key, legacy = base.choose_legacy_source(prefix, legacy_prefixes[program], None)
-            source = legacy_builds[program][legacy_key.lower()]
+            source = legacy_builds[program]["methods"][legacy_key.lower()]
             if source["action_ids"] != prefix["action_ids"]:
                 raise ValueError(f"PA selected prefix has no exact legacy action provenance: {program}/{method}")
             binary, bitcode = binary_dir / method, binary_dir / f"{method}.bc"
