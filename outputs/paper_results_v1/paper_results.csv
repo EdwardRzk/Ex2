@@ -101,6 +101,10 @@ PA-MambaNVP,validation,dataset_3seed,,llvm-stress-v0,,,-0.007422283685803045,,,,
 PA-MambaNVP,validation,dataset_3seed,,opencv-v0,,,0.05436890157876173,,,,,,,,,,outputs/policy_aware_mambanvp_v1/comparison_report.json
 PA-MambaNVP,validation,dataset_3seed,,poj104-v1,,,0.19194908476539854,,,,,,,,,,outputs/policy_aware_mambanvp_v1/comparison_report.json
 PA-MambaNVP,validation,dataset_3seed,,tensorflow-v0,,,0.03281412804386405,,,,,,,,,,outputs/policy_aware_mambanvp_v1/comparison_report.json
+Cross-Candidate MambaNVP,validation,dataset_macro_3seed,,,4488,4488,0.06202097991289138,-0.0007500296218195812,7.753639334521687,0.8009257529800194,,,,,,,outputs/cross_candidate_mambanvp_v1/comparison_report.json
+Cross-Candidate MambaNVP,validation,dataset_macro_seed,1,,4488,4488,0.06310448854309879,0.00033347900838782973,7.455882352941177,,,,,,,,outputs/cross_candidate_mambanvp_v1/comparison_report.json
+Cross-Candidate MambaNVP,validation,dataset_macro_seed,2,,4488,4488,0.06075540361266797,-0.0020156059220429873,7.522058823529412,,,,,,,,outputs/cross_candidate_mambanvp_v1/comparison_report.json
+Cross-Candidate MambaNVP,validation,dataset_macro_seed,3,,4488,4488,0.062203047582907366,-0.000567961951803593,8.282976827094474,,,,,,,,outputs/cross_candidate_mambanvp_v1/comparison_report.json
 NVP,final/OOD,dataset_macro_3seed,,,4683,4679,0.08715469206982522,0.0,,0.828587504419934,,,,,,,outputs/route_a_final_objecttext_v6/comparison_report.json
 NVP,final/OOD,dataset_macro_seed,1,,4683,4679,0.08781183536807133,0.0,,,,,,,,,outputs/route_a_final_objecttext_v6/comparison_report.json
 NVP,final/OOD,dataset_macro_seed,2,,4683,4679,0.08752695928331179,0.0,,,,,,,,,outputs/route_a_final_objecttext_v6/comparison_report.json
@@ -245,3 +249,21 @@ PA-MambaNVP,final/OOD,dataset_3seed,,npb-v0,,,0.22997928607958365,0.009625923133
 PA-MambaNVP,final/OOD,dataset_3seed,,opencv-v0,,,0.04381346665013867,0.0027617292704099766,,,,,,,,,outputs/policy_aware_mambanvp_v1/comparison_report.json
 PA-MambaNVP,final/OOD,dataset_3seed,,poj104-v1,,,0.18639329155087392,-0.0004656996406964542,,,,,,,,,outputs/policy_aware_mambanvp_v1/comparison_report.json
 PA-MambaNVP,final/OOD,dataset_3seed,,tensorflow-v0,,,0.056527885359830256,0.001374842356976394,,,,,,,,,outputs/policy_aware_mambanvp_v1/comparison_report.json
+Cross-Candidate MambaNVP,final/OOD,dataset_macro_3seed,,,4683,4679,0.08772109149881376,0.0005663994289885343,11.898625062335256,0.8339723147867067,,,,,,,outputs/cross_candidate_mambanvp_final_objecttext_v1/comparison_report.json
+Cross-Candidate MambaNVP,final/OOD,dataset_macro_seed,1,,4683,4679,0.08804090510837047,0.00022906974029913985,,,,,,,,,outputs/cross_candidate_mambanvp_final_objecttext_v1/comparison_report.json
+Cross-Candidate MambaNVP,final/OOD,dataset_macro_seed,2,,4683,4679,0.08710943832275728,-0.0004175209605545155,,,,,,,,,outputs/cross_candidate_mambanvp_final_objecttext_v1/comparison_report.json
+Cross-Candidate MambaNVP,final/OOD,dataset_macro_seed,3,,4683,4679,0.08801293106531356,0.0018876495072210203,,,,,,,,,outputs/cross_candidate_mambanvp_final_objecttext_v1/comparison_report.json
+Cross-Candidate MambaNVP,final/OOD,dataset_3seed,,anghabench-v1,1000,999,0.03655926367043829,-0.00036478160871079857,,,,,,,,,outputs/cross_candidate_mambanvp_final_objecttext_v1/comparison_report.json
+Cross-Candidate MambaNVP,final/OOD,dataset_3seed,,blas-v0,29,29,0.011246764751457396,-0.00010030620115861026,,,,,,,,,outputs/cross_candidate_mambanvp_final_objecttext_v1/comparison_report.json
+Cross-Candidate MambaNVP,final/OOD,dataset_3seed,,cbench-v1,11,11,0.1875586668343564,-0.0004308487720809939,,,,,,,,,outputs/cross_candidate_mambanvp_final_objecttext_v1/comparison_report.json
+Cross-Candidate MambaNVP,final/OOD,dataset_3seed,,chstone-v0,12,12,0.09259422579514252,0.00045426744533116903,,,,,,,,,outputs/cross_candidate_mambanvp_final_objecttext_v1/comparison_report.json
+Cross-Candidate MambaNVP,final/OOD,dataset_3seed,,clgen-v0,150,150,0.10094379179169899,-0.0001525205971418392,,,,,,,,,outputs/cross_candidate_mambanvp_final_objecttext_v1/comparison_report.json
+Cross-Candidate MambaNVP,final/OOD,dataset_3seed,,csmith-v0,48,48,0.25872477282392287,0.00032675455421882216,,,,,,,,,outputs/cross_candidate_mambanvp_final_objecttext_v1/comparison_report.json
+Cross-Candidate MambaNVP,final/OOD,dataset_3seed,,github-v0,1000,1000,0.007230696026049887,2.6748887882646795e-05,,,,,,,,,outputs/cross_candidate_mambanvp_final_objecttext_v1/comparison_report.json
+Cross-Candidate MambaNVP,final/OOD,dataset_3seed,,linux-v0,1000,1000,0.0031013423160122966,5.940681829137446e-05,,,,,,,,,outputs/cross_candidate_mambanvp_final_objecttext_v1/comparison_report.json
+Cross-Candidate MambaNVP,final/OOD,dataset_3seed,,llvm-stress-v0,150,147,-0.03832203866375266,0.006544179586859156,,,,,,,,,outputs/cross_candidate_mambanvp_final_objecttext_v1/comparison_report.json
+Cross-Candidate MambaNVP,final/OOD,dataset_3seed,,mibench-v1,40,40,0.06453375244526066,0.0010597832200089224,,,,,,,,,outputs/cross_candidate_mambanvp_final_objecttext_v1/comparison_report.json
+Cross-Candidate MambaNVP,final/OOD,dataset_3seed,,npb-v0,121,121,0.220189942372875,-0.00016342057343826655,,,,,,,,,outputs/cross_candidate_mambanvp_final_objecttext_v1/comparison_report.json
+Cross-Candidate MambaNVP,final/OOD,dataset_3seed,,opencv-v0,32,32,0.04163697384616171,0.0005852364664330201,,,,,,,,,outputs/cross_candidate_mambanvp_final_objecttext_v1/comparison_report.json
+Cross-Candidate MambaNVP,final/OOD,dataset_3seed,,poj104-v1,1000,1000,0.18685501670589222,-3.9744856781542826e-06,,,,,,,,,outputs/cross_candidate_mambanvp_final_objecttext_v1/comparison_report.json
+Cross-Candidate MambaNVP,final/OOD,dataset_3seed,,tensorflow-v0,90,90,0.055242110267877155,8.906726502329321e-05,,,,,,,,,outputs/cross_candidate_mambanvp_final_objecttext_v1/comparison_report.json
