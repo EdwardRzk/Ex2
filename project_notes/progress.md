@@ -982,3 +982,30 @@ FAIL on final/OOD: AMR clears the validation high bar but fails the primary OOD 
 
 ### Git
 Implementation commit `b74bf9cd28bf48a467b4a9c1dcd07c81f3492dcb`; top1-reporting commit `0b2541df5428ab2a7a1f83fdcb5d547a28c46190`; result commit `a2ccb003cc77b5670f38b1f6fa8b6dc600e0f824`.
+
+
+## 2026-08-30 — Autophase transition feasibility v1
+
+### Goal
+Test the necessary preconditions for a future transition-supervised MambaNVP without starting that model: whether real intermediate Autophase transitions improve held-out frozen K=50 candidate-value selection beyond initial Autophase plus ordered pass sequence, and only then whether those transitions are predictable.
+
+### Frozen protocol
+The audit found no trustworthy `state_0..state_L` Autophase cache: ObjectText K=50 shards contain only ObjectText prefix results and the existing feature cache contains initial Autophase only. A deterministic source-stratified subset selected the first eight train and first four validation program IDs per explicit source, using only the existing complete-K50 target populations and frozen action IDs. Each selected candidate reset its original train/validation benchmark, read normalized 56-D Autophase at reset and after every existing pass; no ObjectText observation, label regeneration, final/OOD access, runtime, candidate search, policy change, retry, or full model training occurred. BASE and REAL-TRANSITION-ORACLE were fixed three-seed, d=64 GRU probes trained for 1,500 steps using the existing K=50 soft-target CE and evaluated only through existing validation prefix labels with frozen policy45.
+
+### Changes
+Added the one-purpose collector/analysis script, frozen configuration, focused schema/shape/pass-order tests, and `outputs/transition_feasibility_v1/` with only the sampled train/validation trajectories, frozen selection/configuration, and report.
+
+### Result
+The sample covers 80 train and 40 validation programs from AnghaBench, BLAS, CLgen, CSmith, GitHub, Linux, LLVM-Stress, OpenCV, POJ104, and TensorFlow: 4,000/2,000 candidate trajectories and 50,000/25,000 pass transitions. Nonzero normalized-Autophase transition rates are `0.36454` train and `0.37896` validation; mean delta RMS is `0.0103656874` and `0.0103932412`, with zero median in both splits. Same-pass mean delta variance across programs (`0.0001441029` train; `0.0001585844` validation) substantially exceeds the corresponding position-mean variance (`0.0000147137`; `0.0000160925`), so the collected transitions are program-dependent rather than a fixed pass lookup.
+
+The oracle probe slightly improves held-out candidate CE (`3.75802348` versus BASE `3.76339693`) and top-1 oracle-tie accuracy (`0.60` versus `0.55`), but degrades the primary policy45 dataset-macro MeanOverOz (`0.06410655` versus `0.06550282`, delta `-0.00139627`). Two of the three paired seed policy deltas are negative (`-0.007126996`, `-0.005751917`, `+0.008690112`). Source deltas have five positive, two negative, and three zero sources; median is `+0.000144928`, but LLVM-Stress is `-0.030503145`. The predeclared signal gate therefore fails. The transition predictor was not executed.
+
+### Decision
+TRANSITION SIGNAL NOT SUPPORTED. TRANSITION PREDICTABILITY NOT SUPPORTED because Step 5 is conditionally forbidden after the signal failure. Stop; do not implement or train TS-MambaNVP, and do not run final/OOD.
+
+### Artifacts
+- `configs/transition_feasibility_v1.json`
+- `outputs/transition_feasibility_v1/{config.json,train_transitions.jsonl.gz,validation_transitions.jsonl.gz,experiment_report.json}`
+
+### Git
+Implementation commit `a18960cb`; results commit `e1b11185`.
