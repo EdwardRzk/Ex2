@@ -1,0 +1,80 @@
+{
+  "strict_ablation_verification": {
+    "ablation_residual_trainable_parameters_per_seed": [
+      78785,
+      78785,
+      78785
+    ],
+    "architecture_identical": true,
+    "checkpoint_selection_metric_identical": true,
+    "data_order_and_source_balanced_sampling_identical": true,
+    "descriptive_config_difference_paths": [
+      "experiment_name",
+      "target_and_objective.loss"
+    ],
+    "final_ood_access_before_checkpoint_freeze": false,
+    "initialization_convention_identical": true,
+    "parameter_count_identical": true,
+    "reference_residual_trainable_parameters_per_seed": [
+      78785,
+      78785,
+      78785
+    ],
+    "seed_mapping_identical": true,
+    "semantic_config_difference_paths": [
+      "target_and_objective.lambda_policy"
+    ],
+    "strict_no_policy_ablation": true,
+    "training_budget_identical": true
+  },
+  "validation": {
+    "admitted_candidate_count_mean": 4.162507427213309,
+    "delta_vs_direct": -0.0003013778532439393,
+    "delta_vs_mamba": -0.0012519037890804663,
+    "delta_vs_nvp": -0.0004699982217369614,
+    "delta_vs_nvp_per_dataset": {
+      "anghabench-v1": -0.0004609757736624212,
+      "blas-v0": 0.0035496566019360513,
+      "clgen-v0": 0.0017941025076111117,
+      "csmith-v0": 0.0005999830442578735,
+      "github-v0": -0.0004281593142810257,
+      "linux-v0": -0.0012765530101289143,
+      "llvm-stress-v0": -0.009176313878853565,
+      "opencv-v0": -0.0009415172481577749,
+      "poj104-v1": 0.000404809673816231,
+      "tensorflow-v0": 0.0012349851800928444
+    },
+    "delta_vs_pa": -0.005410698305259823,
+    "median_dataset_delta_vs_nvp": -1.167482023239734e-05,
+    "negative_dataset_count_vs_nvp": 5,
+    "per_dataset": {
+      "anghabench-v1": 0.037709067496097086,
+      "blas-v0": 0.028180395366690855,
+      "clgen-v0": 0.08686725640255409,
+      "csmith-v0": 0.2451124927218332,
+      "github-v0": 0.009591116372827802,
+      "linux-v0": 0.0007435553916389972,
+      "llvm-stress-v0": -0.06102083296521706,
+      "opencv-v0": 0.051222480858590026,
+      "poj104-v1": 0.19271147603415215,
+      "tensorflow-v0": 0.03189310545057288
+    },
+    "per_seed_mean_over_oz": {
+      "1": 0.06325125046022793,
+      "2": 0.060936687639610465,
+      "3": 0.0627150958390836
+    },
+    "policy45_regret_delta_vs_pa": 0.9125816993464042,
+    "policy45_regret_mean_bytes": 7.863116458704693,
+    "positive_dataset_count_vs_nvp": 5,
+    "seed_paired_delta_vs_pa": {
+      "1": -0.004397402283897442,
+      "2": -0.005950549652864429,
+      "3": -0.00588414297901757
+    },
+    "three_seed_mean_over_oz": 0.062301011312974,
+    "top1_oracle_tie_accuracy": 0.6396316102198455,
+    "top5_oracle_coverage": 0.8580659536541889,
+    "validation_ce": 3.707504921560123
+  }
+}

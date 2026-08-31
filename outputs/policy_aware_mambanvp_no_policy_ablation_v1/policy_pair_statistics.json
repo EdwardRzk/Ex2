@@ -1,0 +1,79 @@
+{
+  "per_seed": [
+    {
+      "mean_abs_delta_U_over_programs": 0.02749556694968918,
+      "mean_policy_sensitive_pairs_per_program": 7.9309634575091446,
+      "median_policy_sensitive_pairs_per_program": 0.0,
+      "pair_category_occurrences": {
+        "policy45_admission_frontier": 21431,
+        "top10_vs_11_20_crossing": 133552,
+        "top1_10_internal": 89776
+      },
+      "per_source_pair_count_mean": {
+        "anghabench-v1": 6.725035765379113,
+        "blas-v0": 20.894736842105264,
+        "clgen-v0": 3.3597122302158273,
+        "csmith-v0": 19.94144144144144,
+        "github-v0": 1.2582857142857142,
+        "linux-v0": 4.838768854463922,
+        "llvm-stress-v0": 8.567489114658926,
+        "opencv-v0": 12.651006711409396,
+        "poj104-v1": 17.573132183908047,
+        "tensorflow-v0": 9.963855421686747
+      },
+      "program_fraction_with_at_least_one_pair": 0.46262296246315565,
+      "programs": 28159,
+      "seed": 1
+    },
+    {
+      "mean_abs_delta_U_over_programs": 0.02422484200039648,
+      "mean_policy_sensitive_pairs_per_program": 7.936112788096168,
+      "median_policy_sensitive_pairs_per_program": 0.0,
+      "pair_category_occurrences": {
+        "policy45_admission_frontier": 21632,
+        "top10_vs_11_20_crossing": 133420,
+        "top1_10_internal": 90053
+      },
+      "per_source_pair_count_mean": {
+        "anghabench-v1": 6.75379113018598,
+        "blas-v0": 20.165413533834588,
+        "clgen-v0": 3.5323741007194243,
+        "csmith-v0": 19.882882882882882,
+        "github-v0": 1.2785714285714285,
+        "linux-v0": 4.869751324908275,
+        "llvm-stress-v0": 8.682148040638607,
+        "opencv-v0": 12.51006711409396,
+        "poj104-v1": 17.535057471264366,
+        "tensorflow-v0": 9.595180722891566
+      },
+      "program_fraction_with_at_least_one_pair": 0.4621968109662985,
+      "programs": 28159,
+      "seed": 2
+    },
+    {
+      "mean_abs_delta_U_over_programs": 0.02645004594326682,
+      "mean_policy_sensitive_pairs_per_program": 7.881991547995312,
+      "median_policy_sensitive_pairs_per_program": 0.0,
+      "pair_category_occurrences": {
+        "policy45_admission_frontier": 20646,
+        "top10_vs_11_20_crossing": 133245,
+        "top1_10_internal": 88704
+      },
+      "per_source_pair_count_mean": {
+        "anghabench-v1": 6.7243204577968525,
+        "blas-v0": 20.94736842105263,
+        "clgen-v0": 3.692086330935252,
+        "csmith-v0": 19.99099099099099,
+        "github-v0": 1.2124285714285714,
+        "linux-v0": 4.698736241337138,
+        "llvm-stress-v0": 8.635703918722786,
+        "opencv-v0": 12.704697986577182,
+        "poj104-v1": 17.49037356321839,
+        "tensorflow-v0": 9.73734939759036
+      },
+      "program_fraction_with_at_least_one_pair": 0.4636173159558223,
+      "programs": 28159,
+      "seed": 3
+    }
+  ]
+}

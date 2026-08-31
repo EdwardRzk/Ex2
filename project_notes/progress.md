@@ -1077,3 +1077,28 @@ Supplementary runtime result only: PA has a meaningful runtime regression relati
 
 ### Git
 Runtime implementation and result commits recorded in Git history.
+
+
+## 2026-08-31 — PA-MambaNVP without L_policy strict ablation v1
+
+### Goal
+Isolate the counterfactual policy-aware ranking-loss contribution by setting only `lambda_policy=0`.
+
+### Frozen protocol
+Used the same frozen NVP anchor, centered Mamba residual architecture, initialization, candidate encoding, K=50 labels, Autophase inputs, optimizer, 10,000-step budget, source-balanced sampler, seeds `{1,2,3}`, validation checkpoint selection, and single final/OOD offline evaluation as PA-MambaNVP v1. Train/validation/final cohorts remained 28,159/4,488/4,683 total, with 4,679 final valid and 4 frozen invalid. No CompilerGym, LLVM, rollout, ObjectText measurement, label generation, runtime, tuning, or invalid retry occurred.
+
+### Changes
+Only the effective objective changed from `L_policy + 0.25 L_CE + 0.001 L_res` to `0.25 L_CE + 0.001 L_res`; `lambda_ce` and `lambda_residual` remained `0.25` and `0.001`.
+
+### Result
+Validation MeanOverOz was `0.06230101` (`-0.00047000` vs NVP; `-0.00541070` vs PA), with paired PA deltas `[-0.00439740, -0.00595055, -0.00588414]` and regret `7.86312` bytes versus PA `6.95053`. Final/OOD MeanOverOz was `0.08871673` (`+0.00156204` vs NVP; `-0.00043039` vs PA), with paired PA deltas `[+0.00255157, -0.00182693, -0.00201581]`. Final median dataset delta vs NVP was `+0.00028068`, 7 positive / 7 negative datasets, leave-LLVM-Stress-out delta `+0.00078361`, policy45 regret `11.04908` bytes versus PA `9.31054`, oracle recovery `0.84344`, and top1/top5 `0.62164/0.84220`.
+
+### Decision
+SUPPORTED: adding `L_policy` improves validation strongly and final/OOD modestly under the matched architecture and recipe. The no-policy ablation does not replace PA-MambaNVP. Stop; no further ablation is authorized.
+
+### Artifacts
+- `configs/policy_aware_mambanvp_no_policy_ablation_v1.json`
+- `outputs/policy_aware_mambanvp_no_policy_ablation_v1/{config.json,validation_results.json,final_results.json,comparison_report.json,checkpoints,learning_curve.json,experiment_report.json}`
+
+### Git
+Implementation commit `624c181a`; formal-result commit follows.
