@@ -100,9 +100,12 @@ def analyze(root: Path, output: Path, replicates: int = REPLICATES, rng_seed: in
     observed_pa, observed_nvp = macro({dataset: values["pa"] for dataset, values in per_dataset.items()}), macro({dataset: values["nvp"] for dataset, values in per_dataset.items()})
     observed_delta = observed_pa - observed_nvp
     pa_report = json.loads((pa_root / "comparison_report.json").read_text(encoding="utf-8"))
-    formal_delta = float(pa_report["final"]["delta_vs_nvp"])
+    nvp_report = json.loads((root / "outputs/route_a_final_objecttext_v6/comparison_report.json").read_text(encoding="utf-8"))
+    nvp_family = next(item for item in nvp_report["comparison_families"] if item["family"] == "H2a")
+    formal_delta = float(pa_report["final"]["three_seed_mean_over_oz"]) - float(nvp_family["dataset_macro"]["NVP"]["three_seed_mean"])
+    legacy_delta_field = float(pa_report["final"]["delta_vs_nvp"])
     if not np.isclose(observed_delta, formal_delta, rtol=0.0, atol=1e-12):
-        raise ValueError(f"formal PA-vs-NVP delta mismatch: {observed_delta} != {formal_delta}")
+        raise ValueError(f"formal PA-vs-NVP primary-value delta mismatch: {observed_delta} != {formal_delta}")
     bootstrap_pa, bootstrap_nvp, bootstrap_delta = stratified_bootstrap(per_dataset, replicates, rng_seed)
     datasets = sorted(per_dataset)
     dataset_deltas = {dataset: float(np.mean(per_dataset[dataset]["delta"])) for dataset in datasets}
@@ -110,12 +113,12 @@ def analyze(root: Path, output: Path, replicates: int = REPLICATES, rng_seed: in
     seed_deltas = {seed: pa_seed_macro[seed] - nvp_seed_macro[seed] for seed in pa_seed_macro}
     output.mkdir(parents=True)
     with (output / "bootstrap_replicates.csv").open("w", newline="", encoding="utf-8") as handle:
-        writer = csv.DictWriter(handle, fieldnames=["replicate", "pa_dataset_macro_mean_over_oz", "nvp_dataset_macro_mean_over_oz", "paired_dataset_macro_delta"])
+        writer = csv.DictWriter(handle, fieldnames=["replicate", "pa_dataset_macro_mean_over_oz", "nvp_dataset_macro_mean_over_oz", "paired_dataset_macro_delta"], lineterminator="\n")
         writer.writeheader()
         for index, (pa_value, nvp_value, delta) in enumerate(zip(bootstrap_pa, bootstrap_nvp, bootstrap_delta)):
             writer.writerow({"replicate": index, "pa_dataset_macro_mean_over_oz": float(pa_value), "nvp_dataset_macro_mean_over_oz": float(nvp_value), "paired_dataset_macro_delta": float(delta)})
     with (output / "per_dataset_paired_summary.csv").open("w", newline="", encoding="utf-8") as handle:
-        writer = csv.DictWriter(handle, fieldnames=["dataset_id", "N_paired_valid", "PA_MeanOverOz", "NVP_MeanOverOz", "paired_delta"])
+        writer = csv.DictWriter(handle, fieldnames=["dataset_id", "N_paired_valid", "PA_MeanOverOz", "NVP_MeanOverOz", "paired_delta"], lineterminator="\n")
         writer.writeheader()
         for dataset in datasets:
             values = per_dataset[dataset]
@@ -126,7 +129,7 @@ def analyze(root: Path, output: Path, replicates: int = REPLICATES, rng_seed: in
         "primary_estimand": "equal-weight 14-dataset macro MeanOverOz delta",
         "resampling": {"scheme": "within-dataset paired program resampling with replacement after three-seed program-level arithmetic averaging", "replicates": replicates, "rng_seed": rng_seed, "dataset_weights": "equal", "hierarchical_bootstrap": "not computed"},
         "cohort": {"N_total": int(pa_report["final_population"]["N_total"]), "N_paired_valid": len(paired), "N_invalid": int(pa_report["final_population"]["N_invalid"]), "dataset_count": len(datasets), "all_method_seed_program_sets_identical": True},
-        "observed": {"PA_dataset_macro_mean_over_oz": observed_pa, "NVP_dataset_macro_mean_over_oz": observed_nvp, "PA_minus_NVP_dataset_macro_delta": observed_delta, "formal_report_delta_reproduced": True, "formal_report_delta": formal_delta, "median_dataset_delta": float(np.median(list(dataset_deltas.values()))), "positive_dataset_count": sum(value > 0.0 for value in dataset_deltas.values()), "negative_dataset_count": sum(value < 0.0 for value in dataset_deltas.values()), "leave_LLVM_Stress_out_13dataset_delta": float(np.mean([value for dataset, value in dataset_deltas.items() if dataset != "llvm-stress-v0"]))},
+        "observed": {"PA_dataset_macro_mean_over_oz": observed_pa, "NVP_dataset_macro_mean_over_oz": observed_nvp, "PA_minus_NVP_dataset_macro_delta": observed_delta, "formal_primary_value_delta_reproduced": True, "formal_primary_value_delta": formal_delta, "legacy_PA_report_delta_field": legacy_delta_field, "legacy_delta_field_minus_primary_value_delta": legacy_delta_field - formal_delta, "median_dataset_delta": float(np.median(list(dataset_deltas.values()))), "positive_dataset_count": sum(value > 0.0 for value in dataset_deltas.values()), "negative_dataset_count": sum(value < 0.0 for value in dataset_deltas.values()), "leave_LLVM_Stress_out_13dataset_delta": float(np.mean([value for dataset, value in dataset_deltas.items() if dataset != "llvm-stress-v0"]))},
         "primary_bootstrap": {"mean": float(np.mean(bootstrap_delta)), "standard_error": float(np.std(bootstrap_delta, ddof=1)), "percentile_95_ci": [float(np.quantile(bootstrap_delta, 0.025)), float(np.quantile(bootstrap_delta, 0.975))], "probability_delta_gt_zero": float(np.mean(bootstrap_delta > 0.0))},
         "seed_variation_descriptive_only": {"PA_seed_dataset_macro": pa_seed_macro, "NVP_seed_dataset_macro": nvp_seed_macro, "paired_PA_minus_NVP_delta": seed_deltas, "note": "Three matched seeds are descriptive; no Gaussian seed confidence interval is claimed."},
         "source_artifacts": {"pa_final_records": [str(path.relative_to(root)) for path in pa_paths.values()], "nvp_final_records": [str(path.relative_to(root)) for path in nvp_paths.values()], "pa_formal_report": str((pa_root / "comparison_report.json").relative_to(root))},

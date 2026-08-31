@@ -1,0 +1,80 @@
+{
+  "analysis": "frozen offline paired program-level bootstrap; no model inference or compiler execution",
+  "cohort": {
+    "N_invalid": 4,
+    "N_paired_valid": 4679,
+    "N_total": 4683,
+    "all_method_seed_program_sets_identical": true,
+    "dataset_count": 14
+  },
+  "comparison": "PA-MambaNVP minus NVP",
+  "forbidden_operations": {
+    "compiler_gym_initialized": false,
+    "label_generation": false,
+    "llvm_execution": false,
+    "model_inference": false,
+    "model_training": false,
+    "objecttext_measurement": false
+  },
+  "observed": {
+    "NVP_dataset_macro_mean_over_oz": 0.08715469206982522,
+    "PA_dataset_macro_mean_over_oz": 0.08914712188120408,
+    "PA_minus_NVP_dataset_macro_delta": 0.001992429811378857,
+    "formal_primary_value_delta": 0.001992429811378843,
+    "formal_primary_value_delta_reproduced": true,
+    "leave_LLVM_Stress_out_13dataset_delta": 0.002041369037174935,
+    "legacy_PA_report_delta_field": 0.001992431881204057,
+    "legacy_delta_field_minus_primary_value_delta": 2.069825214001675e-09,
+    "median_dataset_delta": 0.0013655311165030478,
+    "negative_dataset_count": 5,
+    "positive_dataset_count": 9
+  },
+  "primary_bootstrap": {
+    "mean": 0.001984945505587737,
+    "percentile_95_ci": [
+      -0.002534130082208161,
+      0.0059269865385788555
+    ],
+    "probability_delta_gt_zero": 0.8258,
+    "standard_error": 0.0021615605509980717
+  },
+  "primary_estimand": "equal-weight 14-dataset macro MeanOverOz delta",
+  "resampling": {
+    "dataset_weights": "equal",
+    "hierarchical_bootstrap": "not computed",
+    "replicates": 10000,
+    "rng_seed": 20260831,
+    "scheme": "within-dataset paired program resampling with replacement after three-seed program-level arithmetic averaging"
+  },
+  "seed_variation_descriptive_only": {
+    "NVP_seed_dataset_macro": {
+      "1": 0.08781183536807133,
+      "2": 0.0875269592833118,
+      "3": 0.08612528155809256
+    },
+    "PA_seed_dataset_macro": {
+      "1": 0.08771732863389425,
+      "2": 0.08944175047161283,
+      "3": 0.09028228653810512
+    },
+    "note": "Three matched seeds are descriptive; no Gaussian seed confidence interval is claimed.",
+    "paired_PA_minus_NVP_delta": {
+      "1": -9.450673417707445e-05,
+      "2": 0.0019147911883010266,
+      "3": 0.004157004980012563
+    }
+  },
+  "source_artifacts": {
+    "nvp_final_records": [
+      "outputs/route_a_final_objecttext_v6/model_results/nvp/seed1.jsonl.gz",
+      "outputs/route_a_final_objecttext_v6/model_results/nvp/seed2.jsonl.gz",
+      "outputs/route_a_final_objecttext_v6/model_results/nvp/seed3.jsonl.gz"
+    ],
+    "pa_final_records": [
+      "outputs/policy_aware_mambanvp_v1/final_results/seed1.jsonl.gz",
+      "outputs/policy_aware_mambanvp_v1/final_results/seed2.jsonl.gz",
+      "outputs/policy_aware_mambanvp_v1/final_results/seed3.jsonl.gz"
+    ],
+    "pa_formal_report": "outputs/policy_aware_mambanvp_v1/comparison_report.json"
+  }
+}

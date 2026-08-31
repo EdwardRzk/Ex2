@@ -1102,3 +1102,24 @@ SUPPORTED: adding `L_policy` improves validation strongly and final/OOD modestly
 
 ### Git
 Implementation commit `624c181a`; formal-result commit follows.
+
+
+## 2026-08-31 — PA-MambaNVP final/OOD paired uncertainty v1
+
+### Goal
+Quantify uncertainty in the frozen PA-MambaNVP versus NVP final/OOD equal-weight 14-dataset macro MeanOverOz result without changing any experiment artifact.
+
+### Frozen protocol
+Read only the existing three PA and three NVP per-program final records. For each program, first averaged the three matched seeds, then resampled paired program IDs with replacement independently within each frozen dataset for 10,000 fixed-seed replicates. Every replicate retained all 14 datasets at equal macro weight. Cohort was unchanged: 4,683 total, 4,679 paired valid, four frozen invalid. No training, model inference, CompilerGym, LLVM, label generation, rollout, ObjectText measurement, or tuning occurred.
+
+### Result
+Observed PA-NVP macro delta is `+0.00199242981138`; bootstrap mean `+0.00198494550559`, SE `0.00216156055100`, percentile 95% CI `[-0.00253413008221, +0.00592698653858]`, and P(delta > 0) `0.8258`. Descriptively, 9 datasets are positive / 5 negative, median dataset delta is `+0.00136553111650`, and leave-LLVM-Stress-out delta is `+0.00204136903717`. Seed-paired macro deltas are `[-0.0000945067, +0.0019147912, +0.0041570050]`; these are descriptive only, not a Gaussian n=3 CI. An existing PA report delta field differs by `2.07e-9` because it used a truncated NVP constant; the new observed value exactly equals the difference of the frozen PA and NVP primary metrics. No old report was modified.
+
+### Decision
+The point estimate favors PA, but the primary dataset-stratified program bootstrap does not exclude zero. Keep the improvement claim calibrated to the frozen point estimate and reported interval; no follow-up experiment is authorized.
+
+### Artifacts
+- `outputs/policy_aware_mambanvp_uncertainty_v1/{bootstrap_summary.json,bootstrap_replicates.csv,per_dataset_paired_summary.csv}`
+
+### Git
+Formal-result commit follows.
